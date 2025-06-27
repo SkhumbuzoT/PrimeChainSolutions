@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open2Search - Get Your Business Found Online | Prime Chain Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #002366;
+            --teal: #008080;
+            --gold: #FFD700;
+            --charcoal: #36454F;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--charcoal);
+            line-height: 1.5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            color: var(--navy);
+        }
+        
+        .logo span {
+            color: var(--teal);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--teal);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--navy);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(0, 35, 102, 0.7), rgba(0, 35, 102, 0.7)), 
+                        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .hero h2 {
+            font-size: 22px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background-color: var(--teal);
+            color: var(--white);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--navy);
+        }
+        
+        .btn-text {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .btn-text:after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--gold);
+            transition: width 0.3s;
+        }
+        
+        .btn-text:hover:after {
+            width: 100%;
+        }
+        
+        /* Problem & Promise Section */
+        .problem-promise {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .problem-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .icon-list {
+            list-style: none;
+        }
+        
+        .icon-list li {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .icon-list-icon {
+            font-size: 24px;
+            color: var(--teal);
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .icon-list-content h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            color: var(--navy);
+        }
+        
+        /* What You Get Section */
+        .what-you-get {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+        }
+        
+        .feature-card h3:before {
+            content: '✔️';
+            margin-right: 10px;
+            color: var(--teal);
+        }
+        
+        .feature-card p {
+            margin-bottom: 0;
+        }
+        
+        .mini-tagline {
+            text-align: center;
+            font-style: italic;
+            color: var(--gold);
+            margin-top: 30px;
+            font-size: 18px;
+        }
+        
+        /* Before & After Section */
+        .before-after {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .split-screen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .split-screen-item {
+            height: 300px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .split-screen-item:first-child {
+            background: url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center center/cover;
+        }
+        
+        .split-screen-item:last-child {
+            background: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80') center center/cover;
+        }
+        
+        .split-screen-caption {
+            text-align: center;
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        /* Social Proof Section */
+        .social-proof {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .testimonial {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px;
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial p {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        
+        /* Price Section */
+        .price-section {
+            padding: 80px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+        
+        .price-section h2 {
+            font-size: 36px;
+            color: var(--navy);
+            margin-bottom: 15px;
+        }
+        
+        .price-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-large {
+            padding: 16px 40px;
+            font-size: 18px;
+        }
+        
+        .whatsapp-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: var(--charcoal);
+        }
+        
+        .whatsapp-cta i {
+            font-size: 20px;
+            margin-right: 10px;
+            color: var(--teal);
+        }
+        
+        .small-print {
+            font-size: 14px;
+            margin-top: 20px;
+            color: var(--charcoal);
+        }
+        
+        /* FAQ Section */
+        .faq {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .faq-question {
+            padding: 20px 0;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:after {
+            content: '+';
+            font-size: 20px;
+            color: var(--teal);
+        }
+        
+        .faq-question.active:after {
+            content: '-';
+        }
+        
+        .faq-answer {
+            padding-bottom: 20px;
+            display: none;
+        }
+        
+        /* Final CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            background-color: var(--navy);
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .final-cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .final-cta p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+        
+        .footer-logo span {
+            color: var(--teal);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--teal);
+        }
+        
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: var(--teal);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--teal);
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--teal);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .cards-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero h2 {
+                font-size: 18px;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .split-screen {
+                grid-template-columns: 1fr;
+            }
+            
+            .split-screen-item {
+                height: 200px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Open2<span>Search</span></div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#what-you-get">What's Included</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Still relying on word‑of‑mouth only?</h1>
+            <h2>In South Africa, thousands of businesses are invisible online. When people search for what you offer, they can't find you. That means lost sales, low trust, and limited growth.</h2>
+            <div class="btn-group">
+                <a href="#pricing" class="btn btn-primary">Get Found Now</a>
+                <a href="#what-you-get" class="btn-text">See What's Included</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem & Promise Section -->
+    <section class="problem-promise">
+        <div class="container">
+            <div class="section-title">
+                <h2>If you don't show up online, you don't exist.</h2>
+            </div>
+            <div class="two-column">
+                <div class="problem-content">
+                    <p>Your customers are searching on Google, but they're not finding you. We built Open2Search to fix that in one step — no tech headaches, no monthly fees.</p>
+                </div>
+                <div class="icon-list-container">
+                    <ul class="icon-list">
+                        <li>
+                            <div class="icon-list-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="icon-list-content">
+                                <h3>Google-Ready Website</h3>
+                                <p>Clean, fast, and visible on search</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-list-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="icon-list-content">
+                                <h3>Search Optimization</h3>
+                                <p>We help you show up when people are searching</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icon-list-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="icon-list-content">
+                                <h3>Mobile Friendly</h3>
+                                <p>Built for phones first — because that's where your customers are</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You Get Section -->
+    <section class="what-you-get" id="what-you-get">
+        <div class="container">
+            <div class="section-title">
+                <h2>Here's What's in the Open2Search Package</h2>
+            </div>
+            <div class="cards-container">
+                <div class="feature-card">
+                    <h3>One-Page Business Website</h3>
+                    <p>Includes services, contact form, map, and WhatsApp button</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Google Profile Setup</h3>
+                    <p>We'll help you claim and optimize your Google Business Profile</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Free Hosting for 6 Months</h3>
+                    <p>No hidden fees. Fully managed.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Fast Delivery</h3>
+                    <p>Get online in less than 7 days</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Basic SEO Setup</h3>
+                    <p>Optimized to help you appear in local searches</p>
+                </div>
+                <div class="feature-card">
+                    <h3>WhatsApp Integration</h3>
+                    <p>Let customers message you directly from your site</p>
+                </div>
+            </div>
+            <p class="mini-tagline">Everything you need. Nothing you don't.</p>
+        </div>
+    </section>
+
+    <!-- Before & After Section -->
+    <section class="before-after">
+        <div class="container">
+            <div class="split-screen">
+                <div class="split-screen-item"></div>
+                <div class="split-screen-item"></div>
+            </div>
+            <p class="split-screen-caption">Left invisible? Or visible and trusted — with Open2Search.</p>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="testimonial">
+                <p>"I got 3 new customers in the first week. It paid for itself."</p>
+                <p class="testimonial-author">– Local Business Owner, Johannesburg</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price Section -->
+    <section class="price-section" id="pricing">
+        <div class="container">
+            <h2>Get Online for Just R799 – Once Off</h2>
+            <p>Includes setup, website, Google profile, and 6 months of hosting.</p>
+            <a href="#" class="btn btn-primary btn-large">Get Started</a>
+            <div class="whatsapp-cta">
+                <i class="fab fa-whatsapp"></i>
+                <span>Chat with us on WhatsApp</span>
+            </div>
+            <p class="small-print">After 6 months, hosting is just R49/month.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What do I need to get started?</div>
+                    <div class="faq-answer">
+                        <p>Just your business information, some photos of your work or products, and your contact details. We handle all the technical setup.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do I need a domain name?</div>
+                    <div class="faq-answer">
+                        <p>We can help you register one (additional cost) or we'll set you up with a free subdomain to get started immediately.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Can I update the site later?</div>
+                    <div class="faq-answer">
+                        <p>Yes! We'll show you how to make basic updates yourself, or you can have us handle updates for a small fee.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What happens after 6 months?</div>
+                    <div class="faq-answer">
+                        <p>Your hosting renews automatically at just R49/month. You can cancel anytime if you're not satisfied.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is there a money-back guarantee?</div>
+                    <div class="faq-answer">
+                        <p>Yes! If you're not satisfied within 14 days, we'll refund your payment in full.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>You deserve to be found.</h2>
+            <p>Join hundreds of small businesses who are finally showing up when it matters.</p>
+            <div class="btn-group">
+                <a href="#pricing" class="btn btn-primary">Get Found Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Open2<span>Search</span></div>
+                    <p>A Prime Chain Solutions service helping small businesses get found online.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#what-you-get">What's Included</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> skhumbuzo@primechainsolutions.co.za</p>
+                    <p><i class="fab fa-whatsapp"></i> +27 12 345 6789</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // FAQ accordion functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+                const answer = question.nextElementSibling;
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
