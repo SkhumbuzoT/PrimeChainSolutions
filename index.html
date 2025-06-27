@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prime Chain Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
     :root {
       --navy: #002366;
@@ -12,22 +12,36 @@
       --gold: #FFD700;
       --charcoal: #36454F;
       --light-gray: #F5F5F5;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--light-gray);
+      background-color: var(--light-gray);
       color: var(--charcoal);
       line-height: 1.6;
     }
 
-    header, footer {
-      background: var(--navy);
-      color: white;
-      padding: 20px;
+    header {
+      background-color: var(--navy);
+      color: var(--white);
+      padding: 60px 20px;
       text-align: center;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
     }
 
     .container {
@@ -36,89 +50,105 @@
       padding: 40px 20px;
     }
 
-    h1, h2, h3 {
-      color: var(--navy);
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: 36px;
-    }
-
-    h2 {
+    .section-title {
       font-size: 28px;
-    }
-
-    h3 {
-      font-size: 22px;
-    }
-
-    p {
-      font-size: 16px;
-    }
-
-    .btn {
-      background: var(--teal);
-      color: white;
-      padding: 12px 24px;
-      margin: 10px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .btn:hover {
-      background: var(--navy);
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .hero {
-      background: white;
-      text-align: left;
-      padding: 80px 20px;
-    }
-
-    .section {
-      margin: 40px 0;
+      margin-bottom: 30px;
+      text-align: center;
+      color: var(--navy);
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
     .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      background-color: var(--white);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--teal);
+    }
+
+    .card p {
+      font-size: 16px;
+      color: var(--charcoal);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--teal);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 10px 5px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--navy);
+      border-bottom: 2px solid var(--gold);
     }
 
     .cta {
-      background: var(--teal);
-      color: white;
+      background-color: var(--teal);
+      color: var(--white);
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
 
-    footer a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
+    .cta h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
     }
 
     .testimonial {
       font-style: italic;
+      text-align: center;
+      font-size: 16px;
+      max-width: 700px;
+      margin: 0 auto;
       color: var(--charcoal);
     }
 
-    @media (max-width: 768px) {
-      .hero {
-        text-align: center;
-      }
+    footer {
+      background-color: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
+
+    footer a {
+      color: var(--white);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    ul.checklist {
+      list-style: none;
+      padding: 0;
+    }
+
+    ul.checklist li {
+      margin: 12px 0;
+      font-size: 16px;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    ul.checklist li::before {
+      content: "✅";
+      position: absolute;
+      left: 0;
     }
   </style>
 </head>
@@ -127,17 +157,12 @@
   <header>
     <h1>Prime Chain Solutions</h1>
     <p>Helping Small Businesses Work Smarter</p>
-  </header>
-
-  <section class="hero container">
-    <h1>Helping Small Businesses Work Smarter</h1>
-    <p>From dashboards to automation, we build tools that simplify your daily operations.</p>
     <a href="#" class="btn">Get Started</a>
     <a href="#" class="btn">Explore Products</a>
-  </section>
+  </header>
 
-  <section class="section container">
-    <h2>What We Do</h2>
+  <section class="container">
+    <h2 class="section-title">What We Do</h2>
     <div class="grid-3">
       <div class="card">
         <h3>🚛 Control Towers</h3>
@@ -154,8 +179,8 @@
     </div>
   </section>
 
-  <section class="section container">
-    <h2>Featured Products</h2>
+  <section class="container">
+    <h2 class="section-title">Featured Products</h2>
     <div class="grid-3">
       <div class="card">
         <h3>Prime Tower</h3>
@@ -175,17 +200,17 @@
     </div>
   </section>
 
-  <section class="section container">
-    <h2>Why Choose Us</h2>
-    <ul>
-      <li>✅ Simple, real-world solutions</li>
-      <li>✅ Works with tools you already use (like WhatsApp)</li>
-      <li>✅ Built for growth, not just today</li>
+  <section class="container">
+    <h2 class="section-title">Why Choose Us</h2>
+    <ul class="checklist">
+      <li>Simple, real-world solutions</li>
+      <li>Works with tools you already use (like WhatsApp)</li>
+      <li>Built for growth, not just today</li>
     </ul>
   </section>
 
-  <section class="section container">
-    <h2>Testimonials</h2>
+  <section class="container">
+    <h2 class="section-title">Client Testimonial</h2>
     <p class="testimonial">“Prime Tower helped us track trips and fuel usage in real time. It changed the way we operate.” – Trucking Client</p>
   </section>
 
@@ -197,13 +222,15 @@
   </section>
 
   <footer>
-    <p>Quick Links:
+    <p>
+      Quick Links:
       <a href="#">Control Towers</a> |
       <a href="#">Open2Search</a> |
-      <a href="#">Agents</a>
+      <a href="#">Agents (Coming Soon)</a>
     </p>
     <p>Email: skhumbuzo@primechainsolutions.co.za</p>
   </footer>
 
 </body>
 </html>
+
