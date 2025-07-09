@@ -218,18 +218,16 @@
         }
         
         .solutions-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 50px;
+          display: flex;
+          justify-content: center;  /* This centers the child items */
+          gap: 2rem;                /* Space between cards */
+          flex-wrap: wrap;          /* Allows wrapping on small screens */
+          padding: 2rem 1rem;       /* Optional: for spacing around */
+          text-align: center;       /* Optional: center text inside cards */
         }
         
         .solution-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
+            width: 300px;
         }
         
         .solution-card:hover {
