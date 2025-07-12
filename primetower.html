@@ -583,14 +583,17 @@
             document.querySelector('nav ul').classList.toggle('show');
         });
         
-        // Smooth scrolling for anchor links
+      // Smooth scrolling for anchor links (only for # links)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Only prevent default for same-page anchors
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
