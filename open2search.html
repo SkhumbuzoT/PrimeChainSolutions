@@ -20,6 +20,7 @@
             --charcoal: #36454F;
             --light-gray: #F5F5F5;
             --white: #FFFFFF;
+            --whatsapp-green: #25D366;
         }
         
         * {
@@ -208,14 +209,104 @@
             text-align: center;
         }
         
-        .pricing p {
-            font-size: 18px;
-            margin-bottom: 20px;
+        .pricing-container {
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .pricing em {
+        .pricing-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+        
+        .pricing-highlight {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            background: var(--teal);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+        }
+        
+        .price-display {
+            margin-bottom: 30px;
+        }
+        
+        .price-amount {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
+        }
+        
+        .price-type {
             color: var(--teal);
-            font-style: normal;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            text-align: left;
+            margin: 30px 0;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            color: var(--charcoal);
+        }
+        
+        .feature-list i {
+            color: var(--teal);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .pricing-cta {
+            margin-top: 30px;
+        }
+        
+        .whatsapp-btn {
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: all 0.3s;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            margin-top: 15px;
+            font-style: italic;
         }
         
         /* Case Study Section */
@@ -229,6 +320,12 @@
             border-radius: 8px;
             margin-top: 20px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 0;
+            background-color: var(--white);
         }
         
         /* CTA Section */
@@ -350,6 +447,10 @@
                 grid-template-columns: repeat(2, 1fr);
             }
             
+            .feature-list {
+                grid-template-columns: 1fr;
+            }
+            
             .footer-container {
                 grid-template-columns: 1fr 1fr;
             }
@@ -378,6 +479,14 @@
             
             .footer-container {
                 grid-template-columns: 1fr;
+            }
+            
+            .pricing-card {
+                padding: 30px 20px;
+            }
+            
+            .price-amount {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -438,17 +547,43 @@
 
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
-        <div class="container">
-            <h2 class="section-title">Affordable & Straightforward Pricing</h2>
-            <p>From just <strong>R2,999 once-off</strong> you'll have a digital presence that actually works.</p>
-            <p><em>Includes setup, hosting, SEO, and Google registration.</em></p>
-            <a href="https://wa.me/27736775675" class="btn btn-primary">Get Started Today</a>
+        <div class="container pricing-container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Everything you need to launch your digital presence</p>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-highlight">Best Value</div>
+                
+                <div class="price-display">
+                    <span class="price-amount">R2,999</span>
+                    <span class="price-type">One-Time Payment</span>
+                </div>
+                
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Professional Website Setup</li>
+                    <li><i class="fas fa-check-circle"></i> 12 Months Premium Hosting</li>
+                    <li><i class="fas fa-check-circle"></i> Basic SEO Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Google Business Registration</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile-Optimized Design</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Page Website Structure</li>
+                    <li><i class="fas fa-check-circle"></i> Contact Form Integration</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Day Turnaround</li>
+                </ul>
+                
+                <div class="pricing-cta">
+                    <a href="https://wa.me/27736775675" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Get Started Today
+                    </a>
+                    <p class="price-note">No hidden fees · No monthly charges</p>
+                </div>
+            </div>
         </div>
     </section>
 
-
-   <!-- Testimonials Section -->
-    <section class="testimonials" style="padding: 80px 0; background-color: var(--white);">
+    <!-- Testimonials Section -->
+    <section class="testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>What Our Clients Say</h2>
@@ -533,7 +668,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Lead Generation Form -->
     <section class="form-section" style="padding: 80px 0; background-color: var(--white);">
