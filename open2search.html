@@ -446,14 +446,6 @@
         </div>
     </section>
 
-    <!-- Case Study Section -->
-    <section class="case-study">
-        <div class="container">
-            <h2 class="section-title">Client Snapshot: MK Engineering</h2>
-            <p>We built a fast-loading, mobile-friendly website that helped MK Engineering get discovered on Google and close 3 new leads within their first week.</p>
-            <img src="./assets/mkengineering-screenshot.png" alt="MK Engineering Website">
-        </div>
-    </section>
 
   <!-- Testimonials Section -->
     <section class="testimonials" style="padding: 80px 0; background-color: var(--white);">
@@ -523,6 +515,67 @@
         </div>
     </section>
 
+
+
+    <!-- Lead Generation Form -->
+    <section class="form-section" style="padding: 80px 0; background-color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ready to Take Your Business Digital?</h2>
+                <p style="max-width: 600px; margin: 0 auto; font-size: 18px;">
+                    Get a free consultation for your digital solution. Tell us about your business and we'll recommend the perfect package.
+                </p>
+            </div>
+            
+            <div style="max-width: 600px; margin: 40px auto 0;">
+                <form id="lead-form" action="https://formspree.io/f/xanwvekg" method="POST" style="display: grid; gap: 20px;">
+                    <div>
+                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Full Name</label>
+                        <input type="text" id="name" name="name" required 
+                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                    </div>
+
+                    <div>
+                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Email Address</label>
+                        <input type="email" id="email" name="email" required 
+                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                    </div>
+
+                    <div>
+                        <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX" 
+                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                    </div>
+
+                    <div>
+                        <label for="businessType" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Business Type</label>
+                        <select id="businessType" name="businessType" required 
+                                style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+                            <option value="">Select your business type</option>
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant/Food Service</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="construction">Construction</option>
+                            <option value="beauty">Beauty/Wellness</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Tell us about your business</label>
+                        <textarea id="message" name="message" rows="4" placeholder="What do you do? What are your goals for going digital?" 
+                                  style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            style="background-color: var(--teal); color: white; padding: 14px 20px; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">
+                        Get Free Quote
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
