@@ -455,9 +455,90 @@
                 grid-template-columns: 1fr 1fr;
             }
         }
+
+        /* Form Section */
+        .form-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
         
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--charcoal);
+        }
+        
+        .form-group .optional {
+            color: #95a5a6;
+            font-weight: 400;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .form-submit-btn {
+            width: 100%;
+            background-color: var(--teal);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .form-submit-btn:hover {
+            background-color: var(--navy);
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            nav ul {
+            .form-container {
+                padding: 0 15px;
+            }
+            
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                padding: 12px;
+            }
+            
+            .nav ul {
                 display: none;
             }
             
@@ -674,35 +755,29 @@
         <div class="container">
             <div class="section-title">
                 <h2>Need a Digital Presence? Let's Build It.</h2>
-                <p style="max-width: 600px; margin: 0 auto; font-size: 18px;">
-                    We'll guide you from idea to launch — even if you've never had a website before
-                </p>
+                <p class="section-subtitle">We'll guide you from idea to launch — even if you've never had a website before</p>
             </div>
             
-            <div style="max-width: 600px; margin: 40px auto 0;">
-                <form id="lead-form" action="https://formspree.io/f/xanwvekg" method="POST" style="display: grid; gap: 20px;">
-                    <div>
-                        <label for="name" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Full Name</label>
-                        <input type="text" id="name" name="name" required 
-                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+            <div class="form-container">
+                <form id="lead-form" action="https://formspree.io/f/xanwvekg" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-
-                    <div>
-                        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Email Address</label>
-                        <input type="email" id="email" name="email" required 
-                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-
-                    <div>
-                        <label for="phone" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Phone Number (Optional)</label>
-                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX" 
-                               style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+    
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
                     </div>
-
-                    <div>
-                        <label for="businessType" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Business Type</label>
-                        <select id="businessType" name="businessType" required 
-                                style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;">
+    
+                    <div class="form-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" name="businessType" required>
                             <option value="">Select your business type</option>
                             <option value="retail">Retail</option>
                             <option value="restaurant">Restaurant/Food Service</option>
@@ -713,15 +788,13 @@
                             <option value="other">Other</option>
                         </select>
                     </div>
-
-                    <div>
-                        <label for="message" style="display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);">Tell us about your business</label>
-                        <textarea id="message" name="message" rows="4" placeholder="What do you do? What are your goals for going digital?" 
-                                  style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif;"></textarea>
+    
+                    <div class="form-group">
+                        <label for="message">Tell us about your business</label>
+                        <textarea id="message" name="message" rows="4" placeholder="What do you do? What are your goals for going digital?"></textarea>
                     </div>
-
-                    <button type="submit" 
-                            style="background-color: var(--teal); color: white; padding: 14px 20px; border: none; border-radius: 4px; font-weight: 600; cursor: pointer; transition: background-color 0.3s;">
+    
+                    <button type="submit" class="form-submit-btn">
                         Get Free Quote
                     </button>
                 </form>
