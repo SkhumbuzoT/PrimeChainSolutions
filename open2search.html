@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <title>Open2Search – Website Design for South African Small Businesses</title>
+    <meta name="description" content="Launch your professional website in 5 days. SEO-ready, mobile-friendly, Google indexed. Built for small businesses in South Africa.">
+    <meta name="keywords" content="business website design, Google Business profile, Open2Search, Prime Chain, SME digital tools, SEO South Africa">
+    <link rel="icon" href="/testrepo/assets/favicon-96x96.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #002366;
+            --teal: #008080;
+            --gold: #FFD700;
+            --charcoal: #36454F;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--charcoal); line-height: 1.5; }
+        .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background-color: var(--white); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); z-index: 1000; }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo { font-weight: 700; font-size: 24px; color: var(--navy); }
+        .logo span { color: var(--teal); }
+        nav ul { display: flex; list-style: none; }
+        nav ul li { margin-left: 30px; }
+        nav ul li a { text-decoration: none; color: var(--charcoal); font-weight: 500; transition: color 0.3s; }
+        nav ul li a:hover { color: var(--teal); }
+        .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; color: var(--navy); cursor: pointer; }
+        .hero { height: 100vh; min-height: 600px; background: linear-gradient(rgba(0, 35, 102, 0.7), rgba(0, 35, 102, 0.7)), url('./assets/home.png') no-repeat center center/cover; display: flex; align-items: center; text-align: center; color: var(--white); padding-top: 80px; }
+        .hero-content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 20px; line-height: 1.3; }
+        .hero p { font-size: 20px; margin-bottom: 40px; }
+        .btn-group { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 12px 30px; border-radius: 4px; font-weight: 600; text-decoration: none; transition: all 0.3s; }
+        .btn-primary { background-color: var(--teal); color: var(--white); }
+        .btn-primary:hover { background-color: var(--navy); }
+        .btn-secondary { background-color: transparent; color: var(--white); border: 2px solid var(--white); }
+        .btn-secondary:hover { background-color: var(--white); color: var(--navy); }
+        .whats-included { padding: 80px 0; background-color: var(--white); }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 36px; color: var(--navy); margin-bottom: 15px; }
+        .blocks-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .block { background-color: var(--light-gray); padding: 30px; border-radius: 8px; text-align: center; }
+        .block h3 { font-size: 22px; margin-bottom: 15px; color: var(--navy); }
+        .pricing { padding: 80px 0; background-color: var(--light-gray); text-align: center; }
+        .pricing-container { max-width: 900px; margin: 0 auto; }
+        .pricing-card { background: var(--white); border-radius: 12px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); padding: 40px; position: relative; overflow: hidden; margin-top: 30px; }
+        .pricing-highlight { position: absolute; top: 0; right: 30px; background: var(--teal); color: white; padding: 0.5rem 1.5rem; font-weight: 600; font-size: 0.9rem; border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; }
+        .price-display { margin-bottom: 30px; }
+        .price-amount { font-size: 3.5rem; font-weight: 700; color: var(--navy); line-height: 1; }
+        .price-type { color: var(--teal); font-size: 1.1rem; font-weight: 600; display: block; margin-top: 5px; }
+        .feature-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; text-align: left; margin: 30px 0; }
+        .feature-list li { display: flex; align-items: center; color: var(--charcoal); }
+        .feature-list i { color: var(--teal); margin-right: 10px; font-size: 1.2rem; }
+        .pricing-cta { margin-top: 30px; }
+        .whatsapp-btn { background-color: var(--whatsapp-green); color: white; padding: 15px 30px; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; transition: all 0.3s; }
+        .whatsapp-btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3); }
+        .whatsapp-btn i { margin-right: 10px; font-size: 1.2rem; }
+        .price-note { font-size: 0.9rem; color: var(--charcoal); margin-top: 15px; font-style: italic; }
+
+        /* ---- INTEGRATED STYLES FOR SERVICES & PROJECTS ---- */
+        .services-section { padding: 80px 0; background-color: var(--white);}
+        .services-title { text-align: center; margin-bottom: 50px;}
+        .services-title h2 { font-size: 36px; color: var(--navy); margin-bottom: 15px;}
+        .services-divider { width: 60px; height: 4px; background: var(--teal); margin: 0 auto 30px auto; border-radius: 2px;}
+        .services-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1100px; margin: 0 auto;}
+        .service-card { background-color: var(--light-gray); padding: 32px 24px; border-radius: 10px; box-shadow: 0 6px 24px rgba(0, 35, 102, 0.07); text-align: center; border: 1px solid #eee; transition: box-shadow 0.2s, border-color 0.2s;}
+        .service-card:hover { box-shadow: 0 12px 36px rgba(0, 128, 128, 0.10); border-color: var(--teal);}
+        .service-card i { font-size: 36px; color: var(--teal); margin-bottom: 20px;}
+        .service-card h3 { font-size: 22px; color: var(--navy); font-weight: 600; margin-bottom: 12px;}
+        .service-card p { color: var(--charcoal); font-size: 16px;}
+        .projects-section { padding: 80px 0; background-color: var(--light-gray);}
+        .projects-title { text-align: center; margin-bottom: 50px;}
+        .projects-title h2 { font-size: 36px; color: var(--navy); margin-bottom: 15px;}
+        .projects-divider { width: 60px; height: 4px; background: var(--teal); margin: 0 auto 30px auto; border-radius: 2px;}
+        .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; max-width: 900px; margin: 0 auto;}
+        .project-item { background: var(--white); border-radius: 10px; box-shadow: 0 4px 18px rgba(0, 35, 102, 0.05); border: 1px solid #eee; transition: box-shadow 0.2s, border-color 0.2s; text-decoration: none; color: inherit; display: block;}
+        .project-item:hover { box-shadow: 0 8px 32px rgba(0, 128, 128, 0.10); border-color: var(--teal);}
+        .project-content { padding: 28px 22px;}
+        .project-content h3 { font-size: 20px; color: var(--navy); margin-bottom: 8px; font-weight: 600;}
+        .project-content p { font-size: 15px; color: var(--charcoal); margin-bottom: 16px;}
+        .project-content .view-link { color: var(--teal); font-weight: 500; display: flex; align-items: center; font-size: 15px;}
+        .project-content .view-link i { margin-left: 8px; font-size: 16px;}
+        @media (max-width: 992px) {
+            .blocks-container { grid-template-columns: repeat(2, 1fr);}
+            .feature-list { grid-template-columns: 1fr;}
+            .footer-container { grid-template-columns: 1fr 1fr;}
+            .services-cards { grid-template-columns: 1fr; gap: 24px;}
+            .projects-grid { grid-template-columns: 1fr; gap: 24px;}
+        }
+        .case-study { padding: 80px 0; background-color: var(--white);}
+        .case-study img { width: 100%; border-radius: 8px; margin-top: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+        .testimonials { padding: 80px 0; background-color: var(--white);}
+        .cta-section { padding: 80px 0; background-color: var(--navy); color: var(--white); text-align: center;}
+        .cta-section h3 { font-size: 28px; margin-bottom: 20px;}
+        .cta-section p { max-width: 600px; margin: 0 auto 30px; font-size: 18px;}
+        footer { background-color: var(--navy); color: var(--white); padding: 60px 0 20px;}
+        .footer-container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px;}
+        .footer-logo { font-size: 24px; font-weight: 700; margin-bottom: 20px; color: var(--white);}
+        .footer-logo span { color: var(--teal);}
+        .footer-about p { margin-bottom: 20px;}
+        .social-links { display: flex; gap: 15px;}
+        .social-links a { color: var(--white); font-size: 20px; transition: color 0.3s;}
+        .social-links a:hover { color: var(--teal);}
+        .footer-links h4 { font-size: 18px; margin-bottom: 20px; color: var(--teal);}
+        .footer-links ul { list-style: none;}
+        .footer-links ul li { margin-bottom: 10px;}
+        .footer-links ul li a { color: var(--white); text-decoration: none; transition: color 0.3s;}
+        .footer-links ul li a:hover { color: var(--teal);}
+        .footer-contact p { margin-bottom: 15px; display: flex; align-items: center;}
+        .footer-contact i { margin-right: 10px; color: var(--teal);}
+        .footer-contact a { color: var(--white); text-decoration: none;}
+        .footer-contact a:hover { color: var(--teal);}
+        .footer-bottom { text-align: center; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1);}
+        @media (max-width: 768px) {
+            .form-container { padding: 0 15px;}
+            .form-group input,
+            .form-group select,
+            .form-group textarea { padding: 12px;}
+            nav ul { display: none;}
+            .mobile-menu-btn { display: block;}
+            .hero h1 { font-size: 32px;}
+            .hero p { font-size: 18px;}
+            .blocks-container { grid-template-columns: 1fr;}
+            .footer-container { grid-template-columns: 1fr;}
+            .pricing-card { padding: 30px 20px;}
+            .price-amount { font-size: 2.5rem;}
+        }
+        .form-section { padding: 80px 0; background-color: var(--white);}
+        .form-container { max-width: 600px; margin: 40px auto 0;}
+        .form-group { margin-bottom: 20px;}
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; color: var(--charcoal);}
+        .form-group .optional { color: #95a5a6; font-weight: 400;}
+        .form-group input,
+        .form-group select,
+        .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 4px; font-family: 'Montserrat', sans-serif; font-size: 16px; transition: all 0.3s;}
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 2px rgba(0, 128, 128, 0.1);}
+        .form-group textarea { resize: vertical; min-height: 120px;}
+        .form-submit-btn { width: 100%; background-color: var(--teal); color: white; padding: 16px; border: none; border-radius: 4px; font-weight: 600; font-size: 16px; cursor: pointer; transition: all 0.3s; margin-top: 10px;}
+        .form-submit-btn:hover { background-color: var(--navy);}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Open2<span>Search</span></div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#what-you-get">What's Included</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#services">How We Help</a></li>
+                    <li><a href="#projects">Recent Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Turn Search into Sales — Without Overthinking It.</h1>
+            <p>We help small businesses show up where customers are already searching — Google.</p>
+            <div class="btn-group">
+                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Open2Search%20for%20my%20business." class="btn btn-primary">Get a Website Quote</a>
+                <a href="#what-you-get" class="btn btn-secondary">See What's Included</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="whats-included" id="what-you-get">
+        <div class="container">
+            <div class="section-title">
+                <h2>What You Get with Open2Search</h2>
+            </div>
+            <div class="blocks-container">
+                <div class="block">
+                    <h3>Modern Business Website</h3>
+                    <p>Mobile-ready, Google-indexed site with up to 5 pages (Home, Services, About, Contact, etc.)</p>
+                </div>
+                <div class="block">
+                    <h3>SEO & Google Maps Setup</h3>
+                    <p>We handle keywords, on-page SEO, and Google Business registration if needed.</p>
+                </div>
+                <div class="block">
+                    <h3>Fast Delivery</h3>
+                    <p>Your business will be online in just 5 days — no code, no tech skills needed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container pricing-container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Everything you need to launch your digital presence</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-highlight">Best Value</div>
+                <div class="price-display">
+                    <span class="price-amount">R2,999</span>
+                    <span class="price-type">One-Time Payment</span>
+                </div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Professional Website Setup</li>
+                    <li><i class="fas fa-check-circle"></i> 12 Months Premium Hosting</li>
+                    <li><i class="fas fa-check-circle"></i> Basic SEO Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Google Business Registration</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile-Optimized Design</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Page Website Structure</li>
+                    <li><i class="fas fa-check-circle"></i> Contact Form Integration</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Day Turnaround</li>
+                </ul>
+                <div class="pricing-cta">
+                    <a href="https://wa.me/27736775675" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Get Started Today
+                    </a>
+                    <p class="price-note">No hidden fees · No monthly charges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="services-title">
+                <h2>How We Help You Succeed</h2>
+                <div class="services-divider"></div>
+            </div>
+            <div class="services-cards">
+                <div class="service-card">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Built Around You</h3>
+                    <p>We work from your idea, your reality. No bloated features.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Launch</h3>
+                    <p>Get online quickly with clarity and confidence.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Looks great on any device — no excuses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="projects-title">
+                <h2>Recent Projects</h2>
+                <div class="projects-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <a href="https://skhumbuzot.github.io/NextGen/" target="_blank" class="project-item">
+                    <div class="project-content">
+                        <h3>NextGen</h3>
+                        <p>Modern tech solutions website</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/Serenity/" target="_blank" class="project-item">
+                    <div class="project-content">
+                        <h3>Serenity</h3>
+                        <p>Wellness and meditation platform</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/UrbanEdge/" target="_blank" class="project-item">
+                    <div class="project-content">
+                        <h3>UrbanEdge</h3>
+                        <p>Contemporary urban living</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/Aurok/" target="_blank" class="project-item">
+                    <div class="project-content">
+                        <h3>Aurok Energies</h3>
+                        <p>Renewable energy solutions</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="blocks-container" style="margin-top: 40px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+                <!-- Testimonial 1 -->
+                <a href="https://skhumbuzot.github.io/AurokEnergies/" target="_blank" style="text-decoration: none;">
+                  <div class="block" style="cursor: pointer; text-align: left; height: 100%; display: flex; flex-direction: column;">
+                      <div style="display: flex; align-items: center;">
+                          <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #2C3E50; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                              ND
+                          </div>
+                          <div style="margin-left: 15px;">
+                              <h3 style="margin: 0; font-size: 18px; color: var(--navy);">Nomsa D</h3>
+                              <p style="margin: 0; font-size: 14px; color: var(--charcoal);">Co-Founder, Aurok Energies</p>
+                          </div>
+                      </div>
+                      <p style="margin-top: 15px; color: var(--charcoal); flex-grow: 1;">
+                          Prime Chain Solutions helped us get online quickly and affordably. Our Smart Site has brought in so many new customers through the lead form!
+                      </p>
+                      <div style="color: var(--gold); margin-top: 10px;">
+                          ★ ★ ★ ★ ★
+                      </div>
+                  </div>
+                </a>
+                <!-- Testimonial 2 -->
+                <a href="https://skhumbuzot.github.io/NextGen/" target="_blank" style="text-decoration: none;">
+                  <div class="block" style="cursor: pointer; text-align: left; height: 100%; display: flex; flex-direction: column;">
+                      <div style="display: flex; align-items: center;">
+                          <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #2C3E50; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                              SK
+                          </div>
+                          <div style="margin-left: 15px;">
+                              <h3 style="margin: 0; font-size: 18px; color: var(--navy);">Samantha K</h3>
+                              <p style="margin: 0; font-size: 14px; color: var(--charcoal);">Director, Nextgen Marketing Co</p>
+                          </div>
+                      </div>
+                      <p style="margin-top: 15px; color: var(--charcoal); flex-grow: 1;">
+                          Excellent service and great value for money. The team understood exactly what we needed for our construction business.
+                      </p>
+                      <div style="color: var(--gold); margin-top: 10px;">
+                          ★ ★ ★ ★ ★
+                      </div>
+                  </div>
+                </a>
+                <!-- Testimonial 3 -->
+                <a href="https://skhumbuzot.github.io/Serenity/" target="_blank" style="text-decoration: none;">
+                  <div class="block" style="cursor: pointer; text-align: left; height: 100%; display: flex; flex-direction: column;">
+                      <div style="display: flex; align-items: center;">
+                          <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #2C3E50; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                              JM
+                          </div>
+                          <div style="margin-left: 15px;">
+                              <h3 style="margin: 0; font-size: 18px; color: var(--navy);">Jolene M</h3>
+                              <p style="margin: 0; font-size: 14px; color: var(--charcoal);">Founder, Serenity</p>
+                          </div>
+                      </div>
+                      <p style="margin-top: 15px; color: var(--charcoal); flex-grow: 1;">
+                          I was amazed at how fast everything was set up! My business now shows up on Google, and I've seen a steady increase in inquiries.
+                      </p>
+                      <div style="color: var(--gold); margin-top: 10px;">
+                          ★ ★ ★ ★ ★
+                      </div>
+                  </div>
+                </a>
+                <!-- Testimonial 4 -->
+                <a href="https://skhumbuzot.github.io/UrbanEdge/" target="_blank" style="text-decoration: none;">
+                  <div class="block" style="cursor: pointer; text-align: left; height: 100%; display: flex; flex-direction: column;">
+                      <div style="display: flex; align-items: center;">
+                          <div style="width: 60px; height: 60px; border-radius: 50%; background-color: #2C3E50; color: white; font-size: 20px; font-weight: bold; display: flex; align-items: center; justify-content: center;">
+                              SP
+                          </div>
+                          <div style="margin-left: 15px;">
+                              <h3 style="margin: 0; font-size: 18px; color: var(--navy);">Sbusiso P</h3>
+                              <p style="margin: 0; font-size: 14px; color: var(--charcoal);">Founder, UrbanEdge Construction</p>
+                          </div>
+                      </div>
+                      <p style="margin-top: 15px; color: var(--charcoal); flex-grow: 1;">
+                          I am completely blown away by the quality and speed of service.
+                      </p>
+                      <div style="color: var(--gold); margin-top: 10px;">
+                          ★ ★ ★ ★ ★
+                      </div>
+                  </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Generation Form -->
+    <section class="form-section" style="padding: 80px 0; background-color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>Need a Digital Presence? Let's Build It.</h2>
+                <p class="section-subtitle">We'll guide you from idea to launch — even if you've never had a website before</p>
+            </div>
+            <div class="form-container">
+                <form id="lead-form" action="https://formspree.io/f/xanwvekg" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" name="businessType" required>
+                            <option value="">Select your business type</option>
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant/Food Service</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="construction">Construction</option>
+                            <option value="beauty">Beauty/Wellness</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your business</label>
+                        <textarea id="message" name="message" rows="4" placeholder="What do you do? What are your goals for going digital?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        Get Free Quote
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">Open2<span>Search</span></div>
+                    <p>A Prime Chain Solutions service helping small businesses get found online.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#what-you-get">What's Included</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                    <ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
