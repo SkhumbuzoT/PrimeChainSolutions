@@ -89,6 +89,7 @@
             overflow: hidden;
         }
         
+        /* Optional: Abstract shape overlay (keeps your tower graphic) */
         .hero::after {
             content: '';
             position: absolute;
@@ -98,14 +99,16 @@
             height: 50%;
             background: url('assets/tower_home.png') no-repeat center center/contain;
             opacity: 0.2;
+            z-index: 1;
         }
         
         .hero-content {
             max-width: 600px;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Ensures text stays above the ::after element */
         }
         
+        /* Typography & Buttons (unchanged) */
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -588,18 +591,18 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Turn Your Fleet Into a Profit Center</h1>
-                <p>PrimeTower gives fleet owners real-time visibility into costs, fuel, and profitability across all trucks — no guesswork, just data-driven decisions.</p>
-                <div class="btn-group">
-                    <a href="https://primetower.streamlit.app/" class="btn btn-primary" target="_blank">Live Demo</a>
-                    <a href="#pricing" class="btn btn-secondary">See Pricing</a>
-                </div>
+    <div class="container">
+        <div class="hero-content">
+            <h1>Turn Your Fleet Into a Profit Center</h1>
+            <p>PrimeTower gives fleet owners real-time visibility into costs, fuel, and profitability across all trucks.</p>
+            <div class="btn-group">
+                <a href="https://primetower.streamlit.app/" class="btn btn-primary" target="_blank">Live Demo</a>
+                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
             </div>
         </div>
-    </section>
-
+    </div>
+  </section>
+    
     <!-- Value Propositions -->
     <section class="value-props">
         <div class="container">
