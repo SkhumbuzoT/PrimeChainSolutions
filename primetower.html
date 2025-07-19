@@ -75,52 +75,11 @@
             color: var(--navy); 
             cursor: pointer; 
         }
-        
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            min-height: 700px;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
-            display: flex;
-            align-items: center;
-            color: var(--white);
-            padding-top: 80px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        /* Optional: Abstract shape overlay (keeps your tower graphic) */
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -10%;
-            right: -10%;
-            width: 50%;
-            height: 50%;
-            background: url('assets/tower_home.png') no-repeat center center/contain;
-            opacity: 0.2;
-            z-index: 1;
-        }
-        
-        .hero-content {
-            max-width: 600px;
-            position: relative;
-            z-index: 2; /* Ensures text stays above the ::after element */
-        }
-        
-        /* Typography & Buttons (unchanged) */
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-        }
-        
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-        }
+        .hero { height: 100vh; min-height: 600px; background: linear-gradient(rgba(0, 35, 102, 0.7), rgba(0, 35, 102, 0.7)), url('assets/home.png') no-repeat center center/cover; display: flex; align-items: center; text-align: center; color: var(--white); padding-top: 80px; }
+        .hero-content { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 20px; line-height: 1.3; }
+        .hero .hook { font-size: 20px; font-weight: 500; color: var(--gold); margin-bottom: 15px; display: inline-block; padding: 8px 15px; background-color: rgba(0,0,0,0.3); border-radius: 30px; }
+        .hero p { font-size: 20px; margin-bottom: 40px; }
         
         .btn-group { 
             display: flex; 
@@ -602,6 +561,18 @@
         </div>
     </div>
   </section>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Turn Your Fleet Into a Profit Center</h1>
+            <p>PrimeTower gives fleet owners real-time visibility into costs, fuel, and profitability across all trucks.</p>
+            <div class="btn-group">
+                <a href="https://primetower.streamlit.app/" class="btn btn-primary" target="_blank">Live Demo</a>
+                <a href="#pricing" class="btn btn-secondary">See Pricing</a>
+            </div>
+        </div>
+    </section>
     
     <!-- Value Propositions -->
     <section class="value-props">
