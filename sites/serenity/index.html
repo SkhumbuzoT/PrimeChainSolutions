@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Massage & Wellness | Relax. Rejuvenate. Realign.</title>
+    <meta name="description" content="Professional massage therapy services including Swedish, Deep Tissue, Hot Stone, and Prenatal massage in a calming wellness environment.">
+    <link rel="icon" href="s.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            color: #444444;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-image {
+            background-image: linear-gradient(rgba(142, 154, 146, 0.5), rgba(142, 154, 146, 0.5)), url('https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .testimonial-card {
+            background-color: rgba(242, 198, 160, 0.1);
+        }
+        .booking-form input, .booking-form select, .booking-form textarea {
+            border: 1px solid #C8D5B9;
+            border-radius: 0.375rem;
+        }
+        .leaf-accent {
+            color: #8E9A92;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-spa text-3xl leaf-accent"></i>
+                        <span class="ml-2 text-xl font-semibold text-gray-800">Serenity</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#home" class="text-gray-800 hover:text-[#8E9A92] px-3 py-2 text-sm font-medium">Home</a>
+                    <a href="#services" class="text-gray-800 hover:text-[#8E9A92] px-3 py-2 text-sm font-medium">Services</a>
+                    <a href="#about" class="text-gray-800 hover:text-[#8E9A92] px-3 py-2 text-sm font-medium">About</a>
+                    <a href="#booking" class="text-gray-800 hover:text-[#8E9A92] px-3 py-2 text-sm font-medium">Booking</a>
+                    <a href="#contact" class="text-gray-800 hover:text-[#8E9A92] px-3 py-2 text-sm font-medium">Contact</a>
+                    <a href="#booking" class="bg-[#8E9A92] hover:bg-[#7a8880] text-white px-4 py-2 rounded-md text-sm font-medium transition duration-300">Book Now</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-[#8E9A92] focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#8E9A92]">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#8E9A92]">Services</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#8E9A92]">About</a>
+                <a href="#booking" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#8E9A92]">Booking</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:text-[#8E9A92]">Contact</a>
+                <a href="#booking" class="block w-full text-center bg-[#8E9A92] text-white px-4 py-2 rounded-md text-base font-medium mt-2">Book Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-image min-h-screen flex items-center justify-center text-white">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Relax. Rejuvenate. Realign.</h1>
+            <p class="text-xl md:text-2xl mb-8">Welcome to Serenity Massage & Wellness, where professional therapy meets tranquil relaxation. Experience the healing power of touch in our calming oasis.</p>
+            <div class="flex flex-wrap justify-center gap-4 mb-12">
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-40">
+                    <i class="fas fa-hands text-3xl mb-2"></i>
+                    <p class="font-medium">Swedish Massage</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-40">
+                    <i class="fas fa-bone text-3xl mb-2"></i>
+                    <p class="font-medium">Deep Tissue</p>
+                </div>
+                <div class="bg-white/20 backdrop-blur-sm rounded-lg p-4 w-40">
+                    <i class="fas fa-spa text-3xl mb-2"></i>
+                    <p class="font-medium">Hot Stone</p>
+                </div>
+            </div>
+            <a href="#booking" class="bg-[#F2C6A0] hover:bg-[#e0b48f] text-gray-800 font-bold py-3 px-8 rounded-full text-lg transition duration-300 inline-block">Book Your Session</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-[#F8F8F8]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Services</h2>
+                <div class="w-20 h-1 bg-[#8E9A92] mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Each massage is tailored to your individual needs, promoting relaxation, relieving tension, and enhancing overall well-being.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('Swedish Massage.png');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Swedish Massage</h3>
+                            <span class="bg-[#F2C6A0] text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">R495 - R900</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">60-90 minute sessions</p>
+                        <p class="text-gray-700 mb-4">A gentle, relaxing massage that improves circulation, relieves muscle tension, and promotes overall relaxation.</p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Reduces stress and anxiety</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Improves flexibility</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Enhances sleep quality</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-[#8E9A92] font-medium hover:text-[#7a8880] inline-flex items-center">Book now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('Deep Tissue Massage.png');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Deep Tissue Massage</h3>
+                            <span class="bg-[#F2C6A0] text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">R650 - R1040</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">60-90 minute sessions</p>
+                        <p class="text-gray-700 mb-4">Targets deeper layers of muscle and connective tissue to release chronic tension and relieve pain.</p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Breaks down scar tissue</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Reduces inflammation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Helps with injury recovery</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-[#8E9A92] font-medium hover:text-[#7a8880] inline-flex items-center">Book now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('hotstone.png');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold text-gray-800">Hot Stone Massage</h3>
+                            <span class="bg-[#F2C6A0] text-gray-800 text-sm font-semibold px-3 py-1 rounded-full">R750 - R1350</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">75-90 minute sessions</p>
+                        <p class="text-gray-700 mb-4">Heated stones are placed on key points of the body to warm and relax tight muscles for deeper massage.</p>
+                        <ul class="text-gray-700 space-y-2 mb-4">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Promotes deep relaxation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Improves blood flow</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-[#8E9A92] mt-1 mr-2"></i>
+                                <span>Alleviates chronic pain</span>
+                            </li>
+                        </ul>
+                        <a href="#booking" class="text-[#8E9A92] font-medium hover:text-[#7a8880] inline-flex items-center">Book now <i class="fas fa-arrow-right ml-2"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#booking" class="inline-flex items-center bg-[#8E9A92] hover:bg-[#7a8880] text-white font-bold py-3 px-8 rounded-full transition duration-300">
+                    View All Services <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
+                    <img src="massage team.png" alt="Massage therapist at work" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Our Story</h2>
+                    <div class="w-20 h-1 bg-[#8E9A92] mb-6"></div>
+                    <p class="text-lg text-gray-600 mb-6">Founded in 2015, Serenity Massage & Wellness was born from a passion for holistic healing and the transformative power of therapeutic touch. Our founder, Sarah Johnson, envisioned a space where clients could escape the stresses of daily life and reconnect with their bodies.</p>
+                    <p class="text-lg text-gray-600 mb-8">Today, our team of licensed therapists continues this mission, combining professional expertise with personalized care to create treatments that nourish both body and mind.</p>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-gray-800 mb-4">Our Philosophy</h3>
+                        <p class="text-gray-600 mb-4">We believe in a client-centered approach where each session is tailored to your unique needs. Our techniques blend traditional massage therapy with modern wellness practices to deliver optimal results.</p>
+                        <div class="flex items-center">
+                            <i class="fas fa-leaf text-2xl text-[#8E9A92] mr-4"></i>
+                            <span class="text-gray-700 font-medium">Certified by the National Certification Board for Therapeutic Massage & Bodywork</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-20 bg-[#F8F8F8]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Book Your Session</h2>
+                <div class="w-20 h-1 bg-[#8E9A92] mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Ready to experience the Serenity difference? Schedule your appointment below or contact us for special requests.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2 bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Appointment Request</h3>
+                    <form class="booking-form space-y-4" id="bookingForm">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-2">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="w-full px-4 py-2">
+                        </div>
+                        <div>
+                            <label for="service" class="block text-gray-700 font-medium mb-2">Service</label>
+                            <select id="service" name="service" required class="w-full px-4 py-2">
+                                <option value="">Select a service</option>
+                                <option value="Swedish Massage">Swedish Massage</option>
+                                <option value="Deep Tissue Massage">Deep Tissue Massage</option>
+                                <option value="Hot Stone Massage">Hot Stone Massage</option>
+                                <option value="Prenatal Massage">Prenatal Massage</option>
+                                <option value="Aromatherapy Add-on">Aromatherapy Add-on</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 font-medium mb-2">Preferred Date</label>
+                            <input type="date" id="date" name="date" required class="w-full px-4 py-2">
+                        </div>
+                        <div>
+                            <label for="time" class="block text-gray-700 font-medium mb-2">Preferred Time</label>
+                            <select id="time" name="time" required class="w-full px-4 py-2">
+                                <option value="">Select a time</option>
+                                <option value="9:00 AM">9:00 AM</option>
+                                <option value="10:30 AM">10:30 AM</option>
+                                <option value="12:00 PM">12:00 PM</option>
+                                <option value="1:30 PM">1:30 PM</option>
+                                <option value="3:00 PM">3:00 PM</option>
+                                <option value="4:30 PM">4:30 PM</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="notes" class="block text-gray-700 font-medium mb-2">Special Requests</label>
+                            <textarea id="notes" name="notes" rows="3" class="w-full px-4 py-2"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-[#8E9A92] hover:bg-[#7a8880] text-white font-bold py-3 px-4 rounded transition duration-300">Submit Booking Request</button>
+                    </form>
+                </div>
+                
+                <div class="lg:w-1/2 space-y-6">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Hours of Operation</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-700">Monday - Friday</span>
+                                <span class="text-gray-600 font-medium">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li class="flex justify-between border-b border-gray-100 pb-2">
+                                <span class="text-gray-700">Saturday</span>
+                                <span class="text-gray-600 font-medium">10:00 AM - 4:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-700">Sunday</span>
+                                <span class="text-gray-600 font-medium">Closed</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Quick Book Options</h3>
+                        <div class="space-y-4">
+                            <a href="https://wa.me/15551234567" class="flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded transition duration-300">
+                                <i class="fab fa-whatsapp text-xl mr-2"></i> Book via WhatsApp
+                            </a>
+                            <p class="text-center text-gray-600">or</p>
+                            <a href="tel:+15551234567" class="flex items-center justify-center bg-[#F2C6A0] hover:bg-[#e0b48f] text-gray-800 font-bold py-3 px-4 rounded transition duration-300">
+                                <i class="fas fa-phone-alt mr-2"></i> Call Us Now
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Gift Vouchers</h3>
+                        <p class="text-gray-600 mb-4">Treat someone special to the gift of relaxation. Our gift vouchers are perfect for birthdays, anniversaries, or just because.</p>
+                        <a href="#contact" class="inline-flex items-center text-[#8E9A92] font-medium hover:text-[#7a8880]">
+                            Contact us for details <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Contact Us</h2>
+                <div class="w-20 h-1 bg-[#8E9A92] mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Have questions or special requests? We'd love to hear from you.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Get In Touch</h3>
+                        <form class="space-y-4" id="contactForm">
+                            <div>
+                                <label for="contact_name" class="block text-gray-700 font-medium mb-2">Name</label>
+                                <input type="text" id="contact_name" name="name" required class="w-full px-4 py-2 border border-[#C8D5B9] rounded">
+                            </div>
+                            <div>
+                                <label for="contact_email" class="block text-gray-700 font-medium mb-2">Email</label>
+                                <input type="email" id="contact_email" name="email" required class="w-full px-4 py-2 border border-[#C8D5B9] rounded">
+                            </div>
+                            <div>
+                                <label for="contact_subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                <input type="text" id="contact_subject" name="subject" class="w-full px-4 py-2 border border-[#C8D5B9] rounded">
+                            </div>
+                            <div>
+                                <label for="contact_message" class="block text-gray-700 font-medium mb-2">Message</label>
+                                <textarea id="contact_message" name="message" rows="5" required class="w-full px-4 py-2 border border-[#C8D5B9] rounded"></textarea>
+                            </div>
+                            <button type="submit" class="bg-[#8E9A92] hover:bg-[#7a8880] text-white font-bold py-3 px-6 rounded transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2 space-y-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Visit Us</h3>
+                        <div class="h-64 mb-6 rounded-lg overflow-hidden">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215256018047!2d-73.98784492404472!3d40.74844097138993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689876724378!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-[#8E9A92] mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Address</h4>
+                                    <p class="text-gray-600">54 Cradock Avenue, Rosebank <br>JHB, South Africa</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-[#8E9A92] mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">(011) 549-4567</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-[#8E9A92] mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <h4 class="font-bold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">hello@serenitywellness.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Follow Us</h3>
+                        <div class="flex justify-center space-x-6">
+                            <a href="#" class="text-gray-600 hover:text-[#8E9A92] text-2xl">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#8E9A92] text-2xl">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#8E9A92] text-2xl">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-gray-600 hover:text-[#8E9A92] text-2xl">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#8E9A92] text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-spa text-3xl"></i>
+                        <span class="ml-2 text-xl font-semibold">Serenity</span>
+                    </div>
+                    <p class="mb-4">Your sanctuary for relaxation and rejuvenation through professional massage therapy.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-[#F2C6A0]"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-[#F2C6A0]"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-[#F2C6A0]"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="hover:text-[#F2C6A0] transition duration-300">Home</a></li>
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Services</a></li>
+                        <li><a href="#about" class="hover:text-[#F2C6A0] transition duration-300">About Us</a></li>
+                        <li><a href="#booking" class="hover:text-[#F2C6A0] transition duration-300">Booking</a></li>
+                        <li><a href="#contact" class="hover:text-[#F2C6A0] transition duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Swedish Massage</a></li>
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Deep Tissue</a></li>
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Hot Stone</a></li>
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Prenatal</a></li>
+                        <li><a href="#services" class="hover:text-[#F2C6A0] transition duration-300">Aromatherapy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact Info</h3>
+                    <address class="not-italic">
+                        <p class="mb-2">54 Cradock Avenue, Rosebank</p>
+                        <p class="mb-2">JHB, South Africa</p>
+                        <p class="mb-2">(011) 549-4567</p>
+                        <p class="mb-4">hello@serenitywellness.com</p>
+                    </address>
+                    <a href="#booking" class="inline-block bg-[#F2C6A0] hover:bg-[#e0b48f] text-gray-800 font-bold py-2 px-6 rounded transition duration-300">Book Now</a>
+                </div>
+            </div>
+            <div class="border-t border-[#C8D5B9] mt-12 pt-8 text-center">
+                <p>&copy; 2023 Serenity Massage & Wellness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="fixed bottom-8 right-8 bg-[#8E9A92] hover:bg-[#7a8880] text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center transition-opacity duration-300 opacity-0 invisible">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-8 rounded-lg max-w-md mx-4 text-center">
+            <div class="text-green-500 text-5xl mb-4">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-2">Thank You!</h3>
+            <p class="text-gray-600 mb-6" id="modalMessage">Your message has been sent successfully. We'll get back to you soon.</p>
+            <button id="closeModal" class="bg-[#8E9A92] hover:bg-[#7a8880] text-white font-bold py-2 px-6 rounded transition duration-300">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                mobileMenu.classList.add('hidden');
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission handling
+        const bookingForm = document.getElementById('bookingForm');
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const modalMessage = document.getElementById('modalMessage');
+        const closeModal = document.getElementById('closeModal');
+        
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modalMessage.textContent = "Your booking request has been submitted successfully. We'll contact you shortly to confirm your appointment.";
+                successModal.classList.remove('hidden');
+                bookingForm.reset();
+            });
+        }
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                modalMessage.textContent = "Your message has been sent successfully. We'll get back to you soon.";
+                successModal.classList.remove('hidden');
+                contactForm.reset();
+            });
+        }
+        
+        closeModal.addEventListener('click', () => {
+            successModal.classList.add('hidden');
+        });
+        
+        // Close modal when clicking outside
+        successModal.addEventListener('click', (e) => {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
