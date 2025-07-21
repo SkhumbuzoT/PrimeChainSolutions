@@ -610,6 +610,30 @@
             form input[type="email"] {
                 width: 100%;
             }
+            .challenge-card.alt-card {
+                background-color: var(--white);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+                border-radius: 8px;
+                padding: 30px;
+                border-left: 5px solid var(--teal); /* default */
+                transition: transform 0.3s ease;
+            }
+            
+            .challenge-card.alt-card:hover {
+                transform: translateY(-8px);
+            }
+            
+            .challenge-card.red {
+                border-left-color: #e74c3c;
+            }
+            
+            .challenge-card.yellow {
+                border-left-color: #f1c40f;
+            }
+            
+            .challenge-card.blue {
+                border-left-color: #3498db;
+            }
         }
     </style>
 </head>
@@ -645,25 +669,25 @@
     </section>
 
     <!-- Problem / Tension Section -->
-    <section class="problem-section py-16 bg-gray-100">
-      <div class="container mx-auto px-4">
-        <div class="text-center mb-10">
-          <h2 class="text-3xl font-semibold text-gray-800">Struggling to Track What’s Really Happening?</h2>
-          <p class="text-lg text-gray-600 mt-2">Manual work, missing data, and disconnected systems hold back your growth. We help you fix that — with tools that just work.</p>
+    <section class="challenges">
+      <div class="container">
+        <div class="section-title">
+          <h2>Struggling to Track What’s Really Happening?</h2>
+          <p>Manual work, missing data, and disconnected systems hold back your growth. We help you fix that — with tools that just work.</p>
         </div>
     
-        <div class="grid gap-6 md:grid-cols-3">
-          <div class="bg-white shadow-md p-6 rounded-lg border-l-4 border-red-500">
-            <p class="text-gray-700 font-medium">Too many spreadsheets, not enough answers.</p>
-            <p class="text-green-600 font-semibold mt-2">We fix that.</p>
+        <div class="challenges-container">
+          <div class="challenge-card alt-card red">
+            <p>Too many spreadsheets, not enough answers.</p>
+            <p class="fix">We fix that.</p>
           </div>
-          <div class="bg-white shadow-md p-6 rounded-lg border-l-4 border-yellow-500">
-            <p class="text-gray-700 font-medium">You have drivers, stock, and orders — but no live view.</p>
-            <p class="text-green-600 font-semibold mt-2">We fix that.</p>
+          <div class="challenge-card alt-card yellow">
+            <p>You have drivers, stock, and orders — but no live view.</p>
+            <p class="fix">We fix that.</p>
           </div>
-          <div class="bg-white shadow-md p-6 rounded-lg border-l-4 border-blue-500">
-            <p class="text-gray-700 font-medium">Data’s everywhere — but no system brings it together.</p>
-            <p class="text-green-600 font-semibold mt-2">We fix that.</p>
+          <div class="challenge-card alt-card blue">
+            <p>Data’s everywhere — but no system brings it together.</p>
+            <p class="fix">We fix that.</p>
           </div>
         </div>
       </div>
