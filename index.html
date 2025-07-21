@@ -636,6 +636,39 @@
                 color: var(--teal);
                 font-size: 18px;
             }
+            .enhanced-challenges {
+                background-color: var(--light-gray);
+                padding: 80px 0;
+                text-align: center;
+            }
+            
+            .challenge-points {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                margin-top: 40px;
+                margin-bottom: 30px;
+            }
+            
+            .point-card {
+                background-color: var(--white);
+                padding: 20px 25px;
+                border-radius: 8px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+                font-size: 18px;
+                color: var(--charcoal);
+                max-width: 300px;
+                flex: 1;
+            }
+            
+            .fix-callout.centered {
+                font-weight: 700;
+                color: var(--teal);
+                font-size: 20px;
+                text-align: center;
+                margin-top: 20px;
+            }
         }
     </style>
 </head>
@@ -671,21 +704,21 @@
     </section>
 
    <!-- Problem / Tension Section -->
-    <section class="challenges">
+    <!-- Problem / Tension Section -->
+    <section class="challenges enhanced-challenges">
       <div class="container">
         <div class="section-title">
           <h2>Struggling to track what’s really happening across your supply chain?</h2>
           <p>Manual work, missing data, and disconnected systems hold back your growth. We help you fix that — with tools that just work.</p>
         </div>
     
-        <div class="challenges-bullets">
-          <ul>
-            <li>🔹 Too many spreadsheets?</li>
-            <li>🔹 No visibility into drivers, stock, or deliveries?</li>
-            <li>🔹 Delays and errors slowing you down?</li>
-          </ul>
-          <p class="fix-callout">→ Let’s fix that.</p>
+        <div class="challenge-points">
+          <div class="point-card">🔹 Too many spreadsheets?</div>
+          <div class="point-card">🔹 No visibility into drivers, stock, or deliveries?</div>
+          <div class="point-card">🔹 Delays and errors slowing you down?</div>
         </div>
+    
+        <p class="fix-callout centered">→ Let’s fix that.</p>
       </div>
     </section>
 
