@@ -610,29 +610,31 @@
             form input[type="email"] {
                 width: 100%;
             }
-            .challenge-card.alt-card {
-                background-color: var(--white);
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-                border-radius: 8px;
-                padding: 30px;
-                border-left: 5px solid var(--teal); /* default */
-                transition: transform 0.3s ease;
+            .challenges-bullets {
+                margin-top: 30px;
+                font-size: 18px;
+                line-height: 1.7;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+                color: var(--charcoal);
+                text-align: left;
             }
             
-            .challenge-card.alt-card:hover {
-                transform: translateY(-8px);
+            .challenges-bullets ul {
+                list-style: none;
+                padding-left: 0;
+                margin-bottom: 20px;
             }
             
-            .challenge-card.red {
-                border-left-color: #e74c3c;
+            .challenges-bullets ul li {
+                margin-bottom: 12px;
             }
             
-            .challenge-card.yellow {
-                border-left-color: #f1c40f;
-            }
-            
-            .challenge-card.blue {
-                border-left-color: #3498db;
+            .fix-callout {
+                font-weight: 600;
+                color: var(--teal);
+                font-size: 18px;
             }
         }
     </style>
