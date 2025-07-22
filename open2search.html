@@ -185,6 +185,39 @@
         .privacy-note { font-size: 14px; color: var(--charcoal); margin-top: 20px; text-align: center; }
         .privacy-note i { color: var(--teal); margin-right: 5px; }
         .urgency-banner { background-color: var(--gold); color: var(--navy); padding: 10px; border-radius: 4px; text-align: center; margin-bottom: 20px; font-weight: 600; }
+        .stats {
+          background-color: #f5f5f5;
+          padding: 60px 20px;
+          text-align: center;
+        }
+        .stats h2 {
+          font-size: 2rem;
+          margin-bottom: 40px;
+          color: #222;
+        }
+        .stat-grid {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 30px;
+        }
+        .stat-item {
+          flex: 1 1 200px;
+          max-width: 250px;
+          background: white;
+          padding: 20px;
+          border-radius: 12px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .stat-item h3 {
+          font-size: 2.5rem;
+          color: #007acc;
+          margin-bottom: 10px;
+        }
+        .stat-item p {
+          font-size: 0.95rem;
+          color: #444;
+        }
     </style>
 </head>
 <body>
@@ -226,6 +259,44 @@
         </div>
     </section>
 
+    <section class="intro">
+      <div class="container">
+        <h2>What is Open2Search?</h2>
+        <p>
+          Open2Search is an experimental utility built to help users access and interact with open-source search features from the browser.
+          Whether you're exploring datasets, running basic queries, or experimenting with UI workflows, this tool gives you a lightweight,
+          browser-based environment to test and visualize search logic.
+        </p>
+        <p>
+          Ideal for researchers, developers, or curious minds looking to prototype or experiment — all in one place, with zero backend setup.
+        </p>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <h2>Why Your Business Needs to Be Online</h2>
+        <div class="stat-grid">
+          <div class="stat-item">
+            <h3>80%</h3>
+            <p>of customers search online before making a purchase decision.</p>
+          </div>
+          <div class="stat-item">
+            <h3>70%</h3>
+            <p>say they judge a business's credibility based on its website design.</p>
+          </div>
+          <div class="stat-item">
+            <h3>28%</h3>
+            <p>of small businesses still don’t have a website — losing leads daily.</p>
+          </div>
+          <div class="stat-item">
+            <h3>94%</h3>
+            <p>of first impressions are based on visual design and speed.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section class="whats-included" id="what-you-get">
     <div class="container">
         <div class="section-title">
