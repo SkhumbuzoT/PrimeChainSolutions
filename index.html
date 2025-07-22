@@ -718,6 +718,78 @@
             .hero h1 {
                 font-size: 2rem;
             }
+            .about-section {
+                background-color: var(--light-gray);
+                padding: 100px 0;
+            }
+            
+            .about-content {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+                align-items: center;
+                margin-bottom: 60px;
+            }
+            
+            .about-image img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.3s;
+            }
+            
+            .about-image:hover img {
+                transform: scale(1.02);
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+                color: var(--navy);
+                margin-bottom: 20px;
+            }
+            
+            .about-text p {
+                font-size: 1.1rem;
+                line-height: 1.7;
+                margin-bottom: 30px;
+            }
+            
+            .about-stats {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                margin: 30px 0;
+            }
+            
+            .stat-item {
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: center;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            
+            .stat-number {
+                display: block;
+                font-size: 2rem;
+                font-weight: 700;
+                color: var(--teal);
+                line-height: 1;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+                color: var(--charcoal);
+            }
+            
+            @media (max-width: 768px) {
+                .about-content {
+                    grid-template-columns: 1fr;
+                }
+                
+                .about-stats {
+                    grid-template-columns: 1fr;
+                }
+            }
         }
     </style>
 </head>
@@ -755,6 +827,47 @@
             </div>
         </div>
     </section>
+
+    <section id="about" class="about-section animate-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Why Partner with Prime Chain Solutions?</h2>
+            <p>We're not just another tech company - we're operators who understand your challenges</p>
+        </div>
+        
+        <div class="about-content">
+            <div class="about-image">
+                <img src="assets/team.jpg" alt="Prime Chain Solutions team" style="border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+            </div>
+            <div class="about-text">
+                <h3>Our Story</h3>
+                <p>Founded by supply chain professionals, we build tools to solve the exact problems we faced in the industry. No fluff, no jargon - just practical solutions that work.</p>
+                
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Businesses Empowered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">South African Team</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Local Support</span>
+                    </div>
+                </div>
+                
+                <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Meet Our Team</a>
+            </div>
+        </div>
+        
+        <!-- Keep the differentiators cards but enhance styling -->
+        <div class="differentiators-container" style="margin-top: 60px;">
+            <!-- Existing differentiator cards -->
+        </div>
+    </div>
+</section>
 
     <!-- Problem Section -->
     <section class="challenges enhanced-challenges animate-section">
