@@ -226,45 +226,6 @@
             transform: translateY(-3px);
         }
         
-        /* About Section - Matched to Open2Search */
-        .about-section {
-            padding: 80px 0;
-            background-color: var(--white);
-        }
-        
-        .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-text h3 {
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            color: var(--navy);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .about-text h3:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--teal);
-            border-radius: 2px;
-        }
-        
-        .about-text p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: var(--charcoal);
-        }
-        
         /* Stats Section - Matched to Open2Search */
         .stats-section {
             background-color: var(--light-gray);
@@ -311,26 +272,140 @@
             color: var(--charcoal);
         }
         
-        /* Building Blocks Section - Matched to Open2Search */
-        .building-blocks {
+        /* Traditional Approaches Section */
+        .traditional-approaches {
             padding: 80px 0;
             background-color: var(--white);
         }
         
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
+        .approach-content {
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .section-title h2 {
-            font-size: 2.2rem;
+        .approach-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+            text-align: center;
+        }
+        
+        /* Services Section */
+        .services-section {
+            background: var(--light-gray);
+            padding: 100px 0;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
             color: var(--navy);
-            margin-bottom: 15px;
+        }
+
+        .services-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 128, 128, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--teal), var(--navy));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--navy);
+        }
+
+        .service-card p {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-features li {
+            color: #555;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: bold;
+        }
+        
+        /* Featured Cases Section */
+        .featured-cases {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        /* About Section - Matched to Open2Search */
+        .about-section {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-text h3 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--navy);
             position: relative;
             display: inline-block;
         }
         
-        .section-title h2:after {
+        .about-text h3:after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -342,133 +417,11 @@
             border-radius: 2px;
         }
         
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
+        .about-text p {
             font-size: 1.1rem;
-            color: var(--charcoal);
-        }
-        
-        .blocks-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .block {
-            background-color: var(--light-gray);
-            padding: 40px 30px;
-            border-radius: 10px;
-            text-align: center;
-            transition: var(--transition);
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .block:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .block-icon {
-            font-size: 50px;
-            color: var(--teal);
-            margin-bottom: 25px;
-            transition: var(--transition);
-        }
-        
-        .block:hover .block-icon {
-            transform: scale(1.1);
-        }
-        
-        .block h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--navy);
-        }
-        
-        .block p {
-            font-size: 1rem;
-            color: var(--charcoal);
-        }
-        
-        /* Solutions Section - Matched to Open2Search */
-        .solutions {
-            padding: 80px 0;
-            background-color: var(--light-gray);
-        }
-        
-        .solutions-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-        
-        .solution-card {
-            width: 350px;
-            transition: var(--transition);
-            overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .solution-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .solution-img {
-            height: 220px;
-            background-color: var(--light-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 70px;
-            color: var(--teal);
-            transition: var(--transition);
-        }
-        
-        .solution-card:hover .solution-img {
-            background-color: var(--navy);
-            color: white;
-        }
-        
-        .solution-content {
-            padding: 30px;
-            background: white;
-        }
-        
-        .solution-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--navy);
-        }
-        
-        .solution-content p {
+            line-height: 1.8;
             margin-bottom: 20px;
             color: var(--charcoal);
-        }
-        
-        .solution-link {
-            color: var(--teal);
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            transition: var(--transition);
-        }
-        
-        .solution-link i {
-            margin-left: 8px;
-            transition: var(--transition);
-        }
-        
-        .solution-link:hover {
-            color: var(--navy);
-        }
-        
-        .solution-link:hover i {
-            transform: translateX(5px);
         }
         
         /* Differentiators Section - Matched to Open2Search */
@@ -838,9 +791,117 @@
             transform: translateY(-5px);
         }
         
+        /* Solutions Section - Matched to Open2Search */
+        .solutions-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .solution-card {
+            width: 350px;
+            transition: var(--transition);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .solution-img {
+            height: 220px;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 70px;
+            color: var(--teal);
+            transition: var(--transition);
+        }
+        
+        .solution-card:hover .solution-img {
+            background-color: var(--navy);
+            color: white;
+        }
+        
+        .solution-content {
+            padding: 30px;
+            background: white;
+        }
+        
+        .solution-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--navy);
+        }
+        
+        .solution-content p {
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+        
+        .solution-link {
+            color: var(--teal);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .solution-link i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+        
+        .solution-link:hover {
+            color: var(--navy);
+        }
+        
+        .solution-link:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Section Title - Matched to Open2Search */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+        
         /* Responsive Styles - Matched to Open2Search */
         @media (max-width: 992px) {
-            .blocks-container,
+            .services-grid,
             .differentiators-container {
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             }
@@ -889,7 +950,7 @@
                 font-size: 1.1rem;
             }
             
-            .blocks-container,
+            .services-grid,
             .differentiators-container {
                 grid-template-columns: 1fr;
             }
@@ -953,7 +1014,7 @@
             <nav>
                 <ul>
                     <li><a href="#">Home</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -965,7 +1026,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Visibility and Automation to Keep Your Supply Chain Moving</h1>
-            <p>We deliver practical tools that give you real-time insight and streamline your operations — so your business runs smoother, faster, and with fewer headaches.</p>
+            <p>Transform manual processes into automated competitive advantages. Custom solutions built by supply chain experts who understand your operational realities.</p>
             <div class="btn-group">
                 <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-primary">Schedule a Free Consultation</a>
                 <a href="primetower.html" class="btn btn-secondary">Explore Our Solutions</a>
@@ -973,8 +1034,128 @@
         </div>
     </section>
 
+    <!-- Industry Statistics Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2>The Automation Imperative</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">80%</div>
+                    <div class="stat-label">of organizations will adopt intelligent automation by 2025</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">54%</div>
+                    <div class="stat-label">of organizations struggle with mapping complex processes for automation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">43%</div>
+                    <div class="stat-label">of supply chain working hours can be transformed by AI automation</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">93%</div>
+                    <div class="stat-label">of companies are actively digitalizing their supply chains</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Traditional Approaches Section -->
+    <section class="traditional-approaches">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Traditional Approaches Fall Short</h2>
+                <p>The gap in the market that we uniquely solve</p>
+            </div>
+            <div class="approach-content">
+                <div class="approach-text">
+                    <p>Most businesses attempt digital transformation by either hiring expensive consultants who lack technical implementation skills, or working with developers who don't understand operational realities. The result? Solutions that look good on paper but fail in practice.</p>
+                    <p>We solve this by combining operational expertise with technical execution. You get strategies that work because they're built by people who've managed the processes you're trying to improve.</p>
+                    <p>Our unique blend of supply chain management experience, data science expertise, and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="services-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive solutions that transform your operations from manual to automated</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Custom Web Development</h3>
+                    <p>Transform your business processes into intuitive, powerful web applications that your team will actually want to use.</p>
+                    <ul class="service-features">
+                        <li>Business-specific dashboards and reporting interfaces</li>
+                        <li>Client portals and user management systems</li>
+                        <li>Interactive web applications for complex processes</li>
+                        <li>Mobile-responsive interfaces that work anywhere</li>
+                        <li>Seamless user experiences designed for your workflow</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Workflow Automation</h3>
+                    <p>Stop doing manually what technology can do better. We map your current processes, identify optimization opportunities, and implement smart automation that scales with your business.</p>
+                    <ul class="service-features">
+                        <li>Process discovery using Lean Six Sigma methodology</li>
+                        <li>Low-code/no-code solutions (n8n, Zapier, Make.com) for rapid deployment</li>
+                        <li>Custom API integrations connecting your existing systems</li>
+                        <li>Business process automation for approvals, notifications, and data flows</li>
+                        <li>Real-time monitoring and intelligent alerting</li>
+                    </ul>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Data Integration & Analytics</h3>
+                    <p>Your data lives in silos—CRM, ERP, spreadsheets, third-party platforms. We connect these systems and transform fragmented information into actionable insights that drive better decisions.</p>
+                    <ul class="service-features">
+                        <li>Connecting disparate systems and databases</li>
+                        <li>Data transformation and automated reporting pipelines</li>
+                        <li>Creating unified data views from multiple sources</li>
+                        <li>Predictive analytics and business intelligence</li>
+                        <li>Performance monitoring and KPI tracking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Cases Section -->
+    <section class="featured-cases">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Use Cases</h2>
+                <p>See our services in action with real implementations</p>
+            </div>
+            <div class="solutions-container">
+                <div class="solution-card">
+                    <div class="solution-img"><i class="fas fa-truck"></i></div>
+                    <div class="solution-content">
+                        <h3>Prime Tower</h3>
+                        <p>Live operations dashboard for fleets, finance, and maintenance - a perfect example of our Custom Web Development + Data Integration services.</p>
+                        <a href="primetower.html" class="solution-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-img"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="solution-content">
+                        <h3>Open2Search</h3>
+                        <p>Custom business websites with automated lead generation - showcasing our Web Development + Workflow Automation capabilities.</p>
+                        <a href="open2search.html" class="solution-link">View Case Study <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
-    <section class="about-section">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
@@ -994,85 +1175,8 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="container">
-            <h2>Our Impact in Numbers</h2>
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Businesses Empowered</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">24/7</div>
-                    <div class="stat-label">Operational Visibility</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Client Satisfaction</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Building Blocks Section -->
-    <section class="building-blocks">
-        <div class="container">
-            <div class="section-title">
-                <h2>Built to solve real operational headaches — fast, simple, effective.</h2>
-                <p>Our solutions are designed to address the specific challenges small businesses face in supply chain management</p>
-            </div>
-            <div class="blocks-container">
-                <div class="block">
-                    <div class="block-icon"><i class="fas fa-eye"></i></div>
-                    <h3>Control Tower</h3>
-                    <p>See what's happening across your operations in real-time, from anywhere.</p>
-                </div>
-                <div class="block">
-                    <div class="block-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Workflow Automation</h3>
-                    <p>Eliminate manual work and reduce errors with smart, automated processes.</p>
-                </div>
-                <div class="block">
-                    <div class="block-icon"><i class="fas fa-globe"></i></div>
-                    <h3>Web Development</h3>
-                    <p>We ensure your business shows up where customers are already searching — Google.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Solutions Section -->
-    <section id="solutions" class="solutions">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Use Cases / Demos</h2>
-                <p>We deliver practical tools that solve real problems for small businesses</p>
-            </div>
-            <div class="solutions-container">
-                <div class="solution-card">
-                    <div class="solution-img"><i class="fas fa-truck"></i></div>
-                    <div class="solution-content">
-                        <h3>Prime Tower</h3>
-                        <p>Live operations dashboard for fleets, finance, and maintenance.</p>
-                        <a href="primetower.html" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-img"><i class="fas fa-mobile-alt"></i></div>
-                    <div class="solution-content">
-                        <h3>Open2Search</h3>
-                        <p>Custom business websites designed for local discovery on Google — go live in 5 days.</p>
-                        <a href="open2search.html" class="solution-link">Learn More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-
     <!-- Differentiators Section -->
-    <section id="about" class="differentiators">
+    <section class="differentiators">
         <div class="container">
             <div class="section-title">
                 <h2>Why Partner with Us?</h2>
@@ -1122,8 +1226,8 @@
     <!-- CTA Section -->
     <section id="contact" class="cta-section">
         <div class="container">
-            <h3>Ready to Take Control of Your Operations?</h3>
-            <p>We'll help you simplify, digitize, and grow — with solutions tailored to your reality.</p>
+            <h3>Ready to Transform Your Operations?</h3>
+            <p>Whether you're drowning in spreadsheets, struggling with disconnected systems, or ready to scale beyond manual processes, we're here to help. Let's discuss how intelligent automation can unlock your business potential.</p>
             <div class="btn-group">
                 <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-primary">Schedule a Free Call</a>
                 <a href="primetower.html" class="btn btn-secondary">See Our Dashboards</a>
@@ -1157,7 +1261,7 @@
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#about">About</a></li>
                         <li><a href="#contact">Contact</a></li>
                     </ul>
@@ -1287,6 +1391,40 @@
                 el.style.transform = 'translateZ(0)';
             });
         });
+
+        // Counter animation for stats
+        function animateStats() {
+            const statItems = document.querySelectorAll('.stat-number');
+            const speed = 200;
+            
+            statItems.forEach(statItem => {
+                const target = +statItem.textContent.replace('%', '');
+                const count = +statItem.textContent.replace('%', '');
+                const increment = target / speed;
+                
+                if(count < target) {
+                    statItem.textContent = Math.ceil(count + increment) + (statItem.textContent.includes('%') ? '%' : '');
+                    setTimeout(animateStats, 1);
+                } else {
+                    statItem.textContent = target + (statItem.textContent.includes('%') ? '%' : '';
+                }
+            });
+        }
+
+        // Start counter animation when stats section is in view
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
     </script>
 </body>
 </html>
