@@ -7,7 +7,7 @@
     <meta name="description" content="Prime Chain Solutions helps small businesses simplify operations using dashboards, automation, and digital visibility." />
     <meta name="keywords" content="streamlit dashboards, supply chain automation, WhatsApp bots, trucking visibility, website design for SMEs, Google Sheets, n8n workflows" />
     <!-- Favicon Link -->
-    <link rel="icon" href="/assets/pcs.png" type="image/png">
+    <link rel="icon" href="/assets/favicon.png" type="image/png">
     <title>Prime Chain Solutions - Smart Solutions for Small Businesses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,7 @@
             --charcoal: #36454F;
             --light-gray: #F5F5F5;
             --white: #FFFFFF;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         * {
@@ -34,6 +35,7 @@
             color: var(--charcoal);
             line-height: 1.6;
             overflow-x: hidden;
+            background-color: var(--white);
         }
         
         .container {
@@ -43,7 +45,7 @@
             padding: 0 20px;
         }
         
-        /* Header */
+        /* Header - Improved with better mobile handling */
         header {
             position: fixed;
             top: 0;
@@ -52,27 +54,34 @@
             background-color: var(--white);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            padding: 10px 0;
         }
         
         header.scrolled {
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            padding: 5px 0;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
         }
         
-        .logo {
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-text {
             font-weight: 700;
             font-size: 24px;
             color: var(--navy);
         }
         
-        .logo span {
+        .logo-text span {
             color: var(--teal);
         }
         
@@ -89,19 +98,20 @@
             text-decoration: none;
             color: var(--charcoal);
             font-weight: 500;
-            transition: color 0.3s;
+            transition: var(--transition);
             position: relative;
+            padding: 5px 0;
         }
         
         nav ul li a:after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
             background-color: var(--teal);
-            transition: width 0.3s ease;
+            transition: var(--transition);
         }
         
         nav ul li a:hover:after {
@@ -119,14 +129,16 @@
             font-size: 24px;
             color: var(--navy);
             cursor: pointer;
-            transition: transform 0.3s;
+            transition: var(--transition);
+            padding: 10px;
+            z-index: 1001;
         }
         
         .mobile-menu-btn:hover {
-            transform: scale(1.1);
+            color: var(--teal);
         }
         
-        /* Sections */
+        /* Sections - Improved spacing and consistency */
         section {
             padding: 100px 0;
             position: relative;
@@ -164,26 +176,52 @@
             opacity: 0.9;
         }
         
-        /* Hero Section */
+        /* Hero Section - More engaging with subtle animation */
         .hero {
             height: 100vh;
             min-height: 600px;
             background: 
-                linear-gradient(rgba(0, 35, 102, 0.8), rgba(0, 35, 102, 0.8)),
-                url('./assets/vision.png') no-repeat center center;
-            background-size: cover;
+                linear-gradient(rgba(0, 35, 102, 0.85), rgba(0, 35, 102, 0.85)),
+                url('./assets/vision.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
             padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0,35,102,0.4) 0%, rgba(0,35,102,0.8) 100%);
+            z-index: 0;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
             padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
         .hero h1 {
@@ -213,19 +251,23 @@
             border-radius: 4px;
             font-weight: 600;
             text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
             font-size: 1rem;
+            text-align: center;
+            cursor: pointer;
+            border: none;
         }
         
         .btn-primary {
             background-color: var(--teal);
             color: var(--white);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         
         .btn-primary:hover {
             background-color: var(--navy);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
         }
         
         .btn-secondary {
@@ -242,7 +284,92 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        /* Building Blocks Section */
+        /* About Section - More structured layout */
+        .about-section {
+            background-color: var(--white);
+            padding: 100px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--navy);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-text h3:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--teal);
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--charcoal);
+            margin-bottom: 20px;
+        }
+        
+        /* Stats Section - New component */
+        .stats-section {
+            background-color: var(--light-gray);
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .stat-item {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--teal);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+        
+        /* Building Blocks Section - Improved card design */
         .building-blocks {
             background-color: var(--light-gray);
         }
@@ -259,8 +386,27 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .block:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .block:hover:before {
+            transform: scaleX(1);
         }
         
         .block:hover {
@@ -272,6 +418,11 @@
             font-size: 50px;
             color: var(--teal);
             margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        
+        .block:hover .block-icon {
+            transform: scale(1.1);
         }
         
         .block h3 {
@@ -285,7 +436,7 @@
             color: var(--charcoal);
         }
         
-        /* Solutions Section */
+        /* Solutions Section - Enhanced card interaction */
         .solutions-container {
             display: flex;
             justify-content: center;
@@ -295,10 +446,11 @@
         
         .solution-card {
             width: 350px;
-            transition: all 0.3s ease;
+            transition: var(--transition);
             overflow: hidden;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
         }
         
         .solution-card:hover {
@@ -314,12 +466,32 @@
             justify-content: center;
             font-size: 70px;
             color: var(--teal);
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
         
-        .solution-card:hover .solution-img {
-            background-color: var(--navy);
+        .solution-img:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0,35,102,0.8) 0%, rgba(0,128,128,0.8) 100%);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .solution-card:hover .solution-img:before {
+            opacity: 1;
+        }
+        
+        .solution-card:hover .solution-img i {
             color: white;
+            position: relative;
+            z-index: 1;
+            transform: scale(1.1);
         }
         
         .solution-content {
@@ -344,12 +516,12 @@
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            transition: all 0.3s;
+            transition: var(--transition);
         }
         
         .solution-link i {
             margin-left: 8px;
-            transition: transform 0.3s;
+            transition: var(--transition);
         }
         
         .solution-link:hover {
@@ -360,47 +532,7 @@
             transform: translateX(5px);
         }
         
-        /* Challenges Section */
-        .enhanced-challenges {
-            background-color: var(--light-gray);
-            text-align: center;
-        }
-        
-        .challenge-points {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .point-card {
-            background-color: var(--white);
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            font-size: 1.1rem;
-            color: var(--charcoal);
-            max-width: 300px;
-            flex: 1;
-            min-width: 250px;
-            transition: all 0.3s;
-        }
-        
-        .point-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-        
-        .fix-callout.centered {
-            font-weight: 700;
-            color: var(--teal);
-            font-size: 1.3rem;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        /* Differentiators Section */
+        /* Differentiators Section - Enhanced visual appeal */
         .differentiators {
             background-color: var(--light-gray);
         }
@@ -417,7 +549,26 @@
             border-radius: 8px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .differentiator-card:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--teal), var(--navy));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .differentiator-card:hover:after {
+            transform: scaleX(1);
         }
         
         .differentiator-card:hover {
@@ -429,6 +580,11 @@
             font-size: 50px;
             color: var(--teal);
             margin-bottom: 25px;
+            transition: var(--transition);
+        }
+        
+        .differentiator-card:hover .differentiator-icon {
+            transform: rotate(10deg) scale(1.1);
         }
         
         .differentiator-card h3 {
@@ -437,7 +593,20 @@
             color: var(--navy);
         }
         
-        /* Testimonials Section */
+        .differentiator-card p {
+            color: var(--charcoal);
+        }
+        
+        /* Testimonials Section - More polished design */
+        .testimonials {
+            background-color: var(--white);
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
         blockquote {
             font-size: 1.3rem;
             line-height: 1.6;
@@ -448,6 +617,7 @@
             border-radius: 8px;
             position: relative;
             font-style: italic;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         
         blockquote:before {
@@ -458,6 +628,7 @@
             font-size: 5rem;
             color: rgba(0,128,128,0.1);
             font-family: Georgia, serif;
+            z-index: 0;
         }
         
         blockquote span {
@@ -466,13 +637,35 @@
             color: var(--teal);
             font-weight: bold;
             font-style: normal;
+            position: relative;
+            z-index: 1;
         }
         
-        /* CTA Section */
+        /* CTA Section - More compelling design */
         .cta-section {
             background-color: var(--navy);
             color: var(--white);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
+            background-size: cover;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
         }
         
         .cta-section h3 {
@@ -487,7 +680,7 @@
             opacity: 0.9;
         }
         
-        /* Form Styles */
+        /* Form Styles - Improved usability */
         form {
             max-width: 600px;
             margin: 40px auto 0;
@@ -497,26 +690,50 @@
             gap: 15px;
         }
         
+        .form-group {
+            flex: 1;
+            min-width: 300px;
+            position: relative;
+        }
+        
         form input[type="email"] {
             padding: 15px 20px;
             border-radius: 4px;
             border: none;
-            flex: 1;
-            min-width: 300px;
+            width: 100%;
             font-size: 1rem;
+            transition: var(--transition);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        form input[type="email"]:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,128,128,0.3);
         }
         
         form button[type="submit"] {
             padding: 15px 35px;
             border: none;
             cursor: pointer;
+            transition: var(--transition);
         }
         
-        /* Footer */
+        /* Footer - More organized layout */
         footer {
             background-color: var(--navy);
             color: var(--white);
             padding: 80px 0 20px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--teal), var(--navy));
         }
         
         .footer-container {
@@ -531,10 +748,18 @@
             font-weight: 700;
             margin-bottom: 25px;
             color: var(--white);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
         
         .footer-logo span {
             color: var(--teal);
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            filter: brightness(0) invert(1);
         }
         
         .footer-about p {
@@ -545,17 +770,24 @@
         
         .social-links {
             display: flex;
-            gap: 20px;
+            gap: 15px;
         }
         
         .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
             color: var(--white);
-            font-size: 1.3rem;
-            transition: all 0.3s;
+            font-size: 1.1rem;
+            transition: var(--transition);
         }
         
         .social-links a:hover {
-            color: var(--teal);
+            background-color: var(--teal);
             transform: translateY(-3px);
         }
         
@@ -563,6 +795,18 @@
             font-size: 1.3rem;
             margin-bottom: 25px;
             color: var(--teal);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-links h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--teal);
         }
         
         .footer-links ul {
@@ -576,8 +820,17 @@
         .footer-links ul li a {
             color: var(--white);
             text-decoration: none;
-            transition: all 0.3s;
+            transition: var(--transition);
             opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-links ul li a i {
+            font-size: 0.8rem;
+            color: var(--teal);
+            transition: var(--transition);
         }
         
         .footer-links ul li a:hover {
@@ -585,10 +838,14 @@
             padding-left: 5px;
         }
         
+        .footer-links ul li a:hover i {
+            transform: translateX(3px);
+        }
+        
         .footer-contact p {
             margin-bottom: 20px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             opacity: 0.9;
         }
         
@@ -596,6 +853,7 @@
             margin-right: 15px;
             color: var(--teal);
             font-size: 1.1rem;
+            margin-top: 3px;
         }
         
         .footer-contact a {
@@ -616,7 +874,39 @@
             font-size: 0.9rem;
         }
         
-        /* Animation Classes */
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--navy);
+            transform: translateY(-5px);
+        }
+        
+        /* Animation Classes - Smoother transitions */
         .animate-section {
             opacity: 0;
             transform: translateY(30px);
@@ -628,10 +918,11 @@
             transform: translateY(0);
         }
         
-        /* Responsive Styles */
+        /* Responsive Styles - Enhanced mobile experience */
         @media (max-width: 1200px) {
             .blocks-container,
-            .differentiators-container {
+            .differentiators-container,
+            .stats-container {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
@@ -649,24 +940,33 @@
         @media (max-width: 768px) {
             nav ul {
                 display: none;
-                position: absolute;
-                top: 70px;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
+                height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                padding: 80px 20px 40px;
+                box-shadow: 0 5px 30px rgba(0,0,0,0.1);
+                z-index: 999;
+                transition: var(--transition);
+                transform: translateX(-100%);
             }
             
             nav ul.show {
                 display: flex;
+                transform: translateX(0);
             }
             
             nav ul li {
                 margin: 0;
                 padding: 15px 20px;
                 border-bottom: 1px solid rgba(0,0,0,0.05);
+            }
+            
+            nav ul li a {
+                font-size: 1.2rem;
             }
             
             .mobile-menu-btn {
@@ -682,7 +982,8 @@
             }
             
             .blocks-container,
-            .differentiators-container {
+            .differentiators-container,
+            .stats-container {
                 grid-template-columns: 1fr;
             }
             
@@ -697,6 +998,15 @@
             
             .section-title h2 {
                 font-size: 2rem;
+            }
+            
+            .about-text h3 {
+                font-size: 1.8rem;
+            }
+            
+            .solution-card {
+                width: 100%;
+                max-width: 400px;
             }
         }
         
@@ -718,77 +1028,29 @@
             .hero h1 {
                 font-size: 2rem;
             }
-            .about-section {
-                background-color: var(--light-gray);
-                padding: 100px 0;
+            
+            .hero p {
+                font-size: 1rem;
             }
             
-            .about-content {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 50px;
-                align-items: center;
-                margin-bottom: 60px;
-            }
-            
-            .about-image img {
-                width: 100%;
-                height: auto;
-                transition: transform 0.3s;
-            }
-            
-            .about-image:hover img {
-                transform: scale(1.02);
-            }
-            
-            .about-text h3 {
+            .section-title h2 {
                 font-size: 1.8rem;
-                color: var(--navy);
-                margin-bottom: 20px;
             }
             
-            .about-text p {
-                font-size: 1.1rem;
-                line-height: 1.7;
-                margin-bottom: 30px;
+            .footer-logo {
+                font-size: 1.5rem;
             }
             
-            .about-stats {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 20px;
-                margin: 30px 0;
+            .footer-links h4 {
+                font-size: 1.2rem;
             }
             
-            .stat-item {
-                background: white;
-                padding: 20px;
-                border-radius: 8px;
-                text-align: center;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            }
-            
-            .stat-number {
-                display: block;
-                font-size: 2rem;
-                font-weight: 700;
-                color: var(--teal);
-                line-height: 1;
-            }
-            
-            .stat-label {
-                font-size: 0.9rem;
-                color: var(--charcoal);
-            }
-            
-            @media (max-width: 768px) {
-                .about-content {
-                    grid-template-columns: 1fr;
-                }
-                
-                .about-stats {
-                    grid-template-columns: 1fr;
-                }
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -797,12 +1059,14 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <img 
-                  src="assets/Icon Only.png" 
-                  alt="Prime Chain Logo" 
-                  style="height: 60px; vertical-align: middle; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));"
+            <div class="logo-container">
+                <img 
+                    src="assets/Icon Only.png" 
+                    alt="Prime Chain Logo" 
+                    style="height: 50px; vertical-align: middle; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));"
                 >
-            <button class="mobile-menu-btn">
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
@@ -828,20 +1092,46 @@
         </div>
     </section>
 
-    <div class="about-text" style="max-width: 800px; margin: 0 auto 60px; text-align: center;">
-        <h3 style="font-size: 2rem; color: var(--navy); margin-bottom: 20px;">Our Story</h3>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--charcoal);">
-            PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
-            From our early roots in transport and warehousing, we’ve grown to support clients in logistics, 
-            e-commerce, mining, and retail — improving everything from stock control to fleet performance.
-        </p>
-        <p style="font-size: 1.1rem; line-height: 1.7; color: var(--charcoal); margin-top: 20px;">
-            Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
-            and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
-            and unlock value across every link in their chain.
-        </p>
-    </div>
-        
+    <!-- About Section -->
+    <section class="about-section animate-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>
+                        PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
+                        From our early roots in transport and warehousing, we've grown to support clients in logistics, 
+                        e-commerce, mining, and retail — improving everything from stock control to fleet performance.
+                    </p>
+                    <p>
+                        Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
+                        and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
+                        and unlock value across every link in their chain.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section animate-section">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Businesses Empowered</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Operational Visibility</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Client Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Building Blocks Section -->
     <section class="building-blocks animate-section">
@@ -934,11 +1224,15 @@
     <!-- Testimonials Section -->
     <section class="testimonials animate-section">
         <div class="container">
-            <h2 class="section-title">What Our Clients Say</h2>
-            <blockquote>
-                "Prime Chain gave us visibility into our 34-ton fleet in ways we never had before."
-                <span>– Marbu Trucking</span>
-            </blockquote>
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-container">
+                <blockquote>
+                    "Prime Chain gave us visibility into our 34-ton fleet in ways we never had before. Their dashboard solution transformed how we manage our operations."
+                    <span>– Marbu Trucking</span>
+                </blockquote>
+            </div>
         </div>
     </section>
     
@@ -952,7 +1246,9 @@
                 <a href="primetower.html" class="btn btn-secondary">See Our Dashboards</a>
             </div>
             <form action="https://formspree.io/f/yourID" method="POST">
-                <input type="email" name="email" placeholder="Enter your email" required>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div>
                 <button type="submit" class="btn btn-primary">Request a Callback</button>
             </form>
         </div>
@@ -963,29 +1259,32 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <div class="footer-logo">Prime<span>Chain</span></div>
+                    <div class="footer-logo">
+                        <img src="assets/Icon Only.png" alt="Prime Chain Logo" style="height: 40px;">
+                        <span>Prime<span>Chain</span></span>
+                    </div>
                     <p>Helping small businesses grow, compete, and stay in control with smart, accessible solutions.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#solutions">Solutions</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Solutions</h4>
                     <ul>
-                        <li><a href="primetower.html">Control Towers</a></li>
-                        <li><a href="#">Automation Hub</a></li>
-                        <li><a href="open2search.html">Online Presence</a></li>
+                        <li><a href="primetower.html"><i class="fas fa-chevron-right"></i> Control Towers</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Hub</a></li>
+                        <li><a href="open2search.html"><i class="fas fa-chevron-right"></i> Online Presence</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -1001,6 +1300,11 @@
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
@@ -1008,6 +1312,19 @@
             nav.classList.toggle('show');
             this.innerHTML = nav.classList.contains('show') ? 
                 '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            document.body.style.overflow = nav.classList.contains('show') ? 'hidden' : '';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('nav ul');
+                if (nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                }
+            });
         });
         
         // Header scroll effect
@@ -1018,13 +1335,33 @@
             } else {
                 header.classList.remove('scrolled');
             }
+            
+            // Back to top button visibility
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
         
         // Smooth scrolling with offset for fixed header
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+                
                 const headerOffset = 80;
                 const elementPosition = target.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -1038,6 +1375,7 @@
                 if (document.querySelector('nav ul').classList.contains('show')) {
                     document.querySelector('nav ul').classList.remove('show');
                     document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
                 }
             });
         });
@@ -1058,6 +1396,14 @@
         // Initialize animations
         window.addEventListener('load', animateElements);
         window.addEventListener('scroll', animateElements);
+        
+        // Preload hover states for smoother transitions
+        document.addEventListener('DOMContentLoaded', function() {
+            const hoverElements = document.querySelectorAll('a, button, .block, .solution-card, .differentiator-card');
+            hoverElements.forEach(el => {
+                el.style.transform = 'translateZ(0)';
+            });
+        });
     </script>
 </body>
 </html>
