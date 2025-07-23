@@ -1184,7 +1184,7 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
+     <!-- Back to Top Button -->
     <div class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </div>
@@ -1192,12 +1192,107 @@
     <script>
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const nav = document.querySelector('nav ul');
-            nav.classList.toggle('show');
+            document.querySelector('nav ul').classList.toggle('show');
             this.querySelector('i').classList.toggle('fa-times');
             this.querySelector('i').classList.toggle('fa-bars');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if(document.querySelector('nav ul').classList.contains('show')) {
+                    document.querySelector('nav ul').classList.remove('show');
+                    document.querySelector('.mobile-menu-btn i').classList.toggle('fa-times');
+                    document.querySelector('.mobile-menu-btn i').classList.toggle('fa-bars');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
         });
         
         // Header scroll effect
         window.addEventListener('scroll', function() {
             const header = document.getElementById('header');
+            if(window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission handling
+        const form = document.getElementById('lead-form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const submitButton = form.querySelector('button[type="submit"]');
+                
+                // Change button text and disable it
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if(response.ok) {
+                        // Show success message
+                        submitButton.textContent = 'Message Sent!';
+                        submitButton.style.backgroundColor = '#4CAF50';
+                        form.reset();
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitButton.textContent = 'Get Free Quote';
+                            submitButton.style.backgroundColor = '';
+                            submitButton.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    submitButton.textContent = 'Error - Try Again';
+                    submitButton.style.backgroundColor = '#f44336';
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitButton.textContent = 'Get Free Quote';
+                        submitButton.style.backgroundColor = '';
+                        submitButton.disabled = false;
+                    }, 3000);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
