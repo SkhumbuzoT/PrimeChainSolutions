@@ -1,0 +1,1845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <title>Open2Search – Website Design for South African Small Businesses</title>
+    <meta name="description" content="Launch your professional website in 5 days. SEO-ready, mobile-friendly, Google indexed. Built for small businesses in South Africa.">
+    <meta name="keywords" content="business website design, Google Business profile, Open2Search, Prime Chain, SME digital tools, SEO South Africa">
+    <link rel="icon" href="/assets/pcs.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #002366;
+            --teal: #008080;
+            --gold: #FFD700;
+            --charcoal: #36454F;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+            --transition: all 0.3s ease;
+        }
+        
+        /* Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--charcoal); 
+            line-height: 1.6; 
+            overflow-x: hidden;
+        }
+        
+        .container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Header */
+        header { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            background-color: var(--white); 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-container { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 0; 
+        }
+        
+        .logo { 
+            font-weight: 700; 
+            font-size: 24px; 
+            color: var(--navy); 
+            display: flex; 
+            align-items: center; 
+            text-decoration: none;
+        }
+        
+        .logo span { 
+            color: var(--teal); 
+        }
+        
+        .logo img { 
+            height: 40px; 
+            margin-right: 10px; 
+            transition: var(--transition);
+        }
+        
+        nav ul { 
+            display: flex; 
+            list-style: none; 
+        }
+        
+        nav ul li { 
+            margin-left: 30px; 
+        }
+        
+        nav ul li a { 
+            text-decoration: none; 
+            color: var(--charcoal); 
+            font-weight: 500; 
+            transition: var(--transition); 
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover { 
+            color: var(--teal); 
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teal);
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn { 
+            display: none; 
+            background: none; 
+            border: none; 
+            font-size: 24px; 
+            color: var(--navy); 
+            cursor: pointer; 
+            z-index: 1001;
+        }
+        
+        /* Hero Section */
+        .hero { 
+            height: 100vh; 
+            min-height: 600px; 
+            background: linear-gradient(rgba(0, 35, 102, 0.8), rgba(0, 35, 102, 0.8)), url('assets/home.png') no-repeat center center/cover; 
+            display: flex; 
+            align-items: center; 
+            text-align: center; 
+            color: var(--white); 
+            padding-top: 80px;
+            position: relative;
+        }
+        
+        .hero-content { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero h1 { 
+            font-size: 42px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            line-height: 1.3; 
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .hero .hook { 
+            font-size: 20px; 
+            font-weight: 500; 
+            color: var(--gold); 
+            margin-bottom: 15px; 
+            display: inline-block; 
+            padding: 8px 15px; 
+            background-color: rgba(0,0,0,0.3); 
+            border-radius: 30px; 
+            animation: pulse 2s infinite;
+        }
+        
+        .hero p { 
+            font-size: 20px; 
+            margin-bottom: 40px; 
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .btn-group { 
+            display: flex; 
+            justify-content: center; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+        }
+        
+        .btn { 
+            display: inline-block; 
+            padding: 14px 32px; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            transition: var(--transition); 
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        .btn-primary { 
+            background-color: var(--teal); 
+            color: var(--white); 
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+        }
+        
+        .btn-primary:hover { 
+            background-color: var(--navy); 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 35, 102, 0.4);
+        }
+        
+        .btn-secondary { 
+            background-color: transparent; 
+            color: var(--white); 
+            border: 2px solid var(--white); 
+        }
+        
+        .btn-secondary:hover { 
+            background-color: var(--white); 
+            color: var(--navy); 
+            transform: translateY(-3px);
+        }
+        
+        /* Stats Section */
+        .stats {
+            background-color: var(--light-gray);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--navy);
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .stat-item {
+            background: var(--white);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-item h3 {
+            font-size: 2.8rem;
+            color: var(--teal);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--charcoal);
+        }
+        
+        /* Intro Section */
+        .intro {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .intro .container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .intro h2 {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: var(--navy);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .intro h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .intro p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: var(--charcoal);
+        }
+        
+        /* Whats Included Section */
+        .whats-included { 
+            padding: 80px 0; 
+            background-color: var(--white); 
+        }
+        
+        .section-title { 
+            text-align: center; 
+            margin-bottom: 50px; 
+        }
+        
+        .section-title h2 { 
+            font-size: 36px; 
+            color: var(--navy); 
+            margin-bottom: 15px; 
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .blocks-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+        }
+        
+        .block { 
+            background-color: var(--light-gray); 
+            padding: 40px 30px; 
+            border-radius: 10px; 
+            text-align: center; 
+            transition: var(--transition); 
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .block:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .block i { 
+            font-size: 42px; 
+            color: var(--teal); 
+            margin-bottom: 20px; 
+            display: block; 
+        }
+        
+        .block h3 { 
+            font-size: 22px; 
+            margin-bottom: 15px; 
+            color: var(--navy); 
+        }
+        
+        .block p { 
+            margin-bottom: 15px; 
+            color: var(--charcoal);
+        }
+        
+        .block .story { 
+            font-style: italic; 
+            color: var(--teal); 
+            font-weight: 500; 
+            margin-top: 20px;
+            display: block;
+        }
+        
+        /* Pricing Section */
+        .pricing { 
+            padding: 80px 0; 
+            background-color: var(--light-gray); 
+            text-align: center; 
+        }
+        
+        .pricing-container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+        }
+        
+        .pricing-card { 
+            background: var(--white); 
+            border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+            padding: 50px 40px; 
+            position: relative; 
+            overflow: hidden; 
+            margin-top: 30px; 
+            transition: var(--transition);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .pricing-highlight { 
+            position: absolute; 
+            top: 0; 
+            right: 30px; 
+            background: var(--teal); 
+            color: white; 
+            padding: 0.5rem 1.5rem; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            border-bottom-left-radius: 8px; 
+            border-bottom-right-radius: 8px; 
+        }
+        
+        .price-display { 
+            margin-bottom: 30px; 
+        }
+        
+        .price-amount { 
+            font-size: 3.5rem; 
+            font-weight: 700; 
+            color: var(--navy); 
+            line-height: 1; 
+        }
+        
+        .price-type { 
+            color: var(--teal); 
+            font-size: 1.1rem; 
+            font-weight: 600; 
+            display: block; 
+            margin-top: 5px; 
+        }
+        
+        .price-comparison { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            gap: 30px; 
+            margin: 30px 0; 
+        }
+        
+        .price-comparison-item { 
+            text-align: center; 
+            padding: 25px 20px; 
+            border-radius: 8px; 
+            flex: 1;
+            transition: var(--transition);
+        }
+        
+        .price-comparison-item.ours { 
+            background-color: rgba(0, 128, 128, 0.1); 
+            border: 2px solid var(--teal); 
+        }
+        
+        .price-comparison-item.theirs { 
+            background-color: rgba(255, 0, 0, 0.05); 
+            border: 2px solid #ccc; 
+        }
+        
+        .price-comparison-item h4 { 
+            font-weight: 600; 
+            margin-bottom: 10px; 
+        }
+        
+        .price-comparison-item p { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            margin-bottom: 5px;
+        }
+        
+        .price-comparison-item.ours p { 
+            color: var(--teal); 
+        }
+        
+        .price-comparison-item.theirs p { 
+            color: var(--charcoal); 
+            text-decoration: line-through; 
+        }
+        
+        .roi-calc { 
+            background-color: rgba(0, 35, 102, 0.05); 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 30px 0; 
+            border-left: 4px solid var(--teal); 
+            text-align: left;
+        }
+        
+        .roi-calc p { 
+            margin-bottom: 5px; 
+        }
+        
+        .roi-calc strong { 
+            color: var(--teal); 
+        }
+        
+        .feature-list { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 20px; 
+            text-align: left; 
+            margin: 40px 0; 
+        }
+        
+        .feature-list li { 
+            display: flex; 
+            align-items: flex-start; 
+            color: var(--charcoal); 
+            padding: 10px 0;
+        }
+        
+        .feature-list i { 
+            color: var(--teal); 
+            margin-right: 15px; 
+            font-size: 1.3rem; 
+            margin-top: 3px;
+        }
+        
+        .pricing-cta { 
+            margin-top: 40px; 
+        }
+        
+        .whatsapp-btn { 
+            background-color: var(--whatsapp-green); 
+            color: white; 
+            padding: 16px 40px; 
+            border-radius: 50px; 
+            font-weight: 600; 
+            text-decoration: none; 
+            display: inline-flex; 
+            align-items: center; 
+            transition: var(--transition); 
+            font-size: 18px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .whatsapp-btn:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4); 
+            background-color: #128C7E;
+        }
+        
+        .whatsapp-btn i { 
+            margin-right: 12px; 
+            font-size: 1.3rem; 
+        }
+        
+        .price-note { 
+            font-size: 0.9rem; 
+            color: var(--charcoal); 
+            margin-top: 20px; 
+            font-style: italic; 
+        }
+        
+        /* Services Section */
+        .services-section { 
+            padding: 80px 0; 
+            background-color: var(--white);
+        }
+        
+        .services-title { 
+            text-align: center; 
+            margin-bottom: 50px;
+        }
+        
+        .services-title h2 { 
+            font-size: 36px; 
+            color: var(--navy); 
+            margin-bottom: 15px; 
+            position: relative;
+            display: inline-block;
+        }
+        
+        .services-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .services-divider { 
+            width: 60px; 
+            height: 4px; 
+            background: var(--teal); 
+            margin: 0 auto 30px auto; 
+            border-radius: 2px;
+        }
+        
+        .services-cards { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
+            max-width: 1100px; 
+            margin: 0 auto;
+        }
+        
+        .service-card { 
+            background-color: var(--light-gray); 
+            padding: 40px 30px; 
+            border-radius: 10px; 
+            box-shadow: 0 6px 24px rgba(0, 35, 102, 0.07); 
+            text-align: center; 
+            border: 1px solid rgba(0,0,0,0.05); 
+            transition: var(--transition);
+        }
+        
+        .service-card:hover { 
+            box-shadow: 0 12px 36px rgba(0, 128, 128, 0.10); 
+            border-color: var(--teal); 
+            transform: translateY(-10px);
+        }
+        
+        .service-card i { 
+            font-size: 42px; 
+            color: var(--teal); 
+            margin-bottom: 25px; 
+        }
+        
+        .service-card h3 { 
+            font-size: 22px; 
+            color: var(--navy); 
+            font-weight: 600; 
+            margin-bottom: 15px;
+        }
+        
+        .service-card p { 
+            color: var(--charcoal); 
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .service-card .story { 
+            font-style: italic; 
+            color: var(--teal); 
+            margin-top: 20px; 
+            font-weight: 500; 
+        }
+        
+        /* Projects Section */
+        .projects-section { 
+            padding: 80px 0; 
+            background-color: var(--light-gray);
+        }
+        
+        .projects-title { 
+            text-align: center; 
+            margin-bottom: 50px;
+        }
+        
+        .projects-title h2 { 
+            font-size: 36px; 
+            color: var(--navy); 
+            margin-bottom: 15px; 
+            position: relative;
+            display: inline-block;
+        }
+        
+        .projects-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .projects-divider { 
+            width: 60px; 
+            height: 4px; 
+            background: var(--teal); 
+            margin: 0 auto 30px auto; 
+            border-radius: 2px;
+        }
+        
+        .projects-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); 
+            gap: 30px; 
+            max-width: 900px; 
+            margin: 0 auto;
+        }
+        
+        .project-item { 
+            background: var(--white); 
+            border-radius: 10px; 
+            box-shadow: 0 4px 18px rgba(0, 35, 102, 0.05); 
+            border: 1px solid rgba(0,0,0,0.05); 
+            transition: var(--transition); 
+            text-decoration: none; 
+            color: inherit; 
+            display: block; 
+            overflow: hidden;
+        }
+        
+        .project-item:hover { 
+            box-shadow: 0 8px 32px rgba(0, 128, 128, 0.10); 
+            border-color: var(--teal); 
+            transform: translateY(-5px);
+        }
+        
+        .project-image { 
+            height: 250px; 
+            overflow: hidden; 
+        }
+        
+        .project-image img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            transition: transform 0.5s; 
+        }
+        
+        .project-item:hover .project-image img { 
+            transform: scale(1.05); 
+        }
+        
+        .project-content { 
+            padding: 30px 25px;
+        }
+        
+        .project-content h3 { 
+            font-size: 22px; 
+            color: var(--navy); 
+            margin-bottom: 10px; 
+            font-weight: 600;
+        }
+        
+        .project-content p { 
+            font-size: 16px; 
+            color: var(--charcoal); 
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-content .view-link { 
+            color: var(--teal); 
+            font-weight: 500; 
+            display: flex; 
+            align-items: center; 
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .project-content .view-link:hover {
+            color: var(--navy);
+        }
+        
+        .project-content .view-link i { 
+            margin-left: 8px; 
+            font-size: 16px;
+            transition: var(--transition);
+        }
+        
+        .project-item:hover .view-link i {
+            transform: translateX(5px);
+        }
+        
+        /* Testimonials Section */
+        .testimonials { 
+            padding: 80px 0; 
+            background-color: var(--white);
+        }
+        
+        .testimonial-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
+            gap: 30px; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+        
+        .testimonial-card { 
+            background: var(--light-gray); 
+            border-radius: 10px; 
+            padding: 40px 30px; 
+            position: relative; 
+            transition: var(--transition);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-card:before { 
+            content: '"'; 
+            position: absolute; 
+            top: 10px; 
+            left: 20px; 
+            font-size: 80px; 
+            color: var(--teal); 
+            opacity: 0.2; 
+            font-family: serif; 
+            line-height: 1;
+        }
+        
+        .testimonial-content { 
+            position: relative; 
+            z-index: 1; 
+        }
+        
+        .testimonial-author { 
+            display: flex; 
+            align-items: center; 
+            margin-top: 25px; 
+        }
+        
+        .testimonial-author img { 
+            width: 70px; 
+            height: 70px; 
+            border-radius: 50%; 
+            object-fit: cover; 
+            margin-right: 20px; 
+            border: 3px solid var(--teal);
+        }
+        
+        .testimonial-author-info h4 { 
+            font-size: 18px; 
+            color: var(--navy); 
+            margin-bottom: 5px; 
+        }
+        
+        .testimonial-author-info p { 
+            font-size: 14px; 
+            color: var(--charcoal); 
+        }
+        
+        .testimonial-stars { 
+            color: var(--gold); 
+            margin: 15px 0; 
+            font-size: 18px;
+        }
+        
+        .testimonial-metric { 
+            display: inline-block; 
+            background-color: var(--teal); 
+            color: white; 
+            padding: 5px 15px; 
+            border-radius: 20px; 
+            font-size: 14px; 
+            margin-top: 15px; 
+            font-weight: 500; 
+        }
+        
+        /* Form Section */
+        .form-section { 
+            padding: 80px 0; 
+            background-color: var(--white);
+        }
+        
+        .form-container { 
+            max-width: 600px; 
+            margin: 40px auto 0;
+        }
+        
+        .form-group { 
+            margin-bottom: 25px;
+        }
+        
+        .form-group label { 
+            display: block; 
+            margin-bottom: 10px; 
+            font-weight: 500; 
+            color: var(--charcoal);
+        }
+        
+        .form-group .optional { 
+            color: #95a5a6; 
+            font-weight: 400;
+            font-size: 0.9em;
+        }
+        
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea { 
+            width: 100%; 
+            padding: 15px; 
+            border: 1px solid #ddd; 
+            border-radius: 6px; 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 16px; 
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus { 
+            outline: none; 
+            border-color: var(--teal); 
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+        
+        .form-group textarea { 
+            resize: vertical; 
+            min-height: 150px;
+        }
+        
+        .form-submit-btn { 
+            width: 100%; 
+            background-color: var(--teal); 
+            color: white; 
+            padding: 18px; 
+            border: none; 
+            border-radius: 6px; 
+            font-weight: 600; 
+            font-size: 18px; 
+            cursor: pointer; 
+            transition: var(--transition); 
+            margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+        }
+        
+        .form-submit-btn:hover { 
+            background-color: var(--navy); 
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 35, 102, 0.4);
+        }
+        
+        .privacy-note { 
+            font-size: 14px; 
+            color: var(--charcoal); 
+            margin-top: 25px; 
+            text-align: center; 
+        }
+        
+        .privacy-note i { 
+            color: var(--teal); 
+            margin-right: 5px; 
+        }
+        
+        .urgency-banner { 
+            background-color: var(--gold); 
+            color: var(--navy); 
+            padding: 15px; 
+            border-radius: 6px; 
+            text-align: center; 
+            margin-bottom: 30px; 
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        /* Footer */
+        footer { 
+            background-color: var(--navy); 
+            color: var(--white); 
+            padding: 80px 0 20px;
+            position: relative;
+        }
+        
+        .footer-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 50px; 
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo { 
+            font-size: 28px; 
+            font-weight: 700; 
+            margin-bottom: 25px; 
+            color: var(--white); 
+            display: flex; 
+            align-items: center; 
+        }
+        
+        .footer-logo img { 
+            height: 35px; 
+            margin-right: 10px; 
+        }
+        
+        .footer-logo span { 
+            color: var(--teal);
+        }
+        
+        .footer-about p { 
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .social-links { 
+            display: flex; 
+            gap: 15px;
+        }
+        
+        .social-links a { 
+            color: var(--white); 
+            font-size: 22px; 
+            transition: var(--transition);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .social-links a:hover { 
+            color: var(--teal); 
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h4 { 
+            font-size: 20px; 
+            margin-bottom: 25px; 
+            color: var(--teal);
+        }
+        
+        .footer-links ul { 
+            list-style: none;
+        }
+        
+        .footer-links ul li { 
+            margin-bottom: 15px;
+        }
+        
+        .footer-links ul li a { 
+            color: var(--white); 
+            text-decoration: none; 
+            transition: var(--transition);
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        .footer-links ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teal);
+            transition: var(--transition);
+        }
+        
+        .footer-links ul li a:hover { 
+            color: var(--teal);
+        }
+        
+        .footer-links ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .footer-contact h4 { 
+            font-size: 20px; 
+            margin-bottom: 25px; 
+            color: var(--teal);
+        }
+        
+        .footer-contact p { 
+            margin-bottom: 20px; 
+            display: flex; 
+            align-items: center;
+            line-height: 1.6;
+        }
+        
+        .footer-contact i { 
+            margin-right: 15px; 
+            color: var(--teal);
+            font-size: 18px;
+            min-width: 25px;
+        }
+        
+        .footer-contact a { 
+            color: var(--white); 
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-contact a:hover { 
+            color: var(--teal);
+        }
+        
+        .footer-bottom { 
+            text-align: center; 
+            padding-top: 30px; 
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--teal);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background-color: var(--navy);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .blocks-container { 
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .feature-list { 
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container { 
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .services-cards { 
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            }
+            
+            .projects-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            }
+            
+            .testimonial-grid { 
+                grid-template-columns: 1fr !important; 
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .form-container { 
+                padding: 0 15px;
+            }
+            
+            .form-group input, 
+            .form-group select, 
+            .form-group textarea { 
+                padding: 14px;
+            }
+            
+            nav ul { 
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu-btn { 
+                display: block;
+                z-index: 1001;
+            }
+            
+            .hero h1 { 
+                font-size: 32px;
+            }
+            
+            .hero p { 
+                font-size: 18px;
+            }
+            
+            .blocks-container { 
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-container { 
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .pricing-card { 
+                padding: 40px 25px;
+            }
+            
+            .price-amount { 
+                font-size: 2.8rem;
+            }
+            
+            .price-comparison { 
+                flex-direction: column; 
+                gap: 20px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .service-card, .block {
+                padding: 30px 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 15px;
+            }
+            
+            .whatsapp-btn {
+                padding: 14px 30px;
+                font-size: 16px;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .price-comparison-item {
+                padding: 20px 15px;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .footer-logo {
+                font-size: 24px;
+            }
+            
+            .footer-logo img {
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/Icon Only.png" alt="Prime Chain Logo">
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="main-nav">
+                    <li><a href="#what-you-get">What's Included</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#projects">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <span class="hook">Special Offer This Week</span>
+            <h1>80% of Customers Search Online Before Buying</h1>
+            <p>We help South African small businesses get found where customers are already looking — on Google.</p>
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary">Get Your Website Quote</a>
+                <a href="#what-you-get" class="btn btn-secondary">See What's Included</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="intro">
+        <div class="container">
+            <h2>Why Choose Open2Search?</h2>
+            <p>
+                At Open2Search, we specialize in creating affordable, high-impact websites for South African small businesses. 
+                Our mission is to help you establish a professional online presence quickly and effectively, so you can focus on what you do best — running your business.
+            </p>
+            <p>
+                Unlike traditional web design that can take weeks and cost thousands, we deliver SEO-optimized, mobile-friendly websites in just days at a fraction of the cost.
+            </p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2>Why Your Business Needs to Be Online</h2>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h3>80%</h3>
+                    <p>of customers search online before making a purchase decision.</p>
+                </div>
+                <div class="stat-item">
+                    <h3>70%</h3>
+                    <p>say they judge a business's credibility based on its website design.</p>
+                </div>
+                <div class="stat-item">
+                    <h3>28%</h3>
+                    <p>of small businesses still don't have a website — losing leads daily.</p>
+                </div>
+                <div class="stat-item">
+                    <h3>94%</h3>
+                    <p>of first impressions are based on visual design and speed.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="whats-included" id="what-you-get">
+        <div class="container">
+            <div class="section-title">
+                <h2>What's Included in Every Smart Website</h2>
+                <p>Whether you're starting small or going big — every website is built with visibility, speed, and mobile in mind.</p>
+            </div>
+            <div class="blocks-container">
+                <div class="block">
+                    <i class="fas fa-laptop"></i>
+                    <h3>Mobile-Optimized Design</h3>
+                    <p>Clean layout that looks professional on phones, tablets and desktops.</p>
+                    <span class="story">→ So you impress customers anywhere</span>
+                </div>
+                <div class="block">
+                    <i class="fas fa-search"></i>
+                    <h3>Google-Ready Structure</h3>
+                    <p>Your site is indexed, SEO-tuned, and structured to show up in search.</p>
+                    <span class="story">→ So new customers can find you</span>
+                </div>
+                <div class="block">
+                    <i class="fas fa-rocket"></i>
+                    <h3>Live in 3–5 Days</h3>
+                    <p>Get online fast — we handle the setup, you stay focused on business.</p>
+                    <span class="story">→ So you're winning leads while others are still planning</span>
+                </div>
+            </div>
+
+            <div class="blocks-container" style="margin-top: 40px;">
+                <div class="block">
+                    <i class="fas fa-comments"></i>
+                    <h3>WhatsApp Integration</h3>
+                    <p>Let customers message you instantly with a tap — no missed leads.</p>
+                    <span class="story">→ Included in Smart Growth & Pro tiers</span>
+                </div>
+                <div class="block">
+                    <i class="fas fa-envelope-open-text"></i>
+                    <h3>Lead Collection Form</h3>
+                    <p>Integrated contact forms send enquiries straight to your inbox.</p>
+                    <span class="story">→ Upgrade to start collecting leads 24/7</span>
+                </div>
+                <div class="block">
+                    <i class="fas fa-tools"></i>
+                    <h3>Optional Add-Ons</h3>
+                    <p>Analytics setup, blog tools, booking forms, or customer insights dashboards.</p>
+                    <span class="story">→ Only if you need them — no bloat, no pressure</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container pricing-container">
+            <div class="section-title">
+                <h2>Simple, Transparent Pricing</h2>
+                <p>Everything you need to launch your digital presence</p>
+            </div>
+            <div class="price-comparison">
+                <div class="price-comparison-item ours">
+                    <h4>Open2Search</h4>
+                    <p>R899</p>
+                    <small>One-time payment</small>
+                </div>
+                <div class="price-comparison-item theirs">
+                    <h4>Typical DIY Site</h4>
+                    <p>R7,999+</p>
+                    <small>Plus monthly fees</small>
+                </div>
+            </div>
+            <div class="roi-calc">
+                <p><strong>Your site can pay for itself</strong> with just a few new customers — often within days.</p>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-highlight">Best Value</div>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Professional Website Setup</li>
+                    <li><i class="fas fa-check-circle"></i> 12 Months Premium Hosting</li>
+                    <li><i class="fas fa-check-circle"></i> Basic SEO Optimization</li>
+                    <li><i class="fas fa-check-circle"></i> Google Business Registration</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile-Optimized Design</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Page Website Structure</li>
+                    <li><i class="fas fa-check-circle"></i> Contact Form Integration</li>
+                    <li><i class="fas fa-check-circle"></i> 5-Day Turnaround</li>
+                </ul>
+                <div class="pricing-cta">
+                    <a href="https://wa.me/27736775675" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> Get Started Today
+                    </a>
+                    <p class="price-note">No hidden fees · No monthly charges</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="services-title">
+                <h2>How We Help You Succeed</h2>
+                <div class="services-divider"></div>
+            </div>
+            <div class="services-cards">
+                <div class="service-card">
+                    <i class="fas fa-user-cog"></i>
+                    <h3>Built Around You</h3>
+                    <p>We work from your idea, your reality. No bloated features, just what you need to get results.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Fast Launch</h3>
+                    <p>Get online quickly with clarity and confidence. Our streamlined process gets you live in days, not weeks.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Friendly</h3>
+                    <p>Looks great on any device — because most of your customers will visit from their phones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="projects-title">
+                <h2>Recent Projects</h2>
+                <div class="projects-divider"></div>
+            </div>
+            <div class="projects-grid">
+                <a href="https://skhumbuzot.github.io/NextGen/" target="_blank" class="project-item">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="NextGen Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>NextGen</h3>
+                        <p>Modern tech solutions website that increased enquiries by 112% in first month</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/Serenity/" target="_blank" class="project-item">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Serenity Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Serenity</h3>
+                        <p>Wellness and meditation platform with 70% mobile bookings</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/UrbanEdge/" target="_blank" class="project-item">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="UrbanEdge Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>UrbanEdge</h3>
+                        <p>Contemporary urban living showcase generating 15+ leads monthly</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+                <a href="https://skhumbuzot.github.io/AurokEnergies/" target="_blank" class="project-item">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" alt="Aurok Energies Project">
+                    </div>
+                    <div class="project-content">
+                        <h3>Aurok Energies</h3>
+                        <p>Renewable energy solutions site with 100% uptime since launch</p>
+                        <span class="view-link">View Project <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>Excellent service and great value for money. The team understood exactly what we needed for our construction business. Enquiries doubled in the first 30 days.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-metric">2x more enquiries</span>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Samantha K">
+                            <div class="testimonial-author-info">
+                                <h4>Samantha K</h4>
+                                <p>Director, Nextgen Marketing Co</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>I was amazed at how fast everything was set up! My business now shows up on Google, and I've seen a steady increase in inquiries - about 8-10 per week now.</p>
+                        <div class="testimonial-stars">★★★★★</div>
+                        <span class="testimonial-metric">8-10 leads/week</span>
+                        <div class="testimonial-author">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Jolene M">
+                            <div class="testimonial-author-info">
+                                <h4>Jolene M</h4>
+                                <p>Founder, Serenity</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Generation Form -->
+    <section class="form-section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Need a Digital Presence? Let's Build It.</h2>
+                <p class="section-subtitle">We'll guide you from idea to launch — even if you've never had a website before</p>
+            </div>
+            <div class="form-container">
+                <div class="urgency-banner">
+                    Submit this week for a free Google My Business review!
+                </div>
+                <form id="lead-form" action="https://formspree.io/f/xanwvekg" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+                        <input type="tel" id="phone" name="phone" placeholder="+27 XX XXX XXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="businessType">Business Type</label>
+                        <select id="businessType" name="businessType" required>
+                            <option value="">Select your business type</option>
+                            <option value="retail">Retail</option>
+                            <option value="restaurant">Restaurant/Food Service</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="construction">Construction</option>
+                            <option value="beauty">Beauty/Wellness</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your business</label>
+                        <textarea id="message" name="message" rows="4" placeholder="What do you do? What are your goals for going digital?"></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">
+                        Get Free Quote
+                    </button>
+                </form>
+                <div class="privacy-note">
+                    <i class="fas fa-lock"></i> We won't share your information with anyone else.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/Icon Only.png" alt="Prime Chain Logo" style="height: 40px;">
+                        Open2<span>Search</span>
+                    </div>
+                    <p>A Prime Chain Solutions service helping South African small businesses establish their online presence quickly and affordably.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#what-you-get">What's Included</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#projects">Portfolio</a></li>
+                        <li><a href="#contact">Get Started</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contact Us</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+            this.querySelector('i').classList.toggle('fa-times');
+            this.querySelector('i').classList.toggle('fa-bars');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                if(document.querySelector('nav ul').classList.contains('show')) {
+                    document.querySelector('nav ul').classList.remove('show');
+                    document.querySelector('.mobile-menu-btn i').classList.toggle('fa-times');
+                    document.querySelector('.mobile-menu-btn i').classList.toggle('fa-bars');
+                }
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if(window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if(window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Form submission handling
+        const form = document.getElementById('lead-form');
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const formData = new FormData(form);
+                const submitButton = form.querySelector('button[type="submit"]');
+                
+                // Change button text and disable it
+                submitButton.textContent = 'Sending...';
+                submitButton.disabled = true;
+                
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(response => {
+                    if(response.ok) {
+                        // Show success message
+                        submitButton.textContent = 'Message Sent!';
+                        submitButton.style.backgroundColor = '#4CAF50';
+                        form.reset();
+                        
+                        // Reset button after 3 seconds
+                        setTimeout(() => {
+                            submitButton.textContent = 'Get Free Quote';
+                            submitButton.style.backgroundColor = '';
+                            submitButton.disabled = false;
+                        }, 3000);
+                    } else {
+                        throw new Error('Network response was not ok');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    submitButton.textContent = 'Error - Try Again';
+                    submitButton.style.backgroundColor = '#f44336';
+                    
+                    // Reset button after 3 seconds
+                    setTimeout(() => {
+                        submitButton.textContent = 'Get Free Quote';
+                        submitButton.style.backgroundColor = '';
+                        submitButton.disabled = false;
+                    }, 3000);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
