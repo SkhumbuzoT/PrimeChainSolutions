@@ -7,7 +7,7 @@
     <meta name="description" content="Prime Chain Solutions helps small businesses simplify operations using dashboards, automation, and digital visibility." />
     <meta name="keywords" content="streamlit dashboards, supply chain automation, WhatsApp bots, trucking visibility, website design for SMEs, Google Sheets, n8n workflows" />
     <!-- Favicon Link -->
-    <link rel="icon" href="/assets/favicon.png" type="image/png">
+    <link rel="icon" href="/assets/pcs.png" type="image/png">
     <title>Prime Chain Solutions - Smart Solutions for Small Businesses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +21,8 @@
             --charcoal: #36454F;
             --light-gray: #F5F5F5;
             --white: #FFFFFF;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --whatsapp-green: #25D366;
+            --transition: all 0.3s ease;
         }
         
         * {
@@ -45,7 +46,7 @@
             padding: 0 20px;
         }
         
-        /* Header - Improved with better mobile handling */
+        /* Header - Matched to Open2Search */
         header {
             position: fixed;
             top: 0;
@@ -59,8 +60,8 @@
         }
         
         header.scrolled {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
             padding: 5px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
         }
         
         .header-container {
@@ -69,20 +70,23 @@
             align-items: center;
         }
         
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .logo-text {
+        .logo {
             font-weight: 700;
             font-size: 24px;
             color: var(--navy);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
         }
         
-        .logo-text span {
+        .logo span {
             color: var(--teal);
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+            transition: var(--transition);
         }
         
         nav ul {
@@ -103,6 +107,10 @@
             padding: 5px 0;
         }
         
+        nav ul li a:hover {
+            color: var(--teal);
+        }
+        
         nav ul li a:after {
             content: '';
             position: absolute;
@@ -118,10 +126,6 @@
             width: 100%;
         }
         
-        nav ul li a:hover {
-            color: var(--teal);
-        }
-        
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -129,79 +133,21 @@
             font-size: 24px;
             color: var(--navy);
             cursor: pointer;
-            transition: var(--transition);
-            padding: 10px;
             z-index: 1001;
+            padding: 10px;
         }
         
-        .mobile-menu-btn:hover {
-            color: var(--teal);
-        }
-        
-        /* Sections - Improved spacing and consistency */
-        section {
-            padding: 100px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--navy);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--teal);
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--charcoal);
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.9;
-        }
-        
-        /* Hero Section - More engaging with subtle animation */
+        /* Hero Section - Matched to Open2Search */
         .hero {
             height: 100vh;
             min-height: 600px;
-            background: 
-                linear-gradient(rgba(0, 35, 102, 0.85), rgba(0, 35, 102, 0.85)),
-                url('./assets/vision.png') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 35, 102, 0.85), rgba(0, 35, 102, 0.85)), url('./assets/vision.png') no-repeat center center/cover;
             display: flex;
             align-items: center;
-            justify-content: center;
             text-align: center;
             color: var(--white);
             padding-top: 80px;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(ellipse at center, rgba(0,35,102,0.4) 0%, rgba(0,35,102,0.8) 100%);
-            z-index: 0;
         }
         
         .hero-content {
@@ -210,7 +156,7 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 1s ease;
         }
         
         @keyframes fadeInUp {
@@ -228,7 +174,7 @@
             font-size: 3.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
+            line-height: 1.3;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
@@ -247,27 +193,25 @@
         
         .btn {
             display: inline-block;
-            padding: 15px 35px;
-            border-radius: 4px;
+            padding: 14px 32px;
+            border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: var(--transition);
-            font-size: 1rem;
+            font-size: 16px;
             text-align: center;
-            cursor: pointer;
-            border: none;
         }
         
         .btn-primary {
             background-color: var(--teal);
             color: var(--white);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
         }
         
         .btn-primary:hover {
             background-color: var(--navy);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 6px 20px rgba(0, 35, 102, 0.4);
         }
         
         .btn-secondary {
@@ -279,33 +223,25 @@
         .btn-secondary:hover {
             background-color: var(--white);
             color: var(--navy);
-            border-color: var(--white);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
         
-        /* About Section - More structured layout */
+        /* About Section - Matched to Open2Search */
         .about-section {
+            padding: 80px 0;
             background-color: var(--white);
-            padding: 100px 0;
         }
         
         .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
             text-align: center;
         }
         
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-        
         .about-text h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
             color: var(--navy);
-            margin-bottom: 20px;
             position: relative;
             display: inline-block;
         }
@@ -316,52 +252,58 @@
             bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
+            width: 80px;
+            height: 4px;
             background: var(--teal);
+            border-radius: 2px;
         }
         
         .about-text p {
             font-size: 1.1rem;
-            line-height: 1.7;
-            color: var(--charcoal);
+            line-height: 1.8;
             margin-bottom: 20px;
+            color: var(--charcoal);
         }
         
-        /* Stats Section - New component */
+        /* Stats Section - Matched to Open2Search */
         .stats-section {
             background-color: var(--light-gray);
-            padding: 60px 0;
-            margin-bottom: 40px;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .stats-section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 50px;
+            color: var(--navy);
         }
         
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 30px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
         
         .stat-item {
             background: var(--white);
-            padding: 30px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
         
         .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
         .stat-number {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.8rem;
             color: var(--teal);
-            line-height: 1;
             margin-bottom: 10px;
+            font-weight: 700;
         }
         
         .stat-label {
@@ -369,49 +311,62 @@
             color: var(--charcoal);
         }
         
-        /* Building Blocks Section - Improved card design */
+        /* Building Blocks Section - Matched to Open2Search */
         .building-blocks {
-            background-color: var(--light-gray);
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--navy);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--teal);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--charcoal);
         }
         
         .blocks-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .block {
-            background-color: var(--white);
+            background-color: var(--light-gray);
             padding: 40px 30px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             border: 1px solid rgba(0,0,0,0.05);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .block:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: var(--teal);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-        }
-        
-        .block:hover:before {
-            transform: scaleX(1);
         }
         
         .block:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
         .block-icon {
@@ -427,7 +382,7 @@
         
         .block h3 {
             font-size: 1.5rem;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: var(--navy);
         }
         
@@ -436,7 +391,12 @@
             color: var(--charcoal);
         }
         
-        /* Solutions Section - Enhanced card interaction */
+        /* Solutions Section - Matched to Open2Search */
+        .solutions {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
         .solutions-container {
             display: flex;
             justify-content: center;
@@ -448,9 +408,8 @@
             width: 350px;
             transition: var(--transition);
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            position: relative;
         }
         
         .solution-card:hover {
@@ -467,31 +426,11 @@
             font-size: 70px;
             color: var(--teal);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
         }
         
-        .solution-img:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(0,35,102,0.8) 0%, rgba(0,128,128,0.8) 100%);
-            opacity: 0;
-            transition: var(--transition);
-        }
-        
-        .solution-card:hover .solution-img:before {
-            opacity: 1;
-        }
-        
-        .solution-card:hover .solution-img i {
+        .solution-card:hover .solution-img {
+            background-color: var(--navy);
             color: white;
-            position: relative;
-            z-index: 1;
-            transform: scale(1.1);
         }
         
         .solution-content {
@@ -532,43 +471,25 @@
             transform: translateX(5px);
         }
         
-        /* Differentiators Section - Enhanced visual appeal */
+        /* Differentiators Section - Matched to Open2Search */
         .differentiators {
-            background-color: var(--light-gray);
+            padding: 80px 0;
+            background-color: var(--white);
         }
         
         .differentiators-container {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
         
         .differentiator-card {
-            background-color: var(--white);
+            background-color: var(--light-gray);
             padding: 40px 30px;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .differentiator-card:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--teal), var(--navy));
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition);
-        }
-        
-        .differentiator-card:hover:after {
-            transform: scaleX(1);
         }
         
         .differentiator-card:hover {
@@ -597,9 +518,10 @@
             color: var(--charcoal);
         }
         
-        /* Testimonials Section - More polished design */
+        /* Testimonials Section - Matched to Open2Search */
         .testimonials {
-            background-color: var(--white);
+            padding: 80px 0;
+            background-color: var(--light-gray);
         }
         
         .testimonial-container {
@@ -613,7 +535,7 @@
             margin: 50px 0;
             padding: 40px;
             border-left: 4px solid var(--teal);
-            background-color: var(--light-gray);
+            background-color: var(--white);
             border-radius: 8px;
             position: relative;
             font-style: italic;
@@ -628,7 +550,6 @@
             font-size: 5rem;
             color: rgba(0,128,128,0.1);
             font-family: Georgia, serif;
-            z-index: 0;
         }
         
         blockquote span {
@@ -637,35 +558,16 @@
             color: var(--teal);
             font-weight: bold;
             font-style: normal;
-            position: relative;
-            z-index: 1;
         }
         
-        /* CTA Section - More compelling design */
+        /* CTA Section - Matched to Open2Search */
         .cta-section {
             background-color: var(--navy);
             color: var(--white);
             text-align: center;
+            padding: 80px 0;
             position: relative;
             overflow: hidden;
-        }
-        
-        .cta-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.03)" d="M0,0 L100,0 L100,100 L0,100 Z" /></svg>');
-            background-size: cover;
-            opacity: 0.5;
-            z-index: 0;
-        }
-        
-        .cta-section .container {
-            position: relative;
-            z-index: 1;
         }
         
         .cta-section h3 {
@@ -680,7 +582,7 @@
             opacity: 0.9;
         }
         
-        /* Form Styles - Improved usability */
+        /* Form Styles - Matched to Open2Search */
         form {
             max-width: 600px;
             margin: 40px auto 0;
@@ -698,17 +600,16 @@
         
         form input[type="email"] {
             padding: 15px 20px;
-            border-radius: 4px;
+            border-radius: 6px;
             border: none;
             width: 100%;
             font-size: 1rem;
             transition: var(--transition);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
         
         form input[type="email"]:focus {
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0,128,128,0.3);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
         }
         
         form button[type="submit"] {
@@ -716,9 +617,20 @@
             border: none;
             cursor: pointer;
             transition: var(--transition);
+            border-radius: 6px;
+            font-weight: 600;
+            background-color: var(--teal);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
         }
         
-        /* Footer - More organized layout */
+        form button[type="submit"]:hover {
+            background-color: var(--navy);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 35, 102, 0.4);
+        }
+        
+        /* Footer - Matched to Open2Search */
         footer {
             background-color: var(--navy);
             color: var(--white);
@@ -738,9 +650,9 @@
         
         .footer-container {
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
         }
         
         .footer-logo {
@@ -750,7 +662,6 @@
             color: var(--white);
             display: flex;
             align-items: center;
-            gap: 10px;
         }
         
         .footer-logo span {
@@ -758,14 +669,14 @@
         }
         
         .footer-logo img {
-            height: 40px;
+            height: 35px;
+            margin-right: 10px;
             filter: brightness(0) invert(1);
         }
         
         .footer-about p {
             margin-bottom: 25px;
-            opacity: 0.9;
-            line-height: 1.6;
+            line-height: 1.7;
         }
         
         .social-links {
@@ -774,20 +685,21 @@
         }
         
         .social-links a {
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: var(--transition);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(255,255,255,0.1);
-            color: var(--white);
-            font-size: 1.1rem;
-            transition: var(--transition);
+            background: rgba(255,255,255,0.1);
         }
         
         .social-links a:hover {
-            background-color: var(--teal);
+            color: var(--teal);
+            background: rgba(255,255,255,0.2);
             transform: translateY(-3px);
         }
         
@@ -821,39 +733,60 @@
             color: var(--white);
             text-decoration: none;
             transition: var(--transition);
-            opacity: 0.9;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            display: inline-block;
+            padding: 5px 0;
+            position: relative;
         }
         
-        .footer-links ul li a i {
-            font-size: 0.8rem;
-            color: var(--teal);
+        .footer-links ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--teal);
             transition: var(--transition);
         }
         
         .footer-links ul li a:hover {
             color: var(--teal);
-            padding-left: 5px;
         }
         
-        .footer-links ul li a:hover i {
-            transform: translateX(3px);
+        .footer-links ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .footer-contact h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: var(--teal);
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-contact h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: var(--teal);
         }
         
         .footer-contact p {
             margin-bottom: 20px;
             display: flex;
-            align-items: flex-start;
-            opacity: 0.9;
+            align-items: center;
+            line-height: 1.6;
         }
         
         .footer-contact i {
             margin-right: 15px;
             color: var(--teal);
             font-size: 1.1rem;
-            margin-top: 3px;
+            min-width: 25px;
         }
         
         .footer-contact a {
@@ -870,11 +803,10 @@
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
             font-size: 0.9rem;
         }
         
-        /* Back to top button */
+        /* Back to top button - Matched to Open2Search */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -893,7 +825,7 @@
             opacity: 0;
             visibility: hidden;
             z-index: 999;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .back-to-top.visible {
@@ -906,30 +838,15 @@
             transform: translateY(-5px);
         }
         
-        /* Animation Classes - Smoother transitions */
-        .animate-section {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        
-        .animate-section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Responsive Styles - Enhanced mobile experience */
-        @media (max-width: 1200px) {
-            .blocks-container,
-            .differentiators-container,
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        
+        /* Responsive Styles - Matched to Open2Search */
         @media (max-width: 992px) {
+            .blocks-container,
+            .differentiators-container {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
             .footer-container {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
             
             .hero h1 {
@@ -947,26 +864,17 @@
                 height: 100vh;
                 background-color: var(--white);
                 flex-direction: column;
-                padding: 80px 20px 40px;
-                box-shadow: 0 5px 30px rgba(0,0,0,0.1);
-                z-index: 999;
-                transition: var(--transition);
-                transform: translateX(-100%);
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
             }
             
             nav ul.show {
                 display: flex;
-                transform: translateX(0);
             }
             
             nav ul li {
-                margin: 0;
-                padding: 15px 20px;
-                border-bottom: 1px solid rgba(0,0,0,0.05);
-            }
-            
-            nav ul li a {
-                font-size: 1.2rem;
+                margin: 15px 0;
             }
             
             .mobile-menu-btn {
@@ -982,8 +890,7 @@
             }
             
             .blocks-container,
-            .differentiators-container,
-            .stats-container {
+            .differentiators-container {
                 grid-template-columns: 1fr;
             }
             
@@ -993,20 +900,19 @@
             }
             
             section {
-                padding: 80px 0;
+                padding: 60px 0;
             }
             
             .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .about-text h3 {
                 font-size: 1.8rem;
             }
             
-            .solution-card {
-                width: 100%;
-                max-width: 400px;
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
         
@@ -1018,7 +924,6 @@
             
             .btn {
                 width: 100%;
-                text-align: center;
             }
             
             form input[type="email"] {
@@ -1029,28 +934,8 @@
                 font-size: 2rem;
             }
             
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .section-title h2 {
-                font-size: 1.8rem;
-            }
-            
             .footer-logo {
                 font-size: 1.5rem;
-            }
-            
-            .footer-links h4 {
-                font-size: 1.2rem;
-            }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-                bottom: 20px;
-                right: 20px;
             }
         }
     </style>
@@ -1059,13 +944,9 @@
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
-            <div class="logo-container">
-                <img 
-                    src="assets/Icon Only.png" 
-                    alt="Prime Chain Logo" 
-                    style="height: 50px; vertical-align: middle; filter: drop-shadow(0 2px 2px rgba(0,0,0,0.2));"
-                >
-            </div>
+            <a href="#" class="logo">
+                <img src="assets/Icon Only.png" alt="Prime Chain Logo">
+            </a>
             <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
@@ -1081,7 +962,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero animate-section">
+    <section class="hero">
         <div class="hero-content">
             <h1>Visibility and Automation to Keep Your Supply Chain Moving</h1>
             <p>We deliver practical tools that give you real-time insight and streamline your operations — so your business runs smoother, faster, and with fewer headaches.</p>
@@ -1093,7 +974,7 @@
     </section>
 
     <!-- About Section -->
-    <section class="about-section animate-section">
+    <section class="about-section">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
@@ -1114,30 +995,32 @@
     </section>
 
     <!-- Stats Section -->
-    <section class="stats-section animate-section">
+    <section class="stats-section">
         <div class="container">
+            <h2>Our Impact in Numbers</h2>
             <div class="stats-container">
                 <div class="stat-item">
-                    <span class="stat-number">50+</span>
-                    <span class="stat-label">Businesses Empowered</span>
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Businesses Empowered</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">24/7</span>
-                    <span class="stat-label">Operational Visibility</span>
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Operational Visibility</div>
                 </div>
                 <div class="stat-item">
-                    <span class="stat-number">100%</span>
-                    <span class="stat-label">Client Satisfaction</span>
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Client Satisfaction</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Building Blocks Section -->
-    <section class="building-blocks animate-section">
+    <section class="building-blocks">
         <div class="container">
             <div class="section-title">
                 <h2>Built to solve real operational headaches — fast, simple, effective.</h2>
+                <p>Our solutions are designed to address the specific challenges small businesses face in supply chain management</p>
             </div>
             <div class="blocks-container">
                 <div class="block">
@@ -1160,7 +1043,7 @@
     </section>
     
     <!-- Solutions Section -->
-    <section id="solutions" class="solutions animate-section">
+    <section id="solutions" class="solutions">
         <div class="container">
             <div class="section-title">
                 <h2>Featured Use Cases / Demos</h2>
@@ -1189,7 +1072,7 @@
     
 
     <!-- Differentiators Section -->
-    <section id="about" class="differentiators animate-section">
+    <section id="about" class="differentiators">
         <div class="container">
             <div class="section-title">
                 <h2>Why Partner with Us?</h2>
@@ -1222,7 +1105,7 @@
     </section>
     
     <!-- Testimonials Section -->
-    <section class="testimonials animate-section">
+    <section class="testimonials">
         <div class="container">
             <div class="section-title">
                 <h2>What Our Clients Say</h2>
@@ -1237,7 +1120,7 @@
     </section>
     
     <!-- CTA Section -->
-    <section id="contact" class="cta-section animate-section">
+    <section id="contact" class="cta-section">
         <div class="container">
             <h3>Ready to Take Control of Your Operations?</h3>
             <p>We'll help you simplify, digitize, and grow — with solutions tailored to your reality.</p>
@@ -1260,8 +1143,8 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="assets/Icon Only.png" alt="Prime Chain Logo" style="height: 40px;">
-                        <span>Prime<span>Chain</span></span>
+                        <img src="assets/Icon Only.png" alt="Prime Chain Logo">
+                        Prime<span>Chain</span>
                     </div>
                     <p>Helping small businesses grow, compete, and stay in control with smart, accessible solutions.</p>
                     <div class="social-links">
@@ -1273,10 +1156,10 @@
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
-                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
-                        <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
-                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#solutions">Solutions</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
