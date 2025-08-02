@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrimeTower Theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Base Theme Variables */
+        :root {
+            --navy: #002366;
+            --teal: #008080;
+            --gold: #FFD700;
+            --charcoal: #36454F;
+            --light-gray: #F5F5F5;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+        }
+        
+        /* Reset and Base Styles */
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            color: var(--charcoal); 
+            line-height: 1.5; 
+            background-color: var(--light-gray);
+        }
+        
+        .container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--navy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--navy);
+        }
+        
+        /* Layout Components */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--charcoal);
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1rem;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background-color: var(--teal);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(0, 128, 128, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--navy);
+            border: 2px solid var(--navy);
+        }
+        
+        .btn-secondary:hover {
+            background-color: rgba(0, 35, 102, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            margin-bottom: 2rem;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            font-size: 1.8rem;
+            color: var(--teal);
+            margin-right: 15px;
+        }
+        
+        /* Forms */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(0, 128, 128, 0.1);
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--navy);
+        }
+        
+        .navbar-brand span {
+            color: var(--teal);
+        }
+        
+        /* Dashboard Components */
+        .metric-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--teal);
+            margin: 0.5rem 0;
+        }
+        
+        .metric-label {
+            color: var(--charcoal);
+            font-size: 0.9rem;
+        }
+        
+        /* Data Tables */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        
+        .table th {
+            background-color: var(--navy);
+            color: var(--white);
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .table tr:hover {
+            background-color: rgba(0, 128, 128, 0.05);
+        }
+        
+        /* Alerts */
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-success {
+            background-color: rgba(0, 128, 128, 0.1);
+            border-left: 4px solid var(--teal);
+            color: var(--teal);
+        }
+        
+        .alert-warning {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--gold);
+            color: #856404;
+        }
+        
+        .alert-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Responsive Grid */
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .grid-cols-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .grid-cols-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .grid-cols-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .grid-cols-2,
+            .grid-cols-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <div class="navbar-brand">Prime<span>Tower</span></div>
+            <div>
+                <a href="#" class="btn btn-secondary">Login</a>
+                <a href="#" class="btn btn-primary">Sign Up</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Dashboard Header -->
+        <div class="section-header">
+            <h2>Fleet Management Dashboard</h2>
+            <p>Real-time visibility into your fleet operations</p>
+        </div>
+        
+        <!-- Metrics Overview -->
+        <div class="grid grid-cols-3">
+            <div class="metric-card">
+                <div class="metric-value">24</div>
+                <div class="metric-label">Active Trucks</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">1,842</div>
+                <div class="metric-label">KM Today</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">R42,560</div>
+                <div class="metric-label">Today's Revenue</div>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="grid grid-cols-2">
+            <!-- Fleet Status Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Fleet Status</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Truck ID</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TRK-1024</td>
+                            <td><span style="color: var(--teal);">On Route</span></td>
+                            <td>N1 Highway</td>
+                        </tr>
+                        <tr>
+                            <td>TRK-1025</td>
+                            <td><span style="color: var(--gold);">Loading</span></td>
+                            <td>Johannesburg Depot</td>
+                        </tr>
+                        <tr>
+                            <td>TRK-1026</td>
+                            <td><span style="color: var(--teal);">On Route</span></td>
+                            <td>M2 Highway</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Fuel Efficiency Card -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-gas-pump"></i>
+                    </div>
+                    <h3>Fuel Efficiency</h3>
+                </div>
+                <p>Average fuel consumption: 3.2 km/l</p>
+                <p>Best performing truck: TRK-1024 (3.8 km/l)</p>
+                <p>Worst performing truck: TRK-1027 (2.7 km/l)</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary">View Details</button>
+                    <button class="btn btn-secondary">Generate Report</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Alerts -->
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <h3>Recent Alerts</h3>
+            </div>
+            <div class="alert alert-success">
+                <div class="alert-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div>TRK-1024 completed delivery 30 minutes ahead of schedule</div>
+            </div>
+            <div class="alert alert-warning">
+                <div class="alert-icon">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div>TRK-1027 requires scheduled maintenance</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
