@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Articles | Prime Chain</title>
+  <title>Articles | Prime Chain Solutions</title>
+  <!-- Main Site CSS -->
   <link rel="stylesheet" href="style.css" />
+  <!-- Favicon / Apple / Mask -->
+  <link rel="icon" href="assets/favicon_transparent.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/favicon_transparent.svg">
+  <link rel="mask-icon" href="assets/favicon_transparent.svg" color="#002366">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon" href="/assets/favicon_transparent.svg" type="image/svg+xml">
 </head>
 <body>
-
-  <!-- Header (copied from index.html) -->
+  <!-- Header -->
   <header id="header">
     <div class="container header-container">
       <a href="index.html" class="logo">
@@ -42,7 +44,6 @@
         <h2>Weekly Articles</h2>
         <p>Insights and real stories from the world of supply chain, automation, and operational efficiency.</p>
       </div>
-
       <div class="solutions-container">
         <!-- Week 1 -->
         <div class="solution-card">
@@ -53,7 +54,6 @@
             <a href="articles/week-01.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
         <!-- Week 2 -->
         <div class="solution-card">
           <div class="solution-img"><i class="fas fa-truck"></i></div>
@@ -63,13 +63,12 @@
             <a href="articles/week-02.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-
-        <!-- Add more weeks here -->
+        <!-- Add more weeks here as needed -->
       </div>
     </div>
   </section>
 
-  <!-- Footer (copied from index.html) -->
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-container">
@@ -119,7 +118,7 @@
     <i class="fas fa-arrow-up"></i>
   </div>
 
-  <!-- JS (copy from your index.html for menu, scroll, etc.) -->
+  <!-- JS for menu, scroll, and animation -->
   <script>
     // Mobile menu toggle
     document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
@@ -143,12 +142,10 @@
         });
     });
 
-    // Header scroll effect and scroll progress
+    // Header scroll effect and back to top button
     window.addEventListener('scroll', function() {
         const header = document.getElementById('header');
         const scrollY = window.scrollY;
-
-        // Header styling
         if (header) {
           if (scrollY > 50) {
               header.classList.add('scrolled');
@@ -156,8 +153,6 @@
               header.classList.remove('scrolled');
           }
         }
-
-        // Back to top button
         const backToTop = document.querySelector('.back-to-top');
         if (backToTop) {
           if (scrollY > 300) {
@@ -176,12 +171,11 @@
         });
     });
 
-    // Animate on scroll (if you want to use .animate-on-scroll)
+    // Animate on scroll
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -190,7 +184,6 @@
             }
         });
     }, observerOptions);
-
     document.querySelectorAll('.animate-on-scroll').forEach(el => {
         observer.observe(el);
     });
