@@ -6,13 +6,33 @@
     <!-- SEO Metadata -->
     <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
     <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" />
-    <!-- Favicon Link -->
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="og:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="og:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="twitter:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
+
+    <!-- Favicon Links -->
     <link rel="icon" href="/assets/favicon_transparent.png" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/favicon_transparent.png">
+    <link rel="mask-icon" href="/assets/favicon_transparent.svg" color="#002366">
+    
     <title>Prime Chain Solutions - Visibility and Automation for Businesses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Library -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
         :root {
             --navy: #002366;
@@ -43,7 +63,19 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 20px 60px; /* Consistent bottom padding */
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: var(--teal);
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.2s ease;
         }
         
         /* Header - Matched to Open2Search */
@@ -224,6 +256,19 @@
             background-color: var(--white);
             color: var(--navy);
             transform: translateY(-3px);
+        }
+        
+        /* WhatsApp Button Style */
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #1ebe5b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(30, 190, 91, 0.4);
         }
         
         /* Stats Section - Matched to Open2Search */
@@ -1105,7 +1150,77 @@
             color: var(--charcoal);
         }
         
-        /* Responsive Styles - Matched to Open2Search */
+        /* Card Grids */
+        .problem-cards,
+        .solution-highlights,
+        .target-market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        /* Card Styling */
+        .problem-card,
+        .solution-pillar,
+        .target-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .problem-card:hover,
+        .solution-pillar:hover,
+        .target-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,128,128,0.1);
+        }
+        
+        /* Icon Styling */
+        .problem-icon,
+        .approach-icon,
+        .target-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--teal);
+        }
+        
+        /* About Section */
+        .about-section .container {
+            padding-top: 60px;
+            padding-bottom: 60px;
+        }
+        
+        /* Industry Banner */
+        .industry-banner {
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .industry-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .industry-tags span {
+            background: var(--light-gray);
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Styles */
         @media (max-width: 992px) {
             .services-grid,
             .differentiators-container {
@@ -1129,11 +1244,13 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background-color: var(--white);
+                background-color: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(8px);
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 z-index: 1000;
+                transition: all 0.3s ease;
             }
             
             nav ul.show {
@@ -1146,6 +1263,10 @@
             
             .mobile-menu-btn {
                 display: block;
+            }
+            
+            .hero {
+                padding-top: 100px;
             }
             
             .hero h1 {
@@ -1181,6 +1302,18 @@
                 bottom: 20px;
                 right: 20px;
             }
+            
+            /* Card Grids for Mobile */
+            .problem-cards,
+            .solution-highlights,
+            .target-market-grid {
+                gap: 1.5rem;
+            }
+            
+            /* Stats label size */
+            .stat-label {
+                font-size: 0.9rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -1204,6 +1337,7 @@
             .footer-logo {
                 font-size: 1.5rem;
             }
+            
             /* Consistent Section Styling */
             .section-title {
                 text-align: center;
@@ -1234,46 +1368,13 @@
                 font-size: 1.2rem;
                 color: var(--charcoal);
             }
-            
-            /* Card Styling Consistency */
-            .problem-card,
-            .solution-pillar,
-            .approach-card,
-            .credential-item,
-            .target-card {
-                background: white;
-                border-radius: 12px;
-                padding: 30px;
-                box-shadow: 0 5px 30px rgba(0,0,0,0.05);
-                transition: all 0.3s ease;
-            }
-            
-            .problem-card:hover,
-            .approach-card:hover,
-            .target-card:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 15px 40px rgba(0,128,128,0.1);
-            }
-            
-            /* Icon Styling Consistency */
-            .problem-icon,
-            .approach-icon,
-            .target-icon {
-                width: 60px;
-                height: 60px;
-                background: var(--light-gray);
-                border-radius: 50%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.5rem;
-                margin-bottom: 20px;
-                color: var(--teal);
-            }
         }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
     <!-- Header -->
     <header id="header">
         <div class="container header-container">
@@ -1297,18 +1398,18 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <h1>We Help Businesses See Clearly and Run Smoothly</h1>
             <p>Stop flying blind with your operations. 80% of organizations will adopt intelligent automation by 2025 - but most are still drowning in manual processes and can't see what's actually happening in their business.</p>
             <div class="btn-group">
-                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-primary">Get Started</a>
+                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-whatsapp">Message on WhatsApp</a>
                 <a href="#services" class="btn btn-secondary">See How It Works</a>
             </div>
         </div>
     </section>
 
     <!-- Problem Section -->
-    <section class="problem-section">
+    <section class="problem-section" data-aos="fade-up">
     <div class="container">
         <div class="section-title">
             <h2>Your Business is More Complex Than Your Tools</h2>
@@ -1317,25 +1418,25 @@
         
         <div class="problem-cards">
             <div class="problem-card">
-                <div class="problem-icon">📊</div>
+                <div class="problem-icon"><i class="fas fa-table"></i></div>
                 <h4>Data trapped in spreadsheets</h4>
                 <p>Important information scattered across systems that don't communicate with each other</p>
             </div>
             
             <div class="problem-card">
-                <div class="problem-icon">⚠️</div>
+                <div class="problem-icon"><i class="fas fa-exclamation-triangle"></i></div>
                 <h4>Problems discovered too late</h4>
                 <p>Finding out about issues when they're already expensive to fix</p>
             </div>
             
             <div class="problem-card">
-                <div class="problem-icon">⏳</div>
+                <div class="problem-icon"><i class="fas fa-tasks"></i></div>
                 <h4>Manual work overwhelming teams</h4>
                 <p>People spending hours on tasks that could be automated</p>
             </div>
             
             <div class="problem-card">
-                <div class="problem-icon">🤔</div>
+                <div class="problem-icon"><i class="fas fa-lightbulb"></i></div>
                 <h4>Decisions based on gut feel</h4>
                 <p>Making critical choices without real visibility into operations</p>
             </div>
@@ -1348,7 +1449,7 @@
 </section>
 
     <!-- Solution Section -->
-    <section class="solution-section">
+    <section class="solution-section" data-aos="fade-up">
     <div class="container">
         <div class="section-title">
             <h2>Two Things Every Business Needs</h2>
@@ -1386,7 +1487,7 @@
 </section>
 
     <!-- Industry Statistics Section -->
-    <section class="stats-section">
+    <section class="stats-section" data-aos="fade-up">
         <div class="container">
             <h2>Smart Businesses Are Making the Shift</h2>
             <p style="max-width: 800px; margin: 0 auto 40px;">Here's what forward-thinking companies are discovering about visibility and automation:</p>
@@ -1413,7 +1514,7 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="services-section">
+    <section id="services" class="services-section" data-aos="fade-up">
         <div class="container">
             <div class="services-header">
                 <h2>Our Services</h2>
@@ -1421,7 +1522,7 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
+                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
                     <h3>Operational Dashboards</h3>
                     <p>Real-time visibility into your key metrics and operations, tailored to your specific business needs.</p>
                     <ul class="service-features">
@@ -1432,7 +1533,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">⚙️</div>
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
                     <h3>Workflow Automation</h3>
                     <p>Eliminate repetitive tasks and connect your systems to work together seamlessly.</p>
                     <ul class="service-features">
@@ -1443,7 +1544,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-icon">🔍</div>
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
                     <h3>Process Visibility</h3>
                     <p>Identify bottlenecks and opportunities in your operations with clear, actionable insights.</p>
                     <ul class="service-features">
@@ -1457,7 +1558,7 @@
     </section>
 
     <!-- Approach Section -->
-    <section class="approach-section">
+    <section id="approach" class="approach-section" data-aos="fade-up">
     <div class="container">
         <div class="section-title">
             <h2>Our Approach</h2>
@@ -1501,7 +1602,7 @@
 </section>
 
     <!-- Our Story  -->
-    <section id="about" class="about-section">
+    <section id="about" class="about-section" data-aos="fade-up">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
@@ -1526,7 +1627,7 @@
     </section>
 
     <!-- Process Section -->
-    <section class="process-section">
+    <section class="process-section" data-aos="fade-up">
         <div class="container">
             <div class="process-content">
                 <div class="process-text">
@@ -1555,7 +1656,7 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials">
+    <section class="testimonials" data-aos="fade-up">
         <div class="container">
             <div class="section-title">
                 <h2>What Our Clients Say</h2>
@@ -1570,7 +1671,7 @@
     </section>
 
     <!-- Target Market Section -->
-    <section class="target-market-section">
+    <section class="target-market-section" data-aos="fade-up">
     <div class="container">
         <div class="section-title">
             <h2>Who We Help</h2>
@@ -1618,12 +1719,12 @@
 
 
     <!-- CTA Section -->
-    <section id="contact" class="cta-section">
+    <section id="contact" class="cta-section" data-aos="fade-up">
         <div class="container">
             <h3>Ready to See Clearly and Run Smoothly?</h3>
             <p><strong>Stop guessing. Start knowing.</strong><br>More than 80% of companies plan to keep or grow their investment in automation solutions. Don't get left behind.</p>
             <div class="btn-group">
-                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-primary">Schedule a Consultation</a>
+                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-whatsapp">Message on WhatsApp</a>
                 <a href="#services" class="btn btn-secondary">See a Demo</a>
                 <a href="#" class="btn btn-secondary">Download Overview</a>
             </div>
@@ -1681,7 +1782,16 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-in-out'
+        });
+
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const nav = document.querySelector('nav ul');
@@ -1719,6 +1829,13 @@
             } else {
                 backToTop.classList.remove('visible');
             }
+
+            // Scroll progress bar
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + "%";
         });
         
         // Back to top functionality
@@ -1753,31 +1870,6 @@
                     document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
                     document.body.style.overflow = '';
                 }
-            });
-        });
-
-        // Animation on scroll
-        const animateElements = () => {
-            const elements = document.querySelectorAll('.animate-section');
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.2;
-                
-                if (elementPosition < screenPosition) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-
-        // Initialize animations
-        window.addEventListener('load', animateElements);
-        window.addEventListener('scroll', animateElements);
-        
-        // Preload hover states for smoother transitions
-        document.addEventListener('DOMContentLoaded', function() {
-            const hoverElements = document.querySelectorAll('a, button, .block, .solution-card, .differentiator-card');
-            hoverElements.forEach(el => {
-                el.style.transform = 'translateZ(0)';
             });
         });
 
