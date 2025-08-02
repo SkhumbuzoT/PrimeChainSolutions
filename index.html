@@ -213,7 +213,7 @@
         
         /* Stunning Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: calc(100vh - 72px);
             background: var(--gradient-hero);
             display: flex;
             align-items: center;
@@ -475,6 +475,7 @@
         .section {
             padding: 120px 0;
             position: relative;
+            scroll-margin-top: 90px;
         }
         
         .section-alt {
@@ -513,6 +514,9 @@
             max-width: 700px;
             margin: 24px auto 0;
             line-height: 1.6;
+        }
+        .section:first-of-type {
+            margin-top: 100px; /* Prevents overlap under fixed header */
         }
         
         /* Enhanced Card Grids */
