@@ -943,11 +943,24 @@
         
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr); /* 4 columns on desktop */
             gap: 64px;
             margin-bottom: 64px;
             position: relative;
             z-index: 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+        }
+        @media (max-width: 600px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
         }
         
         .footer-logo {
