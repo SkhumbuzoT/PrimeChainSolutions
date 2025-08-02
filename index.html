@@ -529,7 +529,13 @@
         }
         
         .problem-cards {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            justify-content: center;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+            gap: 32px;
         }
         
         .solution-highlights {
@@ -538,11 +544,15 @@
             margin: 0 auto;
         }
         
-        .approach-grid{
+        .approach-grid {
+            display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 32px;
+            justify-content: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        
+                
         @media (max-width: 1024px) {
             .approach-grid {
                 grid-template-columns: repeat(2, 1fr);
