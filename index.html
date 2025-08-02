@@ -527,31 +527,30 @@
             display: grid;
             gap: 32px;
         }
-        
-        .problem-cards {
+        .problem-cards,
+        .approach-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            justify-content: center;
-            align-items: start;
-            max-width: 1100px;
-            margin: 0 auto;
+            grid-template-columns: repeat(4, 1fr);
             gap: 32px;
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
         }
         
+        .problem-cards .card,
+        .approach-grid .card {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+                
         .solution-highlights {
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             max-width: 1000px;
             margin: 0 auto;
         }
         
-        .approach-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-            justify-content: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
                 
         @media (max-width: 1024px) {
             .approach-grid {
