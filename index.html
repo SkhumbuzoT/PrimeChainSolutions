@@ -1204,6 +1204,72 @@
             .footer-logo {
                 font-size: 1.5rem;
             }
+            /* Consistent Section Styling */
+            .section-title {
+                text-align: center;
+                margin-bottom: 60px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+                color: var(--navy);
+                position: relative;
+                padding-bottom: 20px;
+            }
+            
+            .section-title h2:after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 80px;
+                height: 4px;
+                background: var(--teal);
+            }
+            
+            .section-title p {
+                max-width: 700px;
+                margin: 15px auto 0;
+                font-size: 1.2rem;
+                color: var(--charcoal);
+            }
+            
+            /* Card Styling Consistency */
+            .problem-card,
+            .solution-pillar,
+            .approach-card,
+            .credential-item,
+            .target-card {
+                background: white;
+                border-radius: 12px;
+                padding: 30px;
+                box-shadow: 0 5px 30px rgba(0,0,0,0.05);
+                transition: all 0.3s ease;
+            }
+            
+            .problem-card:hover,
+            .approach-card:hover,
+            .target-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 15px 40px rgba(0,128,128,0.1);
+            }
+            
+            /* Icon Styling Consistency */
+            .problem-icon,
+            .approach-icon,
+            .target-icon {
+                width: 60px;
+                height: 60px;
+                background: var(--light-gray);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 1.5rem;
+                margin-bottom: 20px;
+                color: var(--teal);
+            }
         }
     </style>
 </head>
@@ -1243,51 +1309,81 @@
 
     <!-- Problem Section -->
     <section class="problem-section">
-        <div class="container">
-            <div class="problem-content">
-                <div class="problem-text">
-                    <h3>Your Business is More Complex Than Your Tools</h3>
-                    <p><strong>You're not alone.</strong> Most businesses we meet are dealing with:</p>
-                    <ul class="problem-list">
-                        <li><strong>Data trapped in spreadsheets</strong> - Important information scattered across systems that don't talk</li>
-                        <li><strong>Problems discovered too late</strong> - Finding out about issues when they're expensive to fix</li>
-                        <li><strong>Manual work overwhelming teams</strong> - People spending hours on tasks that could be automated</li>
-                        <li><strong>Decisions based on gut feel</strong> - Making critical choices without real visibility</li>
-                    </ul>
-                    <p><strong>The numbers tell the story:</strong> The global business process automation market is growing from $14.2 billion in 2024 to $30.2 billion by 2030 because businesses can't keep operating the old way.</p>
-                </div>
+    <div class="container">
+        <div class="section-title">
+            <h2>Your Business is More Complex Than Your Tools</h2>
+            <p>Most businesses we meet are dealing with these common challenges</p>
+        </div>
+        
+        <div class="problem-cards">
+            <div class="problem-card">
+                <div class="problem-icon">📊</div>
+                <h4>Data trapped in spreadsheets</h4>
+                <p>Important information scattered across systems that don't communicate with each other</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="problem-icon">⚠️</div>
+                <h4>Problems discovered too late</h4>
+                <p>Finding out about issues when they're already expensive to fix</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="problem-icon">⏳</div>
+                <h4>Manual work overwhelming teams</h4>
+                <p>People spending hours on tasks that could be automated</p>
+            </div>
+            
+            <div class="problem-card">
+                <div class="problem-icon">🤔</div>
+                <h4>Decisions based on gut feel</h4>
+                <p>Making critical choices without real visibility into operations</p>
             </div>
         </div>
-    </section>
+        
+        <div class="stats-banner">
+            <p>The global business process automation market is growing from <strong>$14.2B (2024) to $30.2B by 2030</strong> because businesses can't keep operating the old way.</p>
+        </div>
+    </div>
+</section>
 
     <!-- Solution Section -->
     <section class="solution-section">
-        <div class="container">
-            <div class="solution-content">
-                <div class="solution-text">
-                    <h3>Two Things Every Business Needs</h3>
-                    <div class="solution-cards">
-                        <div class="solution-card-feature">
-                            <h4>1. Visibility - See What's Actually Happening</h4>
-                            <ul class="solution-features">
-                                <li><strong>Real-time dashboards</strong> that make sense of your data</li>
-                                <li><strong>Early warning systems</strong> for problems before they get expensive</li>
-                                <li><strong>Fact-based decision making</strong> instead of guessing</li>
-                            </ul>
-                        </div>
-                        <div class="solution-card-feature">
-                            <h4>2. Workflow Automation - Handle the Boring Stuff Automatically</h4>
-                            <ul class="solution-features">
-                                <li><strong>Connect your systems</strong> so they talk to each other</li>
-                                <li><strong>Automate repetitive tasks</strong> that drain your team's energy</li>
-                                <li><strong>Scale processes</strong> as your business grows</li>
-                            </ul>
-                        </div>
-                    </div>
+    <div class="container">
+        <div class="section-title">
+            <h2>Two Things Every Business Needs</h2>
+            <p>Our solutions address the core requirements for modern operations</p>
+        </div>
+        
+        <div class="solution-highlights">
+            <div class="solution-pillar">
+                <div class="pillar-header">
+                    <div class="pillar-number">01</div>
+                    <h3>Visibility</h3>
+                    <p class="pillar-subtitle">See What's Actually Happening</p>
                 </div>
+                <ul class="pillar-features">
+                    <li><i class="fas fa-check-circle"></i> Real-time dashboards that make sense of your data</li>
+                    <li><i class="fas fa-check-circle"></i> Early warning systems for emerging problems</li>
+                    <li><i class="fas fa-check-circle"></i> Fact-based decision making instead of guessing</li>
+                </ul>
+            </div>
+            
+            <div class="solution-pillar">
+                <div class="pillar-header">
+                    <div class="pillar-number">02</div>
+                    <h3>Workflow Automation</h3>
+                    <p class="pillar-subtitle">Handle the Boring Stuff Automatically</p>
+                </div>
+                <ul class="pillar-features">
+                    <li><i class="fas fa-check-circle"></i> Connect your systems so they talk to each other</li>
+                    <li><i class="fas fa-check-circle"></i> Automate repetitive tasks draining your team</li>
+                    <li><i class="fas fa-check-circle"></i> Scale processes as your business grows</li>
+                </ul>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Industry Statistics Section -->
     <section class="stats-section">
@@ -1361,82 +1457,69 @@
     </section>
 
     <!-- Approach Section -->
-    <section id="approach" class="approach-section">
-        <div class="container">
-            <div class="approach-content">
-                <div class="approach-text">
-                    <h3>Our Approach: Simple Tools, Powerful Results</h3>
-                    <p><strong>We're not consultants.</strong> We're your trusted partners who build things that actually work.</p>
-                    
-                    <div class="approach-differentiators">
-                        <div class="approach-differentiator">
-                            <h4>Plain language, practical solutions</h4>
-                            <p>No jargon or flashy presentations - just tools that solve real problems.</p>
-                        </div>
-                        <div class="approach-differentiator">
-                            <h4>You keep control</h4>
-                            <p>Your data stays yours, no expensive enterprise licenses.</p>
-                        </div>
-                        <div class="approach-differentiator">
-                            <h4>Built to last</h4>
-                            <p>Simple tools that adapt as you grow.</p>
-                        </div>
-                        <div class="approach-differentiator">
-                            <h4>Work with you, not for you</h4>
-                            <p>Hands-on partnership, not hands-off consulting.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="technical-foundation">
-                        <h4>Technical Foundation:</h4>
-                        <ul class="credentials-list">
-                            <li><strong>n8n (self-hosted)</strong> for workflow automation</li>
-                            <li><strong>Vercel</strong> for dashboards and web applications</li>
-                            <li><strong>Custom solutions</strong> when needed</li>
-                        </ul>
-                        <p style="margin-top: 15px;"><strong>Why these tools?</strong> Cost-effective, flexible, and you maintain complete control.</p>
-                    </div>
+    <section class="approach-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Approach</h2>
+            <p>Simple Tools, Powerful Results</p>
+        </div>
+        
+        <div class="approach-grid">
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <i class="fas fa-comment-alt"></i>
                 </div>
+                <h3>Plain Language Solutions</h3>
+                <p>No jargon or flashy presentations - just tools that solve real problems in language you understand.</p>
+            </div>
+            
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>You Keep Control</h3>
+                <p>Your data stays yours with no expensive enterprise licenses or vendor lock-in.</p>
+            </div>
+            
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <i class="fas fa-expand"></i>
+                </div>
+                <h3>Built to Last</h3>
+                <p>Simple tools designed to adapt and grow with your business needs.</p>
+            </div>
+            
+            <div class="approach-card">
+                <div class="approach-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h3>True Partnership</h3>
+                <p>Hands-on collaboration, not hands-off consulting reports.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Credentials Section -->
-    <section class="credentials-section">
+    <!-- Our Story  -->
+    <section id="about" class="about-section">
         <div class="container">
-            <div class="credentials-content">
-                <div class="credentials-text">
-                    <h3>Proven Experience Across Industries</h3>
-                    
-                    <div class="credentials-grid">
-                        <div class="credentials-card">
-                            <h4>Background</h4>
-                            <ul class="credentials-list">
-                                <li>Bachelor of Commerce Honours in Logistics & Supply Chain</li>
-                                <li>Data Science Certification (DB100)</li>
-                                <li>Six Sigma Green Belt</li>
-                                <li>SCOR Model Certification</li>
-                            </ul>
-                        </div>
-                        <div class="credentials-card">
-                            <h4>Experience</h4>
-                            <ul class="credentials-list">
-                                <li>6+ years across logistics, fintech, and mining</li>
-                                <li>Currently consulting with businesses of all sizes</li>
-                            </ul>
-                        </div>
-                        <div class="credentials-card">
-                            <h4>Industries Served</h4>
-                            <ul class="credentials-list">
-                                <li>Supply chain</li>
-                                <li>Logistics</li>
-                                <li>Manufacturing</li>
-                                <li>Fintech</li>
-                                <li>Mining</li>
-                                <li>Any business with processes that need visibility</li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>
+                        PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
+                        From our early roots in transport and warehousing, we've grown to support clients in logistics, 
+                        e-commerce, mining, and retail — improving everything from stock control to fleet performance.
+                    </p>
+                    <p>
+                        Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
+                        and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
+                        and unlock value across every link in their chain.
+                    </p>
+                    <p>
+                        Our unique blend of supply chain management experience, data science expertise, 
+                        and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1488,30 +1571,50 @@
 
     <!-- Target Market Section -->
     <section class="target-market-section">
-        <div class="container">
-            <div class="target-market-content">
-                <div class="target-market-text">
-                    <h3>Who We Help</h3>
-                    <p><strong>Any business that has:</strong></p>
-                    <div class="target-market-criteria">
-                        <div class="target-market-card">
-                            <ul class="credentials-list">
-                                <li>Repetitive processes eating up time</li>
-                                <li>Important data buried in spreadsheets</li>
-                            </ul>
-                        </div>
-                        <div class="target-market-card">
-                            <ul class="credentials-list">
-                                <li>Manual work that could be automated</li>
-                                <li>Problems discovered when it's too late to fix cheaply</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <p style="margin-top: 30px;"><strong>Especially if you're in:</strong> Supply chain, logistics, manufacturing, fintech, or mining</p>
+    <div class="container">
+        <div class="section-title">
+            <h2>Who We Help</h2>
+            <p>Businesses that recognize these challenges</p>
+        </div>
+        
+        <div class="target-market-grid">
+            <div class="target-card">
+                <div class="target-icon">
+                    <i class="fas fa-redo"></i>
                 </div>
+                <h3>Repetitive Processes</h3>
+                <p>Time-consuming manual work that could be automated</p>
+            </div>
+            
+            <div class="target-card">
+                <div class="target-icon">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <h3>Data in Spreadsheets</h3>
+                <p>Important information buried across multiple files</p>
+            </div>
+            
+            <div class="target-card">
+                <div class="target-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3>Late Problem Detection</h3>
+                <p>Discovering issues when they're costly to fix</p>
             </div>
         </div>
-    </section>
+        
+        <div class="industry-banner">
+            <h4>Especially valuable for:</h4>
+            <div class="industry-tags">
+                <span>Supply Chain</span>
+                <span>Logistics</span>
+                <span>Manufacturing</span>
+                <span>Fintech</span>
+                <span>Mining</span>
+            </div>
+        </div>
+    </div>
+</section>
 
 
     <!-- CTA Section -->
