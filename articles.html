@@ -1,192 +1,977 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Articles | Prime Chain Solutions</title>
-  <!-- Main Site CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <!-- Favicon / Apple / Mask -->
-  <link rel="icon" href="assets/favicon_transparent.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="assets/favicon_transparent.svg">
-  <link rel="mask-icon" href="assets/favicon_transparent.svg" color="#002366">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <meta name="description" content="Weekly articles on business process automation, supply chain visibility, and operational efficiency from Prime Chain Solutions." />
+    <meta name="keywords" content="business automation articles, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/articles.html">
+    <meta property="og:title" content="Articles | Prime Chain Solutions - Visibility and Automation Insights">
+    <meta property="og:description" content="Weekly articles on business process automation, supply chain visibility, and operational efficiency.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/articles.html">
+    <meta property="twitter:title" content="Articles | Prime Chain Solutions - Visibility and Automation Insights">
+    <meta property="twitter:description" content="Weekly articles on business process automation, supply chain visibility, and operational efficiency.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
+
+    <!-- Favicon Links -->
+    <link rel="icon" href="/assets/primechain-favicon-workflow.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/primechain-favicon-workflow.svg">
+    <link rel="mask-icon" href="/assets/primechain-favicon-workflow.svg" color="#002366">
+    
+    <title>Articles | Prime Chain Solutions - Visibility and Automation Insights</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2332;
+            --teal: #0891b2;
+            --teal-light: #06b6d4;
+            --teal-dark: #0e7490;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --charcoal: #1f2937;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --whatsapp-green: #25d366;
+            --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(8, 145, 178, 0.85) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Enhanced Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.3);
+        }
+        
+        /* Modern Glass Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 16px 0;
+        }
+        
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            letter-spacing: -0.025em;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+        
+        .logo span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo img {
+            height: 44px;
+            margin-right: 12px;
+            transition: var(--transition);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+        
+        nav ul li a.active {
+            color: var(--teal);
+            background: rgba(8, 145, 178, 0.05);
+        }
+        
+        nav ul li a:hover {
+            color: var(--teal);
+            background: rgba(8, 145, 178, 0.05);
+            transform: translateY(-1px);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+            border-radius: 1px;
+        }
+        
+        nav ul li a:hover:after {
+            width: 20px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--navy);
+            cursor: pointer;
+            z-index: 1001;
+            padding: 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-btn:hover {
+            background: var(--gray-100);
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 120px 0;
+            position: relative;
+            scroll-margin-top: 90px;
+        }
+        
+        .section-alt {
+            background: var(--gray-50);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+        
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 24px auto 0;
+            line-height: 1.6;
+        }
+        .section:first-of-type {
+            margin-top: 100px; /* Prevents overlap under fixed header */
+        }
+        
+        /* Featured Articles Enhancement */
+        .featured-cases {
+            background: var(--gray-50);
+        }
+        
+        .solutions-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+        
+        .solution-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition);
+        }
+        
+        .solution-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .solution-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--teal-light);
+        }
+        
+        .solution-img {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-secondary);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .solution-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        
+        .solution-content p {
+            color: var(--gray-800);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .solution-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .solution-link:hover {
+            color: var(--teal-dark);
+            transform: translateX(4px);
+        }
+        
+        .solution-link i {
+            font-size: 0.875rem;
+            transition: var(--transition);
+        }
+        
+        /* Modern Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 100px 0 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 64px;
+            margin-bottom: 64px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.025em;
+        }
+        
+        .footer-logo span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 12px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-about p {
+            margin-bottom: 32px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-links a:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            space-y: 12px;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 4px 0;
+            font-size: 1rem;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--teal-light);
+            transform: translateX(4px);
+        }
+        
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-contact i {
+            color: var(--teal-light);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+        
+        .footer-contact a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-contact a:hover {
+            color: var(--teal-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-secondary);
+            color: var(--white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        /* Animation utilities */
+        @keyframes slideInFromLeft {
+            0% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Add scroll-triggered animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .section {
+                padding: 80px 0;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                gap: 24px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li a {
+                font-size: 1.25rem;
+                padding: 16px 24px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .solutions-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 24px;
+                right: 24px;
+                border-radius: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 48px;
+            }
+            
+            .solution-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Header -->
-  <header id="header">
-    <div class="container header-container">
-      <a href="index.html" class="logo">
-        <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
-      </a>
-      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#approach">Approach</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-          <li><a href="articles.html" class="active">Articles</a></li>
-        </ul>
-      </nav>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#approach">Approach</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="articles.html" class="active">Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="featured-cases section animate-on-scroll" style="margin-top:100px;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Weekly Articles</h2>
+                <p>Insights and real stories from the world of supply chain, automation, and operational efficiency.</p>
+            </div>
+            <div class="solutions-container">
+                <!-- Week 1 -->
+                <div class="solution-card">
+                    <div class="solution-img"><i class="fas fa-cogs"></i></div>
+                    <div class="solution-content">
+                        <h3>Week 01: The Real Cost of Manual Processes</h3>
+                        <p>How small businesses lose time, money, and visibility by sticking to spreadsheets and WhatsApp groups — and how to break free.</p>
+                        <a href="articles/week-01.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Week 2 -->
+                <div class="solution-card">
+                    <div class="solution-img"><i class="fas fa-truck"></i></div>
+                    <div class="solution-content">
+                        <h3>Week 02: From Visibility to Velocity</h3>
+                        <p>Dashboards aren't just about tracking. Learn how actionable visibility in transport operations can drive smarter decisions.</p>
+                        <a href="articles/week-02.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Add more weeks here as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+                    </div>
+                    <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#approach">Approach</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
     </div>
-  </header>
 
-  <!-- Main Content -->
-  <section class="featured-cases section animate-on-scroll" style="margin-top:100px;">
-    <div class="container">
-      <div class="section-title">
-        <h2>Weekly Articles</h2>
-        <p>Insights and real stories from the world of supply chain, automation, and operational efficiency.</p>
-      </div>
-      <div class="solutions-container">
-        <!-- Week 1 -->
-        <div class="solution-card">
-          <div class="solution-img"><i class="fas fa-cogs"></i></div>
-          <div class="solution-content">
-            <h3>Week 01: The Real Cost of Manual Processes</h3>
-            <p>How small businesses lose time, money, and visibility by sticking to spreadsheets and WhatsApp groups — and how to break free.</p>
-            <a href="articles/week-01.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Week 2 -->
-        <div class="solution-card">
-          <div class="solution-img"><i class="fas fa-truck"></i></div>
-          <div class="solution-content">
-            <h3>Week 02: From Visibility to Velocity</h3>
-            <p>Dashboards aren’t just about tracking. Learn how actionable visibility in transport operations can drive smarter decisions.</p>
-            <a href="articles/week-02.html" class="solution-link">Read Article <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        <!-- Add more weeks here as needed -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-container">
-        <div class="footer-about">
-          <div class="footer-logo">
-            <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
-          </div>
-          <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
-          <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-        <div class="footer-links">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#approach">Approach</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Resources</h4>
-          <ul>
-            <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
-            <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
-            <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
-          </ul>
-        </div>
-        <div class="footer-contact">
-          <h4>Let's Talk</h4>
-          <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
-          <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
-          <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Back to Top Button -->
-  <div class="back-to-top" aria-label="Back to top">
-    <i class="fas fa-arrow-up"></i>
-  </div>
-
-  <!-- JS for menu, scroll, and animation -->
-  <script>
-    // Mobile menu toggle
-    document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-      const nav = document.querySelector('nav ul');
-      const isOpen = nav.classList.contains('show');
-      nav.classList.toggle('show');
-      this.innerHTML = isOpen ? 
-          '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-      document.body.style.overflow = isOpen ? '' : 'hidden';
-    });
-
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('nav ul li a').forEach(link => {
-        link.addEventListener('click', () => {
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             const nav = document.querySelector('nav ul');
-            if (nav.classList.contains('show')) {
-                nav.classList.remove('show');
-                document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = '';
+            const isOpen = nav.classList.contains('show');
+            
+            nav.classList.toggle('show');
+            this.innerHTML = isOpen ? 
+                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+            document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('nav ul');
+                if (nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+        
+        // Header scroll effect and scroll progress
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+            
+            // Header styling
+            if (scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
             }
-        });
-    });
-
-    // Header scroll effect and back to top button
-    window.addEventListener('scroll', function() {
-        const header = document.getElementById('header');
-        const scrollY = window.scrollY;
-        if (header) {
-          if (scrollY > 50) {
-              header.classList.add('scrolled');
-          } else {
-              header.classList.remove('scrolled');
-          }
-        }
-        const backToTop = document.querySelector('.back-to-top');
-        if (backToTop) {
-          if (scrollY > 300) {
-              backToTop.classList.add('visible');
-          } else {
-              backToTop.classList.remove('visible');
-          }
-        }
-    });
-
-    // Back to top functionality
-    document.querySelector('.back-to-top').addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
-
-    // Animate on scroll
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-                observer.unobserve(entry.target);
+            
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
             }
+
+            // Scroll progress bar
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            scrollProgress.style.width = scrolled + "%";
         });
-    }, observerOptions);
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
-    });
-  </script>
+        
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling with offset for fixed header
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+                
+                const headerOffset = 100;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                const nav = document.querySelector('nav ul');
+                if (nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Observe all animated elements
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add ripple effect to buttons
+        document.querySelectorAll('.solution-link').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(8, 145, 178, 0.1);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 600);
+            });
+        });
+
+        // Add CSS for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+            
+            .solution-link {
+                position: relative;
+                overflow: hidden;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 </body>
 </html>
