@@ -544,6 +544,7 @@
             background-color: var(--light-gray);
         }
         
+        
         .approach-content {
             max-width: 900px;
             margin: 0 auto;
@@ -1156,7 +1157,23 @@
         }
         
         /* Card Grids */
-        .problem-cards,
+        .problem-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Always 4 columns on desktop */
+            gap: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .problem-cards {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+        }
+        @media (max-width: 600px) {
+            .problem-cards {
+                grid-template-columns: 1fr; /* 1 column on mobile */
+            }
+        }
+        
         .solution-highlights,
         .target-market-grid {
             display: grid;
@@ -1458,7 +1475,6 @@
     <div class="container">
         <div class="section-title">
             <h2>Two Things Every Business Needs</h2>
-            <p>Our solutions address the core requirements for modern operations</p>
         </div>
         
         <div class="solution-highlights">
@@ -1494,8 +1510,6 @@
     <!-- Industry Statistics Section -->
     <section class="stats-section" data-aos="fade-up">
         <div class="container">
-            <h2>Smart Businesses Are Making the Shift</h2>
-            <p style="max-width: 800px; margin: 0 auto 40px;">Here's what forward-thinking companies are discovering about visibility and automation:</p>
             <div class="stats-container">
                 <div class="stat-item">
                     <div class="stat-number">82%</div>
@@ -1518,49 +1532,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services-section" data-aos="fade-up">
-        <div class="container">
-            <div class="services-header">
-                <h2>Our Services</h2>
-                <p>We build simple dashboards that show you what's really going on and automate the repetitive work that's eating up your team's time.</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-chart-bar"></i></div>
-                    <h3>Operational Dashboards</h3>
-                    <p>Real-time visibility into your key metrics and operations, tailored to your specific business needs.</p>
-                    <ul class="service-features">
-                        <li>Customized to your workflow</li>
-                        <li>Integrates with your existing systems</li>
-                        <li>Mobile-friendly for on-the-go access</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
-                    <h3>Workflow Automation</h3>
-                    <p>Eliminate repetitive tasks and connect your systems to work together seamlessly.</p>
-                    <ul class="service-features">
-                        <li>Automate data entry and reporting</li>
-                        <li>Connect disparate systems</li>
-                        <li>Reduce manual errors</li>
-                    </ul>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-search"></i></div>
-                    <h3>Process Visibility</h3>
-                    <p>Identify bottlenecks and opportunities in your operations with clear, actionable insights.</p>
-                    <ul class="service-features">
-                        <li>End-to-end process tracking</li>
-                        <li>Early warning systems</li>
-                        <li>Performance benchmarking</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Approach Section -->
     <section id="approach" class="approach-section" data-aos="fade-up">
