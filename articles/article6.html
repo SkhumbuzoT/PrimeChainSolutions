@@ -710,6 +710,181 @@
                 padding: 32px 24px;
             }
         }
+        /* Article Specific Styles */
+        .article-section {
+            padding: 100px 0 80px;
+            background: var(--white);
+        }
+        
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .article-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.025em;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+        
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .article-meta i {
+            color: var(--teal);
+        }
+        
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-800);
+        }
+        
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 48px 0 24px;
+            color: var(--navy);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .article-content p {
+            margin-bottom: 24px;
+        }
+        
+        .article-content ul, 
+        .article-content ol {
+            margin-bottom: 32px;
+            padding-left: 24px;
+        }
+        
+        .article-content li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+        
+        .article-content ul li::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+        
+        .article-content strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+        
+        .article-cta {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 64px 0;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+        
+        .article-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .article-cta p {
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .article-section {
+                padding: 80px 0 60px;
+            }
+            
+            .article-header {
+                margin-bottom: 32px;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .article-content h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 20px;
+            }
+            
+            .article-cta {
+                padding: 32px 24px;
+                margin: 48px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-section {
+                padding: 60px 0 40px;
+            }
+            
+            .article-content {
+                font-size: 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
