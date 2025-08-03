@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <meta name="description" content="Discover the essential dashboard structure and metrics every logistics team needs to track for optimal performance." />
+    <meta name="keywords" content="logistics dashboard, supply chain metrics, delivery tracking, operations visibility, performance management" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/articles/logistics-dashboard.html">
+    <meta property="og:title" content="The One Dashboard Every Logistics Team Needs | Prime Chain Solutions">
+    <meta property="og:description" content="Discover the essential dashboard structure and metrics every logistics team needs to track for optimal performance.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image-logistics.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/articles/logistics-dashboard.html">
+    <meta property="twitter:title" content="The One Dashboard Every Logistics Team Needs | Prime Chain Solutions">
+    <meta property="twitter:description" content="Discover the essential dashboard structure and metrics every logistics team needs to track for optimal performance.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image-logistics.jpg">
+
+    <!-- Favicon Links -->
+    <link rel="icon" href="../assets/primechain-favicon-workflow.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../assets/primechain-favicon-workflow.svg">
+    <link rel="mask-icon" href="../assets/primechain-favicon-workflow.svg" color="#002366">
+    
+    <title>The One Dashboard Every Logistics Team Needs | Prime Chain Solutions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2332;
+            --teal: #0891b2;
+            --teal-light: #06b6d4;
+            --teal-dark: #0e7490;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --charcoal: #1f2937;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --whatsapp-green: #25d366;
+            --success-green: #10b981;
+            --warning-orange: #f59e0b;
+            --error-red: #ef4444;
+            --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(8, 145, 178, 0.85) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Enhanced Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-secondary);
+            width: 0%;
+            z-index: 10000;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(8, 145, 178, 0.3);
+        }
+        
+        /* Modern Glass Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 1000;
+            transition: var(--transition);
+            padding: 16px 0;
+        }
+        
+        header.scrolled {
+            padding: 12px 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-lg);
+            border-bottom: 1px solid var(--gray-200);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 800;
+            font-size: 26px;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            letter-spacing: -0.025em;
+            transition: var(--transition);
+        }
+        
+        .logo:hover {
+            transform: translateY(-1px);
+        }
+        
+        .logo span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo img {
+            height: 44px;
+            margin-right: 12px;
+            transition: var(--transition);
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gray-800);
+            font-weight: 500;
+            font-size: 15px;
+            transition: var(--transition);
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+        
+        nav ul li a.active {
+            color: var(--teal);
+            background: rgba(8, 145, 178, 0.05);
+        }
+        
+        nav ul li a:hover {
+            color: var(--teal);
+            background: rgba(8, 145, 178, 0.05);
+            transform: translateY(-1px);
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+            border-radius: 1px;
+        }
+        
+        nav ul li a:hover:after {
+            width: 20px;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--navy);
+            cursor: pointer;
+            z-index: 1001;
+            padding: 12px;
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-btn:hover {
+            background: var(--gray-100);
+        }
+        
+        /* Article Specific Styles */
+        .article-section {
+            padding: 100px 0 80px;
+            background: var(--white);
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .article-header h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-bottom: 24px;
+            letter-spacing: -0.025em;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            color: var(--gray-600);
+            font-size: 0.95rem;
+        }
+
+        .article-meta span {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-meta i {
+            color: var(--teal);
+        }
+
+        .article-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-800);
+        }
+
+        .article-content h2 {
+            font-size: 1.8rem;
+            margin: 48px 0 24px;
+            color: var(--navy);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            margin: 40px 0 20px;
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+        }
+
+        .article-content ul, 
+        .article-content ol {
+            margin-bottom: 32px;
+            padding-left: 24px;
+        }
+
+        .article-content li {
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .article-content ul li::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--teal);
+            border-radius: 50%;
+        }
+
+        .article-content strong {
+            color: var(--navy);
+            font-weight: 600;
+        }
+
+        .metric-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 24px 0;
+            border-left: 4px solid var(--teal);
+        }
+
+        .metric-card h4 {
+            margin-bottom: 12px;
+            color: var(--teal-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .metric-card h4 i {
+            color: var(--teal);
+        }
+
+        .metric-property {
+            display: flex;
+            margin-bottom: 12px;
+        }
+
+        .metric-property .label {
+            font-weight: 600;
+            min-width: 150px;
+            color: var(--navy);
+        }
+
+        .dashboard-example {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 32px 0;
+            border-left: 4px solid var(--gold);
+        }
+
+        .dashboard-example h4 {
+            margin-bottom: 12px;
+            color: var(--gold);
+        }
+
+        .dashboard-example .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0;
+        }
+
+        .stat-box {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--gray-200);
+            text-align: center;
+        }
+
+        .stat-box .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+        }
+
+        .stat-box.good {
+            border-top: 4px solid var(--success-green);
+        }
+
+        .stat-box.warning {
+            border-top: 4px solid var(--warning-orange);
+        }
+
+        .stat-box.bad {
+            border-top: 4px solid var(--error-red);
+        }
+
+        .dashboard-example .action-taken {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .dashboard-example .action-taken h5 {
+            margin-bottom: 8px;
+            color: var(--gold);
+        }
+
+        .tool-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .tool-option {
+            background: var(--gray-50);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid var(--gray-200);
+        }
+
+        .tool-option h5 {
+            margin-bottom: 12px;
+            color: var(--teal-dark);
+        }
+
+        .tool-option .price {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .tool-option ul {
+            padding-left: 20px;
+            margin-top: 12px;
+        }
+
+        .tool-option ul li {
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+
+        .article-cta {
+            background: var(--gray-50);
+            border-radius: 16px;
+            padding: 40px;
+            margin: 64px 0;
+            text-align: center;
+            border: 1px solid var(--gray-200);
+        }
+
+        .article-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .article-cta p {
+            max-width: 600px;
+            margin: 0 auto 24px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--gradient-secondary);
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Modern Footer */
+        footer {
+            background: var(--navy);
+            color: var(--white);
+            padding: 100px 0 32px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 64px;
+            margin-bottom: 64px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.025em;
+        }
+        
+        .footer-logo span {
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 12px;
+            filter: brightness(0) invert(1);
+        }
+        
+        .footer-about p {
+            margin-bottom: 32px;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            color: var(--white);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            backdrop-filter: blur(10px);
+        }
+        
+        .social-links a:hover {
+            background: var(--teal);
+            border-color: var(--teal);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .footer-links h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-links h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            space-y: 12px;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-block;
+            padding: 4px 0;
+            font-size: 1rem;
+        }
+        
+        .footer-links ul li a:hover {
+            color: var(--teal-light);
+            transform: translateX(4px);
+        }
+        
+        .footer-contact h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: var(--white);
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 3px;
+            background: var(--gradient-secondary);
+            border-radius: 2px;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .footer-contact i {
+            color: var(--teal-light);
+            font-size: 1.1rem;
+            width: 20px;
+        }
+        
+        .footer-contact a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-contact a:hover {
+            color: var(--teal-light);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Enhanced Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-secondary);
+            color: var(--white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                z-index: 1000;
+                gap: 24px;
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li a {
+                font-size: 1.25rem;
+                padding: 16px 24px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+            
+            .article-section {
+                padding: 80px 0 60px;
+            }
+            
+            .article-header {
+                margin-bottom: 32px;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .article-content h2 {
+                font-size: 1.6rem;
+                margin: 40px 0 20px;
+            }
+            
+            .dashboard-example .dashboard-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .tool-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .article-cta {
+                padding: 32px 24px;
+                margin: 48px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .article-section {
+                padding: 60px 0 40px;
+            }
+            
+            .article-content {
+                font-size: 1rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.4rem;
+            }
+            
+            .dashboard-example .dashboard-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .metric-property {
+                flex-direction: column;
+                gap: 4px;
+            }
+            
+            .metric-property .label {
+                min-width: auto;
+            }
+            
+            .back-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 24px;
+                right: 24px;
+                border-radius: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="../index.html" class="logo">
+                <img src="../assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../index.html#services">Services</a></li>
+                    <li><a href="../index.html#approach">Approach</a></li>
+                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../articles.html" class="active">Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <section class="article-section">
+        <div class="container article-container">
+            <div class="article-header">
+                <h1>The One Dashboard Every Logistics Team Needs</h1>
+                <div class="article-meta">
+                    <span><i class="fas fa-calendar-alt"></i> Published: June 2025</span>
+                    <span><i class="fas fa-clock"></i> 9 min read</span>
+                </div>
+            </div>
+            
+            <div class="article-content">
+                <p>Walk into most logistics operations and ask them how they're performing, and you'll get different answers depending on who you ask. The warehouse manager talks about pick rates. The transport coordinator focuses on delivery times. The customer service team worries about complaints. Everyone's looking at different numbers.</p>
+                
+                <p>Here's what we've learned after working with logistics teams across South Africa: the best-performing operations don't just track more metrics—they track the right metrics in one place where everyone can see the same picture.</p>
+                
+                <p>You don't need 15 different dashboards. You need one dashboard that tells you everything you need to know to run your logistics operation effectively.</p>
+                
+                <h2>Why Most Logistics Dashboards Fail</h2>
+                <p>Most logistics dashboards fail because they try to show everything instead of showing what matters. They're built by IT people who think more charts equals better decisions, or by managers who want to track everything they can think of.</p>
+                
+                <p><strong>The result:</strong> dashboards that are overwhelming, confusing, and ultimately ignored.</p>
+                
+                <p><strong>A good logistics dashboard should answer these questions in under 30 seconds:</strong></p>
+                <ul>
+                    <li>Are we delivering what we promised when we promised it?</li>
+                    <li>Where are our bottlenecks and delays coming from?</li>
+                    <li>Are we making money or losing money on our operations?</li>
+                    <li>What problems need immediate attention?</li>
+                    <li>Are we getting better or worse over time?</li>
+                </ul>
+                
+                <p>If your dashboard can't answer these questions quickly, it's not helping you run your business.</p>
+                
+                <h2>The Essential Logistics Dashboard Structure</h2>
+                <p>Here's the proven structure we use for every logistics dashboard we build:</p>
+                
+                <h3>Top Section: Performance at a Glance (30% of screen)</h3>
+                <p>The most important numbers, updated in real-time:</p>
+                <ul>
+                    <li><strong>On-time delivery percentage</strong> (yesterday, this week, this month)</li>
+                    <li><strong>Total deliveries completed</strong> vs. planned</li>
+                    <li><strong>Average delivery time</strong> vs. target</li>
+                    <li><strong>Customer satisfaction score</strong> (if you track it)</li>
+                </ul>
+                <p>These four numbers tell you immediately whether your operation is succeeding or struggling.</p>
+                
+                <h3>Middle Section: Current Issues (40% of screen)</h3>
+                <p>What needs attention right now:</p>
+                <ul>
+                    <li><strong>Delayed shipments</strong> with expected impact</li>
+                    <li><strong>Vehicle breakdowns</strong> or maintenance issues</li>
+                    <li><strong>Route problems</strong> causing delays</li>
+                    <li><strong>Customer complaints</strong> requiring follow-up</li>
+                    <li><strong>Inventory shortages</strong> affecting deliveries</li>
+                </ul>
+                <p>This section should be empty when everything's running smoothly and populated with actionable items when problems arise.</p>
+                
+                <h3>Bottom Section: Trends and Analysis (30% of screen)</h3>
+                <p>Patterns and improvements over time:</p>
+                <ul>
+                    <li><strong>Monthly delivery performance</strong> trends</li>
+                    <li><strong>Cost per delivery</strong> trends</li>
+                    <li><strong>Customer satisfaction</strong> trends</li>
+                    <li><strong>Vehicle utilization</strong> patterns</li>
+                    <li><strong>Route efficiency</strong> improvements</li>
+                </ul>
+                <p>This section helps you understand whether you're improving and where to focus improvement efforts.</p>
+                
+                <h2>The 8 Core Metrics Every Logistics Team Should Track</h2>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-truck"></i> 1. On-Time Delivery Rate</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Percentage of deliveries completed within promised timeframes</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">This is what customers care about most</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">95%+ for most operations</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">(Deliveries completed on time ÷ Total deliveries) × 100</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-clock"></i> 2. Average Delivery Time</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Time from order dispatch to customer receipt</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Shows operational efficiency and customer experience</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">Depends on your promises, but consistency matters more than speed</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">Total delivery time ÷ Number of deliveries</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-money-bill-wave"></i> 3. Cost Per Delivery</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Total logistics costs divided by number of deliveries</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Shows if you're making money or losing money</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">Should decrease over time as you optimize routes and processes</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">(Fuel + labor + vehicle + overhead costs) ÷ Number of deliveries</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-bus"></i> 4. Vehicle Utilization Rate</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">How efficiently you're using your transport capacity</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Low utilization means you're wasting money on unused capacity</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">80%+ for most operations</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">(Actual load weight/volume ÷ Maximum capacity) × 100</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-comment-dots"></i> 5. Customer Complaint Rate</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Percentage of deliveries that result in customer complaints</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Early warning indicator of service quality issues</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">&lt;2% for most operations</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">(Number of complaints ÷ Total deliveries) × 100</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-route"></i> 6. Route Efficiency</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Actual distance/time vs. optimal distance/time for routes</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Shows if your routing and planning are effective</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">90%+ efficiency compared to optimal routes</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">Actual route performance vs. planned performance</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-gas-pump"></i> 7. Fuel Cost Per Kilometer</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Fuel efficiency across your fleet</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Fuel is usually your biggest variable cost</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">Should improve over time through better routing and vehicle maintenance</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">Total fuel costs ÷ Total kilometers driven</div>
+                    </div>
+                </div>
+                
+                <div class="metric-card">
+                    <h4><i class="fas fa-clipboard-check"></i> 8. Order Accuracy Rate</h4>
+                    <div class="metric-property">
+                        <div class="label">What it measures:</div>
+                        <div class="value">Percentage of deliveries with correct items and quantities</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Why it matters:</div>
+                        <div class="value">Mistakes are expensive and damage customer relationships</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">Target:</div>
+                        <div class="value">99%+ for most operations</div>
+                    </div>
+                    <div class="metric-property">
+                        <div class="label">How to track:</div>
+                        <div class="value">(Correct deliveries ÷ Total deliveries) × 100</div>
+                    </div>
+                </div>
+                
+                <h2>Real Dashboard Examples That Work</h2>
+                
+                <div class="dashboard-example">
+                    <h4>Small Delivery Company (10 vehicles)</h4>
+                    <p><strong>Daily Dashboard Shows:</strong></p>
+                    <div class="dashboard-stats">
+                        <div class="stat-box warning">
+                            <div class="stat-value">94%</div>
+                            <div class="stat-label">On-time (target: 95%)</div>
+                        </div>
+                        <div class="stat-box good">
+                            <div class="stat-value">47/50</div>
+                            <div class="stat-label">Deliveries completed</div>
+                        </div>
+                        <div class="stat-box bad">
+                            <div class="stat-value">3</div>
+                            <div class="stat-label">Delayed shipments</div>
+                        </div>
+                        <div class="stat-box warning">
+                            <div class="stat-value">2.3h</div>
+                            <div class="stat-label">Avg time (target: 2.0h)</div>
+                        </div>
+                        <div class="stat-box good">
+                            <div class="stat-value">R85</div>
+                            <div class="stat-label">Cost/delivery (last: R89)</div>
+                        </div>
+                    </div>
+                    <div class="action-taken">
+                        <h5>Action taken</h5>
+                        <p>Dispatcher immediately reschedules the 3 uncompleted deliveries and alerts customers about delays.</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-example">
+                    <h4>Regional Logistics Company (50+ vehicles)</h4>
+                    <p><strong>Daily Dashboard Shows:</strong></p>
+                    <div class="dashboard-stats">
+                        <div class="stat-box warning">
+                            <div class="stat-value">96% → 92%</div>
+                            <div class="stat-label">Weekly on-time trend</div>
+                        </div>
+                        <div class="stat-box warning">
+                            <div class="stat-value">↓</div>
+                            <div class="stat-label">JHB route efficiency</div>
+                        </div>
+                        <div class="stat-box bad">
+                            <div class="stat-value">#23</div>
+                            <div class="stat-label">Vehicle needs maintenance</div>
+                        </div>
+                        <div class="stat-box bad">
+                            <div class="stat-value">+15%</div>
+                            <div class="stat-label">Customer complaints</div>
+                        </div>
+                        <div class="stat-box warning">
+                            <div class="stat-value">↑</div>
+                            <div class="stat-label">Fuel costs per km</div>
+                        </div>
+                    </div>
+                    <div class="action-taken">
+                        <h5>Action taken</h5>
+                        <p>Management investigates Johannesburg route issues, schedules vehicle maintenance, and reviews recent complaints to identify patterns.</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-example">
+                    <h4>E-commerce Fulfillment Operation</h4>
+                    <p><strong>Daily Dashboard Shows:</strong></p>
+                    <div class="dashboard-stats">
+                        <div class="stat-box warning">
+                            <div class="stat-value">89%</div>
+                            <div class="stat-label">Same-day (target: 90%)</div>
+                        </div>
+                        <div class="stat-box warning">
+                            <div class="stat-value">↓</div>
+                            <div class="stat-label">Peak hour performance</div>
+                        </div>
+                        <div class="stat-box warning">
+                            <div class="stat-value">↑</div>
+                            <div class="stat-label">Warehouse pick time</div>
+                        </div>
+                        <div class="stat-box bad">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Customer complaints</div>
+                        </div>
+                        <div class="stat-box good">
+                            <div class="stat-value">94%</div>
+                            <div class="stat-label">Cross-docking efficiency</div>
+                        </div>
+                    </div>
+                    <div class="action-taken">
+                        <h5>Action taken</h5>
+                        <p>Operations team focuses on peak hour staffing and packaging quality issues.</p>
+                    </div>
+                </div>
+                
+                <h2>Building Your Logistics Dashboard</h2>
+                
+                <h3>Step 1: Start With What You Have</h3>
+                <p>Most logistics operations already track some of this data. Start by putting what you have in one place before trying to track new metrics.</p>
+                
+                <h3>Step 2: Focus on the Big 4</h3>
+                <p>If you can only track four metrics, track:</p>
+                <ol>
+                    <li>On-time delivery rate</li>
+                    <li>Cost per delivery</li>
+                    <li>Customer complaint rate</li>
+                    <li>Vehicle utilization</li>
+                </ol>
+                <p>These four metrics will tell you most of what you need to know.</p>
+                
+                <h3>Step 3: Make It Visual and Simple</h3>
+                <p>Use simple charts and clear numbers. Red for problems, green for good performance, yellow for warning signs. Anyone should be able to understand your dashboard in under a minute.</p>
+                
+                <h3>Step 4: Update Automatically When Possible</h3>
+                <p>Manual dashboard updates don't happen consistently. Connect your tracking systems so numbers update automatically.</p>
+                
+                <h3>Step 5: Review and Act Daily</h3>
+                <p>The best dashboard in the world won't help if nobody looks at it. Build a habit of checking your dashboard every morning and taking action on what you see.</p>
+                
+                <h2>Common Dashboard Mistakes to Avoid</h2>
+                
+                <p><strong>Tracking too many metrics:</strong> More numbers don't equal better decisions. Start with fewer metrics and add more only if they help you make better decisions.</p>
+                
+                <p><strong>Making it too complex:</strong> If your team needs training to read the dashboard, it's too complicated.</p>
+                
+                <p><strong>Focusing on vanity metrics:</strong> Track metrics that help you improve operations, not just metrics that make you look good.</p>
+                
+                <p><strong>Not connecting to action:</strong> Every metric on your dashboard should connect to specific actions you can take to improve it.</p>
+                
+                <p><strong>Updating manually:</strong> Manual updates are inconsistent and time-consuming. Automate when possible.</p>
+                
+                <h2>Tools for Building Your Dashboard</h2>
+                
+                <div class="tool-options">
+                    <div class="tool-option">
+                        <h5>Simple option</h5>
+                        <p>Google Sheets with basic charts</p>
+                        <div class="price">Cost: Free</div>
+                        <p>Time to set up: 1-2 days</p>
+                    </div>
+                    
+                    <div class="tool-option">
+                        <h5>Better option</h5>
+                        <p>Airtable with dashboard views</p>
+                        <div class="price">Cost: R200-500/month</div>
+                        <p>Time to set up: 3-5 days</p>
+                    </div>
+                    
+                    <div class="tool-option">
+                        <h5>Professional option</h5>
+                        <p>Custom dashboard using tools like Vercel + your existing systems connected via n8n</p>
+                        <div class="price">Cost: R500-1500/month</div>
+                        <p>Time to set up: 1-2 weeks</p>
+                    </div>
+                    
+                    <div class="tool-option">
+                        <h5>Enterprise option</h5>
+                        <p>Specialized logistics software with built-in dashboards</p>
+                        <div class="price">Cost: R5,000-20,000+/month</div>
+                        <p>Time to set up: 1-6 months</p>
+                    </div>
+                </div>
+                
+                <p>Most businesses get 80% of the value from the simple or better options.</p>
+                
+                <h2>Making It Stick</h2>
+                
+                <p><strong>Start each day by checking your dashboard.</strong> Make it your homepage. Before checking email or diving into daily tasks, spend 5 minutes looking at your key metrics.</p>
+                
+                <p><strong>Share it with your team.</strong> When everyone can see the same numbers, conversations change from opinions to facts.</p>
+                
+                <p><strong>Act on what you see.</strong> A dashboard that doesn't lead to action is just expensive wall art. When you see problems, investigate and fix them.</p>
+                
+                <p><strong>Update your targets as you improve.</strong> What's acceptable performance today should be unacceptable performance six months from now.</p>
+                
+                <h2>The Bottom Line</h2>
+                <p>You don't need perfect data to build a useful logistics dashboard. You need the right data presented clearly so you can make better decisions faster.</p>
+                
+                <p>The best logistics operations aren't the ones with the most sophisticated tracking. They're the ones that can see problems quickly, understand their performance clearly, and take action immediately.</p>
+                
+                <p>Stop flying blind. Start tracking the metrics that matter in a dashboard your whole team can understand and use.</p>
+                
+                <div class="article-cta">
+                    <h3>Ready to Build a Logistics Dashboard That Actually Helps?</h3>
+                    <p>We help logistics teams create simple, effective dashboards that show what matters most without overwhelming anyone with unnecessary complexity. Focus on the metrics that drive better decisions and improved performance.</p>
+                    <a href="../index.html#contact" class="btn btn-primary">
+                        <i class="fas fa-comments"></i>
+                        Schedule a Consultation
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="../assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+                    </div>
+                    <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="../index.html#services">Services</a></li>
+                        <li><a href="../index.html#approach">Approach</a></li>
+                        <li><a href="../index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="../articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Scroll progress bar
+        window.addEventListener('scroll', function() {
+            const scrollProgress = document.querySelector('.scroll-progress');
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            this.querySelector('i').classList.toggle('fa-times');
+            this.querySelector('i').classList.toggle('fa-bars');
+        });
+
+        // Back to top button
+        const backToTop = document.querySelector('.back-to-top');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Close mobile menu when clicking a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                if (navMenu.classList.contains('show')) {
+                    navMenu.classList.remove('show');
+                    mobileMenuBtn.querySelector('i').classList.toggle('fa-times');
+                    mobileMenuBtn.querySelector('i').classList.toggle('fa-bars');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
