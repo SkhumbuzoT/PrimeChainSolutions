@@ -1302,6 +1302,120 @@
                 padding: 32px 24px;
             }
         }
+        .pricing-card-container {
+            display: flex;
+            justify-content: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .pricing-card-header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        
+        .pricing-card-header .card-icon {
+            margin: 0 auto 20px;
+        }
+        
+        .pricing-title h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 8px;
+        }
+        
+        .pricing-title p {
+            color: var(--gray-800);
+            font-size: 1.1rem;
+        }
+        
+        .pricing-features {
+            margin-bottom: 32px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-item i {
+            color: var(--teal);
+            margin-right: 16px;
+            font-size: 1.2rem;
+            min-width: 24px;
+        }
+        
+        .feature-item span {
+            color: var(--gray-800);
+            font-weight: 500;
+        }
+        
+        .value-proposition {
+            background: rgba(8, 145, 178, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 32px 0;
+            text-align: center;
+            border: 1px solid rgba(8, 145, 178, 0.1);
+        }
+        
+        .value-proposition p {
+            color: var(--navy);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        
+        .pricing-footer p {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            margin-top: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-card {
+                padding: 32px 24px;
+            }
+            
+            .pricing-title h3 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1444,7 +1558,7 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Pricing Section - Enhanced Design -->
     <section id="pricing" class="section">
         <div class="container">
             <div class="section-title">
@@ -1452,62 +1566,68 @@
                 <p>Everything you need to launch your digital presence</p>
             </div>
             
-            <div class="card" style="max-width: 800px; margin: 0 auto; text-align: center;">
-                <div class="card-icon" style="background: var(--gradient-secondary);">
-                    <i class="fas fa-tag"></i>
+            <div class="pricing-card-container">
+                <div class="pricing-card">
+                    <div class="pricing-card-header">
+                        <div class="card-icon" style="background: var(--gradient-secondary);">
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="pricing-title">
+                            <h3>Starting from R899</h3>
+                            <p>One-time payment with no hidden fees</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Professional Website Setup</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>12 Months Premium Hosting</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Basic SEO Optimization</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Google Business Registration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Mobile-Optimized Design</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>5-Page Website Structure</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Contact Form Integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>5-Day Turnaround</span>
+                        </div>
+                    </div>
+                    
+                    <div class="value-proposition">
+                        <p><strong>Your site can pay for itself</strong> with just a few new customers — often within days.</p>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <a href="https://wa.me/27736775675" class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            Get Started Today
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-footer">
+                        <p>No hidden fees · No monthly charges</p>
+                    </div>
                 </div>
-                <h3>Starting from R899</h3>
-                <p style="margin-bottom: 24px;">One-time payment with no hidden fees</p>
-                
-                <div class="industry-banner" style="margin: 32px 0;">
-                    <p><strong>Your site can pay for itself</strong> with just a few new customers — often within days.</p>
-                </div>
-                
-                <ul style="text-align: left; list-style: none; margin-bottom: 32px;">
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        Professional Website Setup
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        12 Months Premium Hosting
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        Basic SEO Optimization
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        Google Business Registration
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        Mobile-Optimized Design
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        5-Page Website Structure
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        Contact Form Integration
-                    </li>
-                    <li style="margin-bottom: 12px; padding-left: 24px; position: relative;">
-                        <i class="fas fa-check" style="color: var(--teal); position: absolute; left: 0;"></i>
-                        5-Day Turnaround
-                    </li>
-                </ul>
-                
-                <div class="btn-group">
-                    <a href="https://wa.me/27736775675" class="btn btn-whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                        Get Started Today
-                    </a>
-                </div>
-                
-                <p style="margin-top: 24px; font-size: 0.9rem; color: var(--gray-600);">
-                    No hidden fees · No monthly charges
-                </p>
             </div>
         </div>
     </section>
