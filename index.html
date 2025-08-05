@@ -1695,6 +1695,194 @@
             display: block;
             width: 100%;
         }
+        .dynamic-stats-section {
+        padding: 100px 0;
+        background: var(--gray-50);
+      }
+      
+      .stat-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+      
+      .stat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--card-color);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      }
+      
+      .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
+        z-index: 0;
+      }
+      
+      .stat-visual {
+        height: 120px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+      }
+      
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--card-color);
+        position: relative;
+        z-index: 2;
+      }
+      
+      .stat-content {
+        position: relative;
+        z-index: 2;
+      }
+      
+      .stat-content p {
+        color: var(--gray-800);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+      
+      .stat-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(var(--card-color-rgb), 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .stat-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--card-color);
+      }
+      
+      /* Animated Bar Chart */
+      .animated-bar {
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background: rgba(var(--card-color-rgb), 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+      }
+      
+      .animated-bar::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: var(--card-color);
+        border-radius: 4px;
+        animation: fillBar 1.5s ease-out forwards;
+      }
+      
+      /* Pie Chart */
+      .pie-chart {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(
+          var(--card-color) 0% 55%,
+          rgba(var(--card-color-rgb), 0.2) 55% 100%
+        );
+      }
+      
+      /* Speed Dial */
+      .speed-dial {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(var(--card-color-rgb), 0.1);
+      }
+      
+      .dial-hand {
+        position: absolute;
+        width: 4px;
+        height: 50px;
+        background: var(--card-color);
+        left: calc(50% - 2px);
+        top: 10px;
+        transform-origin: bottom center;
+        transform: rotate(var(--rotation));
+        border-radius: 4px;
+        animation: rotateDial 1s ease-out forwards;
+      }
+      
+      /* Market Growth */
+      .market-growth {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .growth-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: var(--card-color);
+        animation: growBar 1.5s ease-out forwards;
+      }
+      
+      /* Animations */
+      @keyframes fillBar {
+        to { width: var(--percent); }
+      }
+      
+      @keyframes rotateDial {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(var(--rotation)); }
+      }
+      
+      @keyframes growBar {
+        from { height: 0; }
+        to { height: var(--growth-percent); }
+      }
+      
+      @media (max-width: 768px) {
+        .stat-cards-grid {
+          grid-template-columns: 1fr;
+        }
+        
+        .stat-visual {
+          height: 100px;
+        }
+        
+        .stat-number {
+          font-size: 2.5rem;
+        }
+      }
     </style>
 </head>
 <body>
@@ -1844,6 +2032,86 @@
             </div>
             <p style="max-width: 800px; margin: 40px auto 0; font-style: italic; color: var(--gray-800); font-size: 1.1rem;">These aren't just trends - they're proof that giving your team better tools and clearer information helps everyone do their best work.</p>
         </div>
+    </section>
+
+    <!-- Dynamic Stats Presentation -->
+    <section class="dynamic-stats-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Operational Efficiency in Numbers</h2>
+          <p>How technology is transforming business operations</p>
+        </div>
+    
+        <div class="stat-cards-grid">
+          <!-- Card 1 -->
+          <div class="stat-card" style="--card-color: #0891b2;">
+            <div class="stat-visual">
+              <div class="animated-bar" data-percent="82"></div>
+              <div class="stat-number">82%</div>
+            </div>
+            <div class="stat-content">
+              <p>of sales teams are using automation to spend more time building stronger client relationships</p>
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M7,9.5C7,8.7 7.7,8 8.5,8C9.3,8 10,8.7 10,9.5C10,10.3 9.3,11 8.5,11C7.7,11 7,10.3 7,9.5M12,17.23C10.25,17.23 8.71,16.5 7.81,15.42L9.23,14C9.68,14.72 10.75,15.23 12,15.23C13.25,15.23 14.32,14.72 14.77,14L16.19,15.42C15.29,16.5 13.75,17.23 12,17.23M15.5,11C14.7,11 14,10.3 14,9.5C14,8.7 14.7,8 15.5,8C16.3,8 17,8.7 17,9.5C17,10.3 16.3,11 15.5,11Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 2 -->
+          <div class="stat-card" style="--card-color: #f59e0b;">
+            <div class="stat-visual">
+              <div class="pie-chart" data-percent="55"></div>
+              <div class="stat-number">55%</div>
+            </div>
+            <div class="stat-content">
+              <p>of supply chain leaders are investing in better technology to support their teams</p>
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13,2.05V5.08C16.39,5.57 19,8.47 19,12C19,12.9 18.82,13.75 18.5,14.54L21.12,16.07C21.68,14.83 22,13.45 22,12C22,6.82 18.05,2.55 13,2.05M12,19A7,7 0 0,1 5,12C5,8.47 7.61,5.57 11,5.08V2.05C5.94,2.55 2,6.81 2,12A10,10 0 0,0 12,22C15.3,22 18.23,20.39 20.05,17.91L17.45,16.38C16.17,18 14.21,19 12,19Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 3 -->
+          <div class="stat-card" style="--card-color: #10b981;">
+            <div class="stat-visual">
+              <div class="speed-dial">
+                <div class="dial-hand" style="--rotation: 120deg;"></div>
+                <div class="stat-number">3x</div>
+              </div>
+            </div>
+            <div class="stat-content">
+              <p>faster problem spotting for companies with good operational visibility</p>
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M13,6V18L21.5,12M4,18L12.5,12L4,6V18Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+    
+          <!-- Card 4 -->
+          <div class="stat-card" style="--card-color: #8b5cf6;">
+            <div class="stat-visual">
+              <div class="market-growth">
+                <div class="growth-bar" style="--growth-percent: 85%;"></div>
+                <div class="stat-number">24B</div>
+              </div>
+            </div>
+            <div class="stat-content">
+              <p>dollar supply chain visibility market because businesses see real value</p>
+              <div class="stat-icon">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,11.99H19V10.5C17.76,8.77 14.11,8.77 12,8.77C9.89,8.77 6.24,8.77 5,10.5V11.99H12Z"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Approach Section -->
@@ -2254,6 +2522,23 @@
         document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card').forEach((card, index) => {
             card.style.animationDelay = `${index * 0.1}s`;
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animated bar
+            const bars = document.querySelectorAll('.animated-bar');
+            bars.forEach(bar => {
+              const percent = bar.parentElement.querySelector('.stat-number').textContent.replace('%','');
+              bar.style.setProperty('--percent', percent + '%');
+              bar.querySelector('::after').style.width = percent + '%';
+            });
+            
+            // Speed dial rotation
+            const dials = document.querySelectorAll('.dial-hand');
+            dials.forEach(dial => {
+              const multiplier = parseFloat(dial.parentElement.querySelector('.stat-number').textContent.replace('x',''));
+              dial.style.setProperty('--rotation', (multiplier * 60) + 'deg');
+            });
+          });
 
         // Enhanced button hover effects
         document.querySelectorAll('.btn').forEach(btn => {
