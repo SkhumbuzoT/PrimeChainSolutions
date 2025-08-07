@@ -418,21 +418,21 @@
         }
         
         .stats-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-          gap: 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
         }
         
         .stat-item {
-          background: var(--white);
-          padding: 30px 24px;
-          border-radius: 16px;
-          text-align: center;
-          box-shadow: var(--shadow-md);
-          border: 1px solid var(--gray-100);
-          transition: var(--transition);
-          position: relative;
-          overflow: hidden;
+            background: var(--white);
+            padding: 30px 24px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
                 
         .stat-item::before {
@@ -452,14 +452,14 @@
         }
         
         .stat-number {
-          font-size: clamp(2.5rem, 8vw, 3.5rem);
-          font-weight: 800;
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          margin-bottom: 8px;
-          line-height: 1;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1;
         }
         
         .stat-label {
@@ -535,15 +535,15 @@
             margin: 0 auto;
         }
         @media (max-width: 1024px) {
-          .problem-cards {
-            grid-template-columns: repeat(2, 1fr);
-          }
+            .problem-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 600px) {
-          .problem-cards {
-            grid-template-columns: 1fr;
-          }
+            .problem-cards {
+                grid-template-columns: 1fr;
+            }
         }
         
         .problem-cards .card,
@@ -723,93 +723,93 @@
         
         /* Process Timeline Enhancements */
         .process-steps {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 32px;
-          position: relative;
-          margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            position: relative;
+            margin-top: 2rem;
         }
         
         .process-steps::before {
-          content: "";
-          position: absolute;
-          top: 48px;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: var(--gray-100);
-          z-index: 0;
+            content: "";
+            position: absolute;
+            top: 48px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray-100);
+            z-index: 0;
         }
         
         .process-step {
-          background: var(--white);
-          border-radius: 20px;
-          padding: 40px 32px;
-          box-shadow: var(--shadow-lg);
-          border: 1px solid var(--gray-100);
-          transition: var(--transition);
-          position: relative;
-          text-align: center;
-          z-index: 1;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            text-align: center;
+            z-index: 1;
         }
         
         .process-step:hover {
-          transform: translateY(-8px);
-          box-shadow: var(--shadow-2xl);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
         }
         
         .process-step-number {
-          position: absolute;
-          top: -24px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 48px;
-          height: 48px;
-          color: var(--white);
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.25rem;
-          font-weight: 700;
-          box-shadow: var(--shadow-lg);
+            position: absolute;
+            top: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 48px;
+            height: 48px;
+            color: var(--white);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-lg);
         }
         
         .process-step-icon {
-          font-size: 2rem;
-          color: var(--primary-color);
-          margin-bottom: 12px;
-          margin-top: 8px;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            margin-top: 8px;
         }
         
         .process-step h4 {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: var(--navy);
-          margin-bottom: 16px;
-          margin-top: 8px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            margin-top: 8px;
         }
         
         /* Color-coded steps */
         .process-step:nth-child(1) .process-step-number {
-          background: linear-gradient(to right, #0a1f44, #1e3a8a);
+            background: linear-gradient(to right, #0a1f44, #1e3a8a);
         }
         .process-step:nth-child(2) .process-step-number {
-          background: linear-gradient(to right, #065f46, #10b981);
+            background: linear-gradient(to right, #065f46, #10b981);
         }
         .process-step:nth-child(3) .process-step-number {
-          background: linear-gradient(to right, #7c3aed, #9333ea);
+            background: linear-gradient(to right, #7c3aed, #9333ea);
         }
         
         .process-summary {
-          text-align: center;
-          margin-top: 48px;
-          font-size: 1.1rem;
-          color: var(--gray-800);
-          background: var(--gray-50);
-          padding: 16px 24px;
-          border-radius: 12px;
-          box-shadow: var(--shadow-sm);
+            text-align: center;
+            margin-top: 48px;
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            background: var(--gray-50);
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
         }
         
         /* Enhanced Testimonials */
@@ -1460,21 +1460,21 @@
         }
         
         .solutions-container {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 32px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
         }
         
         @media (max-width: 768px) {
-          .solutions-container {
-            grid-template-columns: repeat(2, 1fr);
-          }
+            .solutions-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         @media (max-width: 480px) {
-          .solutions-container {
-            grid-template-columns: 1fr;
-          }
+            .solutions-container {
+                grid-template-columns: 1fr;
+            }
         }
         
         .solution-card {
@@ -1633,21 +1633,21 @@
 
             
             .approach-grid {
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-              gap: 32px;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 32px;
             }
             
             @media (max-width: 768px) {
-              .approach-grid {
-                grid-template-columns: repeat(2, 1fr);
-              }
+                .approach-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
             }
             
             @media (max-width: 480px) {
-              .approach-grid {
-                grid-template-columns: 1fr;
-              }
+                .approach-grid {
+                    grid-template-columns: 1fr;
+                }
             }
             .solution-highlights {
                 grid-template-columns: 1fr;
@@ -1775,550 +1775,550 @@
             width: 100%;
         }
         .dynamic-stats-section {
-        padding: 100px 0;
-        background: var(--gray-50);
-      }
-      
-      .stat-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 60px;
-      }
-      
-      .stat-card {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-        border-top: 4px solid var(--card-color);
-        position: relative;
-        overflow: hidden;
-      }
-      
-      .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-      }
-      
-      .stat-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
-        z-index: 0;
-      }
-      
-      .stat-visual {
-        height: 120px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 25px;
-      }
-      
-      .stat-number {
-        font-size: 3rem;
-        font-weight: 800;
-        color: var(--card-color);
-        position: relative;
-        z-index: 2;
-      }
-      
-      .stat-content {
-        position: relative;
-        z-index: 2;
-      }
-      
-      .stat-content p {
-        color: var(--gray-800);
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-      }
-      
-      .stat-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(var(--card-color-rgb), 0.1);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .stat-icon svg {
-        width: 24px;
-        height: 24px;
-        fill: var(--card-color);
-      }
-      
-      /* Animated Bar Chart */
-      .animated-bar {
-        position: absolute;
-        width: 100%;
-        height: 8px;
-        background: rgba(var(--card-color-rgb), 0.2);
-        border-radius: 4px;
-        overflow: hidden;
-      }
-      
-      .animated-bar::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background: var(--card-color);
-        border-radius: 4px;
-        animation: fillBar 1.5s ease-out forwards;
-      }
-      
-      /* Pie Chart */
-      .pie-chart {
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: conic-gradient(
-          var(--card-color) 0% 55%,
-          rgba(var(--card-color-rgb), 0.2) 55% 100%
-        );
-      }
-      
-      /* Speed Dial */
-      .speed-dial {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: rgba(var(--card-color-rgb), 0.1);
-      }
-      
-      .dial-hand {
-        position: absolute;
-        width: 4px;
-        height: 50px;
-        background: var(--card-color);
-        left: calc(50% - 2px);
-        top: 10px;
-        transform-origin: bottom center;
-        transform: rotate(var(--rotation));
-        border-radius: 4px;
-        animation: rotateDial 1s ease-out forwards;
-      }
-      
-      /* Market Growth */
-      .market-growth {
-        position: relative;
-        width: 100%;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .growth-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: var(--card-color);
-        animation: growBar 1.5s ease-out forwards;
-      }
-      
-      /* Animations */
-      @keyframes fillBar {
-        to { width: var(--percent); }
-      }
-      
-      @keyframes rotateDial {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(var(--rotation)); }
-      }
-      
-      @keyframes growBar {
-        from { height: 0; }
-        to { height: var(--growth-percent); }
-      }
-      
-      @media (max-width: 768px) {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+        
         .stat-cards-grid {
-          grid-template-columns: 1fr;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--card-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
+            z-index: 0;
         }
         
         .stat-visual {
-          height: 100px;
-        }
-        
-        .stat-number {
-          font-size: 2.5rem;
-        }
-      }
-      @media (max-width: 1024px) {
-       .problem-cards,
-       .approach-grid {
-         grid-template-columns: repeat(2, 1fr);
-        }
-      }
-    
-     @media (max-width: 768px) {
-       .solutions-container {
-         grid-template-columns: repeat(2, 1fr);
-       }
-     }
-    
-     @media (max-width: 480px) {
-      /* Font Sizes */
-          .hero h1 {
-            font-size: 2rem;
-          }
-          
-          .hero p {
-            font-size: 1rem;
-          }
-          
-          .section-title h2 {
-            font-size: 1.75rem;
-          }
-        
-          /* Grid Layouts */
-          .problem-cards,
-          .approach-grid,
-          .solutions-container {
-            grid-template-columns: 1fr;
-          }
-        
-          /* Buttons */
-          .btn-group {
-            flex-direction: column;
+            height: 120px;
+            position: relative;
+            display: flex;
             align-items: center;
-          }
-          
-          .btn {
-            width: 100%;
-            max-width: 280px;
-            margin-bottom: 12px;
-          }
-        
-          /* Industry Tags */
-          .industry-tags {
-            gap: 8px;
-          }
-          
-          .industry-tags span {
-            padding: 8px 16px;
-            font-size: 1rem;
-          }
-        
-          /* Testimonials */
-          blockquote {
-            padding: 32px 24px;
-            font-size: 1.1rem;
-          }
-        
-          /* Forms */
-          .form-group {
-            width: 100%;
-          }
-          
-          form button[type="submit"] {
-            width: 100%;
-          }
-        }
-     @media (max-width: 768px) {
-       .stats-container {
-         grid-template-columns: repeat(2, 1fr);
-         gap: 20px;
-       }
-      
-       .stat-item {
-         padding: 24px 16px;
-       }
-     }
-    
-     @media (max-width: 480px) {
-       .stats-container {
-         grid-template-columns: 1fr;
-         gap: 16px;
-       }
-      
-       .stat-number {
-         font-size: 2.5rem;
-       }
-      
-       .stat-label {
-         font-size: 14px;
-       }
-     }
-    .dynamic-stats-section {
-        padding: 100px 0;
-        background: var(--gray-50);
-    }
-    
-    .stat-cards-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
-        margin-top: 60px;
-    }
-    
-    .stat-card {
-        background: white;
-        border-radius: 20px;
-        padding: 30px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: all 0.3s ease;
-        border-top: 4px solid var(--card-color);
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-    
-    .stat-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
-        z-index: 0;
-    }
-    
-    .stat-visual {
-        height: 120px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
-    
-    .stat-number {
-        font-size: 3rem;
-        font-weight: 800;
-        color: var(--card-color);
-        position: relative;
-        z-index: 2;
-    }
-    
-    .stat-content {
-        position: relative;
-        z-index: 2;
-    }
-    
-    .stat-content p {
-        color: var(--gray-800);
-        font-size: 1.1rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-    }
-    
-    .stat-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(var(--card-color-rgb), 0.1);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-    }
-    
-    .stat-icon svg {
-        width: 24px;
-        height: 24px;
-        fill: var(--card-color);
-    }
-    
-    .graphic-caption {
-        font-size: 0.9rem;
-        color: var(--gray-600);
-        font-style: italic;
-        margin-top: 10px;
-    }
-    
-    /* People icons visualization */
-    .people-icons {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-        justify-content: center;
-        max-width: 240px;
-    }
-    
-    .person-icon {
-        width: 20px;
-        height: 20px;
-        background-color: rgba(var(--card-color-rgb), 0.2);
-        border-radius: 50%;
-        position: relative;
-    }
-    
-    .person-icon.filled::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: var(--card-color);
-        border-radius: 50%;
-    }
-    
-    /* Animated Bar Chart */
-    .animated-bar {
-        position: absolute;
-        width: 100%;
-        height: 8px;
-        background: rgba(var(--card-color-rgb), 0.2);
-        border-radius: 4px;
-        overflow: hidden;
-    }
-    
-    .animated-bar::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 0;
-        background: var(--card-color);
-        border-radius: 4px;
-        animation: fillBar 1.5s ease-out forwards;
-    }
-    
-    /* Pie Chart */
-    .pie-chart {
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: conic-gradient(
-            var(--card-color) 0% 55%,
-            rgba(var(--card-color-rgb), 0.2) 55% 100%
-        );
-    }
-    
-    /* Speed Dial */
-    .speed-dial {
-        position: relative;
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        background: rgba(var(--card-color-rgb), 0.1);
-    }
-    
-    .dial-hand {
-        position: absolute;
-        width: 4px;
-        height: 50px;
-        background: var(--card-color);
-        left: calc(50% - 2px);
-        top: 10px;
-        transform-origin: bottom center;
-        transform: rotate(var(--rotation));
-        border-radius: 4px;
-        animation: rotateDial 1s ease-out forwards;
-    }
-    
-    /* Market Growth */
-    .market-growth {
-        position: relative;
-        width: 100%;
-        height: 120px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    
-    .growth-bar {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0;
-        background: var(--card-color);
-        animation: growBar 1.5s ease-out forwards;
-    }
-    
-    /* Animations */
-    @keyframes fillBar {
-        to { width: var(--percent); }
-    }
-    
-    @keyframes rotateDial {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(var(--rotation)); }
-    }
-    
-    @keyframes growBar {
-        from { height: 0; }
-        to { height: var(--growth-percent); }
-    }
-    
-    @media (max-width: 768px) {
-        .stat-cards-grid {
-            grid-template-columns: 1fr;
-        }
-        
-        .stat-visual {
-            height: 100px;
+            justify-content: center;
+            margin-bottom: 25px;
         }
         
         .stat-number {
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--card-color);
+            position: relative;
+            z-index: 2;
         }
-    }
-    .radar-visual {
-      position: relative;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background-color: rgba(var(--card-color-rgb), 0.05);
-      border: 2px solid rgba(var(--card-color-rgb), 0.2);
-      overflow: hidden;
-    }
+        
+        .stat-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-content p {
+            color: var(--gray-800);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(var(--card-color-rgb), 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .stat-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--card-color);
+        }
+        
+        /* Animated Bar Chart */
+        .animated-bar {
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: rgba(var(--card-color-rgb), 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .animated-bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: var(--card-color);
+            border-radius: 4px;
+            animation: fillBar 1.5s ease-out forwards;
+        }
+        
+        /* Pie Chart */
+        .pie-chart {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--card-color) 0% 55%,
+                rgba(var(--card-color-rgb), 0.2) 55% 100%
+            );
+        }
+        
+        /* Speed Dial */
+        .speed-dial {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(var(--card-color-rgb), 0.1);
+        }
+        
+        .dial-hand {
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            background: var(--card-color);
+            left: calc(50% - 2px);
+            top: 10px;
+            transform-origin: bottom center;
+            transform: rotate(var(--rotation));
+            border-radius: 4px;
+            animation: rotateDial 1s ease-out forwards;
+        }
+        
+        /* Market Growth */
+        .market-growth {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .growth-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--card-color);
+            animation: growBar 1.5s ease-out forwards;
+        }
+        
+        /* Animations */
+        @keyframes fillBar {
+            to { width: var(--percent); }
+        }
+        
+        @keyframes rotateDial {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(var(--rotation)); }
+        }
+        
+        @keyframes growBar {
+            from { height: 0; }
+            to { height: var(--growth-percent); }
+        }
+        
+        @media (max-width: 768px) {
+            .stat-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-visual {
+                height: 100px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        @media (max-width: 1024px) {
+            .problem-cards,
+            .approach-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     
-    .radar-sweep {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: conic-gradient(
-        rgba(var(--card-color-rgb), 0.25) 0deg 84%,
-        transparent 85% 360deg
-      );
-      border-radius: 50%;
-      animation: rotateRadar 2s linear infinite;
-    }
+        @media (max-width: 768px) {
+            .solutions-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     
-    .radar-dot {
-      position: absolute;
-      width: 8px;
-      height: 8px;
-      background-color: var(--card-color);
-      border-radius: 50%;
-      box-shadow: 0 0 6px rgba(var(--card-color-rgb), 0.8);
-      animation: pulse 2s infinite ease-in-out;
-    }
+        @media (max-width: 480px) {
+            /* Font Sizes */
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+        
+            /* Grid Layouts */
+            .problem-cards,
+            .approach-grid,
+            .solutions-container {
+                grid-template-columns: 1fr;
+            }
+        
+            /* Buttons */
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+                margin-bottom: 12px;
+            }
+        
+            /* Industry Tags */
+            .industry-tags {
+                gap: 8px;
+            }
+            
+            .industry-tags span {
+                padding: 8px 16px;
+                font-size: 1rem;
+            }
+        
+            /* Testimonials */
+            blockquote {
+                padding: 32px 24px;
+                font-size: 1.1rem;
+            }
+        
+            /* Forms */
+            .form-group {
+                width: 100%;
+            }
+            
+            form button[type="submit"] {
+                width: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        
+            .stat-item {
+                padding: 24px 16px;
+            }
+        }
     
-    @keyframes rotateRadar {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }}
-
-   </style>
+        @media (max-width: 480px) {
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        
+            .stat-label {
+                font-size: 14px;
+            }
+        }
+        .dynamic-stats-section {
+            padding: 100px 0;
+            background: var(--gray-50);
+        }
+        
+        .stat-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--card-color);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
+            z-index: 0;
+        }
+        
+        .stat-visual {
+            height: 120px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--card-color);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-content p {
+            color: var(--gray-800);
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(var(--card-color-rgb), 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        
+        .stat-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--card-color);
+        }
+        
+        .graphic-caption {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        /* People icons visualization */
+        .people-icons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 240px;
+        }
+        
+        .person-icon {
+            width: 20px;
+            height: 20px;
+            background-color: rgba(var(--card-color-rgb), 0.2);
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .person-icon.filled::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--card-color);
+            border-radius: 50%;
+        }
+        
+        /* Animated Bar Chart */
+        .animated-bar {
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            background: rgba(var(--card-color-rgb), 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .animated-bar::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            background: var(--card-color);
+            border-radius: 4px;
+            animation: fillBar 1.5s ease-out forwards;
+        }
+        
+        /* Pie Chart */
+        .pie-chart {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--card-color) 0% 55%,
+                rgba(var(--card-color-rgb), 0.2) 55% 100%
+            );
+        }
+        
+        /* Speed Dial */
+        .speed-dial {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: rgba(var(--card-color-rgb), 0.1);
+        }
+        
+        .dial-hand {
+            position: absolute;
+            width: 4px;
+            height: 50px;
+            background: var(--card-color);
+            left: calc(50% - 2px);
+            top: 10px;
+            transform-origin: bottom center;
+            transform: rotate(var(--rotation));
+            border-radius: 4px;
+            animation: rotateDial 1s ease-out forwards;
+        }
+        
+        /* Market Growth */
+        .market-growth {
+            position: relative;
+            width: 100%;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .growth-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: var(--card-color);
+            animation: growBar 1.5s ease-out forwards;
+        }
+        
+        /* Animations */
+        @keyframes fillBar {
+            to { width: var(--percent); }
+        }
+        
+        @keyframes rotateDial {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(var(--rotation)); }
+        }
+        
+        @keyframes growBar {
+            from { height: 0; }
+            to { height: var(--growth-percent); }
+        }
+        
+        @media (max-width: 768px) {
+            .stat-cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stat-visual {
+                height: 100px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+        .radar-visual {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: rgba(var(--card-color-rgb), 0.05);
+            border: 2px solid rgba(var(--card-color-rgb), 0.2);
+            overflow: hidden;
+        }
+        
+        .radar-sweep {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                rgba(var(--card-color-rgb), 0.25) 0deg 84%,
+                transparent 85% 360deg
+            );
+            border-radius: 50%;
+            animation: rotateRadar 2s linear infinite;
+        }
+        
+        .radar-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: var(--card-color);
+            border-radius: 50%;
+            box-shadow: 0 0 6px rgba(var(--card-color-rgb), 0.8);
+            animation: pulse 2s infinite ease-in-out;
+        }
+        
+        @keyframes rotateRadar {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
