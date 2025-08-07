@@ -721,54 +721,95 @@
             margin-top: 2px;
         }
         
-        /* Process Timeline */
+        /* Process Timeline Enhancements */
         .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            position: relative;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 32px;
+          position: relative;
+          margin-top: 2rem;
+        }
+        
+        .process-steps::before {
+          content: "";
+          position: absolute;
+          top: 48px;
+          left: 0;
+          right: 0;
+          height: 2px;
+          background: var(--gray-100);
+          z-index: 0;
         }
         
         .process-step {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 40px 32px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-100);
-            transition: var(--transition);
-            position: relative;
-            text-align: center;
+          background: var(--white);
+          border-radius: 20px;
+          padding: 40px 32px;
+          box-shadow: var(--shadow-lg);
+          border: 1px solid var(--gray-100);
+          transition: var(--transition);
+          position: relative;
+          text-align: center;
+          z-index: 1;
         }
         
         .process-step:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-2xl);
+          transform: translateY(-8px);
+          box-shadow: var(--shadow-2xl);
         }
         
         .process-step-number {
-            position: absolute;
-            top: -24px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-secondary);
-            color: var(--white);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            font-weight: 700;
-            box-shadow: var(--shadow-lg);
+          position: absolute;
+          top: -24px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 48px;
+          height: 48px;
+          color: var(--white);
+          border-radius: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.25rem;
+          font-weight: 700;
+          box-shadow: var(--shadow-lg);
+        }
+        
+        .process-step-icon {
+          font-size: 2rem;
+          color: var(--primary-color);
+          margin-bottom: 12px;
+          margin-top: 8px;
         }
         
         .process-step h4 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 16px;
-            margin-top: 8px;
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--navy);
+          margin-bottom: 16px;
+          margin-top: 8px;
+        }
+        
+        /* Color-coded steps */
+        .process-step:nth-child(1) .process-step-number {
+          background: linear-gradient(to right, #0a1f44, #1e3a8a);
+        }
+        .process-step:nth-child(2) .process-step-number {
+          background: linear-gradient(to right, #065f46, #10b981);
+        }
+        .process-step:nth-child(3) .process-step-number {
+          background: linear-gradient(to right, #7c3aed, #9333ea);
+        }
+        
+        .process-summary {
+          text-align: center;
+          margin-top: 48px;
+          font-size: 1.1rem;
+          color: var(--gray-800);
+          background: var(--gray-50);
+          padding: 16px 24px;
+          border-radius: 12px;
+          box-shadow: var(--shadow-sm);
         }
         
         /* Enhanced Testimonials */
@@ -2242,61 +2283,67 @@
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="section section-alt animate-on-scroll">
-        <div class="container">
-            <div class="section-title">
-                <h3>Simple Process, Real Results</h3>
-            </div>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="process-step-number">1</div>
-                    <h4>Understand</h4>
-                    <p>We work with you to identify what you need to see and what processes could be automated.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">2</div>
-                    <h4>Build</h4>
-                    <p>We create the visibility tools that show you exactly what's happening in your business.</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step-number">3</div>
-                    <h4>Automate</h4>
-                    <p>We implement automation for the repetitive tasks that are draining your team's time.</p>
-                </div>
-            </div>
-            <p style="margin-top: 48px; text-align: center; font-size: 1.1rem; color: var(--gray-800);"><strong>Timeline:</strong> Basic visibility tools up and running within weeks. Automation follows based on your priorities.</p>
+      <section class="section process-section animate-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h3>Simple Process, Real Results</h3>
         </div>
+        <div class="process-timeline">
+          <div class="process-step" data-aos="fade-up">
+            <div class="process-icon"><i class="fas fa-search"></i></div>
+            <div class="process-step-number">1</div>
+            <h4>Understand</h4>
+            <p>We work with you to identify what you need to see and what processes could be automated.</p>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="process-icon"><i class="fas fa-tools"></i></div>
+            <div class="process-step-number">2</div>
+            <h4>Build</h4>
+            <p>We create the visibility tools that show you exactly what's happening in your business.</p>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+            <div class="process-icon"><i class="fas fa-robot"></i></div>
+            <div class="process-step-number">3</div>
+            <h4>Automate</h4>
+            <p>We implement automation for the repetitive tasks that are draining your team's time.</p>
+          </div>
+        </div>
+        <p class="timeline-note"><strong>Timeline:</strong> Basic visibility tools up and running within weeks. Automation follows based on your priorities.</p>
+      </div>
     </section>
 
-    <!-- Solution Section -->
+    <!-- Process Section -->
     <section class="section section-alt animate-on-scroll">
-        <div class="container">
-            <div class="section-title">
-                <h2>Solutions</h2>
-            </div>
-            
-            <div class="solution-highlights">
-                <div class="solution-pillar">
-                    <div class="pillar-header">
-                        <div class="pillar-number">01</div>
-                        <h3>Prime Tower</h3>
-                    </div>
-                        <p>Live operations dashboard for fleets, finance, and maintenance.</p>
-                        <a href="primetower.html" class="solution-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                    </ul>
-                </div>
-                
-                <div class="solution-pillar">
-                    <div class="pillar-header">
-                        <div class="pillar-number">02</div>
-                        <h3>Open2Search</h3>
-                    </div>
-                        <p>Custom business websites with automated lead generation.</p>
-                        <a href="open2search.html" class="solution-link">View Case Study <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h3>Simple Process, Real Results</h3>
         </div>
+    
+        <div class="process-steps">
+          <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+            <div class="process-step-number">1</div>
+            <div class="process-step-icon"><i class="fas fa-search"></i></div>
+            <h4>Understand</h4>
+            <p>We work with you to identify what you need to see and what processes could be automated.</p>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+            <div class="process-step-number">2</div>
+            <div class="process-step-icon"><i class="fas fa-tools"></i></div>
+            <h4>Build</h4>
+            <p>We create the visibility tools that show you exactly what's happening in your business.</p>
+          </div>
+          <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+            <div class="process-step-number">3</div>
+            <div class="process-step-icon"><i class="fas fa-robot"></i></div>
+            <h4>Automate</h4>
+            <p>We implement automation for the repetitive tasks that are draining your team's time.</p>
+          </div>
+        </div>
+    
+        <p class="process-summary">
+          <strong>🚀 Timeline:</strong> Basic visibility tools up and running within weeks. Automation follows based on your priorities.
+        </p>
+      </div>
     </section>
     
     <!-- Target Market Section -->
