@@ -97,166 +97,36 @@
             border-color: #667eea;
         }
 
-        /* New Appliance List Style */
-        .appliance-list {
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .appliance-category {
+        .appliance-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 15px;
-        }
-
-        .appliance-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 15px;
-            background: #e0e6ed;
-            font-weight: 600;
-            border-radius: 8px;
-        }
-
-        .appliance-controls {
-            display: flex;
-            align-items: center;
-        }
-
-        .quantity-control {
-            display: flex;
-            align-items: center;
-            margin-left: 15px;
-        }
-
-        .quantity-btn {
-            width: 30px;
-            height: 30px;
-            border: none;
-            background: #667eea;
-            color: white;
-            font-size: 16px;
-            border-radius: 4px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-btn:hover {
-            background: #5a6fd1;
-        }
-
-        .quantity-value {
-            min-width: 30px;
-            text-align: center;
-            margin: 0 5px;
-        }
-
-        .appliance-details {
             padding: 15px;
-            background: white;
-            border-radius: 0 0 8px 8px;
-            border: 1px solid #e0e6ed;
-            border-top: none;
-            display: none;
-        }
-
-        .appliance-details.active {
-            display: block;
-        }
-
-        .detail-row {
-            display: flex;
-            margin-bottom: 10px;
-        }
-
-        .detail-row label {
-            flex: 1;
-            font-weight: 500;
-        }
-
-        .detail-row input {
-            width: 80px;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            text-align: center;
-        }
-
-        .total-display {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f0f4f8;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .total-display span {
-            color: #667eea;
-        }
-
-        /* Cashflow Chart */
-        .cashflow-chart {
-            margin-top: 30px;
             background: white;
             border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .chart-container {
-            height: 300px;
-            position: relative;
-            margin-top: 20px;
-        }
-
-        .chart-line {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #ddd;
-        }
-
-        .chart-bars {
-            display: flex;
-            height: 100%;
-            align-items: flex-end;
-            padding-bottom: 20px;
-        }
-
-        .chart-bar {
+        .appliance-item input {
             flex: 1;
-            margin: 0 5px;
-            background: #667eea;
-            position: relative;
-            transition: height 0.5s;
+            margin-bottom: 0;
         }
 
-        .chart-bar.payback {
-            background: #4CAF50;
+        .remove-btn {
+            background: #ff4757;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        .chart-labels {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-            font-size: 12px;
-            color: #666;
+        .remove-btn:hover {
+            background: #ff3838;
         }
 
-        .chart-value {
-            position: absolute;
-            top: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        /* Rest of your existing styles... */
         .add-appliance-btn, .calculate-btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -418,232 +288,13 @@
                     <input type="number" id="monthly-bill" placeholder="e.g. 1500" min="0">
                 </div>
 
-                <h3 style="margin: 30px 0 20px 0; color: #333;">Your Appliances</h3>
+                <h3 style="margin: 30px 0 20px 0; color: #333;">Add Your Appliances</h3>
                 
-                <div class="appliance-list" id="appliances-list">
+                <div id="appliances-list">
                     <!-- Appliances will be added here -->
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Refrigerator</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="150" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="24" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Television</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="100" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="4" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Washing Machine</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="500" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="1" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Microwave</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="1000" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="0.5" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Air Conditioner</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="3000" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="4" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Dishwasher</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="1500" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="1" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Geyser</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="3000" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="3" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>Computer(s)</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="200" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="8" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="appliance-category">
-                        <div class="appliance-header" onclick="toggleDetails(this)">
-                            <span>LED Lights</span>
-                            <div class="appliance-controls">
-                                <div class="quantity-control">
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, -1)">-</button>
-                                    <span class="quantity-value">0</span>
-                                    <button class="quantity-btn" onclick="adjustQuantity(this, 1)">+</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="appliance-details">
-                            <div class="detail-row">
-                                <label>Power (Watts):</label>
-                                <input type="number" value="10" min="0">
-                            </div>
-                            <div class="detail-row">
-                                <label>Hours per day:</label>
-                                <input type="number" value="5" min="0" max="24">
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="total-display">
-                    Estimated daily consumption: <span id="daily-consumption">0</span> kWh
-                </div>
-
-                <div class="cashflow-chart">
-                    <h3>Investment Payback Timeline</h3>
-                    <p>See how your savings accumulate over time</p>
-                    <div class="chart-container">
-                        <div class="chart-line"></div>
-                        <div class="chart-bars" id="chart-bars"></div>
-                    </div>
-                    <div class="chart-labels" id="chart-labels"></div>
-                </div>
-
+                <button class="add-appliance-btn" onclick="addAppliance()">+ Add Appliance</button>
                 <button class="calculate-btn" onclick="calculateSystem()">Calculate My Solar System</button>
             </div>
 
@@ -708,55 +359,65 @@
             }
         };
 
-        // Initialize with default values
-        document.addEventListener('DOMContentLoaded', function() {
-            updateProvinceInfo();
-            updateDailyConsumption();
-            updateCashflowChart();
-            
-            // Add event listeners to all inputs for real-time updates
-            document.querySelectorAll('.appliance-details input').forEach(input => {
-                input.addEventListener('input', function() {
-                    updateDailyConsumption();
-                    updateCashflowChart();
-                });
-            });
-            
-            document.getElementById('monthly-bill').addEventListener('input', function() {
-                updateCashflowChart();
-            });
-        });
+        // Common appliances database
+        const commonAppliances = {
+            'LED Light (9W)': 9,
+            'Ceiling Fan': 75,
+            'TV (32")': 100,
+            'TV (55")': 150,
+            'Laptop': 65,
+            'Desktop Computer': 200,
+            'Fridge (Medium)': 150,
+            'Fridge (Large)': 250,
+            'Washing Machine': 500,
+            'Dishwasher': 1500,
+            'Microwave': 1000,
+            'Electric Kettle': 2000,
+            'Hair Dryer': 1500,
+            'Iron': 1200,
+            'Air Conditioner': 3000,
+            'Pool Pump': 1100,
+            'Geyser (Electric)': 3000,
+            'Custom Appliance': 0
+        };
 
-        function toggleDetails(header) {
-            const details = header.nextElementSibling;
-            details.classList.toggle('active');
+        let applianceCount = 0;
+
+        function addAppliance() {
+            const appliancesList = document.getElementById('appliances-list');
+            const applianceId = `appliance-${applianceCount++}`;
+            
+            const applianceDiv = document.createElement('div');
+            applianceDiv.className = 'appliance-item';
+            applianceDiv.innerHTML = `
+                <select onchange="updateWattage(this, '${applianceId}')">
+                    <option value="">Select appliance</option>
+                    ${Object.keys(commonAppliances).map(name => 
+                        `<option value="${name}">${name}</option>`
+                    ).join('')}
+                </select>
+                <input type="number" placeholder="Watts" id="${applianceId}-watts" min="0">
+                <input type="number" placeholder="Hours/day" id="${applianceId}-hours" min="0" max="24">
+                <input type="number" placeholder="Quantity" id="${applianceId}-qty" min="1" value="1">
+                <button class="remove-btn" onclick="removeAppliance(this)">Remove</button>
+            `;
+            
+            appliancesList.appendChild(applianceDiv);
         }
 
-        function adjustQuantity(button, change) {
-            const quantityControl = button.parentElement;
-            const quantityValue = quantityControl.querySelector('.quantity-value');
-            let quantity = parseInt(quantityValue.textContent) + change;
-            quantity = Math.max(0, quantity); // Don't allow negative quantities
-            quantityValue.textContent = quantity;
+        function updateWattage(selectElement, applianceId) {
+            const applianceName = selectElement.value;
+            const wattsInput = document.getElementById(`${applianceId}-watts`);
             
-            updateDailyConsumption();
-            updateCashflowChart();
+            if (applianceName && applianceName !== 'Custom Appliance') {
+                wattsInput.value = commonAppliances[applianceName];
+            } else {
+                wattsInput.value = '';
+            }
         }
 
-        function updateDailyConsumption() {
-            let totalDailyKWh = 0;
-            
-            document.querySelectorAll('.appliance-category').forEach(appliance => {
-                const quantity = parseInt(appliance.querySelector('.quantity-value').textContent);
-                if (quantity > 0) {
-                    const watts = parseFloat(appliance.querySelector('.appliance-details input[type="number"]:first-of-type').value) || 0;
-                    const hours = parseFloat(appliance.querySelector('.appliance-details input[type="number"]:last-of-type').value) || 0;
-                    totalDailyKWh += (watts * hours * quantity) / 1000;
-                }
-            });
-            
-            document.getElementById('daily-consumption').textContent = totalDailyKWh.toFixed(1);
-            return totalDailyKWh;
+        function removeAppliance(button) {
+            button.parentElement.remove();
         }
 
         function updateProvinceInfo() {
@@ -771,82 +432,7 @@
             }
         }
 
-        document.getElementById('province').addEventListener('change', function() {
-            updateProvinceInfo();
-            updateCashflowChart();
-        });
-
-        function updateCashflowChart() {
-            const totalDailyKWh = updateDailyConsumption();
-            const province = document.getElementById('province').value;
-            const monthlyBill = parseFloat(document.getElementById('monthly-bill').value) || 0;
-            
-            if (!province || (totalDailyKWh === 0 && monthlyBill === 0)) {
-                return;
-            }
-            
-            // Calculate system cost and savings
-            const monthlyKWh = totalDailyKWh > 0 ? totalDailyKWh * 30 : monthlyBill / provinceData[province].eskom_rate;
-            const monthlySavings = monthlyKWh * provinceData[province].eskom_rate;
-            
-            // Estimate system cost (simplified)
-            const systemCost = monthlyKWh * 1000 * 8; // Rough estimate R8 per watt
-            
-            // Generate chart data for 10 years
-            const years = 10;
-            const chartBars = document.getElementById('chart-bars');
-            const chartLabels = document.getElementById('chart-labels');
-            
-            chartBars.innerHTML = '';
-            chartLabels.innerHTML = '';
-            
-            let cumulativeSavings = 0;
-            let paybackYear = 0;
-            
-            for (let year = 0; year <= years; year++) {
-                const bar = document.createElement('div');
-                bar.className = 'chart-bar';
-                
-                if (year === 0) {
-                    // Initial investment
-                    bar.style.height = '100%';
-                    bar.innerHTML = `<div class="chart-value">-R${systemCost.toLocaleString()}</div>`;
-                } else {
-                    // Annual savings
-                    cumulativeSavings += monthlySavings * 12;
-                    const netValue = cumulativeSavings - systemCost;
-                    
-                    if (netValue < 0) {
-                        // Still in payback period
-                        const percent = (Math.abs(netValue) / systemCost * 100;
-                        bar.style.height = `${100 - percent}%`;
-                        bar.innerHTML = `<div class="chart-value">-R${Math.abs(netValue).toLocaleString()}</div>`;
-                    } else {
-                        // Payback achieved
-                        if (!paybackYear) paybackYear = year;
-                        bar.className = 'chart-bar payback';
-                        bar.style.height = '100%';
-                        bar.innerHTML = `<div class="chart-value">+R${netValue.toLocaleString()}</div>`;
-                    }
-                }
-                
-                chartBars.appendChild(bar);
-                chartLabels.innerHTML += `<span>${year === 0 ? 'Now' : 'Y' + year}</span>`;
-            }
-            
-            // Add payback indicator if applicable
-            if (paybackYear > 0) {
-                const paybackIndicator = document.createElement('div');
-                paybackIndicator.style.position = 'absolute';
-                paybackIndicator.style.bottom = '0';
-                paybackIndicator.style.left = `${(paybackYear / years * 100)}%`;
-                paybackIndicator.style.width = '2px';
-                paybackIndicator.style.height = '100%';
-                paybackIndicator.style.background = '#4CAF50';
-                paybackIndicator.style.zIndex = '10';
-                chartBars.appendChild(paybackIndicator);
-            }
-        }
+        document.getElementById('province').addEventListener('change', updateProvinceInfo);
 
         function calculateSystem() {
             const province = document.getElementById('province').value;
@@ -858,8 +444,17 @@
             }
 
             // Calculate total daily consumption from appliances
-            let totalDailyKWh = updateDailyConsumption();
+            let totalDailyKWh = 0;
+            const appliances = document.querySelectorAll('.appliance-item');
             
+            appliances.forEach(appliance => {
+                const watts = parseFloat(appliance.querySelector('input[id$="-watts"]').value) || 0;
+                const hours = parseFloat(appliance.querySelector('input[id$="-hours"]').value) || 0;
+                const qty = parseFloat(appliance.querySelector('input[id$="-qty"]').value) || 1;
+                
+                totalDailyKWh += (watts * hours * qty) / 1000;
+            });
+
             // If no appliances added, estimate from monthly bill
             if (totalDailyKWh === 0 && monthlyBill > 0) {
                 const estimatedMonthlyKWh = monthlyBill / provinceData[province].eskom_rate;
@@ -1009,6 +604,9 @@
                 </div>
             `;
         }
+
+        // Add initial appliance
+        addAppliance();
     </script>
 </body>
 </html>
