@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Route Profitability Calculator</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #4a6741 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .input-section, .results-section {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 1.4em;
+            color: #2c3e50;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .input-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 1px solid #e9ecef;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .input-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .card-title {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .input-grid.single {
+            grid-template-columns: 1fr;
+        }
+        
+        .input-grid.triple {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        
+        .input-group {
+            margin-bottom: 0;
+        }
+        
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e8e8e8;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            background: white;
+            box-shadow: 0 0 15px rgba(102, 126, 234, 0.15);
+            transform: translateY(-1px);
+        }
+        
+        .route-selector {
+            position: relative;
+        }
+        
+        .route-arrow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-grid.triple {
+                grid-template-columns: 1fr;
+            }
+            
+            .route-arrow {
+                position: static;
+                transform: none;
+                margin: 10px auto;
+                transform: rotate(90deg);
+            }
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+        }
+        
+        .results-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .results-overview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100"/></svg>');
+            pointer-events: none;
+        }
+        
+        .profit-status {
+            font-size: 2.2em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .profit-amount {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .profit-margin {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .results-overview.profitable {
+            background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+        }
+        
+        .results-overview.loss {
+            background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+        }
+        
+        .results-overview.break-even {
+            background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .metric-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e8ecef;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .metric-icon {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: white;
+        }
+        
+        .metric-label {
+            font-size: 0.85em;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 1.6em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .metric-subtitle {
+            font-size: 0.8em;
+            color: #95a5a6;
+        }
+        
+        .cost-breakdown {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .breakdown-title {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .breakdown-label {
+            color: #6c757d;
+            font-size: 0.95em;
+        }
+        
+        .breakdown-value {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .recommendation-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        .recommendation-card.profitable {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .recommendation-card.loss {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        
+        .recommendation-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .recommendation-text {
+            font-size: 0.95em;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+        
+        .tips {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .tips h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .tips ul {
+            list-style: none;
+        }
+        
+        .tips li {
+            padding: 5px 0;
+            color: #5d6d7e;
+        }
+        
+        .tips li:before {
+            content: "✓ ";
+            color: #27ae60;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding: 20px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚛 Truck Route Profitability Calculator</h1>
+            <p>Make informed decisions - Calculate your route profitability before accepting loads</p>
+        </div>
+        
+        <div class="main-content">
+            <div class="input-section">
+                <h2 class="section-title">
+                    <span>🚛</span>
+                    <span>Route Planning Dashboard</span>
+                </h2>
+                
+                <div class="input-card">
+                    <div class="card-title">
+                        <span>📍</span>
+                        <span>Route Configuration</span>
+                    </div>
+                    <div class="input-grid route-selector">
+                        <div class="input-group">
+                            <label for="loadingPoint">Loading Point:</label>
+                            <select id="loadingPoint">
+                                <option value="">Select loading city...</option>
+                                <option value="Johannesburg">Johannesburg</option>
+                                <option value="Cape Town">Cape Town</option>
+                                <option value="Durban">Durban</option>
+                                <option value="Pretoria">Pretoria</option>
+                                <option value="Port Elizabeth">Port Elizabeth</option>
+                                <option value="Bloemfontein">Bloemfontein</option>
+                                <option value="East London">East London</option>
+                                <option value="Pietermaritzburg">Pietermaritzburg</option>
+                                <option value="Witbank">Witbank</option>
+                                <option value="Welkom">Welkom</option>
+                                <option value="Kimberley">Kimberley</option>
+                                <option value="Polokwane">Polokwane</option>
+                                <option value="Nelspruit">Nelspruit</option>
+                                <option value="Rustenburg">Rustenburg</option>
+                                <option value="Upington">Upington</option>
+                                <option value="George">George</option>
+                                <option value="Richards Bay">Richards Bay</option>
+                                <option value="Vereeniging">Vereeniging</option>
+                                <option value="Klerksdorp">Klerksdorp</option>
+                                <option value="Potchefstroom">Potchefstroom</option>
+                            </select>
+                        </div>
+                        
+                        <div class="route-arrow">→</div>
+                        
+                        <div class="input-group">
+                            <label for="offloadingPoint">Offloading Point:</label>
+                            <select id="offloadingPoint">
+                                <option value="">Select destination city...</option>
+                                <option value="Johannesburg">Johannesburg</option>
+                                <option value="Cape Town">Cape Town</option>
+                                <option value="Durban">Durban</option>
+                                <option value="Pretoria">Pretoria</option>
+                                <option value="Port Elizabeth">Port Elizabeth</option>
+                                <option value="Bloemfontein">Bloemfontein</option>
+                                <option value="East London">East London</option>
+                                <option value="Pietermaritzburg">Pietermaritzburg</option>
+                                <option value="Witbank">Witbank</option>
+                                <option value="Welkom">Welkom</option>
+                                <option value="Kimberley">Kimberley</option>
+                                <option value="Polokwane">Polokwane</option>
+                                <option value="Nelspruit">Nelspruit</option>
+                                <option value="Rustenburg">Rustenburg</option>
+                                <option value="Upington">Upington</option>
+                                <option value="George">George</option>
+                                <option value="Richards Bay">Richards Bay</option>
+                                <option value="Vereeniging">Vereeniging</option>
+                                <option value="Klerksdorp">Klerksdorp</option>
+                                <option value="Potchefstroom">Potchefstroom</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-card">
+                    <div class="card-title">
+                        <span>📦</span>
+                        <span>Load Details</span>
+                    </div>
+                    <div class="input-grid triple">
+                        <div class="input-group">
+                            <label for="totalKms">Total Distance (km):</label>
+                            <input type="number" id="totalKms" placeholder="1400" min="1">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="loadWeight">Load Weight (tons):</label>
+                            <input type="number" id="loadWeight" placeholder="30" min="1" max="34">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="ratePerTon">Rate per Ton (R):</label>
+                            <input type="number" id="ratePerTon" placeholder="150" min="1" step="0.01">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-card">
+                    <div class="card-title">
+                        <span>⛽</span>
+                        <span>Fuel Configuration</span>
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="fuelPrice">Fuel Price per Litre (R):</label>
+                            <input type="number" id="fuelPrice" placeholder="23.50" step="0.01">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="fuelConsumption">Fuel Consumption (L/100km):</label>
+                            <input type="number" id="fuelConsumption" placeholder="35" step="0.1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-card">
+                    <div class="card-title">
+                        <span>👨‍💼</span>
+                        <span>Driver & Trip Details</span>
+                    </div>
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label for="driverWage">Driver Daily Wage (R):</label>
+                            <input type="number" id="driverWage" placeholder="800" step="1">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tripDays">Estimated Trip Days:</label>
+                            <input type="number" id="tripDays" placeholder="3" min="1">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="input-card">
+                    <div class="card-title">
+                        <span>🔧</span>
+                        <span>Operating Expenses</span>
+                    </div>
+                    <div class="input-grid triple">
+                        <div class="input-group">
+                            <label for="maintenanceCost">Maintenance Cost per km (R):</label>
+                            <input type="number" id="maintenanceCost" placeholder="2.50" step="0.01">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="insuranceCost">Insurance per Day (R):</label>
+                            <input type="number" id="insuranceCost" placeholder="200" step="1">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="tollsOther">Tolls & Other Costs (R):</label>
+                            <input type="number" id="tollsOther" placeholder="500" step="1">
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="calculate-btn" onclick="calculateProfitability()">
+                    <span>📊</span>
+                    Calculate Route Profitability
+                </button>
+            </div>
+            
+            <div class="results-section">
+                <h2 class="section-title">Financial Analysis Dashboard</h2>
+                
+                <div id="resultsOverview" class="results-overview">
+                    <div class="profit-status">Calculate to View Results</div>
+                    <div class="profit-amount">Enter your route details</div>
+                    <div class="profit-margin">Click "Calculate Profitability" below</div>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon">💰</div>
+                        <div class="metric-label">Total Revenue</div>
+                        <div class="metric-value" id="totalRevenue">R 0</div>
+                        <div class="metric-subtitle">Gross income</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">📊</div>
+                        <div class="metric-label">Operating Costs</div>
+                        <div class="metric-value" id="totalCosts">R 0</div>
+                        <div class="metric-subtitle">Total expenses</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">⛽</div>
+                        <div class="metric-label">Fuel Costs</div>
+                        <div class="metric-value" id="fuelCosts">R 0</div>
+                        <div class="metric-subtitle">Largest expense</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">👨‍💼</div>
+                        <div class="metric-label">Driver Costs</div>
+                        <div class="metric-value" id="driverCosts">R 0</div>
+                        <div class="metric-subtitle">Labor expense</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">📏</div>
+                        <div class="metric-label">Cost per KM</div>
+                        <div class="metric-value" id="costPerKm">R 0</div>
+                        <div class="metric-subtitle">Operating efficiency</div>
+                    </div>
+                    
+                    <div class="metric-card">
+                        <div class="metric-icon">💵</div>
+                        <div class="metric-label">Revenue per KM</div>
+                        <div class="metric-value" id="revenuePerKm">R 0</div>
+                        <div class="metric-subtitle">Earning potential</div>
+                    </div>
+                </div>
+                
+                <div class="cost-breakdown">
+                    <div class="breakdown-title">
+                        <span>📋</span>
+                        <span>Detailed Cost Breakdown</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Fuel Costs</span>
+                        <span class="breakdown-value" id="fuelBreakdown">R 0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Driver Wages</span>
+                        <span class="breakdown-value" id="driverBreakdown">R 0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Maintenance</span>
+                        <span class="breakdown-value" id="maintenanceBreakdown">R 0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Insurance</span>
+                        <span class="breakdown-value" id="insuranceBreakdown">R 0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Tolls & Other</span>
+                        <span class="breakdown-value" id="tollsBreakdown">R 0</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="breakdown-label">Total Operating Costs</span>
+                        <span class="breakdown-value" id="totalBreakdown">R 0</span>
+                    </div>
+                </div>
+                
+                <div id="recommendationCard" class="recommendation-card">
+                    <div class="recommendation-title">💡 Smart Recommendation</div>
+                    <div class="recommendation-text">Complete the form to receive personalized advice for your route profitability.</div>
+                </div>
+                
+                <div class="tips">
+                    <h3>🎯 Pro Tips for Maximum Profitability</h3>
+                    <ul>
+                        <li>Target minimum 15-20% profit margin for sustainable operations</li>
+                        <li>Factor in return journey costs if running empty</li>
+                        <li>Consider seasonal fuel price variations</li>
+                        <li>Include depreciation in long-term calculations</li>
+                        <li>Account for unexpected delays and additional costs</li>
+                        <li>Negotiate better rates for regular routes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateProfitability() {
+            // Get input values
+            const totalKms = parseFloat(document.getElementById('totalKms').value) || 0;
+            const loadWeight = parseFloat(document.getElementById('loadWeight').value) || 0;
+            const ratePerTon = parseFloat(document.getElementById('ratePerTon').value) || 0;
+            const fuelPrice = parseFloat(document.getElementById('fuelPrice').value) || 0;
+            const fuelConsumption = parseFloat(document.getElementById('fuelConsumption').value) || 0;
+            const driverWage = parseFloat(document.getElementById('driverWage').value) || 0;
+            const tripDays = parseFloat(document.getElementById('tripDays').value) || 0;
+            const maintenanceCost = parseFloat(document.getElementById('maintenanceCost').value) || 0;
+            const insuranceCost = parseFloat(document.getElementById('insuranceCost').value) || 0;
+            const tollsOther = parseFloat(document.getElementById('tollsOther').value) || 0;
+
+            // Validate inputs
+            if (totalKms <= 0 || loadWeight <= 0 || ratePerTon <= 0) {
+                alert('Please fill in all required fields with valid values');
+                return;
+            }
+
+            // Calculate revenue
+            const totalRevenue = loadWeight * ratePerTon;
+
+            // Calculate individual costs
+            const fuelCosts = (totalKms / 100) * fuelConsumption * fuelPrice;
+            const driverCosts = tripDays * driverWage;
+            const maintenanceCosts = totalKms * maintenanceCost;
+            const insuranceCosts = tripDays * insuranceCost;
+            
+            const totalCosts = fuelCosts + driverCosts + maintenanceCosts + insuranceCosts + tollsOther;
+
+            // Calculate profit
+            const profit = totalRevenue - totalCosts;
+            const profitMargin = totalRevenue > 0 ? (profit / totalRevenue) * 100 : 0;
+            
+            // Calculate per km values
+            const costPerKm = totalKms > 0 ? totalCosts / totalKms : 0;
+            const revenuePerKm = totalKms > 0 ? totalRevenue / totalKms : 0;
+
+            // Update main metrics
+            document.getElementById('totalRevenue').textContent = `R ${totalRevenue.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('totalCosts').textContent = `R ${totalCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('fuelCosts').textContent = `R ${fuelCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('driverCosts').textContent = `R ${driverCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('costPerKm').textContent = `R ${costPerKm.toFixed(2)}`;
+            document.getElementById('revenuePerKm').textContent = `R ${revenuePerKm.toFixed(2)}`;
+
+            // Update cost breakdown
+            document.getElementById('fuelBreakdown').textContent = `R ${fuelCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('driverBreakdown').textContent = `R ${driverCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('maintenanceBreakdown').textContent = `R ${maintenanceCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('insuranceBreakdown').textContent = `R ${insuranceCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('tollsBreakdown').textContent = `R ${tollsOther.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('totalBreakdown').textContent = `R ${totalCosts.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+
+            // Update results overview
+            const overviewDiv = document.getElementById('resultsOverview');
+            const recommendationDiv = document.getElementById('recommendationCard');
+            
+            if (profit > 0) {
+                overviewDiv.className = 'results-overview profitable';
+                overviewDiv.innerHTML = `
+                    <div class="profit-status">✅ PROFITABLE ROUTE</div>
+                    <div class="profit-amount">Net Profit: R ${profit.toLocaleString('en-ZA', {minimumFractionDigits: 2})}</div>
+                    <div class="profit-margin">Profit Margin: ${profitMargin.toFixed(1)}%</div>
+                `;
+                
+                recommendationDiv.className = 'recommendation-card profitable';
+                let recommendation = '';
+                if (profitMargin >= 20) {
+                    recommendation = 'Outstanding! This route offers excellent profitability. Consider securing this as a regular contract.';
+                } else if (profitMargin >= 15) {
+                    recommendation = 'Great route with healthy profit margins. This meets industry standards for sustainable operations.';
+                } else if (profitMargin >= 10) {
+                    recommendation = 'Acceptable profit, but consider negotiating better rates or reducing costs for improved margins.';
+                } else {
+                    recommendation = 'Low profit margins. Look for ways to optimize costs or negotiate higher rates.';
+                }
+                
+                recommendationDiv.innerHTML = `
+                    <div class="recommendation-title">🎯 Route Recommendation</div>
+                    <div class="recommendation-text">${recommendation}</div>
+                `;
+                
+            } else if (Math.abs(profit) < 0.01) {
+                overviewDiv.className = 'results-overview break-even';
+                overviewDiv.innerHTML = `
+                    <div class="profit-status">⚖️ BREAK-EVEN</div>
+                    <div class="profit-amount">No Profit, No Loss</div>
+                    <div class="profit-margin">0% Margin</div>
+                `;
+                
+                recommendationDiv.className = 'recommendation-card';
+                recommendationDiv.innerHTML = `
+                    <div class="recommendation-title">⚠️ Break-Even Alert</div>
+                    <div class="recommendation-text">This route covers all costs but generates no profit. Consider requesting a rate increase of at least R${((totalCosts * 0.15) / loadWeight).toFixed(2)} per ton for a 15% margin.</div>
+                `;
+                
+            } else {
+                overviewDiv.className = 'results-overview loss';
+                overviewDiv.innerHTML = `
+                    <div class="profit-status">❌ LOSS MAKING</div>
+                    <div class="profit-amount">Loss: R ${Math.abs(profit).toLocaleString('en-ZA', {minimumFractionDigits: 2})}</div>
+                    <div class="profit-margin">-${Math.abs(profitMargin).toFixed(1)}% Margin</div>
+                `;
+                
+                const breakEvenRate = totalCosts / loadWeight;
+                const recommendedRate = breakEvenRate * 1.2; // 20% margin
+                
+                recommendationDiv.className = 'recommendation-card loss';
+                recommendationDiv.innerHTML = `
+                    <div class="recommendation-title">🚫 Do Not Accept</div>
+                    <div class="recommendation-text">This route will lose money. Minimum rate needed: R${breakEvenRate.toFixed(2)}/ton (break-even) or R${recommendedRate.toFixed(2)}/ton (20% profit).</div>
+                `;
+            }
+        }
+
+        // Auto-calculate on input change for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            const inputs = document.querySelectorAll('input[type="number"]');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    // Only auto-calculate if key fields are filled
+                    const totalKms = document.getElementById('totalKms').value;
+                    const loadWeight = document.getElementById('loadWeight').value;
+                    const ratePerTon = document.getElementById('ratePerTon').value;
+                    
+                    if (totalKms && loadWeight && ratePerTon) {
+                        calculateProfitability();
+                    }
+                });
+            });
+            
+            // Add event listeners for city selection
+            document.getElementById('loadingPoint').addEventListener('change', updateDistanceEstimate);
+            document.getElementById('offloadingPoint').addEventListener('change', updateDistanceEstimate);
+        });
+    </script>
+</body>
+</html>
