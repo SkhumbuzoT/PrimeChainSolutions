@@ -2058,6 +2058,230 @@
          font-size: 14px;
        }
      }
+    .dynamic-stats-section {
+        padding: 100px 0;
+        background: var(--gray-50);
+    }
+    
+    .stat-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+    }
+    
+    .stat-card {
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: all 0.3s ease;
+        border-top: 4px solid var(--card-color);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0) 0%, rgba(var(--card-color-rgb),0.03) 100%);
+        z-index: 0;
+    }
+    
+    .stat-visual {
+        height: 120px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        color: var(--card-color);
+        position: relative;
+        z-index: 2;
+    }
+    
+    .stat-content {
+        position: relative;
+        z-index: 2;
+    }
+    
+    .stat-content p {
+        color: var(--gray-800);
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        background: rgba(var(--card-color-rgb), 0.1);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .stat-icon svg {
+        width: 24px;
+        height: 24px;
+        fill: var(--card-color);
+    }
+    
+    .graphic-caption {
+        font-size: 0.9rem;
+        color: var(--gray-600);
+        font-style: italic;
+        margin-top: 10px;
+    }
+    
+    /* People icons visualization */
+    .people-icons {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        max-width: 240px;
+    }
+    
+    .person-icon {
+        width: 20px;
+        height: 20px;
+        background-color: rgba(var(--card-color-rgb), 0.2);
+        border-radius: 50%;
+        position: relative;
+    }
+    
+    .person-icon.filled::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--card-color);
+        border-radius: 50%;
+    }
+    
+    /* Animated Bar Chart */
+    .animated-bar {
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        background: rgba(var(--card-color-rgb), 0.2);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .animated-bar::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 0;
+        background: var(--card-color);
+        border-radius: 4px;
+        animation: fillBar 1.5s ease-out forwards;
+    }
+    
+    /* Pie Chart */
+    .pie-chart {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: conic-gradient(
+            var(--card-color) 0% 55%,
+            rgba(var(--card-color-rgb), 0.2) 55% 100%
+        );
+    }
+    
+    /* Speed Dial */
+    .speed-dial {
+        position: relative;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background: rgba(var(--card-color-rgb), 0.1);
+    }
+    
+    .dial-hand {
+        position: absolute;
+        width: 4px;
+        height: 50px;
+        background: var(--card-color);
+        left: calc(50% - 2px);
+        top: 10px;
+        transform-origin: bottom center;
+        transform: rotate(var(--rotation));
+        border-radius: 4px;
+        animation: rotateDial 1s ease-out forwards;
+    }
+    
+    /* Market Growth */
+    .market-growth {
+        position: relative;
+        width: 100%;
+        height: 120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .growth-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background: var(--card-color);
+        animation: growBar 1.5s ease-out forwards;
+    }
+    
+    /* Animations */
+    @keyframes fillBar {
+        to { width: var(--percent); }
+    }
+    
+    @keyframes rotateDial {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(var(--rotation)); }
+    }
+    
+    @keyframes growBar {
+        from { height: 0; }
+        to { height: var(--growth-percent); }
+    }
+    
+    @media (max-width: 768px) {
+        .stat-cards-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .stat-visual {
+            height: 100px;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -2185,32 +2409,99 @@
     </section>
    
 
-    <!-- Fixed Stats Section -->
-    <section class="stats-section animate-on-scroll">
+    <!-- Updated Stats Section -->
+    <section class="dynamic-stats-section animate-on-scroll">
         <div class="container">
             <div class="section-title">
-                <h2>How technology is transforming business operations</h2>
+                <h2>How Technology is Transforming Business Operations</h2>
             </div>
             
-            <div class="stats-container">
-                <div class="stat-item">
-                    <div class="stat-number">82%</div>
-                    <div class="stat-label">of sales teams are using automation to spend more time building stronger client relationships</div>
+            <div class="stat-cards-grid">
+                <!-- Card 1: 82% of sales teams -->
+                <div class="stat-card" style="--card-color: #0891b2; --card-color-rgb: 8, 145, 178;">
+                    <div class="stat-visual">
+                        <div class="people-icons">
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon filled"></div>
+                            <div class="person-icon"></div>
+                            <div class="person-icon"></div>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">82%</div>
+                        <p>of sales teams are using automation to focus on client relationships.</p>
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
+                            </svg>
+                        </div>
+                        <div class="graphic-caption">8 out of 10 teams automating sales processes</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">55%</div>
-                    <div class="stat-label">of supply chain leaders are investing in better technology to support their teams</div>
+                
+                <!-- Card 2: 55% of supply chain leaders -->
+                <div class="stat-card" style="--card-color: #10b981; --card-color-rgb: 16, 185, 129;">
+                    <div class="stat-visual">
+                        <div class="pie-chart"></div>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">55%</div>
+                        <p>of supply chain leaders are investing in better technology to support their teams.</p>
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm14.25 6a.75.75 0 01-.75.75H7.5a.75.75 0 010-1.5h9a.75.75 0 01.75.75zm-5.25-3a.75.75 0 01-.75.75H7.5a.75.75 0 010-1.5h4.5a.75.75 0 01.75.75z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="graphic-caption">Over half of operations heads are going digital</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">3x</div>
-                    <div class="stat-label">faster problem spotting for companies with good operational visibility</div>
+                
+                <!-- Card 3: 3× faster problem spotting -->
+                <div class="stat-card" style="--card-color: #f59e0b; --card-color-rgb: 245, 158, 11;">
+                    <div class="stat-visual">
+                        <div class="speed-dial">
+                            <div class="dial-hand" style="--rotation: 180deg;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">3×</div>
+                        <p>Companies with strong visibility spot issues 3× faster</p>
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd" d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm.53 5.47a.75.75 0 00-1.06 0l-3 3a.75.75 0 101.06 1.06l1.72-1.72v5.69a.75.75 0 001.5 0v-5.69l1.72 1.72a.75.75 0 101.06-1.06l-3-3z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="graphic-caption">Faster detection, smarter decisions</div>
+                    </div>
                 </div>
-                <div class="stat-item">
-                    <div class="stat-number">2.4B</div>
-                    <div class="stat-label">dollar supply chain visibility market because businesses see real value</div>
+                
+                <!-- Card 4: 70% of business leaders -->
+                <div class="stat-card" style="--card-color: #9333ea; --card-color-rgb: 147, 51, 234;">
+                    <div class="stat-visual">
+                        <div class="market-growth">
+                            <div class="growth-bar" style="--growth-percent: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stat-number">70%</div>
+                        <p>of leaders say automation helps them scale operations faster.</p>
+                        <div class="stat-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z" />
+                            </svg>
+                        </div>
+                        <div class="graphic-caption">Automating boosts speed and scalability</div>
+                    </div>
                 </div>
             </div>
-            <p style="max-width: 800px; margin: 40px auto 0; font-style: italic; color: var(--gray-800); font-size: 1.1rem;">
+            
+            <p style="max-width: 800px; margin: 40px auto 0; font-style: italic; color: var(--gray-800); font-size: 1.1rem; text-align: center;">
                 These aren't just trends - they're proof that giving your team better tools and clearer information helps everyone do their best work.
             </p>
         </div>
@@ -2697,6 +2988,41 @@
                 setTimeout(() => {
                     ripple.remove();
                 }, 600);
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the stats on scroll
+            const statCards = document.querySelectorAll('.stat-card');
+            
+            statCards.forEach((card, index) => {
+                // Set animation delays for staggered appearance
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                // Specific animations for each card type
+                if (card.querySelector('.pie-chart')) {
+                    // Pie chart animation
+                    const pie = card.querySelector('.pie-chart');
+                    pie.style.transform = 'scale(0)';
+                    setTimeout(() => {
+                        pie.style.transition = 'transform 0.8s ease-out';
+                        pie.style.transform = 'scale(1)';
+                    }, 300 + (index * 100));
+                }
+                
+                if (card.querySelector('.people-icons')) {
+                    // People icons animation
+                    const people = card.querySelectorAll('.person-icon.filled');
+                    people.forEach((person, i) => {
+                        person.style.opacity = '0';
+                        person.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            person.style.transition = 'all 0.3s ease-out';
+                            person.style.opacity = '1';
+                            person.style.transform = 'translateY(0)';
+                        }, 100 + (i * 50));
+                    });
+                }
             });
         });
 
