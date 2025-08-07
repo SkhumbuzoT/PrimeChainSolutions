@@ -3,19 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
+    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="og:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="og:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="twitter:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
+
+    <!-- Favicon Links -->
+    <link rel="icon" href="/assets/primechain-favicon-workflow.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/primechain-favicon-workflow.svg">
+    <link rel="mask-icon" href="/assets/primechain-favicon-workflow.svg" color="#002366">
+    
     <title>South African Solar System Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2332;
+            --teal: #0891b2;
+            --teal-light: #06b6d4;
+            --teal-dark: #0e7490;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --charcoal: #1f2937;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --white: #ffffff;
+            --whatsapp-green: #25d366;
+            --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
+            --gradient-secondary: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+            --gradient-hero: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(8, 145, 178, 0.85) 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--charcoal);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-color: var(--white);
+            font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
         }
 
         .container {
