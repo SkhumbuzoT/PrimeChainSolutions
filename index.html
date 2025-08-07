@@ -2282,7 +2282,43 @@
             font-size: 2.5rem;
         }
     }
-    </style>
+    .radar-visual {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: rgba(var(--card-color-rgb), 0.05);
+      border: 2px solid rgba(var(--card-color-rgb), 0.2);
+      overflow: hidden;
+    }
+    
+    .radar-sweep {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: conic-gradient(
+        rgba(var(--card-color-rgb), 0.25) 0deg 84%,
+        transparent 85% 360deg
+      );
+      border-radius: 50%;
+      animation: rotateRadar 2s linear infinite;
+    }
+    
+    .radar-dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background-color: var(--card-color);
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(var(--card-color-rgb), 0.8);
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    @keyframes rotateRadar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }}
+
+   </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
