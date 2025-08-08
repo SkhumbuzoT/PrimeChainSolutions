@@ -2318,6 +2318,50 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Card hover effect */
+        .stat-card {
+          background: linear-gradient(180deg, rgba(var(--card-color-rgb), 0.05), white);
+          transform: translateY(0);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+          transform: translateY(-8px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(var(--card-color-rgb), 0.2);
+        }
+        
+        /* Animated People Icons */
+        .people-icons .person-icon {
+          opacity: 0.2;
+          transition: opacity 0.3s ease;
+        }
+        .people-icons .person-icon.filled {
+          opacity: 1;
+        }
+        
+        /* Animated Pie Chart Fill */
+        .pie-chart {
+          border-radius: 50%;
+          background: conic-gradient(var(--card-color) 0% 0%, rgba(var(--card-color-rgb), 0.2) 0% 100%);
+          width: 120px;
+          height: 120px;
+          transition: background 1s ease-out;
+        }
+        
+        /* Animated Bar Progress */
+        .animated-bar::after {
+          transition: width 1s ease-out;
+        }
+        
+        /* Scroll-triggered animation */
+        .animate-on-scroll {
+          opacity: 0;
+          transform: translateY(40px);
+          transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .animate-on-scroll.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -2579,6 +2623,76 @@
           <div class="stat-card" style="--card-color: #10b981; --card-color-rgb: 16,185,129;">
             <div class="stat-visual">
               <div class="pie-chart"></div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">55%</h3>
+              <p>of supply chain leaders are investing in better technology for operations.</p>
+            </div>
+          </div>
+    
+          <!-- Card 3: Radar Sweep -->
+          <div class="stat-card" style="--card-color: #f59e0b; --card-color-rgb: 245,158,11;">
+            <div class="stat-visual">
+              <div class="radar-visual">
+                <div class="radar-sweep"></div>
+                <div class="radar-dot" style="top: 30%; left: 65%;"></div>
+              </div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">3× Faster</h3>
+              <p>Companies with strong visibility spot and solve issues three times faster.</p>
+            </div>
+          </div>
+    
+          <!-- Card 4: Animated Bar -->
+          <div class="stat-card" style="--card-color: #9333ea; --card-color-rgb: 147,51,234;">
+            <div class="stat-visual">
+              <div class="animated-bar" style="--percent: 70%;"></div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">70%</h3>
+              <p>of leaders say automation helps scale operations with fewer growing pains.</p>
+            </div>
+          </div>
+    
+        </div>
+      </div>
+    </section>
+
+    <!-- How Technology is Transforming Business Operations -->
+    <section class="dynamic-stats-section animate-on-scroll">
+      <div class="container">
+        <div class="section-title">
+          <h2>How Technology is Transforming Business Operations</h2>
+          <p>From visibility to automation, these numbers show why companies are embracing smarter tools.</p>
+        </div>
+    
+        <div class="stat-cards-grid">
+    
+          <!-- Card 1: People Icons -->
+          <div class="stat-card" style="--card-color: #0891b2; --card-color-rgb: 8,145,178;">
+            <div class="stat-visual people-icons" data-animate="people">
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+              <div class="person-icon"></div>
+            </div>
+            <div class="stat-content">
+              <h3 class="stat-number">82%</h3>
+              <p>of sales teams are using automation to save time and boost efficiency.</p>
+            </div>
+          </div>
+    
+          <!-- Card 2: Animated Pie Chart -->
+          <div class="stat-card" style="--card-color: #10b981; --card-color-rgb: 16,185,129;">
+            <div class="stat-visual">
+              <div class="pie-chart" data-percent="55"></div>
             </div>
             <div class="stat-content">
               <h3 class="stat-number">55%</h3>
@@ -3132,6 +3246,39 @@
                     });
                 }
             });
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+          const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+        
+                // Animate People Icons
+                if (entry.target.querySelector(".people-icons")) {
+                  const icons = entry.target.querySelectorAll(".person-icon");
+                  icons.forEach((icon, i) => {
+                    setTimeout(() => icon.classList.add("filled"), i * 100);
+                  });
+                }
+        
+                // Animate Pie Chart
+                const pie = entry.target.querySelector(".pie-chart");
+                if (pie) {
+                  const percent = pie.getAttribute("data-percent");
+                  pie.style.background = `conic-gradient(var(--card-color) 0% ${percent}%, rgba(var(--card-color-rgb),0.2) ${percent}% 100%)`;
+                }
+        
+                // Animate Bar
+                const bar = entry.target.querySelector(".animated-bar::after");
+                if (bar) {
+                  bar.style.width = bar.parentElement.style.getPropertyValue("--percent");
+                }
+              }
+            });
+          }, { threshold: 0.3 });
+        
+          document.querySelectorAll(".stat-card").forEach(card => observer.observe(card));
         });
 
         // Add CSS for ripple animation
