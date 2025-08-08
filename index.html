@@ -2362,6 +2362,60 @@
           opacity: 1;
           transform: translateY(0);
         }
+
+        .circle-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .circle-stat {
+            background: #fff;
+            padding: 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .progress-circle {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 15px;
+        }
+        
+        .progress-circle svg {
+            transform: rotate(-90deg);
+            width: 120px;
+            height: 120px;
+        }
+        
+        .progress-circle circle {
+            fill: none;
+            stroke-width: 12;
+            stroke-linecap: round;
+        }
+        
+        .progress-circle .bg {
+            stroke: #e5e7eb; /* Tailwind gray-200 */
+        }
+        
+        .progress-circle .progress {
+            stroke: var(--teal); /* your accent color */
+            stroke-dasharray: 339.292; /* circumference = 2πr (r=54) */
+            stroke-dashoffset: 339.292;
+            transition: stroke-dashoffset 1s ease;
+        }
+        
+        .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
     </style>
 </head>
 <body>
@@ -2510,6 +2564,63 @@
                 <div class="stat-item">
                     <div class="stat-number">70%</div>
                     <div class="stat-label">say automation helps scale operations with fewer growing pains</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>How Technology is Transforming Business Operations</h2>
+            </div>
+            <div class="circle-stats-grid">
+                <!-- 82% -->
+                <div class="circle-stat">
+                    <div class="progress-circle" data-percentage="82">
+                        <svg>
+                            <circle class="bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="percentage">82%</div>
+                    </div>
+                    <p>of sales teams are using automation to save time and boost efficiency</p>
+                </div>
+    
+                <!-- 55% -->
+                <div class="circle-stat">
+                    <div class="progress-circle" data-percentage="55">
+                        <svg>
+                            <circle class="bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="percentage">55%</div>
+                    </div>
+                    <p>of supply chain leaders are investing in better technology for operations</p>
+                </div>
+    
+                <!-- 87% -->
+                <div class="circle-stat">
+                    <div class="progress-circle" data-percentage="87">
+                        <svg>
+                            <circle class="bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="percentage">87%</div>
+                    </div>
+                    <p>now see visibility as critically important</p>
+                </div>
+    
+                <!-- 70% -->
+                <div class="circle-stat">
+                    <div class="progress-circle" data-percentage="70">
+                        <svg>
+                            <circle class="bg" cx="60" cy="60" r="54"></circle>
+                            <circle class="progress" cx="60" cy="60" r="54"></circle>
+                        </svg>
+                        <div class="percentage">70%</div>
+                    </div>
+                    <p>say automation helps scale operations with fewer growing pains</p>
                 </div>
             </div>
         </div>
@@ -3035,36 +3146,27 @@
         });
 
         document.addEventListener("DOMContentLoaded", () => {
-          const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
+            const circles = document.querySelectorAll(".progress-circle");
         
-                // Animate People Icons
-                if (entry.target.querySelector(".people-icons")) {
-                  const icons = entry.target.querySelectorAll(".person-icon");
-                  icons.forEach((icon, i) => {
-                    setTimeout(() => icon.classList.add("filled"), i * 100);
-                  });
-                }
+            const animateCircle = (circle) => {
+                const percentage = circle.getAttribute("data-percentage");
+                const progress = circle.querySelector(".progress");
+                const circumference = 2 * Math.PI * 54; // r = 54
+                const offset = circumference - (percentage / 100) * circumference;
+                progress.style.strokeDashoffset = offset;
+            };
         
-                // Animate Pie Chart
-                const pie = entry.target.querySelector(".pie-chart");
-                if (pie) {
-                  const percent = pie.getAttribute("data-percent");
-                  pie.style.background = `conic-gradient(var(--card-color) 0% ${percent}%, rgba(var(--card-color-rgb),0.2) ${percent}% 100%)`;
-                }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCircle(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
         
-                // Animate Bar
-                const bar = entry.target.querySelector(".animated-bar::after");
-                if (bar) {
-                  bar.style.width = bar.parentElement.style.getPropertyValue("--percent");
-                }
-              }
+            circles.forEach(c => {
+                observer.observe(c);
             });
-          }, { threshold: 0.3 });
-        
-          document.querySelectorAll(".stat-card").forEach(card => observer.observe(card));
         });
 
         // Add CSS for ripple animation
