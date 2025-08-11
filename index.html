@@ -3016,44 +3016,45 @@
     <script>
         // Wait for DOM to be fully loaded
         document.addEventListener('DOMContentLoaded', function() {
-          const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-          if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-              const nav = document.querySelector('nav ul');
-              const isOpen = nav.classList.contains('show');
-              
-              nav.classList.toggle('show');
-              this.setAttribute('aria-expanded', !isOpen);
-              this.innerHTML = isOpen ? 
-                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-              document.body.style.overflow = isOpen ? '' : 'hidden';
-              
-              // Add focus trapping for better accessibility
-              if (!isOpen) {
-                const firstLink = nav.querySelector('a');
-                if (firstLink) firstLink.focus();
+              const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+              if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                  const nav = document.querySelector('nav ul');
+                  const isOpen = nav.classList.contains('show');
+                  
+                  nav.classList.toggle('show');
+                  this.setAttribute('aria-expanded', !isOpen);
+                  this.innerHTML = isOpen ? 
+                    '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                  document.body.style.overflow = isOpen ? '' : 'hidden';
+                  
+                  // Add focus trapping for better accessibility
+                  if (!isOpen) {
+                    const firstLink = nav.querySelector('a');
+                    if (firstLink) firstLink.focus();
+                  }
+                });
               }
+              
+              // Close menu when clicking outside
+              document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav ul');
+                const menuBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (nav && nav.classList.contains('show') && 
+                    !e.target.closest('nav') && 
+                    !e.target.closest('.mobile-menu-btn')) {
+                  nav.classList.remove('show');
+                  if (menuBtn) {
+                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    menuBtn.setAttribute('aria-expanded', 'false');
+                  }
+                  document.body.style.overflow = '';
+                }
+              });
             });
-          }
-          
-          // Close menu when clicking outside
-          document.addEventListener('click', function(e) {
-            const nav = document.querySelector('nav ul');
-            const menuBtn = document.querySelector('.mobile-menu-btn');
-            
-            if (nav && nav.classList.contains('show') && 
-                !e.target.closest('nav') && 
-                !e.target.closest('.mobile-menu-btn')) {
-              nav.classList.remove('show');
-              if (menuBtn) {
-                menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                menuBtn.setAttribute('aria-expanded', 'false');
-              }
-              document.body.style.overflow = '';
-            }
-          });
-        });
-            
+        }
+    
             // Header scroll effect and scroll progress
             function handleScroll() {
                 const header = document.getElementById('header');
