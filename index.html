@@ -2497,7 +2497,7 @@
           left: 10%;
           right: 10%;
           height: 2px;
-          background: #e5e7eb;
+          background: var(--gray-200);
           z-index: 0;
         }
         
@@ -2530,19 +2530,18 @@
         
         .approach-step p {
           font-size: 0.95rem;
-          color: #374151;
+          color: var(--gray-800);
         }
         
-        /* Responsive adjustments */
         @media (max-width: 768px) {
           .approach-flow {
             flex-direction: column;
             align-items: center;
           }
-          
           .approach-flow::before {
             display: none;
           }
+        }
         }
     </style>
 </head>
@@ -2839,35 +2838,35 @@
         <div class="approach-flow">
           
           <!-- Step 1 -->
-          <div class="approach-step" style="--step-color:#f59e0b;">
+          <div class="approach-step" style="--step-color:var(--gold);">
             <div class="circle-icon"><i class="fas fa-project-diagram"></i></div>
             <h4>Process Mapping</h4>
             <p>We map your workflows to identify gaps, inefficiencies, and opportunities for improvement.</p>
           </div>
           
           <!-- Step 2 -->
-          <div class="approach-step" style="--step-color:#f97316;">
+          <div class="approach-step" style="--step-color:var(--gold-light);">
             <div class="circle-icon"><i class="fas fa-database"></i></div>
             <h4>Data Integration & Cleaning</h4>
             <p>We integrate your data sources and clean the data for accuracy, consistency, and reliability.</p>
           </div>
           
           <!-- Step 3 -->
-          <div class="approach-step" style="--step-color:#0d9488;">
+          <div class="approach-step" style="--step-color:var(--teal);">
             <div class="circle-icon"><i class="fas fa-chart-pie"></i></div>
             <h4>Dashboard Design & Build</h4>
             <p>We design and develop interactive dashboards for actionable insights and real-time visibility.</p>
           </div>
           
           <!-- Step 4 -->
-          <div class="approach-step" style="--step-color:#3b82f6;">
+          <div class="approach-step" style="--step-color:var(--teal-light);">
             <div class="circle-icon"><i class="fas fa-cogs"></i></div>
             <h4>Workflow Automation</h4>
             <p>We automate repetitive processes to save time, reduce errors, and boost efficiency.</p>
           </div>
           
           <!-- Step 5 -->
-          <div class="approach-step" style="--step-color:#8b5cf6;">
+          <div class="approach-step" style="--step-color:var(--teal-dark);">
             <div class="circle-icon"><i class="fas fa-user-graduate"></i></div>
             <h4>Training & Support</h4>
             <p>We train your team and provide ongoing support to ensure lasting success.</p>
