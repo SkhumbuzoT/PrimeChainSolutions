@@ -2555,6 +2555,154 @@
             display: none;
           }
         }
+        .statistics-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        
+        .stats-intro {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .stats-intro h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 16px;
+        }
+        
+        .stats-intro p {
+            font-size: 1.2rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid;
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card.primary {
+            border-top-color: #3b82f6;
+        }
+        
+        .stat-card.warning {
+            border-top-color: #f59e0b;
+        }
+        
+        .stat-card.success {
+            border-top-color: #10b981;
+        }
+        
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .stat-context {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-style: italic;
+        }
+        
+        .stats-secondary {
+            margin-bottom: 60px;
+        }
+        
+        .secondary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .secondary-stat {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stat-highlight {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #3b82f6;
+            margin-bottom: 8px;
+        }
+        
+        .secondary-stat span:last-child {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        
+        .stats-cta {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stats-cta h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+        
+        .stats-cta p {
+            font-size: 1.1rem;
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.8rem;
+            }
+            
+            .stats-intro h2 {
+                font-size: 2rem;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -2756,6 +2904,68 @@
         </div>
     </section>
 
+    <!-- Statistics Section -->
+    <section class="statistics-section">
+        <div class="container">
+            <div class="stats-intro">
+                <h2>You're Not Alone - The Industry is Transforming</h2>
+                <p>These challenges aren't unique to your business. The entire logistics industry is facing the same pressures, and smart companies are taking action.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <div class="stat-number">75%</div>
+                    <div class="stat-label">of enterprises are implementing logistics automation</div>
+                    <div class="stat-context">Don't get left behind while competitors gain the advantage</div>
+                </div>
+                
+                <div class="stat-card warning">
+                    <div class="stat-number">79%</div>
+                    <div class="stat-label">increase in logistics labor costs</div>
+                    <div class="stat-context">Manual processes are becoming too expensive to sustain</div>
+                </div>
+                
+                <div class="stat-card success">
+                    <div class="stat-number">42%</div>
+                    <div class="stat-label">ROI improvement with modern automation</div>
+                    <div class="stat-context">Solutions deploy in weeks, not quarters</div>
+                </div>
+            </div>
+            
+            <div class="stats-secondary">
+                <div class="secondary-stats">
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">Only 35%</span>
+                        <span>of logistics companies have moved beyond manual spreadsheet processes</span>
+                    </div>
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">$90B market</span>
+                        <span>logistics automation growing 14.7% annually through 2030</span>
+                    </div>
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">20+ hours</span>
+                        <span>wasted weekly on manual reporting and data reconciliation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-cta">
+                <h3>The question isn't whether to automate...</h3>
+                <p>It's whether you'll be among the leaders or left scrambling to catch up.</p>
+                <div class="btn-group">
+                    <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20join%20the%2075%25%20of%20companies%20implementing%20automation." class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Join the Leaders
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        See Our Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Our Story -->
     <section class="our-story-section section animate-on-scroll">
@@ -2905,11 +3115,11 @@
                 </div>
                 <form action="https://formspree.io/f/yourID" method="POST">
                     <div class="form-group">
-                        <input type="email" name="email" placeholder="skhumbuzo@primechainsolutions.co.za" required>
+                        <input type="email" name="email" placeholder="Enter your email" required>
                     </div>
                     <button type="submit" class="btn">
                         <i class="fas fa-paper-plane"></i>
-                        Request a Callback
+                        FREE STRATEGY CALL
                     </button>
                 </form>
             </div>
