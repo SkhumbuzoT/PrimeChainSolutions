@@ -1431,6 +1431,278 @@
             width: 100%;
           }
         }
+        /* Enhanced Statistics Section Styles */
+        .statistics-section {
+            padding: 100px 0;
+            background: var(--gray-50);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .statistics-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+        }
+        
+        .stats-intro {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-intro h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 24px;
+            letter-spacing: -0.025em;
+        }
+        
+        .stats-intro p {
+            font-size: 1.2rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stat-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 48px 40px;
+            text-align: center;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-100);
+            transform: translateY(30px);
+            opacity: 0;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        .stat-card.primary::before {
+            background: linear-gradient(135deg, var(--teal), var(--navy));
+        }
+        
+        .stat-card.warning::before {
+            background: linear-gradient(135deg, var(--gold), #dc2626);
+        }
+        
+        .stat-card.success::before {
+            background: linear-gradient(135deg, var(--teal), #059669);
+        }
+        
+        .stat-card.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+        
+        .stat-number {
+            font-size: clamp(3.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1;
+            position: relative;
+        }
+        
+        .stat-card.warning .stat-number {
+            background: linear-gradient(135deg, var(--gold), #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-card.success .stat-number {
+            background: linear-gradient(135deg, var(--teal), #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+        
+        .stat-context {
+            font-size: 1rem;
+            color: var(--gray-800);
+            line-height: 1.5;
+            font-style: italic;
+        }
+        
+        .stats-secondary {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 48px 40px;
+            margin-bottom: 60px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        
+        .stats-secondary.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .secondary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+        
+        .secondary-stat {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--gray-50), rgba(8, 145, 178, 0.05));
+            border-radius: 16px;
+            border-left: 4px solid var(--teal);
+            transition: var(--transition);
+        }
+        
+        .secondary-stat:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .stat-highlight {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--teal);
+            white-space: nowrap;
+        }
+        
+        .secondary-stat span:last-child {
+            color: var(--gray-800);
+            line-height: 1.4;
+        }
+        
+        .stats-cta {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition);
+        }
+        
+        .stats-cta.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stats-cta h3 {
+            font-size: clamp(1.75rem, 3vw, 2.25rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+        
+        .stats-cta p {
+            font-size: 1.2rem;
+            color: var(--gray-800);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .statistics-section {
+                padding: 80px 0;
+            }
+            
+            .stats-intro {
+                margin-bottom: 60px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                margin-bottom: 60px;
+            }
+            
+            .stat-card {
+                padding: 36px 28px;
+            }
+            
+            .stats-secondary {
+                padding: 36px 28px;
+            }
+            
+            .secondary-stats {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .secondary-stat {
+                flex-direction: column;
+                text-align: center;
+                gap: 12px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stat-card {
+                padding: 32px 24px;
+            }
+            
+            .stat-number {
+                font-size: 3rem;
+            }
+            
+            .stat-label {
+                font-size: 1.1rem;
+            }
+            
+            .stats-secondary {
+                padding: 32px 24px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1555,6 +1827,68 @@
                 
                 <div class="stat-card success">
                     <div class="stat-number">42%</div>
+                    <div class="stat-label">ROI improvement with modern automation</div>
+                    <div class="stat-context">Solutions deploy in weeks, not quarters</div>
+                </div>
+            </div>
+            
+            <div class="stats-secondary">
+                <div class="secondary-stats">
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">Only 35%</span>
+                        <span>of logistics companies have moved beyond manual spreadsheet processes</span>
+                    </div>
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">$90B market</span>
+                        <span>logistics automation growing 14.7% annually through 2030</span>
+                    </div>
+                    <div class="secondary-stat">
+                        <span class="stat-highlight">20+ hours</span>
+                        <span>wasted weekly on manual reporting and data reconciliation</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="stats-cta">
+                <h3>The question isn't whether to automate...</h3>
+                <p>It's whether you'll be among the leaders or left scrambling to catch up.</p>
+                <div class="btn-group">
+                    <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20join%20the%2075%25%20of%20companies%20implementing%20automation." class="btn btn-primary">
+                        <i class="fas fa-rocket"></i>
+                        Join the Leaders
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary">
+                        <i class="fas fa-arrow-down"></i>
+                        See Our Solutions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics-section animate-on-scroll">
+        <div class="container">
+            <div class="stats-intro">
+                <h2>You're Not Alone - The Industry is Transforming</h2>
+                <p>These challenges aren't unique to your business. The entire industry is facing the same pressures, and smart companies are taking action.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card primary">
+                    <div class="stat-number" id="stat1">0</div>
+                    <div class="stat-label">of enterprises are implementing logistics automation</div>
+                    <div class="stat-context">Don't get left behind while competitors gain the advantage</div>
+                </div>
+                
+                <div class="stat-card warning">
+                    <div class="stat-number" id="stat2">0</div>
+                    <div class="stat-label">increase in logistics labor costs</div>
+                    <div class="stat-context">Manual processes are becoming too expensive to sustain</div>
+                </div>
+                
+                <div class="stat-card success">
+                    <div class="stat-number" id="stat3">0</div>
                     <div class="stat-label">ROI improvement with modern automation</div>
                     <div class="stat-context">Solutions deploy in weeks, not quarters</div>
                 </div>
@@ -2149,6 +2483,62 @@
                     }
                 });
             }
+            // Enhanced counter animation for statistics
+            function animateStatsCounter(element, target, suffix = '%') {
+                if (element.classList.contains('animated')) return;
+                
+                let current = 0;
+                const increment = target / 80;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current) + suffix;
+                }, 25);
+                
+                element.classList.add('animated');
+            }
+            
+            // Enhanced intersection observer for statistics
+            document.addEventListener('DOMContentLoaded', function() {
+                const statsSection = document.querySelector('.statistics-section');
+                const statCards = document.querySelectorAll('.stat-card');
+                const statsSecondary = document.querySelector('.stats-secondary');
+                const statsCta = document.querySelector('.stats-cta');
+                
+                const statsObserver = new IntersectionObserver((entries) => {
+                    entries.forEach((entry, index) => {
+                        if (entry.isIntersecting) {
+                            setTimeout(() => {
+                                entry.target.classList.add('animate');
+                                
+                                // Trigger counter animations when cards are visible
+                                if (entry.target.classList.contains('stat-card')) {
+                                    const statNumber = entry.target.querySelector('.stat-number');
+                                    const id = statNumber.getAttribute('id');
+                                    
+                                    setTimeout(() => {
+                                        if (id === 'stat1') animateStatsCounter(statNumber, 75, '%');
+                                        if (id === 'stat2') animateStatsCounter(statNumber, 79, '%');
+                                        if (id === 'stat3') animateStatsCounter(statNumber, 42, '%');
+                                    }, 200);
+                                }
+                            }, index * 150);
+                            
+                            statsObserver.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.2 });
+                
+                // Observe all stat elements
+                if (statCards.length) {
+                    statCards.forEach(card => statsObserver.observe(card));
+                }
+                if (statsSecondary) statsObserver.observe(statsSecondary);
+                if (statsCta) statsObserver.observe(statsCta);
+            });
     
             // Progress circles animation
             const circles = document.querySelectorAll(".progress-circle");
