@@ -2117,434 +2117,198 @@
     </div>
 
     <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu toggle
-            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-            if (mobileMenuBtn) {
-                mobileMenuBtn.addEventListener('click', function() {
-                    const nav = document.querySelector('nav ul');
-                    const isOpen = nav.classList.contains('show');
-                    
-                    nav.classList.toggle('show');
-                    this.innerHTML = isOpen ? 
-                        '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-                    document.body.style.overflow = isOpen ? '' : 'hidden';
-                });
-            }
-            
-            // Close mobile menu when clicking a link
-            const navLinks = document.querySelectorAll('nav ul li a');
-            if (navLinks.length > 0) {
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        const nav = document.querySelector('nav ul');
-                        if (nav && nav.classList.contains('show')) {
-                            nav.classList.remove('show');
-                            const menuBtn = document.querySelector('.mobile-menu-btn');
-                            if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                            document.body.style.overflow = '';
-                        }
-                    });
-                });
-            }
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===== Mobile Menu Toggle =====
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const nav = document.querySelector('nav ul');
+                const isOpen = nav.classList.contains('show');
+                nav.classList.toggle('show');
+                this.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
     
-            // Header scroll effect and scroll progress
-            function handleScroll() {
-                const header = document.getElementById('header');
-                const scrollY = window.scrollY;
-                
-                // Header styling
-                if (header) {
-                    if (scrollY > 50) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                }
-                
-                // Back to top button
-                const backToTop = document.querySelector('.back-to-top');
-                if (backToTop) {
-                    if (scrollY > 300) {
-                        backToTop.classList.add('visible');
-                    } else {
-                        backToTop.classList.remove('visible');
-                    }
-                }
-    
-                // Scroll progress bar
-                const scrollProgress = document.querySelector('.scroll-progress');
-                if (scrollProgress) {
-                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = (winScroll / height) * 100;
-                    scrollProgress.style.width = scrolled + "%";
-                }
-            }
-            
-            window.addEventListener('scroll', handleScroll);
-            
-            // Back to top functionality
-            const backToTopBtn = document.querySelector('.back-to-top');
-            if (backToTopBtn) {
-                backToTopBtn.addEventListener('click', function() {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-            
-            // Smooth scrolling with offset for fixed header
-            const anchorLinks = document.querySelectorAll('a[href^="#"]');
-            if (anchorLinks.length > 0) {
-                anchorLinks.forEach(anchor => {
-                    anchor.addEventListener('click', function(e) {
-                        if (this.getAttribute('href') === '#') return;
-                        
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (!target) return;
-                        
-                        const headerOffset = 100;
-                        const elementPosition = target.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-    
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                        
-                        // Close mobile menu if open
-                        const nav = document.querySelector('nav ul');
-                        if (nav && nav.classList.contains('show')) {
-                            nav.classList.remove('show');
-                            const menuBtn = document.querySelector('.mobile-menu-btn');
-                            if (menuBtn) menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                            document.body.style.overflow = '';
-                        }
-                    });
-                });
-            }
-    
-            // Animated counters for stats
-            function animateCounters() {
-                const counters = document.querySelectorAll('.stat-number');
-                const speed = 200;
-    
-                counters.forEach(counter => {
-                    const animate = () => {
-                        const value = +counter.getAttribute('data-target') || +counter.innerText.replace(/[^\d]/g, '');
-                        const data = +counter.innerText.replace(/[^\d]/g, '');
-                        const time = value / speed;
-                        
-                        if (data < value) {
-                            counter.innerText = Math.ceil(data + time) + (counter.innerText.includes('%') ? '%' : 
-                                counter.innerText.includes('x') ? 'x' : 
-                                counter.innerText.includes('B') ? 'B' : '');
-                            setTimeout(animate, 1);
-                        } else {
-                            counter.innerText = value + (counter.innerText.includes('%') ? '%' : 
-                                counter.innerText.includes('x') ? 'x' : 
-                                counter.innerText.includes('B') ? 'B' : '');
-                        }
-                    };
-                    
-                    // Only animate if not already animated
-                    if (!counter.classList.contains('animated')) {
-                        counter.classList.add('animated');
-                        animate();
-                    }
-                });
-            }
-    
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-    
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                        
-                        // Trigger counter animation for stats section
-                        if (entry.target.classList.contains('stats-section')) {
-                            setTimeout(animateCounters, 200);
-                        }
-                        
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-    
-            // Observe all animated elements
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            if (animatedElements.length > 0) {
-                animatedElements.forEach(el => {
-                    observer.observe(el);
-                });
-            }
-    
-            // Add stagger effect to cards
-            const staggerCards = document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card');
-            if (staggerCards.length > 0) {
-                staggerCards.forEach((card, index) => {
-                    card.style.animationDelay = `${index * 0.1}s`;
-                });
-            }
-    
-            // Animated bar
-            const bars = document.querySelectorAll('.animated-bar');
-            if (bars.length > 0) {
-                bars.forEach(bar => {
-                    const statNumber = bar.parentElement.querySelector('.stat-number');
-                    if (statNumber) {
-                        const percent = statNumber.textContent.replace('%','');
-                        bar.style.setProperty('--percent', percent + '%');
-                        const afterElement = bar.querySelector('::after');
-                        if (afterElement) afterElement.style.width = percent + '%';
-                    }
-                });
-            }
-            
-            // Speed dial rotation
-            const dials = document.querySelectorAll('.dial-hand');
-            if (dials.length > 0) {
-                dials.forEach(dial => {
-                    const statNumber = dial.parentElement.querySelector('.stat-number');
-                    if (statNumber) {
-                        const multiplier = parseFloat(statNumber.textContent.replace('x',''));
-                        dial.style.setProperty('--rotation', (multiplier * 60) + 'deg');
-                    }
-                });
-            }
-    
-            // Enhanced button hover effects
-            const buttons = document.querySelectorAll('.btn');
-            if (buttons.length > 0) {
-                buttons.forEach(btn => {
-                    btn.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-2px) scale(1.02)';
-                    });
-                    
-                    btn.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                    });
-                });
-            }
-    
-            // Add loading animation
-            window.addEventListener('load', function() {
-                document.body.classList.add('loaded');
-                
-                // Trigger hero animations
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent) {
-                    setTimeout(() => {
-                        heroContent.style.opacity = '1';
-                        heroContent.style.transform = 'translateY(0)';
-                    }, 100);
+        // ===== Close Mobile Menu on Link Click =====
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('nav ul');
+                if (nav && nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
                 }
             });
-    
-            // Dynamic gradient based on scroll
-            window.addEventListener('scroll', function() {
-                const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-                const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
-                document.documentElement.style.setProperty('--dynamic-hue', hue);
-            });
-    
-            // Add ripple effect to buttons
-            if (buttons.length > 0) {
-                buttons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        const ripple = document.createElement('span');
-                        const rect = this.getBoundingClientRect();
-                        const size = Math.max(rect.width, rect.height);
-                        const x = e.clientX - rect.left - size / 2;
-                        const y = e.clientY - rect.top - size / 2;
-                        
-                        ripple.style.cssText = `
-                            position: absolute;
-                            width: ${size}px;
-                            height: ${size}px;
-                            left: ${x}px;
-                            top: ${y}px;
-                            background: rgba(255, 255, 255, 0.3);
-                            border-radius: 50%;
-                            transform: scale(0);
-                            animation: ripple 0.6s linear;
-                            pointer-events: none;
-                        `;
-                        
-                        this.appendChild(ripple);
-                        
-                        setTimeout(() => {
-                            ripple.remove();
-                        }, 600);
-                    });
-                });
-            }
-    
-            // Animate the stats on scroll
-            const statCards = document.querySelectorAll('.stat-card');
-            if (statCards.length > 0) {
-                statCards.forEach((card, index) => {
-                    // Set animation delays for staggered appearance
-                    card.style.animationDelay = `${index * 0.1}s`;
-                    
-                    // Specific animations for each card type
-                    if (card.querySelector('.pie-chart')) {
-                        // Pie chart animation
-                        const pie = card.querySelector('.pie-chart');
-                        pie.style.transform = 'scale(0)';
-                        setTimeout(() => {
-                            pie.style.transition = 'transform 0.8s ease-out';
-                            pie.style.transform = 'scale(1)';
-                        }, 300 + (index * 100));
-                    }
-                    
-                    if (card.querySelector('.people-icons')) {
-                        // People icons animation
-                        const people = card.querySelectorAll('.person-icon.filled');
-                        people.forEach((person, i) => {
-                            person.style.opacity = '0';
-                            person.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                person.style.transition = 'all 0.3s ease-out';
-                                person.style.opacity = '1';
-                                person.style.transform = 'translateY(0)';
-                            }, 100 + (i * 50));
-                        });
-                    }
-                });
-            }
-            // Enhanced counter animation for statistics
-            function animateStatsCounter(element, target, suffix = '%') {
-                if (element.classList.contains('animated')) return;
-                
-                let current = 0;
-                const increment = target / 80;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        current = target;
-                        clearInterval(timer);
-                    }
-                    element.textContent = Math.floor(current) + suffix;
-                }, 25);
-                
-                element.classList.add('animated');
-            }
-            
-            // Enhanced intersection observer for statistics
-            document.addEventListener('DOMContentLoaded', function() {
-                const statsSection = document.querySelector('.statistics-section');
-                const statCards = document.querySelectorAll('.stat-card');
-                const statsSecondary = document.querySelector('.stats-secondary');
-                const statsCta = document.querySelector('.stats-cta');
-                
-                const statsObserver = new IntersectionObserver((entries) => {
-                    entries.forEach((entry, index) => {
-                        if (entry.isIntersecting) {
-                            setTimeout(() => {
-                                entry.target.classList.add('animate');
-                                
-                                // Trigger counter animations when cards are visible
-                                if (entry.target.classList.contains('stat-card')) {
-                                    const statNumber = entry.target.querySelector('.stat-number');
-                                    const id = statNumber.getAttribute('id');
-                                    
-                                    setTimeout(() => {
-                                        if (id === 'stat1') animateStatsCounter(statNumber, 75, '%');
-                                        if (id === 'stat2') animateStatsCounter(statNumber, 79, '%');
-                                        if (id === 'stat3') animateStatsCounter(statNumber, 42, '%');
-                                    }, 200);
-                                }
-                            }, index * 150);
-                            
-                            statsObserver.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
-                
-                // Observe all stat elements
-                if (statCards.length) {
-                    statCards.forEach(card => statsObserver.observe(card));
-                }
-                if (statsSecondary) statsObserver.observe(statsSecondary);
-                if (statsCta) statsObserver.observe(statsCta);
-            });
-    
-            // Progress circles animation
-            const circles = document.querySelectorAll(".progress-circle");
-            if (circles.length > 0) {
-                const circleObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const percentage = entry.target.getAttribute("data-percentage");
-                            const progress = entry.target.querySelector(".progress");
-                            if (progress) {
-                                const circumference = 2 * Math.PI * 54; // r = 54
-                                const offset = circumference - (percentage / 100) * circumference;
-                                progress.style.strokeDashoffset = offset;
-                            }
-                        }
-                    });
-                }, { threshold: 0.5 });
-            
-                circles.forEach(c => {
-                    circleObserver.observe(c);
-                });
-            }
-    
-            // Add CSS for ripple animation
-            const style = document.createElement('style');
-            style.textContent = `
-                @keyframes ripple {
-                    to {
-                        transform: scale(4);
-                        opacity: 0;
-                    }
-                }
-                
-                .btn {
-                    position: relative;
-                    overflow: hidden;
-                }
-            `;
-            document.head.appendChild(style);
         });
     
-        // Initialize Swiper if it exists on the page
-        if (document.querySelector('.mySwiper')) {
-            const swiperScript = document.createElement('script');
-            swiperScript.src = 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js';
-            swiperScript.onload = function() {
-                new Swiper(".mySwiper", {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    loop: true,
-                    autoplay: { delay: 4000 },
-                    navigation: {
-                        nextEl: ".swiper-button-next",
-                        prevEl: ".swiper-button-prev"
-                    },
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true
-                    },
-                    breakpoints: {
-                        768: { slidesPerView: 2 },
-                        1024: { slidesPerView: 3 }
-                    }
-                });
-            };
-            document.head.appendChild(swiperScript);
+        // ===== Header Scroll Effects & Scroll Progress =====
+        function handleScroll() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+    
+            // Sticky header style
+            if (header) header.classList.toggle('scrolled', scrollY > 50);
+    
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) backToTop.classList.toggle('visible', scrollY > 300);
+    
+            // Scroll progress bar
+            const scrollProgress = document.querySelector('.scroll-progress');
+            if (scrollProgress) {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                scrollProgress.style.width = (winScroll / height) * 100 + "%";
+            }
         }
+        window.addEventListener('scroll', handleScroll);
+    
+        // ===== Back to Top Button =====
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    
+        // ===== Smooth Scrolling for Anchors =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+    
+                const headerOffset = 100;
+                const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    
+                // Close mobile menu if open
+                const nav = document.querySelector('nav ul');
+                if (nav && nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    
+        // ===== Intersection Observer for .animate-on-scroll =====
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    
+        // ===== Stats Counter Animation =====
+        function animateStatsCounter(element, target, suffix = '%') {
+            if (element.classList.contains('animated')) return;
+            let current = 0;
+            const increment = target / 80;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 25);
+            element.classList.add('animated');
+        }
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                        if (entry.target.classList.contains('stat-card')) {
+                            const statNumber = entry.target.querySelector('.stat-number');
+                            const id = statNumber.getAttribute('id');
+                            setTimeout(() => {
+                                if (id === 'stat1') animateStatsCounter(statNumber, 75, '%');
+                                if (id === 'stat2') animateStatsCounter(statNumber, 79, '%');
+                                if (id === 'stat3') animateStatsCounter(statNumber, 42, '%');
+                            }, 200);
+                        }
+                    }, index * 150);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.stat-card, .stats-secondary, .stats-cta').forEach(el => statsObserver.observe(el));
+    
+        // ===== Stagger Card Animation =====
+        document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card')
+            .forEach((card, index) => card.style.animationDelay = `${index * 0.1}s`);
+    
+        // ===== Button Hover Effects =====
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    
+        // ===== Ripple Effect on Buttons =====
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    
+        // ===== Page Load Animation =====
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                setTimeout(() => {
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+    
+        // ===== Dynamic Scroll Hue =====
+        window.addEventListener('scroll', function() {
+            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+            const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
+            document.documentElement.style.setProperty('--dynamic-hue', hue);
+        });
+    
+        // ===== Ripple CSS =====
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to { transform: scale(4); opacity: 0; }
+            }
+            .btn { position: relative; overflow: hidden; }
+        `;
+        document.head.appendChild(style);
+    });
     </script>
 </body>
 </html>
