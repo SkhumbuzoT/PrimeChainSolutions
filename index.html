@@ -555,115 +555,7 @@
           font-weight: 500;
           line-height: 1.4;
         }
-        
-        /* ======================
-           Circular Process Section
-           ====================== */
-        .circular-process-section {
-          background: var(--gray-50);
-          padding: 100px 0;
-          text-align: center;
-          position: relative;
-        }
-        
-        .circular-process-section h2 {
-          margin-bottom: 2rem;
-          color: var(--navy);
-        }
-        
-        .circle-wrapper {
-          position: relative;
-          width: 500px;
-          height: 500px;
-          margin: 0 auto 3rem;
-        }
-        
-        .process-circle {
-          width: 100%;
-          height: 100%;
-        }
-        
-        .stage {
-          position: absolute;
-          width: 160px;
-          text-align: center;
-        }
-        
-        .stage-number {
-          background: var(--navy);
-          color: var(--white);
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          margin: 0 auto 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-weight: bold;
-        }
-        
-        /* Stage positions */
-        .stage-1 {
-          top: 0;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        .stage-2 {
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-        }
-        .stage-3 {
-          bottom: 0;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        
-        .stage h3 {
-          font-size: 1rem;
-          font-weight: bold;
-          color: var(--navy);
-        }
-        .stage p {
-          font-size: 0.85rem;
-          color: var(--gray-800);
-          line-height: 1.4;
-        }
-        
-        /* Arrow colors for each stage */
-        .stage-1 .stage-number { background: #0891b2; }
-        .stage-2 .stage-number { background: #f59e0b; }
-        .stage-3 .stage-number { background: #0a1628; }
-        
-        /* Step Descriptions below */
-        .process-descriptions {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 24px;
-          text-align: left;
-        }
-        .process-step h3 {
-          color: var(--navy);
-          margin-bottom: 8px;
-        }
-        .process-step p {
-          color: var(--gray-800);
-          font-size: 0.95rem;
-          line-height: 1.6;
-        }
-        
-        /* Responsive */
-        @media (max-width: 600px) {
-          .circle-wrapper {
-            width: 320px;
-            height: 320px;
-          }
-          .stage {
-            width: 120px;
-          }
-        }
-
-        
+                
 
 
         * Our Story Enhancement */
@@ -816,7 +708,7 @@
         
         .problem-cards,
         .approach-grid {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
         
         .solution-highlights {
@@ -2343,7 +2235,7 @@
     <section id="approach" class="section animate-on-scroll">
         <div class="container">
             <div class="section-title">
-                <h2>Our Approach</h2>
+                <h2>How We Eliminate Your Manual Work</h2>
             </div>
             
             <div class="approach-grid">
@@ -2351,73 +2243,38 @@
                     <div class="card-icon">
                         <i class="fas fa-comment-alt"></i>
                     </div>
-                    <h3>Practical Solutions</h3>
-                    <p>No jargon or complex implementations - just tools that eliminate your daily frustrations.</p>
+                    <h3>STAGE 1</h3>
+                    <h4>Find the Time Wasters</h4>
+                    <p>We spend a day with your team identifying which manual tasks are eating up the most time.
+                       Map out the actual workflows (not what the manual says, but what really happens).
+                       Calculate exactly how many hours per week each process is costing you.</p>
                 </div>
                 
                 <div class="card">
                     <div class="card-icon">
                         <i class="fas fa-lock"></i>
                     </div>
-                    <h3>You Keep Control</h3>
-                    <p>Your data stays yours with no expensive enterprise licenses or vendor lock-in.</p>
+                    <h3>STAGE 2</h3>
+                    <h4>Connect & Automate</h4>
+                    <p>Connect your systems so data flows automatically instead of manual re-entry.
+                       Build workflows that handle the repetitive stuff your team hates doing.
+                       Set up triggers so processes happen automatically when conditions are met.</p>
                 </div>
                 
                 <div class="card">
                     <div class="card-icon">
                         <i class="fas fa-expand"></i>
                     </div>
-                    <h3>Built to Last</h3>
-                    <p>Simple tools designed to adapt and grow with your business needs.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>True Partnership</h3>
-                    <p>Hands-on collaboration, not hands-off consulting reports.</p>
+                    <h3>STAGE 3</h3>
+                    <h4>Deploy & Scale</h4>
+                    <p>Start with one high-impact automation to prove ROI immediately.
+                       Train your team on the new automated processes.
+                       Gradually expand automation to other time-wasting processes.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-    
-    <section class="circular-process-section">
-      <div class="container">
-          <div class="section-title">
-            <h2>How We Eliminate Your Manual Work</h2>
-            </div>  
-    
-        <!-- Step descriptions -->
-        <div class="process-descriptions">
-          <div class="process-step">
-            <h3>STAGE 1: Find the Time Wasters</h3>
-            <p>We spend a day with your team identifying which manual tasks are eating up the most time.
-               Map out the actual workflows (not what the manual says, but what really happens).
-               Calculate exactly how many hours per week each process is costing you.</p>
-          </div>
-    
-          <div class="process-step">
-            <h3>STAGE 2: Connect & Automate</h3>
-            <p>Connect your systems so data flows automatically instead of manual re-entry.
-               Build workflows that handle the repetitive stuff your team hates doing.
-               Set up triggers so processes happen automatically when conditions are met.</p>
-          </div>
-    
-          <div class="process-step">
-            <h3>STAGE 3: Deploy & Scale</h3>
-            <p>Start with one high-impact automation to prove ROI immediately.
-               Train your team on the new automated processes.
-               Gradually expand automation to other time-wasting processes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-    
     
     <!-- Testimonials Section -->
     <section class="testimonials section animate-on-scroll">
