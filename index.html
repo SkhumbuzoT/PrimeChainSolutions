@@ -647,7 +647,64 @@
           border-radius: 12px;
           box-shadow: var(--shadow-sm);
         }
+
+        * Our Story Enhancement */
+        .our-story-section {
+            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
+            position: relative;
+        }
         
+        .our-story-content {
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-2xl);
+            padding: 64px 48px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .our-story-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        .our-story-icon {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 24px;
+            display: inline-block;
+            padding: 24px;
+            background: rgba(8, 145, 178, 0.1);
+            border-radius: 20px;
+        }
+        
+        .our-story-section h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+            letter-spacing: -0.025em;
+        }
+        
+        .our-story-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray-800);
+            margin-bottom: 24px;
+        }
+        
+        .our-story-content p:last-child {
+            margin-bottom: 0;
+        }
         /* ======================
            Button Components
            ====================== */
