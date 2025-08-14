@@ -1400,6 +1400,7 @@
         .stagger-2 { animation-delay: 0.2s; }
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
+        
         /* ======================
            Testimonials
            ====================== */
@@ -2129,10 +2130,7 @@
     <!-- Calculator Container -->
     <div class="calculator-container animate-in stagger-1">
     <div class="calculator-card">
-    <div class="calculator-header">
-    <h3>The Hidden Cost Calculator</h3>
-    <p>See what manual processes are really costing your business</p>
-    </div>
+    
     <!-- Hours Input -->
     <div class="input-group">
     <label class="input-label">Hours spent on manual work per week:</label>
@@ -2511,7 +2509,7 @@
                 document.body.style.overflow = isOpen ? '' : 'hidden';
             });
         }
-    
+
         // ===== Close Mobile Menu on Link Click =====
         document.querySelectorAll('nav ul li a').forEach(link => {
             link.addEventListener('click', () => {
@@ -2523,19 +2521,19 @@
                 }
             });
         });
-    
+
         // ===== Header Scroll Effects & Scroll Progress =====
         function handleScroll() {
             const header = document.getElementById('header');
             const scrollY = window.scrollY;
-    
+
             // Sticky header style
             if (header) header.classList.toggle('scrolled', scrollY > 50);
-    
+
             // Back to top button
             const backToTop = document.querySelector('.back-to-top');
             if (backToTop) backToTop.classList.toggle('visible', scrollY > 300);
-    
+
             // Scroll progress bar
             const scrollProgress = document.querySelector('.scroll-progress');
             if (scrollProgress) {
@@ -2545,7 +2543,7 @@
             }
         }
         window.addEventListener('scroll', handleScroll);
-    
+
         // ===== Back to Top Button =====
         const backToTopBtn = document.querySelector('.back-to-top');
         if (backToTopBtn) {
@@ -2553,7 +2551,7 @@
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
-    
+
         // ===== Smooth Scrolling for Anchors =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -2561,11 +2559,11 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (!target) return;
-    
+
                 const headerOffset = 100;
                 const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
                 window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    
+
                 // Close mobile menu if open
                 const nav = document.querySelector('nav ul');
                 if (nav && nav.classList.contains('show')) {
@@ -2575,7 +2573,7 @@
                 }
             });
         });
-    
+
         // ===== Intersection Observer for .animate-on-scroll =====
         const observer = new IntersectionObserver(entries => {
             entries.forEach(entry => {
@@ -2586,7 +2584,7 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    
+
         // ===== Stats Counter Animation =====
         function animateStatsCounter(element, target, suffix = '%') {
             if (element.classList.contains('animated')) return;
@@ -2622,11 +2620,11 @@
             });
         }, { threshold: 0.2 });
         document.querySelectorAll('.stat-card, .stats-secondary, .stats-cta').forEach(el => statsObserver.observe(el));
-    
+
         // ===== Stagger Card Animation =====
         document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card')
             .forEach((card, index) => card.style.animationDelay = `${index * 0.1}s`);
-    
+
         // ===== Button Hover Effects =====
         document.querySelectorAll('.btn').forEach(btn => {
             btn.addEventListener('mouseenter', function() {
@@ -2636,7 +2634,7 @@
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
-    
+
         // ===== Ripple Effect on Buttons =====
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -2661,7 +2659,7 @@
                 setTimeout(() => ripple.remove(), 600);
             });
         });
-    
+
         // ===== Page Load Animation =====
         window.addEventListener('load', function() {
             document.body.classList.add('loaded');
@@ -2673,103 +2671,67 @@
                 }, 100);
             }
         });
-    
+
         // ===== Dynamic Scroll Hue =====
         window.addEventListener('scroll', function() {
             const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
             const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
             document.documentElement.style.setProperty('--dynamic-hue', hue);
         });
+
         // ===== Calculator =====
-       document.addEventListener('DOMContentLoaded', function() {
-            const hoursSlider = document.getElementById('hoursSlider');
-            const rateSlider = document.getElementById('rateSlider');
-            const hoursDisplay = document.getElementById('hoursDisplay');
-            const rateDisplay = document.getElementById('rateDisplay');
-            const monthlyCost = document.getElementById('monthlyCost');
-            const annualCost = document.getElementById('annualCost');
-            const potentialSavings = document.getElementById('potentialSavings');
-            const savingsAmount = document.getElementById('savingsAmount');
-        
-            function animateValue(element, start, end, duration, prefix = '') {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const value = Math.floor(progress * (end - start) + start);
-                    element.textContent = prefix + value.toLocaleString();
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
-        
-            function updateCalculations() {
-                const hours = parseInt(hoursSlider.value);
-                const rate = parseInt(rateSlider.value);
-        
-                // Update displays
-                hoursDisplay.textContent = hours;
-                rateDisplay.textContent = rate.toLocaleString();
-        
-                // Calculate costs
-                const monthly = hours * rate * 4.33; // average weeks per month
-                const annual = monthly * 12;
-                const savings = annual * 0.8; // 80% automation savings
-        
-                // Update cost displays with animation
-                animateValue(monthlyCost, 0, monthly, 800, 'R');
-                animateValue(annualCost, 0, annual, 800, 'R');
-                animateValue(potentialSavings, 0, savings, 800, 'R');
-        
-                // Update impact statement
-                savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
-            }
-        
-            // Listen for slider input changes
-            hoursSlider.addEventListener('input', updateCalculations);
-            rateSlider.addEventListener('input', updateCalculations);
-        
-            // Initialize on page load
-            updateCalculations();
-        });
+        const hoursSlider = document.getElementById('hoursSlider');
+        const rateSlider = document.getElementById('rateSlider');
+        const hoursDisplay = document.getElementById('hoursDisplay');
+        const rateDisplay = document.getElementById('rateDisplay');
+        const monthlyCost = document.getElementById('monthlyCost');
+        const annualCost = document.getElementById('annualCost');
+        const potentialSavings = document.getElementById('potentialSavings');
+        const savingsAmount = document.getElementById('savingsAmount');
 
-            function animateValue(element, start, end, duration, prefix = '') {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const current = Math.round(progress * (end - start) + start);
-                    element.textContent = prefix + current.toLocaleString();
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
+        function animateValue(element, start, end, duration, prefix = '') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = prefix + value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
 
-            // Event listeners
-            hoursSlider.addEventListener('input', updateCalculations);
-            rateSlider.addEventListener('input', updateCalculations);
+        function updateCalculations() {
+            const hours = parseInt(hoursSlider.value);
+            const rate = parseInt(rateSlider.value);
 
-            // Intersection Observer for animations
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
+            // Update displays
+            hoursDisplay.textContent = hours;
+            rateDisplay.textContent = rate.toLocaleString();
 
-            // Observe animation elements
-            document.querySelectorAll('.animate-in').forEach(el => {
-                el.style.opacity
-    
+            // Calculate costs
+            const monthly = hours * rate * 4.33; // average weeks per month
+            const annual = monthly * 12;
+            const savings = annual * 0.8; // 80% automation savings
+
+            // Update cost displays with animation
+            animateValue(monthlyCost, 0, monthly, 800, 'R');
+            animateValue(annualCost, 0, annual, 800, 'R');
+            animateValue(potentialSavings, 0, savings, 800, 'R');
+
+            // Update impact statement
+            savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
+        }
+
+        // Listen for slider input changes
+        hoursSlider.addEventListener('input', updateCalculations);
+        rateSlider.addEventListener('input', updateCalculations);
+
+        // Initialize on page load
+        updateCalculations();
+
         // ===== Ripple CSS =====
         const style = document.createElement('style');
         style.textContent = `
@@ -2780,6 +2742,6 @@
         `;
         document.head.appendChild(style);
     });
-    </script>
+</script>
 </body>
 </html>
