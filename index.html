@@ -2501,6 +2501,60 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+
+        // ===== Calculator =====
+        const hoursSlider = document.getElementById('hoursSlider');
+        const rateSlider = document.getElementById('rateSlider');
+        const hoursDisplay = document.getElementById('hoursDisplay');
+        const rateDisplay = document.getElementById('rateDisplay');
+        const monthlyCost = document.getElementById('monthlyCost');
+        const annualCost = document.getElementById('annualCost');
+        const potentialSavings = document.getElementById('potentialSavings');
+        const savingsAmount = document.getElementById('savingsAmount');
+    
+        function animateValue(element, start, end, duration, prefix = '') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = prefix + value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+    
+        function updateCalculations() {
+            const hours = parseInt(hoursSlider.value);
+            const rate = parseInt(rateSlider.value);
+    
+            // Update displays
+            hoursDisplay.textContent = hours;
+            rateDisplay.textContent = rate.toLocaleString();
+    
+            // Calculate costs
+            const monthly = hours * rate * 4.33; // average weeks per month
+            const annual = monthly * 12;
+            const savings = annual * 0.8; // 80% automation savings
+    
+            // Update cost displays with animation
+            animateValue(monthlyCost, 0, monthly, 800, 'R');
+            animateValue(annualCost, 0, annual, 800, 'R');
+            animateValue(potentialSavings, 0, savings, 800, 'R');
+    
+            // Update impact statement
+            savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
+        }
+    
+        // Listen for slider input changes
+        hoursSlider.addEventListener('input', updateCalculations);
+        rateSlider.addEventListener('input', updateCalculations);
+    
+        // Initialize on page load
+        updateCalculations();
+        
         // ===== Mobile Menu Toggle =====
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         if (mobileMenuBtn) {
@@ -2680,60 +2734,6 @@
             const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
             const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
             document.documentElement.style.setProperty('--dynamic-hue', hue);
-        });
-        // ===== Calculator =====
-       document.addEventListener('DOMContentLoaded', function() {
-            const hoursSlider = document.getElementById('hoursSlider');
-            const rateSlider = document.getElementById('rateSlider');
-            const hoursDisplay = document.getElementById('hoursDisplay');
-            const rateDisplay = document.getElementById('rateDisplay');
-            const monthlyCost = document.getElementById('monthlyCost');
-            const annualCost = document.getElementById('annualCost');
-            const potentialSavings = document.getElementById('potentialSavings');
-            const savingsAmount = document.getElementById('savingsAmount');
-        
-            function animateValue(element, start, end, duration, prefix = '') {
-                let startTimestamp = null;
-                const step = (timestamp) => {
-                    if (!startTimestamp) startTimestamp = timestamp;
-                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                    const value = Math.floor(progress * (end - start) + start);
-                    element.textContent = prefix + value.toLocaleString();
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    }
-                };
-                window.requestAnimationFrame(step);
-            }
-        
-            function updateCalculations() {
-                const hours = parseInt(hoursSlider.value);
-                const rate = parseInt(rateSlider.value);
-        
-                // Update displays
-                hoursDisplay.textContent = hours;
-                rateDisplay.textContent = rate.toLocaleString();
-        
-                // Calculate costs
-                const monthly = hours * rate * 4.33; // average weeks per month
-                const annual = monthly * 12;
-                const savings = annual * 0.8; // 80% automation savings
-        
-                // Update cost displays with animation
-                animateValue(monthlyCost, 0, monthly, 800, 'R');
-                animateValue(annualCost, 0, annual, 800, 'R');
-                animateValue(potentialSavings, 0, savings, 800, 'R');
-        
-                // Update impact statement
-                savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
-            }
-        
-            // Listen for slider input changes
-            hoursSlider.addEventListener('input', updateCalculations);
-            rateSlider.addEventListener('input', updateCalculations);
-        
-            // Initialize on page load
-            updateCalculations();
         });
 
             function animateValue(element, start, end, duration, prefix = '') {
