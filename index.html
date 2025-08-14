@@ -557,181 +557,113 @@
         }
         
         /* ======================
-           Process Components
+           Circular Process Section
            ====================== */
-        .process-steps {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 32px;
-          position: relative;
-          margin-top: 2rem;
-        }
-        
-        .process-steps::before {
-          content: "";
-          position: absolute;
-          top: 48px;
-          left: 0;
-          right: 0;
-          height: 2px;
-          background: var(--gray-100);
-          z-index: 0;
-        }
-        
-        .process-step {
-          background: var(--white);
-          border-radius: 20px;
-          padding: 40px 32px;
-          box-shadow: var(--shadow-lg);
-          border: 1px solid var(--gray-100);
-          transition: var(--transition);
-          position: relative;
-          text-align: center;
-          z-index: 1;
-        }
-        
-        .process-step:hover {
-          transform: translateY(-8px);
-          box-shadow: var(--shadow-2xl);
-        }
-        
-        .process-step-number {
-          position: absolute;
-          top: -24px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 48px;
-          height: 48px;
-          color: var(--white);
-          border-radius: 12px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.25rem;
-          font-weight: 700;
-          box-shadow: var(--shadow-lg);
-        }
-        
-        .process-step-icon {
-          font-size: 2rem;
-          color: var(--teal);
-          margin-bottom: 12px;
-          margin-top: 8px;
-        }
-        
-        .process-step h4 {
-          font-size: 1.25rem;
-          font-weight: 700;
-          color: var(--navy);
-          margin-bottom: 16px;
-          margin-top: 8px;
-        }
-        
-        .process-step:nth-child(1) .process-step-number {
-          background: linear-gradient(to right, #0a1f44, #1e3a8a);
-        }
-        .process-step:nth-child(2) .process-step-number {
-          background: linear-gradient(to right, #065f46, #10b981);
-        }
-        .process-step:nth-child(3) .process-step-number {
-          background: linear-gradient(to right, #7c3aed, #9333ea);
-        }
-        
-        .process-summary {
-          text-align: center;
-          margin-top: 48px;
-          font-size: 1.1rem;
-          color: var(--gray-800);
+        .circular-process-section {
           background: var(--gray-50);
-          padding: 16px 24px;
-          border-radius: 12px;
-          box-shadow: var(--shadow-sm);
-        }
-        .circular-process-section {
-            background: var(--gray-50);
-            padding: 100px 0;
-            text-align: center;
+          padding: 100px 0;
+          text-align: center;
+          position: relative;
         }
         
-        .circular-process-section {
-            background: var(--gray-50);
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
+        .circular-process-section h2 {
+          margin-bottom: 2rem;
+          color: var(--navy);
         }
         
         .circle-wrapper {
-            position: relative;
-            width: 500px;
-            height: 500px;
-            margin: 0 auto;
+          position: relative;
+          width: 500px;
+          height: 500px;
+          margin: 0 auto 3rem;
         }
         
         .process-circle {
-            width: 100%;
-            height: 100%;
+          width: 100%;
+          height: 100%;
         }
         
         .stage {
-            position: absolute;
-            width: 160px;
-            text-align: center;
+          position: absolute;
+          width: 160px;
+          text-align: center;
         }
         
         .stage-number {
-            background: var(--gradient-secondary);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            margin: 0 auto 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+          background: var(--navy);
+          color: var(--white);
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          margin: 0 auto 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
         }
         
-        /* Position each stage around the circle */
+        /* Stage positions */
         .stage-1 {
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
         }
-        
         .stage-2 {
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
         }
-        
         .stage-3 {
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
         }
         
         .stage h3 {
-            font-size: 1rem;
-            font-weight: bold;
-            color: var(--navy);
+          font-size: 1rem;
+          font-weight: bold;
+          color: var(--navy);
+        }
+        .stage p {
+          font-size: 0.85rem;
+          color: var(--gray-800);
+          line-height: 1.4;
         }
         
-        .stage p {
-            font-size: 0.85rem;
-            color: var(--gray-800);
-            line-height: 1.4;
+        /* Arrow colors for each stage */
+        .stage-1 .stage-number { background: #0891b2; }
+        .stage-2 .stage-number { background: #f59e0b; }
+        .stage-3 .stage-number { background: #0a1628; }
+        
+        /* Step Descriptions below */
+        .process-descriptions {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          text-align: left;
+        }
+        .process-step h3 {
+          color: var(--navy);
+          margin-bottom: 8px;
+        }
+        .process-step p {
+          color: var(--gray-800);
+          font-size: 0.95rem;
+          line-height: 1.6;
         }
         
         /* Responsive */
         @media (max-width: 600px) {
-            .circle-wrapper {
-                width: 320px;
-                height: 320px;
-            }
-            .stage {
-                width: 120px;
-            }
+          .circle-wrapper {
+            width: 320px;
+            height: 320px;
+          }
+          .stage {
+            width: 120px;
+          }
         }
+
+        
 
 
         * Our Story Enhancement */
@@ -2473,48 +2405,49 @@
       <div class="container">
         <h2>How We Eliminate Your Manual Work</h2>
     
-        <svg class="circular-process" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <svg class="circular-process" viewBox="0 0 500 500">
+          <!-- Stage 1 -->
+          <path d="M250,60 A190,190 0 0,1 440,250 L410,240 L440,250 L410,260 Z" 
+                fill="none" stroke="#0891b2" stroke-width="20" stroke-linecap="round"/>
+          <polygon points="440,250 420,240 440,250 420,260" fill="#0891b2" />
     
-          <!-- Step 1 Arrow -->
-          <path d="M250,40 A210,210 0 0,1 460,250" fill="none" stroke="#0891b2" stroke-width="16" marker-end="url(#arrowhead)" />
-          <text x="250" y="20" text-anchor="middle" fill="#0a1628" font-size="14" font-weight="bold">STAGE 1</text>
+          <!-- Stage 2 -->
+          <path d="M440,250 A190,190 0 0,1 250,440 L260,410 L250,440 L240,410 Z" 
+                fill="none" stroke="#f59e0b" stroke-width="20" stroke-linecap="round"/>
+          <polygon points="250,440 260,420 250,440 240,420" fill="#f59e0b" />
     
-          <!-- Step 2 Arrow -->
-          <path d="M460,250 A210,210 0 0,1 250,460" fill="none" stroke="#f59e0b" stroke-width="16" marker-end="url(#arrowhead)" />
-          <text x="480" y="250" text-anchor="start" fill="#0a1628" font-size="14" font-weight="bold">STAGE 2</text>
+          <!-- Stage 3 -->
+          <path d="M250,440 A190,190 0 0,1 60,250 L90,260 L60,250 L90,240 Z" 
+                fill="none" stroke="#0a1628" stroke-width="20" stroke-linecap="round"/>
+          <polygon points="60,250 80,260 60,250 80,240" fill="#0a1628" />
     
-          <!-- Step 3 Arrow -->
-          <path d="M250,460 A210,210 0 0,1 40,250" fill="none" stroke="#0a1628" stroke-width="16" marker-end="url(#arrowhead)" />
-          <text x="250" y="490" text-anchor="middle" fill="#0a1628" font-size="14" font-weight="bold">STAGE 3</text>
-    
-          <!-- Arrowhead definition -->
-          <defs>
-            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" fill="currentColor">
-              <polygon points="0 0, 8 3, 0 6" fill="inherit"/>
-            </marker>
-          </defs>
+          <!-- Labels -->
+          <text x="250" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#0a1628">STAGE 1</text>
+          <text x="480" y="255" text-anchor="start" font-size="16" font-weight="bold" fill="#0a1628">STAGE 2</text>
+          <text x="250" y="480" text-anchor="middle" font-size="16" font-weight="bold" fill="#0a1628">STAGE 3</text>
         </svg>
     
+        <!-- Step descriptions -->
         <div class="process-descriptions">
           <div class="process-step">
             <h3>STAGE 1: Find the Time Wasters</h3>
-            <p>We spend a day with your team identifying which manual tasks are eating up the most time.  
-            Map out the actual workflows (not what the manual says, but what really happens).  
-            Calculate exactly how many hours per week each process is costing you.</p>
+            <p>We spend a day with your team identifying which manual tasks are eating up the most time.
+               Map out the actual workflows (not what the manual says, but what really happens).
+               Calculate exactly how many hours per week each process is costing you.</p>
           </div>
     
           <div class="process-step">
             <h3>STAGE 2: Connect & Automate</h3>
-            <p>Connect your systems so data flows automatically instead of manual re-entry.  
-            Build workflows that handle the repetitive stuff your team hates doing.  
-            Set up triggers so processes happen automatically when conditions are met.</p>
+            <p>Connect your systems so data flows automatically instead of manual re-entry.
+               Build workflows that handle the repetitive stuff your team hates doing.
+               Set up triggers so processes happen automatically when conditions are met.</p>
           </div>
     
           <div class="process-step">
             <h3>STAGE 3: Deploy & Scale</h3>
-            <p>Start with one high-impact automation to prove ROI immediately.  
-            Train your team on the new automated processes.  
-            Gradually expand automation to other time-wasting processes.</p>
+            <p>Start with one high-impact automation to prove ROI immediately.
+               Train your team on the new automated processes.
+               Gradually expand automation to other time-wasting processes.</p>
           </div>
         </div>
       </div>
