@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<!-- SEO Metadata -->
-<meta content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." name="description">
-<meta content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" name="keywords">
-<!-- Open Graph / Facebook -->
-<meta content="website" property="og:type"/>
-<meta content="https://www.primechainsolutions.co.za/" property="og:url"/>
-<meta content="Prime Chain Solutions - Visibility and Automation for Businesses" property="og:title"/>
-<meta content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." property="og:description"/>
-<meta content="https://www.primechainsolutions.co.za/assets/og-image.jpg" property="og:image"/>
-<!-- Twitter -->
-<meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://www.primechainsolutions.co.za/" property="twitter:url"/>
-<meta content="Prime Chain Solutions - Visibility and Automation for Businesses" property="twitter:title"/>
-<meta content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." property="twitter:description"/>
-<meta content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg" property="twitter:image"/>
-<!-- Favicon Links -->
-<link href="/assets/primechain-favicon-workflow.svg" rel="icon" type="image/svg+xml"/>
-<link href="/assets/primechain-favicon-workflow.svg" rel="apple-touch-icon"/>
-<link color="#002366" href="/assets/primechain-favicon-workflow.svg" rel="mask-icon"/>
-<title>Prime Chain Solutions - Visibility and Automation for Businesses</title>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- SEO Metadata -->
+    <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
+    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="og:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="og:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="twitter:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
+
+    <!-- Favicon Links -->
+    <link rel="icon" href="/assets/primechain-favicon-workflow.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/primechain-favicon-workflow.svg">
+    <link rel="mask-icon" href="/assets/primechain-favicon-workflow.svg" color="#002366">
+    
+    <title>Prime Chain Solutions - Visibility and Automation for Businesses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
     /* ======================
    Base Styles & Variables
     ====================== */
@@ -815,7 +818,588 @@
         .solutions-container {
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
+
+        /* ======================
+           Cost Calculator Section 
+           ====================== */
+        .cost-calculator-section {
+            padding: 90px 0;
+            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
+            position: relative;
+            overflow: hidden;
+        }
         
+        .cost-calculator-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2.2rem, 5vw, 3rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            line-height: 1.2;
+        }
+        
+        .section-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--gray-800);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        
+        /* Calculator Card */
+        .calculator-container {
+            max-width: 850px;
+            margin: 0 auto 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .calculator-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 50px 40px;
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid rgba(8, 145, 178, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .calculator-header h3 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
+        }
+        
+        .calculator-header p {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        /* Input Controls */
+        .input-group {
+            margin-bottom: 32px;
+        }
+        
+        .input-label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        
+        .slider-container {
+            position: relative;
+            margin-bottom: 12px;
+        }
+        
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 10px;
+            border-radius: 5px;
+            background: var(--gray-200);
+            outline: none;
+            transition: var(--transition);
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .input-display {
+            text-align: center;
+            padding: 14px 20px;
+            background: linear-gradient(135deg, var(--gray-50), rgba(8, 145, 178, 0.05));
+            border-radius: 12px;
+            border: 2px solid rgba(8, 145, 178, 0.1);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 12px;
+        }
+        
+        /* Results Display */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            background: linear-gradient(135deg, var(--white), var(--gray-50));
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
+            border: 2px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--teal-light);
+        }
+        
+        .result-card.savings {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(8, 145, 178, 0.05));
+            border-color: rgba(5, 150, 105, 0.2);
+        }
+        
+        .result-card.savings::before {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .result-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .result-value {
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+            line-height: 1.1;
+        }
+        
+        .result-card.savings .result-value {
+            background: linear-gradient(135deg, #10b981, #059669);
+            -webkit-background-clip: text;
+        }
+        
+        .result-description {
+            font-size: 0.85rem;
+            color: var(--gray-800);
+            opacity: 0.8;
+            line-height: 1.5;
+        }
+        
+        /* Impact Statement */
+        .impact-statement {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.08));
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 2px solid rgba(5, 150, 105, 0.2);
+            margin: 40px 0;
+        }
+        
+        .impact-statement p {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .impact-highlight {
+            color: #059669;
+            font-weight: 700;
+        }
+        
+        /* Manual Work Cards */
+        .manual-work-section {
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .manual-work-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .manual-work-header h3 {
+            font-size: clamp(1.6rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+        
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 50px;
+        }
+        
+        .work-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 36px 28px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            transition: var(--transition);
+        }
+        
+        .work-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .work-card:hover::before {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+        
+        .work-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        .work-card:hover .work-icon {
+            background: linear-gradient(135deg, #10b981, #059669);
+            transform: scale(1.05);
+        }
+        
+        .work-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+        
+        .work-description {
+            color: var(--gray-800);
+            margin-bottom: 16px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+        
+        .work-savings {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.1));
+            padding: 10px 18px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #059669;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-content {
+            background: var(--gradient-primary);
+            border-radius: 24px;
+            padding: 50px 32px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content h3 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-content p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            margin-bottom: 32px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #1ebe5b);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .cost-calculator-section {
+                padding: 70px 0;
+            }
+            
+            .section-header {
+                margin-bottom: 50px;
+            }
+            
+            .calculator-card {
+                padding: 40px 30px;
+            }
+            
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+                gap: 12px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+            
+            .manual-work-section {
+                margin-top: 50px;
+            }
+            
+            .cta-section {
+                margin-top: 50px;
+            }
+            
+            .cta-content {
+                padding: 40px 24px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .cost-calculator-section {
+                padding: 60px 0;
+            }
+            
+            .calculator-card {
+                padding: 32px 24px;
+                border-radius: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-header .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .input-display {
+                font-size: 1.1rem;
+                padding: 12px 16px;
+            }
+            
+            .result-value {
+                font-size: 1.6rem;
+            }
+            
+            .work-card {
+                padding: 28px 20px;
+            }
+            
+            .cta-content {
+                padding: 32px 20px;
+            }
+        }
+        
+        /* Animation Classes */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInUp 0.5s ease forwards;
+        }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
         /* ======================
            Testimonials
            ====================== */
@@ -1431,1034 +2015,490 @@
           .service-card {
             padding: 32px 24px;
           }
-         /* ======================
-           Cost Calculator Section 
-           ====================== */
-        .cost-calculator-section {
-            padding: 90px 0;
-            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cost-calculator-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
-        }
-        
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .section-header h2 {
-            font-size: clamp(2.2rem, 5vw, 3rem);
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 16px;
-            letter-spacing: -0.025em;
-            line-height: 1.2;
-        }
-        
-        .section-header .subtitle {
-            font-size: 1.2rem;
-            color: var(--gray-800);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-        
-        /* Calculator Card */
-        .calculator-container {
-            max-width: 850px;
-            margin: 0 auto 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .calculator-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: var(--shadow-2xl);
-            border: 1px solid rgba(8, 145, 178, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .calculator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient-secondary);
-        }
-        
-        .calculator-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .calculator-header h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 12px;
-            letter-spacing: -0.025em;
-        }
-        
-        .calculator-header p {
-            font-size: 1.1rem;
-            color: var(--gray-800);
-            opacity: 0.8;
-            line-height: 1.5;
-        }
-        
-        /* Input Controls */
-        .input-group {
-            margin-bottom: 32px;
-        }
-        
-        .input-label {
-            display: block;
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-        
-        .slider-container {
-            position: relative;
-            margin-bottom: 12px;
-        }
-        
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 10px;
-            border-radius: 5px;
-            background: var(--gray-200);
-            outline: none;
-            transition: var(--transition);
-        }
-        
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--gradient-secondary);
-            cursor: pointer;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-        
-        .slider::-webkit-slider-thumb:hover {
-            transform: scale(1.1);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .slider::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: var(--gradient-secondary);
-            cursor: pointer;
-            border: none;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .input-display {
-            text-align: center;
-            padding: 14px 20px;
-            background: linear-gradient(135deg, var(--gray-50), rgba(8, 145, 178, 0.05));
-            border-radius: 12px;
-            border: 2px solid rgba(8, 145, 178, 0.1);
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-top: 12px;
-        }
-        
-        /* Results Display */
-        .results-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-        
-        .result-card {
-            background: linear-gradient(135deg, var(--white), var(--gray-50));
-            border-radius: 16px;
-            padding: 28px 20px;
-            text-align: center;
-            border: 2px solid var(--gray-100);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .result-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-secondary);
-            transition: var(--transition);
-        }
-        
-        .result-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-            border-color: var(--teal-light);
-        }
-        
-        .result-card.savings {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(8, 145, 178, 0.05));
-            border-color: rgba(5, 150, 105, 0.2);
-        }
-        
-        .result-card.savings::before {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-        
-        .result-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gray-800);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-        
-        .result-value {
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            font-weight: 800;
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 8px;
-            line-height: 1.1;
-        }
-        
-        .result-card.savings .result-value {
-            background: linear-gradient(135deg, #10b981, #059669);
-            -webkit-background-clip: text;
-        }
-        
-        .result-description {
-            font-size: 0.85rem;
-            color: var(--gray-800);
-            opacity: 0.8;
-            line-height: 1.5;
-        }
-        
-        /* Impact Statement */
-        .impact-statement {
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.08));
-            border-radius: 20px;
-            padding: 32px 24px;
-            text-align: center;
-            border: 2px solid rgba(5, 150, 105, 0.2);
-            margin: 40px 0;
-        }
-        
-        .impact-statement p {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--navy);
-            line-height: 1.6;
-            margin: 0;
-        }
-        
-        .impact-highlight {
-            color: #059669;
-            font-weight: 700;
-        }
-        
-        /* Manual Work Cards */
-        .manual-work-section {
-            margin-top: 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .manual-work-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .manual-work-header h3 {
-            font-size: clamp(1.6rem, 3vw, 2rem);
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 16px;
-            letter-spacing: -0.025em;
-        }
-        
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 50px;
-        }
-        
-        .work-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 36px 28px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-100);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .work-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            transition: var(--transition);
-        }
-        
-        .work-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .work-card:hover::before {
-            background: linear-gradient(135deg, #10b981, #059669);
-        }
-        
-        .work-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            color: var(--white);
-            margin-bottom: 20px;
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-        }
-        
-        .work-card:hover .work-icon {
-            background: linear-gradient(135deg, #10b981, #059669);
-            transform: scale(1.05);
-        }
-        
-        .work-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 12px;
-        }
-        
-        .work-description {
-            color: var(--gray-800);
-            margin-bottom: 16px;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-        
-        .work-savings {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.1));
-            padding: 10px 18px;
-            border-radius: 50px;
-            font-weight: 600;
-            color: #059669;
-            font-size: 0.9rem;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            text-align: center;
-            margin-top: 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .cta-content {
-            background: var(--gradient-primary);
-            border-radius: 24px;
-            padding: 50px 32px;
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-content::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
-        }
-        
-        .cta-content h3 {
-            font-size: clamp(1.6rem, 3vw, 2.2rem);
-            font-weight: 800;
-            margin-bottom: 16px;
-            letter-spacing: -0.025em;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-content p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            margin-bottom: 32px;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .btn-group {
-            display: flex;
-            justify-content: center;
-            gap: 16px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 16px 32px;
-            border-radius: 14px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .btn:hover::before {
-            left: 100%;
-        }
-        
-        .btn-whatsapp {
-            background: linear-gradient(135deg, var(--whatsapp-green), #1ebe5b);
-            color: var(--white);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: var(--white);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cost-calculator-section {
-                padding: 70px 0;
-            }
-            
-            .section-header {
-                margin-bottom: 50px;
-            }
-            
-            .calculator-card {
-                padding: 40px 30px;
-            }
-            
-            .results-grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .work-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .btn-group {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 280px;
-            }
-            
-            .manual-work-section {
-                margin-top: 50px;
-            }
-            
-            .cta-section {
-                margin-top: 50px;
-            }
-            
-            .cta-content {
-                padding: 40px 24px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .cost-calculator-section {
-                padding: 60px 0;
-            }
-            
-            .calculator-card {
-                padding: 32px 24px;
-                border-radius: 20px;
-            }
-            
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .section-header .subtitle {
-                font-size: 1.1rem;
-            }
-            
-            .input-display {
-                font-size: 1.1rem;
-                padding: 12px 16px;
-            }
-            
-            .result-value {
-                font-size: 1.6rem;
-            }
-            
-            .work-card {
-                padding: 28px 20px;
-            }
-            
-            .cta-content {
-                padding: 32px 20px;
-            }
-        }
-        
-        /* Animation Classes */
-        .animate-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideInUp 0.5s ease forwards;
-        }
-        
-        @keyframes slideInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
+         
     </style>
-</meta></meta></head>
+</head>
 <body>
-<!-- Scroll Progress Bar -->
-<div class="scroll-progress"></div>
-<!-- Header -->
-<header id="header">
-<div class="container header-container">
-<a class="logo" href="#">
-<img alt="Prime Chain Logo" src="assets/primechain-solutions-workflow-light.svg"/>
-</a>
-<button aria-label="Toggle navigation menu" class="mobile-menu-btn">
-<i class="fas fa-bars"></i>
-</button>
-<nav>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#approach">Approach</a></li>
-<li><a href="#contact">Contact</a></li>
-<li><a href="articles.html">Articles</a></li>
-</ul>
-</nav>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="hero">
-<div class="hero-content">
-<div class="hero-badge">
-<i class="fas fa-link"></i>
-<span>Logistics Automation Expert</span>
-</div>
-<h1>Connect Your Systems. <span class="hero-highlight">Automate Your Workflows</span>. <span class="hero-highlight">Scale Your Business</span>.</h1>
-<p>No more data silos. No more manual reports. No more wondering what's actually happening in your operations. Real-time dashboards and workflow automation that make sense of your logistics operations and eliminate the boring stuff.</p>
-<!-- Key Benefits List -->
-<div class="hero-benefits">
-<div class="benefit-item">
-<i class="fas fa-eye"></i>
-<span>Eliminate 15+ hours of weekly manual work</span>
-</div>
-<div class="benefit-item">
-<i class="fas fa-robot"></i>
-<span>Connect systems that currently don't talk to each other</span>
-</div>
-<div class="benefit-item">
-<i class="fas fa-chart-line"></i>
-<span>Scale operations without adding headcount</span>
-</div>
-</div>
-<div class="btn-group">
-<a class="btn btn-whatsapp" href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20connecting%20our%20systems%20and%20automating%20our%20logistics%20processes.">
-<i class="fab fa-whatsapp"></i>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+            </a>
+            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#approach">Approach</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-link"></i>
+                <span>Logistics Automation Expert</span>
+            </div>
+            <h1>Connect Your Systems. <span class="hero-highlight">Automate Your Workflows</span>. <span class="hero-highlight">Scale Your Business</span>.</h1>
+            <p>No more data silos. No more manual reports. No more wondering what's actually happening in your operations. Real-time dashboards and workflow automation that make sense of your logistics operations and eliminate the boring stuff.</p>
+            
+            <!-- Key Benefits List -->
+            <div class="hero-benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-eye"></i>
+                    <span>Eliminate 15+ hours of weekly manual work</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-robot"></i>
+                    <span>Connect systems that currently don't talk to each other</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Scale operations without adding headcount</span>
+                </div>
+            </div>
+    
+            <div class="btn-group">
+                <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20connecting%20our%20systems%20and%20automating%20our%20logistics%20processes." class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
                     Get Connected
                 </a>
-<a class="btn btn-secondary" href="#services">
-<i class="fas fa-desktop"></i>
+                <a href="#services" class="btn btn-secondary">
+                    <i class="fas fa-desktop"></i>
                     See Demo
                 </a>
-</div>
-</div>
-</section>
-<!-- Problem Section -->
-<section class="section animate-on-scroll">
-<div class="container">
-<div class="section-title">
-<h2>Dealing with any of these challenges? 🤔 </h2>
-</div>
-<div class="problem-cards">
-<div class="card">
-<div class="card-icon"><i class="fas fa-tasks"></i></div>
-<h4>Manual Work</h4>
-<p>Hours wasted every week pulling data from different systems, creating reports manually, and trying to make sense of disconnected information.</p>
-</div>
-<div class="card">
-<div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
-<h4>Constant Firefighting</h4>
-<p>Your team spends their day reacting to problems instead of preventing them. Delays, exceptions, and customer complaints consume all your time.</p>
-</div>
-<div class="card">
-<div class="card-icon"><i class="fas fa-table"></i></div>
-<h4>No Clear Picture</h4>
-<p>You're managing multiple departments, systems, and processes but have no unified view of what's actually happening in your business right now.</p>
-</div>
-<div class="card">
-<div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-<h4>Bleeding Money</h4>
-<p>Inefficiencies you can't see are costing you thousands every month. Late deliveries, idle assets, and operational waste that's invisible until it's too late.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Cost Calculator Section -->
-<section class="cost-calculator-section">
-<div class="container">
-<!-- Section Header -->
-<div class="section-header animate-in">
-<h2>What's Manual Work Actually Costing You?</h2>
-<p class="subtitle">Most businesses have no idea how much they're spending on tasks that should happen automatically</p>
-</div>
-<!-- Calculator Container -->
-<div class="calculator-container animate-in stagger-1">
-<div class="calculator-card">
-<div class="calculator-header">
-<h3>The Hidden Cost Calculator</h3>
-<p>See what manual processes are really costing your business</p>
-</div>
-<!-- Hours Input -->
-<div class="input-group">
-<label class="input-label">Hours spent on manual work per week:</label>
-<div class="slider-container">
-<input class="slider" id="hoursSlider" max="50" min="5" type="range" value="20"/>
-</div>
-<div class="input-display">
-<span id="hoursDisplay">20</span> hours
-                        </div>
-</div>
-<!-- Hourly Rate Input -->
-<div class="input-group">
-<label class="input-label">Average hourly cost (including benefits):</label>
-<div class="slider-container">
-<input class="slider" id="rateSlider" max="800" min="200" step="25" type="range" value="450"/>
-</div>
-<div class="input-display">
-                            R<span id="rateDisplay">450</span> per hour
-                        </div>
-</div>
-<!-- Results Grid -->
-<div class="results-grid">
-<div class="result-card">
-<div class="result-label">Monthly Cost</div>
-<div class="result-value" id="monthlyCost">R0</div>
-<div class="result-description">Current spending</div>
-</div>
-<div class="result-card">
-<div class="result-label">Annual Cost</div>
-<div class="result-value" id="annualCost">R0</div>
-<div class="result-description">Yearly investment</div>
-</div>
-<div class="result-card savings">
-<div class="result-label">Potential Savings</div>
-<div class="result-value" id="potentialSavings">R0</div>
-<div class="result-description">80% automation</div>
-</div>
-</div>
-<!-- Impact Statement -->
-<div class="impact-statement">
-<p>You could save enough to <span class="impact-highlight">hire 2 additional team members</span> or invest <span class="impact-highlight" id="savingsAmount">R0</span> back into growing your business.</p>
-</div>
-</div>
-</div>
-<!-- Manual Work Section -->
-<div class="manual-work-section animate-in stagger-2">
-<div class="manual-work-header">
-<h3>Common Manual Work We Eliminate:</h3>
-</div>
-<div class="work-grid">
-<div class="work-card animate-in stagger-1">
-<div class="work-icon">
-<i class="fas fa-chart-line"></i>
-</div>
-<div class="work-title">Manual Reporting</div>
-<div class="work-description">Pulling data from multiple systems, creating weekly/monthly reports</div>
-<div class="work-savings">
-<i class="fas fa-clock"></i>
-                            Saves: 8-15 hours/week
-                        </div>
-</div>
-<div class="work-card animate-in stagger-2">
-<div class="work-icon">
-<i class="fas fa-keyboard"></i>
-</div>
-<div class="work-title">Data Entry</div>
-<div class="work-description">Entering the same information into multiple systems</div>
-<div class="work-savings">
-<i class="fas fa-clock"></i>
-                            Saves: 5-10 hours/week
-                        </div>
-</div>
-<div class="work-card animate-in stagger-3">
-<div class="work-icon">
-<i class="fas fa-phone"></i>
-</div>
-<div class="work-title">Status Updates</div>
-<div class="work-description">Calling departments for updates, chasing information</div>
-<div class="work-savings">
-<i class="fas fa-clock"></i>
-                            Saves: 6-12 hours/week
-                        </div>
-</div>
-<div class="work-card animate-in stagger-4">
-<div class="work-icon">
-<i class="fas fa-bell"></i>
-</div>
-<div class="work-title">Manual Notifications</div>
-<div class="work-description">Sending updates, alerts, and status communications</div>
-<div class="work-savings">
-<i class="fas fa-clock"></i>
-                            Saves: 3-8 hours/week
-                        </div>
-</div>
-</div>
-</div>
-<!-- CTA Section -->
-<div class="cta-section animate-in stagger-3">
-<div class="cta-content">
-<h3>Ready to Get That Time Back?</h3>
-<p>Most clients see 15+ hours eliminated within the first month. That's not just efficiency - that's giving your team their lives back.</p>
-<div class="btn-group">
-<a class="btn btn-whatsapp" href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20see%20how%20much%20automation%20can%20save%20my%20business.">
-<i class="fab fa-whatsapp"></i>
-                            Show Me How to Automate This
-                        </a>
-<a class="btn btn-secondary" href="#">
-<i class="fas fa-calculator"></i>
-                            Book Free Assessment
-                        </a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Solution Section -->
-<section class="section section-alt animate-on-scroll">
-<div class="container">
-<div class="section-title">
-<h2>Every Business Needs</h2>
-</div>
-<div class="solution-highlights">
-<div class="solution-pillar">
-<div class="pillar-header">
-<div class="pillar-number">01</div>
-<h3>Visibility</h3>
-<p class="pillar-subtitle">See What's Actually Happening</p>
-</div>
-<ul class="pillar-features">
-<li><i class="fas fa-check-circle"></i> Real-time dashboards that make sense of your data</li>
-<li><i class="fas fa-check-circle"></i> Early warning systems for emerging problems</li>
-<li><i class="fas fa-check-circle"></i> Fact-based decision making instead of guessing</li>
-</ul>
-</div>
-<div class="solution-pillar">
-<div class="pillar-header">
-<div class="pillar-number">02</div>
-<h3>Workflow Automation</h3>
-<p class="pillar-subtitle">Handle the Boring Stuff Automatically</p>
-</div>
-<ul class="pillar-features">
-<li><i class="fas fa-check-circle"></i> Connect your systems so they talk to each other</li>
-<li><i class="fas fa-check-circle"></i> Automate repetitive tasks draining your team</li>
-<li><i class="fas fa-check-circle"></i> Scale processes as your business grows</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Our Story -->
-<section class="our-story-section section animate-on-scroll">
-<div class="container">
-<div class="our-story-content">
-<div class="our-story-icon"><i class="fas fa-seedling"></i></div>
-<h2>Our Story</h2>
-<p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Dealing with any of these challenges? 🤔 </h2>
+            </div>
+            
+            <div class="problem-cards">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                    <h4>Manual Work</h4>
+                    <p>Hours wasted every week pulling data from different systems, creating reports manually, and trying to make sense of disconnected information.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h4>Constant Firefighting</h4>
+                    <p>Your team spends their day reacting to problems instead of preventing them. Delays, exceptions, and customer complaints consume all your time.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-table"></i></div>
+                     <h4>No Clear Picture</h4>
+                    <p>You're managing multiple departments, systems, and processes but have no unified view of what's actually happening in your business right now.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h4>Bleeding Money</h4>
+                    <p>Inefficiencies you can't see are costing you thousands every month. Late deliveries, idle assets, and operational waste that's invisible until it's too late.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Cost Calculator Section -->
+    <section class="cost-calculator-section">
+    <div class="container">
+    <!-- Section Header -->
+    <div class="section-header animate-in">
+    <h2>What's Manual Work Actually Costing You?</h2>
+    <p class="subtitle">Most businesses have no idea how much they're spending on tasks that should happen automatically</p>
+    </div>
+    <!-- Calculator Container -->
+    <div class="calculator-container animate-in stagger-1">
+    <div class="calculator-card">
+    <div class="calculator-header">
+    <h3>The Hidden Cost Calculator</h3>
+    <p>See what manual processes are really costing your business</p>
+    </div>
+    <!-- Hours Input -->
+    <div class="input-group">
+    <label class="input-label">Hours spent on manual work per week:</label>
+    <div class="slider-container">
+    <input class="slider" id="hoursSlider" max="50" min="5" type="range" value="20"/>
+    </div>
+    <div class="input-display">
+    <span id="hoursDisplay">20</span> hours
+                            </div>
+    </div>
+    <!-- Hourly Rate Input -->
+    <div class="input-group">
+    <label class="input-label">Average hourly cost (including benefits):</label>
+    <div class="slider-container">
+    <input class="slider" id="rateSlider" max="800" min="200" step="25" type="range" value="450"/>
+    </div>
+    <div class="input-display">
+                                R<span id="rateDisplay">450</span> per hour
+                            </div>
+    </div>
+    <!-- Results Grid -->
+    <div class="results-grid">
+    <div class="result-card">
+    <div class="result-label">Monthly Cost</div>
+    <div class="result-value" id="monthlyCost">R0</div>
+    <div class="result-description">Current spending</div>
+    </div>
+    <div class="result-card">
+    <div class="result-label">Annual Cost</div>
+    <div class="result-value" id="annualCost">R0</div>
+    <div class="result-description">Yearly investment</div>
+    </div>
+    <div class="result-card savings">
+    <div class="result-label">Potential Savings</div>
+    <div class="result-value" id="potentialSavings">R0</div>
+    <div class="result-description">80% automation</div>
+    </div>
+    </div>
+    <!-- Impact Statement -->
+    <div class="impact-statement">
+    <p>You could save enough to <span class="impact-highlight">hire 2 additional team members</span> or invest <span class="impact-highlight" id="savingsAmount">R0</span> back into growing your business.</p>
+    </div>
+    </div>
+    </div>
+    <!-- Manual Work Section -->
+    <div class="manual-work-section animate-in stagger-2">
+    <div class="manual-work-header">
+    <h3>Common Manual Work We Eliminate:</h3>
+    </div>
+    <div class="work-grid">
+    <div class="work-card animate-in stagger-1">
+    <div class="work-icon">
+    <i class="fas fa-chart-line"></i>
+    </div>
+    <div class="work-title">Manual Reporting</div>
+    <div class="work-description">Pulling data from multiple systems, creating weekly/monthly reports</div>
+    <div class="work-savings">
+    <i class="fas fa-clock"></i>
+                                Saves: 8-15 hours/week
+                            </div>
+    </div>
+    <div class="work-card animate-in stagger-2">
+    <div class="work-icon">
+    <i class="fas fa-keyboard"></i>
+    </div>
+    <div class="work-title">Data Entry</div>
+    <div class="work-description">Entering the same information into multiple systems</div>
+    <div class="work-savings">
+    <i class="fas fa-clock"></i>
+                                Saves: 5-10 hours/week
+                            </div>
+    </div>
+    <div class="work-card animate-in stagger-3">
+    <div class="work-icon">
+    <i class="fas fa-phone"></i>
+    </div>
+    <div class="work-title">Status Updates</div>
+    <div class="work-description">Calling departments for updates, chasing information</div>
+    <div class="work-savings">
+    <i class="fas fa-clock"></i>
+                                Saves: 6-12 hours/week
+                            </div>
+    </div>
+    <div class="work-card animate-in stagger-4">
+    <div class="work-icon">
+    <i class="fas fa-bell"></i>
+    </div>
+    <div class="work-title">Manual Notifications</div>
+    <div class="work-description">Sending updates, alerts, and status communications</div>
+    <div class="work-savings">
+    <i class="fas fa-clock"></i>
+                                Saves: 3-8 hours/week
+                            </div>
+    </div>
+    </div>
+    </div>
+    <!-- CTA Section -->
+    <div class="cta-section animate-in stagger-3">
+    <div class="cta-content">
+    <h3>Ready to Get That Time Back?</h3>
+    <p>Most clients see 15+ hours eliminated within the first month. That's not just efficiency - that's giving your team their lives back.</p>
+    <div class="btn-group">
+    <a class="btn btn-whatsapp" href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20see%20how%20much%20automation%20can%20save%20my%20business.">
+    <i class="fab fa-whatsapp"></i>
+                                Show Me How to Automate This
+                            </a>
+    <a class="btn btn-secondary" href="#">
+    <i class="fas fa-calculator"></i>
+                                Book Free Assessment
+                            </a>
+    </div>
+    </div>
+    </div>
+    </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section section-alt animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Every Business Needs</h2>
+            </div>
+            
+            <div class="solution-highlights">
+                <div class="solution-pillar">
+                    <div class="pillar-header">
+                        <div class="pillar-number">01</div>
+                        <h3>Visibility</h3>
+                        <p class="pillar-subtitle">See What's Actually Happening</p>
+                    </div>
+                    <ul class="pillar-features">
+                        <li><i class="fas fa-check-circle"></i> Real-time dashboards that make sense of your data</li>
+                        <li><i class="fas fa-check-circle"></i> Early warning systems for emerging problems</li>
+                        <li><i class="fas fa-check-circle"></i> Fact-based decision making instead of guessing</li>
+                    </ul>
+                </div>
+                
+                <div class="solution-pillar">
+                    <div class="pillar-header">
+                        <div class="pillar-number">02</div>
+                        <h3>Workflow Automation</h3>
+                        <p class="pillar-subtitle">Handle the Boring Stuff Automatically</p>
+                    </div>
+                    <ul class="pillar-features">
+                        <li><i class="fas fa-check-circle"></i> Connect your systems so they talk to each other</li>
+                        <li><i class="fas fa-check-circle"></i> Automate repetitive tasks draining your team</li>
+                        <li><i class="fas fa-check-circle"></i> Scale processes as your business grows</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+
+    <!-- Our Story -->
+    <section class="our-story-section section animate-on-scroll">
+        <div class="container">
+            <div class="our-story-content">
+                <div class="our-story-icon"><i class="fas fa-seedling"></i></div>
+                <h2>Our Story</h2>
+                <p>
                     PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
                     From our early roots in supply chain operations, we've grown to support clients across logistics, 
                     e-commerce, mining, retail, manufacturing, and professional services — improving everything from stock control to fleet performance.
                 </p>
-<p>
+                <p>
                     Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
                     and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
                     and unlock value across every link in their chain.
                 </p>
-<p>
+                <p>
                     Our unique blend of supply chain management experience, data science expertise, 
                     and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.
                 </p>
-</div>
-</div>
-</section>
-<!-- Approach Section -->
-<section class="section animate-on-scroll" id="approach">
-<div class="container">
-<div class="section-title">
-<h2>Our Approach</h2>
-</div>
-<div class="approach-grid">
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-comment-alt"></i>
-</div>
-<h3>Practical Solutions</h3>
-<p>No jargon or complex implementations - just tools that eliminate your daily frustrations.</p>
-</div>
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-lock"></i>
-</div>
-<h3>You Keep Control</h3>
-<p>Your data stays yours with no expensive enterprise licenses or vendor lock-in.</p>
-</div>
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-expand"></i>
-</div>
-<h3>Built to Last</h3>
-<p>Simple tools designed to adapt and grow with your business needs.</p>
-</div>
-<div class="card">
-<div class="card-icon">
-<i class="fas fa-handshake"></i>
-</div>
-<h3>True Partnership</h3>
-<p>Hands-on collaboration, not hands-off consulting reports.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Process Section -->
-<section class="approach-section section-alt">
-<div class="container">
-<div class="section-title">
-<p>We follow a 5-step process to deliver visibility, and workflow automation for your business.</p>
-</div>
-<div class="approach-flow">
-<!-- Step 1 -->
-<div class="approach-step" style="--step-color:var(--gold);">
-<div class="circle-icon"><i class="fas fa-project-diagram"></i></div>
-<h4>Process Mapping</h4>
-<p>We map your workflows to identify gaps, inefficiencies, and opportunities for improvement.</p>
-</div>
-<!-- Step 2 -->
-<div class="approach-step" style="--step-color:var(--gold-light);">
-<div class="circle-icon"><i class="fas fa-database"></i></div>
-<h4>Data Integration</h4>
-<p>We integrate your data sources and clean the data for accuracy, consistency, and reliability.</p>
-</div>
-<!-- Step 3 -->
-<div class="approach-step" style="--step-color:var(--teal);">
-<div class="circle-icon"><i class="fas fa-chart-pie"></i></div>
-<h4>Dashboard Design</h4>
-<p>We design and develop interactive dashboards for actionable insights and real-time visibility.</p>
-</div>
-<!-- Step 4 -->
-<div class="approach-step" style="--step-color:var(--teal-light);">
-<div class="circle-icon"><i class="fas fa-cogs"></i></div>
-<h4>Workflow Automation</h4>
-<p>We automate repetitive processes to save time, reduce errors, and boost efficiency.</p>
-</div>
-<!-- Step 5 -->
-<div class="approach-step" style="--step-color:var(--teal-dark);">
-<div class="circle-icon"><i class="fas fa-user-graduate"></i></div>
-<h4>Training &amp; Support</h4>
-<p>We train your team and provide ongoing support to ensure lasting success.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Testimonials Section -->
-<section class="testimonials section animate-on-scroll">
-<div class="container">
-<div class="section-title">
-<h2>What Our Clients Say</h2>
-</div>
-<div class="testimonial-container">
-<blockquote>
+            </div>
+        </div>
+    </section>
+
+     <!-- Approach Section -->
+    <section id="approach" class="section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Approach</h2>
+            </div>
+            
+            <div class="approach-grid">
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-comment-alt"></i>
+                    </div>
+                    <h3>Practical Solutions</h3>
+                    <p>No jargon or complex implementations - just tools that eliminate your daily frustrations.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>You Keep Control</h3>
+                    <p>Your data stays yours with no expensive enterprise licenses or vendor lock-in.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-expand"></i>
+                    </div>
+                    <h3>Built to Last</h3>
+                    <p>Simple tools designed to adapt and grow with your business needs.</p>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>True Partnership</h3>
+                    <p>Hands-on collaboration, not hands-off consulting reports.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    
+    <!-- Process Section -->
+    <section class="approach-section section-alt">
+          <div class="container">
+                <div class="section-title">
+                  <p>We follow a 5-step process to deliver visibility, and workflow automation for your business.</p>
+                </div>
+                <div class="approach-flow">
+                  
+                  <!-- Step 1 -->
+                  <div class="approach-step" style="--step-color:var(--gold);">
+                    <div class="circle-icon"><i class="fas fa-project-diagram"></i></div>
+                    <h4>Process Mapping</h4>
+                    <p>We map your workflows to identify gaps, inefficiencies, and opportunities for improvement.</p>
+                  </div>
+                  
+                  <!-- Step 2 -->
+                  <div class="approach-step" style="--step-color:var(--gold-light);">
+                    <div class="circle-icon"><i class="fas fa-database"></i></div>
+                    <h4>Data Integration</h4>
+                    <p>We integrate your data sources and clean the data for accuracy, consistency, and reliability.</p>
+                  </div>
+                  
+                  <!-- Step 3 -->
+                  <div class="approach-step" style="--step-color:var(--teal);">
+                    <div class="circle-icon"><i class="fas fa-chart-pie"></i></div>
+                    <h4>Dashboard Design</h4>
+                    <p>We design and develop interactive dashboards for actionable insights and real-time visibility.</p>
+                  </div>
+                  
+                  <!-- Step 4 -->
+                  <div class="approach-step" style="--step-color:var(--teal-light);">
+                    <div class="circle-icon"><i class="fas fa-cogs"></i></div>
+                    <h4>Workflow Automation</h4>
+                    <p>We automate repetitive processes to save time, reduce errors, and boost efficiency.</p>
+                  </div>
+                  
+                  <!-- Step 5 -->
+                  <div class="approach-step" style="--step-color:var(--teal-dark);">
+                    <div class="circle-icon"><i class="fas fa-user-graduate"></i></div>
+                    <h4>Training & Support</h4>
+                    <p>We train your team and provide ongoing support to ensure lasting success.</p>
+                  </div>
+                </div>
+          </div>
+    </section>
+
+    
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials section animate-on-scroll">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-container">
+                <blockquote>
                     We went from spending 20 hours a week on manual reports to getting them automatically. Our team now focuses on growing the business instead of updating spreadsheets.
                     <span>— Operations Manager, Mid-Size Distributor</span>
-</blockquote>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="cta-section section animate-on-scroll" id="contact">
-<div class="container">
-<div class="cta-content">
-<h3>Ready to Transform Your Operations?</h3>
-<p>Whether your team is wasting hours on manual work, struggling with repetitive processes, or ready to eliminate the tasks everyone hates doing</p>
-<div class="btn-group">
-<a class="btn btn-whatsapp" href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions.">
-<i class="fab fa-whatsapp"></i>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section section animate-on-scroll">
+        <div class="container">
+            <div class="cta-content">
+                <h3>Ready to Transform Your Operations?</h3>
+                <p>Whether your team is wasting hours on manual work, struggling with repetitive processes, or ready to eliminate the tasks everyone hates doing</p>
+                <div class="btn-group">
+                    <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20Prime%20Chain%20Solutions." class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
                         Message on WhatsApp
                     </a>
-<a class="btn btn-secondary" href="#services">
-<i class="fas fa-play"></i>
+                    <a href="#services" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
                         See a Demo
                     </a>
-</div>
-<form action="https://formspree.io/f/yourID" method="POST">
-<div class="form-group">
-<input name="email" placeholder="Enter your email" required="" type="email"/>
-</div>
-<button class="btn" type="submit">
-<i class="fas fa-paper-plane"></i>
+                </div>
+                <form action="https://formspree.io/f/yourID" method="POST">
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="btn">
+                        <i class="fas fa-paper-plane"></i>
                         Book a 15-min Intro Call
                     </button>
-</form>
-</div>
-</div>
-</section>
-<!-- Footer -->
-<footer>
-<div class="container">
-<div class="footer-container">
-<div class="footer-about">
-<div class="footer-logo">
-<img alt="Prime Chain Logo" src="assets/primechain-solutions-workflow-light.svg"/>
-</div>
-<p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
-<div class="social-links">
-<a aria-label="LinkedIn" href="#"><i class="fab fa-linkedin"></i></a>
-<a aria-label="Facebook" href="#"><i class="fab fa-facebook"></i></a>
-<a aria-label="Twitter" href="#"><i class="fab fa-twitter"></i></a>
-</div>
-</div>
-<div class="footer-links">
-<h4>Quick Links</h4>
-<ul>
-<li><a href="#">Home</a></li>
-<li><a href="#services">Services</a></li>
-<li><a href="#approach">Approach</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</div>
-<div class="footer-links">
-<h4>Resources</h4>
-<ul>
-<li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
-<li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
-</ul>
-</div>
-<div class="footer-contact">
-<h4>Let's Talk</h4>
-<p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
-<p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
-<p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
-</div>
-</div>
-<div class="footer-bottom">
-<p>© 2025 Prime Chain Solutions. All Rights Reserved.</p>
-</div>
-</div>
-</footer>
-<!-- Back to Top Button -->
-<div aria-label="Back to top" class="back-to-top">
-<i class="fas fa-arrow-up"></i>
-</div>
-<script>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+                    </div>
+                    <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#approach">Approach</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Let's Talk</h4>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
     document.addEventListener('DOMContentLoaded', function() {
         // ===== Mobile Menu Toggle =====
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -2641,7 +2681,7 @@
             document.documentElement.style.setProperty('--dynamic-hue', hue);
         });
         // ===== Calculator =====
-        document.addEventListener('DOMContentLoaded', function() {
+       document.addEventListener('DOMContentLoaded', function() {
             const hoursSlider = document.getElementById('hoursSlider');
             const rateSlider = document.getElementById('rateSlider');
             const hoursDisplay = document.getElementById('hoursDisplay');
@@ -2650,28 +2690,50 @@
             const annualCost = document.getElementById('annualCost');
             const potentialSavings = document.getElementById('potentialSavings');
             const savingsAmount = document.getElementById('savingsAmount');
-
+        
+            function animateValue(element, start, end, duration, prefix = '') {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = prefix + value.toLocaleString();
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }
+        
             function updateCalculations() {
                 const hours = parseInt(hoursSlider.value);
                 const rate = parseInt(rateSlider.value);
-                
+        
                 // Update displays
                 hoursDisplay.textContent = hours;
                 rateDisplay.textContent = rate.toLocaleString();
-                
+        
                 // Calculate costs
                 const monthly = hours * rate * 4.33; // average weeks per month
                 const annual = monthly * 12;
                 const savings = annual * 0.8; // 80% automation savings
-                
+        
                 // Update cost displays with animation
                 animateValue(monthlyCost, 0, monthly, 800, 'R');
                 animateValue(annualCost, 0, annual, 800, 'R');
                 animateValue(potentialSavings, 0, savings, 800, 'R');
-                
+        
                 // Update impact statement
                 savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
             }
+        
+            // Listen for slider input changes
+            hoursSlider.addEventListener('input', updateCalculations);
+            rateSlider.addEventListener('input', updateCalculations);
+        
+            // Initialize on page load
+            updateCalculations();
+        });
 
             function animateValue(element, start, end, duration, prefix = '') {
                 let startTimestamp = null;
@@ -2719,54 +2781,5 @@
         document.head.appendChild(style);
     });
     </script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const hoursSlider = document.getElementById('hoursSlider');
-    const rateSlider = document.getElementById('rateSlider');
-    const hoursDisplay = document.getElementById('hoursDisplay');
-    const rateDisplay = document.getElementById('rateDisplay');
-    const monthlyCostEl = document.getElementById('monthlyCost');
-    const annualCostEl = document.getElementById('annualCost');
-    const potentialSavingsEl = document.getElementById('potentialSavings');
-    const savingsAmountEl = document.getElementById('savingsAmount');
-
-    function animateValue(element, start, end, duration, prefix = '') {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const value = Math.floor(progress * (end - start) + start);
-            element.textContent = prefix + value.toLocaleString();
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
-    }
-
-    function updateCalculations() {
-        const hours = parseInt(hoursSlider.value, 10);
-        const rate = parseInt(rateSlider.value, 10);
-
-        hoursDisplay.textContent = hours;
-        rateDisplay.textContent = rate.toLocaleString();
-
-        const monthly = hours * rate * 4.33;
-        const annual = monthly * 12;
-        const savings = annual * 0.8;
-
-        animateValue(monthlyCostEl, 0, monthly, 800, 'R');
-        animateValue(annualCostEl, 0, annual, 800, 'R');
-        animateValue(potentialSavingsEl, 0, savings, 800, 'R');
-        savingsAmountEl.textContent = 'R' + Math.round(savings).toLocaleString();
-    }
-
-    hoursSlider.addEventListener('input', updateCalculations);
-    rateSlider.addEventListener('input', updateCalculations);
-
-    updateCalculations();
-});
-</script>
 </body>
 </html>
