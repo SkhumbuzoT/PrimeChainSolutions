@@ -2102,6 +2102,35 @@
           .service-card {
             padding: 32px 24px;
           }
+        .circular-process-section {
+          padding: 80px 0;
+          background: var(--gray-50);
+          text-align: center;
+        }
+        
+        .circular-process {
+          max-width: 500px;
+          width: 100%;
+          margin: 0 auto 40px;
+        }
+        
+        .process-descriptions {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          text-align: left;
+        }
+        
+        .process-step h3 {
+          color: var(--navy);
+          margin-bottom: 8px;
+        }
+        
+        .process-step p {
+          color: var(--gray-800);
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
          
     </style>
 </head>
@@ -2441,49 +2470,54 @@
 
     
     <section class="circular-process-section">
-        <div class="container">
-            <h2 class="section-title">How We Eliminate Your Manual Work</h2>
-            <div class="circle-wrapper">
-                <svg viewBox="0 0 500 500" class="process-circle">
-                    <!-- Main circle -->
-                    <circle cx="250" cy="250" r="200" fill="none" stroke="var(--teal)" stroke-width="6" />
-                    <!-- Arrows between stages -->
-                    <path d="M250 50 Q 300 60 320 100" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
-                    <path d="M450 250 Q 440 300 400 320" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
-                    <path d="M250 450 Q 200 440 180 400" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
+      <div class="container">
+        <h2>How We Eliminate Your Manual Work</h2>
     
-                    <!-- Arrowhead marker -->
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" fill="var(--gold)">
-                            <polygon points="0 0, 10 5, 0 10" />
-                        </marker>
-                    </defs>
-                </svg>
+        <svg class="circular-process" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
     
-                <!-- Stage positions -->
-                <div class="stage stage-1">
-                    <div class="stage-number">1</div>
-                    <h3>Find the Time Wasters</h3>
-                    <p>Spend a day with your team identifying time-wasting tasks.<br>
-                    Map out real workflows.<br>
-                    Calculate hours lost per week.</p>
-                </div>
-                <div class="stage stage-2">
-                    <div class="stage-number">2</div>
-                    <h3>Connect & Automate</h3>
-                    <p>Link systems for automatic data flow.<br>
-                    Build workflows for repetitive tasks.<br>
-                    Set triggers for auto execution.</p>
-                </div>
-                <div class="stage stage-3">
-                    <div class="stage-number">3</div>
-                    <h3>Deploy & Scale</h3>
-                    <p>Start with one high-impact automation.<br>
-                    Train the team.<br>
-                    Expand to other processes.</p>
-                </div>
-            </div>
+          <!-- Step 1 Arrow -->
+          <path d="M250,40 A210,210 0 0,1 460,250" fill="none" stroke="#0891b2" stroke-width="16" marker-end="url(#arrowhead)" />
+          <text x="250" y="20" text-anchor="middle" fill="#0a1628" font-size="14" font-weight="bold">STAGE 1</text>
+    
+          <!-- Step 2 Arrow -->
+          <path d="M460,250 A210,210 0 0,1 250,460" fill="none" stroke="#f59e0b" stroke-width="16" marker-end="url(#arrowhead)" />
+          <text x="480" y="250" text-anchor="start" fill="#0a1628" font-size="14" font-weight="bold">STAGE 2</text>
+    
+          <!-- Step 3 Arrow -->
+          <path d="M250,460 A210,210 0 0,1 40,250" fill="none" stroke="#0a1628" stroke-width="16" marker-end="url(#arrowhead)" />
+          <text x="250" y="490" text-anchor="middle" fill="#0a1628" font-size="14" font-weight="bold">STAGE 3</text>
+    
+          <!-- Arrowhead definition -->
+          <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" fill="currentColor">
+              <polygon points="0 0, 8 3, 0 6" fill="inherit"/>
+            </marker>
+          </defs>
+        </svg>
+    
+        <div class="process-descriptions">
+          <div class="process-step">
+            <h3>STAGE 1: Find the Time Wasters</h3>
+            <p>We spend a day with your team identifying which manual tasks are eating up the most time.  
+            Map out the actual workflows (not what the manual says, but what really happens).  
+            Calculate exactly how many hours per week each process is costing you.</p>
+          </div>
+    
+          <div class="process-step">
+            <h3>STAGE 2: Connect & Automate</h3>
+            <p>Connect your systems so data flows automatically instead of manual re-entry.  
+            Build workflows that handle the repetitive stuff your team hates doing.  
+            Set up triggers so processes happen automatically when conditions are met.</p>
+          </div>
+    
+          <div class="process-step">
+            <h3>STAGE 3: Deploy & Scale</h3>
+            <p>Start with one high-impact automation to prove ROI immediately.  
+            Train your team on the new automated processes.  
+            Gradually expand automation to other time-wasting processes.</p>
+          </div>
         </div>
+      </div>
     </section>
 
 
