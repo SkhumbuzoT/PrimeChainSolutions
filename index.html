@@ -1435,68 +1435,22 @@
             padding: 32px 24px;
           }
           
-          .stats-container {
-            grid-template-columns: 1fr;
-            gap: 16px;
-          }
-          
-          .stat-number {
-            font-size: 2.5rem;
-          }
-          
-          .stat-label {
-            font-size: 14px;
-          }
-          
-          .hero h1 {
-            font-size: 2rem;
-          }
-          
-          .hero p {
-            font-size: 1rem;
-          }
-          
-          .section-title h2 {
-            font-size: 1.75rem;
-          }
-          
-          .problem-cards,
-          .approach-grid,
-          .solutions-container {
-            grid-template-columns: 1fr;
-          }
-          
-          .industry-tags {
-            gap: 8px;
-          }
-          
-          .industry-tags span {
-            padding: 8px 16px;
-            font-size: 1rem;
-          }
-          
-          blockquote {
-            padding: 32px 24px;
-            font-size: 1.1rem;
-          }
-          
-          .form-group {
+         .container {
             width: 100%;
-          }
-          
-          form button[type="submit"] {
-            width: 100%;
-          }
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
-        /* Enhanced Statistics Section Styles */
-        .statistics-section {
+
+        /* Cost Calculator Section */
+        .cost-calculator-section {
             padding: 100px 0;
-            background: var(--gray-50);
+            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
             position: relative;
             overflow: hidden;
         }
-        
-        .statistics-section::before {
+
+        .cost-calculator-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1504,262 +1458,559 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+                radial-gradient(circle at 20% 30%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
         }
-        
-        .stats-intro {
+
+        .section-header {
             text-align: center;
             margin-bottom: 80px;
             position: relative;
             z-index: 2;
         }
-        
-        .stats-intro h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 800;
             color: var(--navy);
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             letter-spacing: -0.025em;
         }
-        
-        .stats-intro p {
-            font-size: 1.2rem;
+
+        .section-header .subtitle {
+            font-size: 1.3rem;
             color: var(--gray-800);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
             line-height: 1.6;
+            opacity: 0.9;
         }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-            margin-bottom: 80px;
+
+        /* Calculator Card */
+        .calculator-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
             position: relative;
             z-index: 2;
         }
-        
-        .stat-card {
+
+        .calculator-card {
             background: var(--white);
-            border-radius: 24px;
-            padding: 48px 40px;
-            text-align: center;
-            box-shadow: var(--shadow-xl);
-            border: 1px solid var(--gray-100);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: var(--transition);
+            border-radius: 32px;
+            padding: 60px 50px;
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid rgba(8, 145, 178, 0.1);
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
-        
-        .stat-card::before {
+
+        .calculator-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
-            height: 6px;
+            height: 8px;
             background: var(--gradient-secondary);
         }
-        
-        .stat-card.primary::before {
-            background: linear-gradient(135deg, var(--teal), var(--navy));
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 48px;
         }
-        
-        .stat-card.warning::before {
-            background: linear-gradient(135deg, var(--gold), #dc2626);
+
+        .calculator-header h3 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 12px;
+            letter-spacing: -0.025em;
         }
-        
-        .stat-card.success::before {
-            background: linear-gradient(135deg, var(--teal), #059669);
+
+        .calculator-header p {
+            font-size: 1.1rem;
+            color: var(--gray-800);
+            opacity: 0.8;
         }
-        
-        .stat-card.animate {
-            opacity: 1;
-            transform: translateY(0);
+
+        /* Input Controls */
+        .input-group {
+            margin-bottom: 40px;
         }
-        
-        .stat-card:hover {
+
+        .input-label {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .slider-container {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 12px;
+            border-radius: 6px;
+            background: var(--gray-200);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .input-display {
+            text-align: center;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, var(--gray-50), rgba(8, 145, 178, 0.05));
+            border-radius: 16px;
+            border: 2px solid rgba(8, 145, 178, 0.1);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-top: 16px;
+        }
+
+        /* Results Display */
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin: 48px 0;
+        }
+
+        .result-card {
+            background: linear-gradient(135deg, var(--white), var(--gray-50));
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+            border: 2px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-secondary);
+            transition: var(--transition);
+        }
+
+        .result-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-2xl);
+            border-color: var(--teal-light);
         }
-        
-        .stat-number {
-            font-size: clamp(3.5rem, 8vw, 4.5rem);
+
+        .result-card.savings {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.05), rgba(8, 145, 178, 0.05));
+            border-color: var(--success-green);
+        }
+
+        .result-card.savings::before {
+            background: var(--gradient-success);
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .result-value {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 800;
             background: var(--gradient-secondary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: 20px;
-            line-height: 1;
-            position: relative;
+            margin-bottom: 8px;
+            line-height: 1.1;
         }
-        
-        .stat-card.warning .stat-number {
-            background: linear-gradient(135deg, var(--gold), #dc2626);
+
+        .result-card.savings .result-value {
+            background: var(--gradient-success);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
-        .stat-card.success .stat-number {
-            background: linear-gradient(135deg, var(--teal), #059669);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--navy);
-            margin-bottom: 16px;
-            line-height: 1.4;
-        }
-        
-        .stat-context {
-            font-size: 1rem;
+
+        .result-description {
+            font-size: 0.85rem;
             color: var(--gray-800);
-            line-height: 1.5;
-            font-style: italic;
+            opacity: 0.8;
         }
-        
-        .stats-secondary {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 48px 40px;
-            margin-bottom: 60px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--gray-100);
-            position: relative;
-            z-index: 2;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
-        }
-        
-        .stats-secondary.animate {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .secondary-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-        
-        .secondary-stat {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--gray-50), rgba(8, 145, 178, 0.05));
-            border-radius: 16px;
-            border-left: 4px solid var(--teal);
-            transition: var(--transition);
-        }
-        
-        .secondary-stat:hover {
-            transform: translateX(8px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .stat-highlight {
-            font-size: 1.25rem;
-            font-weight: 800;
-            color: var(--teal);
-            white-space: nowrap;
-        }
-        
-        .secondary-stat span:last-child {
-            color: var(--gray-800);
-            line-height: 1.4;
-        }
-        
-        .stats-cta {
+
+        /* Impact Statement */
+        .impact-statement {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.08));
+            border-radius: 24px;
+            padding: 40px 32px;
             text-align: center;
+            border: 2px solid rgba(5, 150, 105, 0.2);
+            margin: 48px 0;
+        }
+
+        .impact-statement p {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--navy);
+            line-height: 1.6;
+        }
+
+        .impact-highlight {
+            color: var(--success-green);
+            font-weight: 800;
+        }
+
+        /* Manual Work Cards */
+        .manual-work-section {
+            margin-top: 80px;
             position: relative;
             z-index: 2;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition);
         }
-        
-        .stats-cta.animate {
-            opacity: 1;
-            transform: translateY(0);
+
+        .manual-work-header {
+            text-align: center;
+            margin-bottom: 48px;
         }
-        
-        .stats-cta h3 {
+
+        .manual-work-header h3 {
             font-size: clamp(1.75rem, 3vw, 2.25rem);
             font-weight: 800;
             color: var(--navy);
             margin-bottom: 16px;
             letter-spacing: -0.025em;
         }
-        
-        .stats-cta p {
-            font-size: 1.2rem;
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 60px;
+        }
+
+        .work-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .work-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-warning);
+            transition: var(--transition);
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .work-card:hover::before {
+            background: var(--gradient-success);
+        }
+
+        .work-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--gradient-warning);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .work-card:hover .work-icon {
+            background: var(--gradient-success);
+            transform: scale(1.1);
+        }
+
+        .work-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 12px;
+        }
+
+        .work-description {
             color: var(--gray-800);
-            max-width: 600px;
-            margin: 0 auto 40px;
+            margin-bottom: 20px;
             line-height: 1.6;
         }
-        
+
+        .work-savings {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(8, 145, 178, 0.1));
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--success-green);
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-content {
+            background: var(--gradient-primary);
+            border-radius: 32px;
+            padding: 60px 40px;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-content h3 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, var(--whatsapp-green), #1ebe5b);
+            color: var(--white);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .statistics-section {
+            .cost-calculator-section {
                 padding: 80px 0;
             }
-            
-            .stats-intro {
+
+            .calculator-card {
+                padding: 40px 30px;
+                border-radius: 24px;
+            }
+
+            .section-header {
                 margin-bottom: 60px;
             }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 30px;
-                margin-bottom: 60px;
-            }
-            
-            .stat-card {
-                padding: 36px 28px;
-            }
-            
-            .stats-secondary {
-                padding: 36px 28px;
-            }
-            
-            .secondary-stats {
+
+            .results-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
-            .secondary-stat {
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .btn-group {
                 flex-direction: column;
-                text-align: center;
-                gap: 12px;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .manual-work-section {
+                margin-top: 60px;
+            }
+
+            .cta-section {
+                margin-top: 60px;
+            }
+
+            .cta-content {
+                padding: 48px 32px;
+                border-radius: 24px;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .stat-card {
+            .container {
+                padding: 0 16px;
+            }
+
+            .calculator-card {
                 padding: 32px 24px;
             }
-            
-            .stat-number {
-                font-size: 3rem;
-            }
-            
-            .stat-label {
-                font-size: 1.1rem;
-            }
-            
-            .stats-secondary {
+
+            .work-card {
                 padding: 32px 24px;
+            }
+
+            .cta-content {
+                padding: 40px 24px;
+            }
+
+            .input-display {
+                font-size: 1.2rem;
+                padding: 12px 20px;
+            }
+
+            .result-value {
+                font-size: 1.8rem;
             }
         }
+
+        /* Animation Classes */
+        .animate-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        .stagger-4 { animation-delay: 0.4s; }
     </style>
 </head>
 <body>
@@ -1862,63 +2113,143 @@
     </section>
 
 
-    <!-- Statistics Section -->
-    <section class="statistics-section animate-on-scroll">
+    <!-- Cost Calculator Section -->
+    <section class="cost-calculator-section">
         <div class="container">
-            <div class="stats-intro">
-                <h2>You're Not Alone - The Industry is Transforming</h2>
-                <p>These challenges aren't unique to your business. The entire industry is facing the same pressures, and smart companies are taking action.</p>
+            <!-- Section Header -->
+            <div class="section-header animate-in">
+                <h2>What's Manual Work Actually Costing You?</h2>
+                <p class="subtitle">Most businesses have no idea how much they're spending on tasks that should happen automatically</p>
             </div>
-            
-            <div class="stats-grid">
-                <div class="stat-card primary">
-                    <div class="stat-number" id="stat1">0</div>
-                    <div class="stat-label">of enterprises are implementing logistics automation</div>
-                    <div class="stat-context">Don't get left behind while competitors gain the advantage</div>
-                </div>
-                
-                <div class="stat-card warning">
-                    <div class="stat-number" id="stat2">0</div>
-                    <div class="stat-label">increase in logistics labor costs</div>
-                    <div class="stat-context">Manual processes are becoming too expensive to sustain</div>
-                </div>
-                
-                <div class="stat-card success">
-                    <div class="stat-number" id="stat3">0</div>
-                    <div class="stat-label">ROI improvement with modern automation</div>
-                    <div class="stat-context">Solutions deploy in weeks, not quarters</div>
+
+            <!-- Calculator Container -->
+            <div class="calculator-container animate-in stagger-1">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <h3>The Hidden Cost Calculator</h3>
+                        <p>See what manual processes are really costing your business</p>
+                    </div>
+
+                    <!-- Hours Input -->
+                    <div class="input-group">
+                        <label class="input-label">Hours spent on manual work per week:</label>
+                        <div class="slider-container">
+                            <input type="range" min="5" max="50" value="20" class="slider" id="hoursSlider">
+                        </div>
+                        <div class="input-display">
+                            <span id="hoursDisplay">20</span> hours
+                        </div>
+                    </div>
+
+                    <!-- Hourly Rate Input -->
+                    <div class="input-group">
+                        <label class="input-label">Average hourly cost (including benefits):</label>
+                        <div class="slider-container">
+                            <input type="range" min="200" max="800" value="450" step="25" class="slider" id="rateSlider">
+                        </div>
+                        <div class="input-display">
+                            R<span id="rateDisplay">450</span> per hour
+                        </div>
+                    </div>
+
+                    <!-- Results Grid -->
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-label">Monthly Cost</div>
+                            <div class="result-value" id="monthlyCost">R38,970</div>
+                            <div class="result-description">Current spending</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Annual Cost</div>
+                            <div class="result-value" id="annualCost">R468,000</div>
+                            <div class="result-description">Yearly investment</div>
+                        </div>
+                        <div class="result-card savings">
+                            <div class="result-label">Potential Savings</div>
+                            <div class="result-value" id="potentialSavings">R374,400</div>
+                            <div class="result-description">80% automation</div>
+                        </div>
+                    </div>
+
+                    <!-- Impact Statement -->
+                    <div class="impact-statement">
+                        <p>You could save enough to <span class="impact-highlight">hire 2 additional team members</span> or invest <span class="impact-highlight" id="savingsAmount">R374,400</span> back into growing your business.</p>
+                    </div>
                 </div>
             </div>
-            
-            <div class="stats-secondary">
-                <div class="secondary-stats">
-                    <div class="secondary-stat">
-                        <span class="stat-highlight">Only 35%</span>
-                        <span>of logistics companies have moved beyond manual spreadsheet processes</span>
+
+            <!-- Manual Work Section -->
+            <div class="manual-work-section animate-in stagger-2">
+                <div class="manual-work-header">
+                    <h3>Common Manual Work We Eliminate:</h3>
+                </div>
+
+                <div class="work-grid">
+                    <div class="work-card animate-in stagger-1">
+                        <div class="work-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="work-title">Manual Reporting</div>
+                        <div class="work-description">Pulling data from multiple systems, creating weekly/monthly reports</div>
+                        <div class="work-savings">
+                            <i class="fas fa-clock"></i>
+                            Saves: 8-15 hours/week
+                        </div>
                     </div>
-                    <div class="secondary-stat">
-                        <span class="stat-highlight">$90B market</span>
-                        <span>logistics automation growing 14.7% annually through 2030</span>
+
+                    <div class="work-card animate-in stagger-2">
+                        <div class="work-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <div class="work-title">Data Entry</div>
+                        <div class="work-description">Entering the same information into multiple systems</div>
+                        <div class="work-savings">
+                            <i class="fas fa-clock"></i>
+                            Saves: 5-10 hours/week
+                        </div>
                     </div>
-                    <div class="secondary-stat">
-                        <span class="stat-highlight">20+ hours</span>
-                        <span>wasted weekly on manual reporting and data reconciliation</span>
+
+                    <div class="work-card animate-in stagger-3">
+                        <div class="work-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="work-title">Status Updates</div>
+                        <div class="work-description">Calling departments for updates, chasing information</div>
+                        <div class="work-savings">
+                            <i class="fas fa-clock"></i>
+                            Saves: 6-12 hours/week
+                        </div>
+                    </div>
+
+                    <div class="work-card animate-in stagger-4">
+                        <div class="work-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="work-title">Manual Notifications</div>
+                        <div class="work-description">Sending updates, alerts, and status communications</div>
+                        <div class="work-savings">
+                            <i class="fas fa-clock"></i>
+                            Saves: 3-8 hours/week
+                        </div>
                     </div>
                 </div>
             </div>
-            
-            <div class="stats-cta">
-                <h3>The question isn't whether to automate...</h3>
-                <p>It's whether you'll be among the leaders or left scrambling to catch up.</p>
-                <div class="btn-group">
-                    <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20join%20the%2075%25%20of%20companies%20implementing%20automation." class="btn btn-primary">
-                        <i class="fas fa-rocket"></i>
-                        Join the Leaders
-                    </a>
-                    <a href="#solutions" class="btn btn-secondary">
-                        <i class="fas fa-arrow-down"></i>
-                        See Our Solutions
-                    </a>
+
+            <!-- CTA Section -->
+            <div class="cta-section animate-in stagger-3">
+                <div class="cta-content">
+                    <h3>Ready to Get That Time Back?</h3>
+                    <p>Most clients see 15+ hours eliminated within the first month. That's not just efficiency - that's giving your team their lives back.</p>
+                    <div class="btn-group">
+                        <a href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%20want%20to%20see%20how%20much%20automation%20can%20save%20my%20business." class="btn btn-whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                            Show Me How to Automate This
+                        </a>
+                        <a href="#" class="btn btn-secondary">
+                            <i class="fas fa-calculator"></i>
+                            Book Free Assessment
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
