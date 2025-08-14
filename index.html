@@ -653,73 +653,83 @@
             text-align: center;
         }
         
-        .circular-process {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .process-stage {
-            background: var(--white);
-            border-radius: 50%;
-            width: 250px;
-            height: 250px;
-            padding: 30px;
-            box-shadow: var(--shadow-lg);
-            border: 4px solid var(--teal);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            transition: var(--transition);
-            position: relative;
+        .circular-process-section {
+            background: var(--gray-50);
+            padding: 100px 0;
             text-align: center;
+            position: relative;
         }
         
-        .process-stage:hover {
-            transform: scale(1.05);
-            border-color: var(--gold);
-            box-shadow: var(--shadow-2xl);
+        .circle-wrapper {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        .process-circle {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .stage {
+            position: absolute;
+            width: 160px;
+            text-align: center;
         }
         
         .stage-number {
             background: var(--gradient-secondary);
             color: var(--white);
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
+            margin: 0 auto 8px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 800;
-            font-size: 1.4rem;
-            margin-bottom: 12px;
+            font-weight: bold;
         }
         
-        .process-stage h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
+        /* Position each stage around the circle */
+        .stage-1 {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .stage-2 {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .stage-3 {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .stage h3 {
+            font-size: 1rem;
+            font-weight: bold;
             color: var(--navy);
-            margin-bottom: 12px;
         }
         
-        .process-stage p {
-            font-size: 0.9rem;
+        .stage p {
+            font-size: 0.85rem;
             color: var(--gray-800);
             line-height: 1.4;
         }
         
-        /* Mobile responsive */
-        @media (max-width: 768px) {
-            .process-stage {
-                width: 200px;
-                height: 200px;
-                padding: 20px;
+        /* Responsive */
+        @media (max-width: 600px) {
+            .circle-wrapper {
+                width: 320px;
+                height: 320px;
+            }
+            .stage {
+                width: 120px;
             }
         }
 
@@ -2433,37 +2443,49 @@
     <section class="circular-process-section">
         <div class="container">
             <h2 class="section-title">How We Eliminate Your Manual Work</h2>
-            <div class="circular-process">
-                <div class="process-stage stage-1">
+            <div class="circle-wrapper">
+                <svg viewBox="0 0 500 500" class="process-circle">
+                    <!-- Main circle -->
+                    <circle cx="250" cy="250" r="200" fill="none" stroke="var(--teal)" stroke-width="6" />
+                    <!-- Arrows between stages -->
+                    <path d="M250 50 Q 300 60 320 100" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
+                    <path d="M450 250 Q 440 300 400 320" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
+                    <path d="M250 450 Q 200 440 180 400" stroke="var(--gold)" stroke-width="4" fill="none" marker-end="url(#arrowhead)" />
+    
+                    <!-- Arrowhead marker -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto" fill="var(--gold)">
+                            <polygon points="0 0, 10 5, 0 10" />
+                        </marker>
+                    </defs>
+                </svg>
+    
+                <!-- Stage positions -->
+                <div class="stage stage-1">
                     <div class="stage-number">1</div>
                     <h3>Find the Time Wasters</h3>
-                    <p>
-                        • Spend a day with your team identifying manual tasks eating up the most time.<br>
-                        • Map out the actual workflows (what really happens).<br>
-                        • Calculate hours per week each process is costing.
-                    </p>
+                    <p>Spend a day with your team identifying time-wasting tasks.<br>
+                    Map out real workflows.<br>
+                    Calculate hours lost per week.</p>
                 </div>
-                <div class="process-stage stage-2">
+                <div class="stage stage-2">
                     <div class="stage-number">2</div>
                     <h3>Connect & Automate</h3>
-                    <p>
-                        • Connect your systems for automatic data flow.<br>
-                        • Build workflows that handle repetitive tasks.<br>
-                        • Set up triggers so processes run automatically.
-                    </p>
+                    <p>Link systems for automatic data flow.<br>
+                    Build workflows for repetitive tasks.<br>
+                    Set triggers for auto execution.</p>
                 </div>
-                <div class="process-stage stage-3">
+                <div class="stage stage-3">
                     <div class="stage-number">3</div>
                     <h3>Deploy & Scale</h3>
-                    <p>
-                        • Start with one high-impact automation for quick ROI.<br>
-                        • Train your team on the new processes.<br>
-                        • Expand automation to more time-wasting tasks.
-                    </p>
+                    <p>Start with one high-impact automation.<br>
+                    Train the team.<br>
+                    Expand to other processes.</p>
                 </div>
             </div>
         </div>
     </section>
+
 
     
     
