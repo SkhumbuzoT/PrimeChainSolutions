@@ -762,6 +762,109 @@
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
+        /* Challenge section styling */
+        .challenges-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f9fafb 0%, rgba(8, 145, 178, 0.03) 100%);
+            border-radius: 16px;
+            margin: 30px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #0a1628;
+            margin-bottom: 16px;
+            letter-spacing: -0.025em;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #1f2937;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Challenge list styling */
+        .problem-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            list-style: none;
+        }
+        
+        .problem-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 28px 24px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid rgba(8, 145, 178, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .problem-list li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border-color: rgba(8, 145, 178, 0.2);
+        }
+        
+        .problem-list i {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0891b2, #06b6d4);
+            color: white;
+            border-radius: 12px;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        
+        .problem-list span {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+        
+        .problem-list strong {
+            color: #0a1628;
+            font-weight: 700;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .problem-list {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .problem-list li {
+                flex-direction: column;
+                text-align: center;
+                padding: 24px 20px;
+            }
+            
+            .problem-list i {
+                margin: 0 auto;
+            }
+        }
+
         /* ======================
            Cost Calculator Section 
            ====================== */
@@ -2084,35 +2187,36 @@
     
     
     <!-- ===== Challenges (List View) ===== -->
-    <section class="section animate-on-scroll" id="challenges" aria-labelledby="ch-title">
-      <div class="container">
-        <div class="section-title">
-          <h2 id="ch-title">Dealing with these supply chain headaches? 🤔</h2>
-          <p class="section-sub">
-            You’re not alone — most supply chains struggle with hidden inefficiencies. That’s why our mission is to simplify operations through visibility and automation.
-          </p>
-        </div>
+    <section class="challenges-section" id="challenges" aria-labelledby="ch-title">
+        <div class="container">
+            <div class="section-title">
+                <h2 id="ch-title">Dealing with these supply chain headaches? 🤔</h2>
+                <p class="section-sub">
+                    You're not alone — most supply chains struggle with hidden inefficiencies. 
+                    That's why our mission is to simplify operations through visibility and automation.
+                </p>
+            </div>
     
-        <!-- Updated list view -->
-        <ul class="problem-list" role="list">
-          <li>
-            <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
-            <span><strong>Endless manual reports</strong> that eat up your team’s time</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
-            <span><strong>Data scattered</strong> across spreadsheets, ERPs, and emails</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
-            <span><strong>Zero visibility</strong> into bottlenecks until it’s too late</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-fire-extinguisher" aria-hidden="true"></i>
-            <span><strong>Teams firefighting</strong> instead of focusing on growth</span>
-          </li>
-        </ul>
-      </div>
+            <!-- Improved list view -->
+            <ul class="problem-list" role="list">
+                <li>
+                    <i class="fa-solid fa-file-excel" aria-hidden="true"></i>
+                    <span><strong>Endless manual reports</strong> that eat up your team's time</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+                    <span><strong>Data scattered</strong> across spreadsheets, ERPs, and emails</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-eye-slash" aria-hidden="true"></i>
+                    <span><strong>Zero visibility</strong> into bottlenecks until it's too late</span>
+                </li>
+                <li>
+                    <i class="fa-solid fa-fire-extinguisher" aria-hidden="true"></i>
+                    <span><strong>Teams firefighting</strong> instead of focusing on growth</span>
+                </li>
+            </ul>
+        </div>
     </section>
    
     <!-- ===== Cost Section (with Calculator) ===== -->
