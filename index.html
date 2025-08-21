@@ -1763,6 +1763,45 @@
           font-size: 28px;
           box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
+        .three-step-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 2rem;
+         list-style: none;
+         padding: 0;
+         margin: 2rem 0;
+        }
+        .three-step-list li {
+         flex: 1 1 300px;
+         text-align: center;
+         padding: 1rem;
+         border-radius: 12px;
+          background-color: #f9f9f9;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .three-step-list li:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .three-step-list i {
+         color: #2c7be5; /* primary accent color */
+         margin-bottom: 0.5rem;
+       }
+       .three-step-list h3 {
+        margin: 0.5rem 0;
+        font-size: 1.25rem;
+      }
+      .three-step-list p {
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+      }
+      .section-supporting {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #333;
+      }
         
         /* ======================
            Animations
@@ -1988,45 +2027,7 @@
           font-size: 0.95rem;
           line-height: 1.6;
         }
-        .three-step-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        list-style: none;
-        padding: 0;
-        margin: 2rem 0;
-      }
-      .three-step-list li {
-        flex: 1 1 300px;
-        text-align: center;
-        padding: 1rem;
-        border-radius: 12px;
-        background-color: #f9f9f9;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .three-step-list li:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      }
-      .three-step-list i {
-        color: #2c7be5; /* primary accent color */
-        margin-bottom: 0.5rem;
-      }
-      .three-step-list h3 {
-        margin: 0.5rem 0;
-        font-size: 1.25rem;
-      }
-      .three-step-list p {
-        margin: 0;
-        font-size: 1rem;
-        color: #555;
-      }
-      .section-supporting {
-        text-align: center;
-        margin-top: 1.5rem;
-        font-size: 1rem;
-        color: #333;
-      }
+        
          
     </style>
 </head>
