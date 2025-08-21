@@ -1988,6 +1988,45 @@
           font-size: 0.95rem;
           line-height: 1.6;
         }
+        .three-step-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0;
+      }
+      .three-step-list li {
+        flex: 1 1 300px;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 12px;
+        background-color: #f9f9f9;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .three-step-list li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      }
+      .three-step-list i {
+        color: #2c7be5; /* primary accent color */
+        margin-bottom: 0.5rem;
+      }
+      .three-step-list h3 {
+        margin: 0.5rem 0;
+        font-size: 1.25rem;
+      }
+      .three-step-list p {
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+      }
+      .section-supporting {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #333;
+      }
          
     </style>
 </head>
@@ -2062,7 +2101,71 @@
     <section id="contact"></section>
    
 
-    <!-- Solution Section -->
+    <!-- ===== Services / Approach (3-Step Unified) ===== -->
+    <section class="section animate-on-scroll" id="services-approach" aria-labelledby="sa-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="sa-title">How We Help You Gain Visibility & Automate Workflows</h2>
+          <p class="section-sub">Simple, practical steps to reclaim time, eliminate manual work, and see what’s really happening in your operations.</p>
+        </div>
+    
+        <ul class="three-step-list" role="list">
+          <!-- Step 1 -->
+          <li>
+            <i class="fa-solid fa-magnifying-glass fa-2x" aria-hidden="true"></i>
+            <h3>Find the Time Wasters</h3>
+            <p>Map out exactly which manual tasks are draining your team. Identify bottlenecks, hidden inefficiencies, and wasted hours per week.</p>
+          </li>
+    
+          <!-- Step 2 -->
+          <li>
+            <i class="fa-solid fa-gears fa-2x" aria-hidden="true"></i>
+            <h3>Connect & Automate</h3>
+            <p>Integrate your systems so data flows automatically. Build workflows that handle repetitive tasks and trigger processes at the right time.</p>
+          </li>
+    
+          <!-- Step 3 -->
+          <li>
+            <i class="fa-solid fa-chart-line fa-2x" aria-hidden="true"></i>
+            <h3>Gain Full Visibility</h3>
+            <p>See your operations in real-time dashboards. Spot issues before they escalate, make fact-based decisions, and measure the impact of your automated workflows.</p>
+          </li>
+        </ul>
+    
+        <p class="section-supporting">
+          Every step aligns with our mission: <strong>empowering supply chains with visibility and workflow automation</strong>, so your team can focus on growth, not firefighting.
+        </p>
+      </div>
+    </section>
+
+   
+
+    <!-- Our Story -->
+    <section class="our-story-section section animate-on-scroll">
+        <div class="container">
+            <div class="our-story-content">
+                <div class="our-story-icon"><i class="fas fa-seedling"></i></div>
+                <h2>Our Story</h2>
+                <p>
+                    PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
+                    From our early roots in supply chain operations, we've grown to support clients across logistics, 
+                    e-commerce, mining, retail, manufacturing, and professional services — improving everything from stock control to fleet performance.
+                </p>
+                <p>
+                    Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
+                    and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
+                    and unlock value across every link in their chain.
+                </p>
+                <p>
+                    Our unique blend of supply chain management experience, data science expertise, 
+                    and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Solution Section -->
     <section class="section section-alt animate-on-scroll">
         <div class="container">
             <div class="section-title">
@@ -2097,75 +2200,8 @@
             </div>
         </div>
     </section>
-   
-
-    <!-- Our Story -->
-    <section class="our-story-section section animate-on-scroll">
-        <div class="container">
-            <div class="our-story-content">
-                <div class="our-story-icon"><i class="fas fa-seedling"></i></div>
-                <h2>Our Story</h2>
-                <p>
-                    PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
-                    From our early roots in supply chain operations, we've grown to support clients across logistics, 
-                    e-commerce, mining, retail, manufacturing, and professional services — improving everything from stock control to fleet performance.
-                </p>
-                <p>
-                    Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
-                    and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
-                    and unlock value across every link in their chain.
-                </p>
-                <p>
-                    Our unique blend of supply chain management experience, data science expertise, 
-                    and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.
-                </p>
-            </div>
-        </div>
-    </section>
-
-     <!-- Approach Section -->
-    <section id="approach" class="section animate-on-scroll">
-        <div class="container">
-            <div class="section-title">
-                <h2>How We Eliminate Your Manual Work</h2>
-            </div>
-            
-            <div class="approach-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-stopwatch"></i>
-                    </div>
-                    <h3>STAGE 1</h3>
-                    <p class="pillar-subtitle">Find the Time Wasters</p>
-                    <p>We spend a day with your team identifying which manual tasks are eating up the most time.
-                       Map out the actual workflows (not what the manual says, but what really happens).
-                       Calculate exactly how many hours per week each process is costing you.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>STAGE 2</h3>
-                    <p class="pillar-subtitle">Connect & Automate</p>
-                    <p>Connect your systems so data flows automatically instead of manual re-entry.
-                       Build workflows that handle the repetitive stuff your team hates doing.
-                       Set up triggers so processes happen automatically when conditions are met.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h3>STAGE 3</h3>
-                    <p class="pillar-subtitle">Deploy & Scale</p>
-                    <p>Start with one high-impact automation to prove ROI immediately.
-                       Train your team on the new automated processes.
-                       Gradually expand automation to other time-wasting processes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        
+    
 
      <!-- Manual Work Section -->
     <div class="manual-work-section animate-in stagger-2">
