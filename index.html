@@ -291,7 +291,12 @@
           align-items: center;
           position: relative;
           overflow: hidden;
-        }
+            /* Keep your existing styles and add: */
+          url('assets/vision.png');
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: overlay;
+                }
         
         .hero::before {
           content: '';
