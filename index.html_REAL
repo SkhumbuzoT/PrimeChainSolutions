@@ -22,8 +22,8 @@
     <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
 
     <!-- Favicon Links -->
-    <link rel="icon" href="/assets/primechain-favicon-workflow.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/assets/primechain-favicon-workflow.svg">
+    <link rel="icon" href="/assets/ChatGPT Image Aug 23, 2025, 12_35_55 PM.png" type="image/png+xml">
+    <link rel="apple-touch-icon" href="/assets/ChatGPT Image Aug 23, 2025, 12_35_55 PM.png">
     <link rel="mask-icon" href="/assets/primechain-favicon-workflow.svg" color="#002366">
     
     <title>Prime Chain Solutions - Visibility and Automation fr Businesses</title>
@@ -37,14 +37,10 @@
     ====================== */
         :root {
           /* Color Palette */
-          --navy: #0a1628;
-          --navy-light: #1a2332;
-          --teal: #0891b2;
-          --teal-light: #06b6d4;
-          --teal-dark: #0e7490;
-          --gold: #f59e0b;
-          --gold-light: #fbbf24;
-          --charcoal: #1f2937;
+          --navy: #0a1f44;
+          --teal: #008080;
+          --gold: #d4af37;
+          --black: #000000;
           --gray-50: #f9fafb;
           --gray-100: #f3f4f6;
           --gray-200: #e5e7eb;
@@ -56,7 +52,7 @@
         
           /* Gradients */
           --gradient-primary: linear-gradient(135deg, var(--teal) 0%, var(--navy) 100%);
-          --gradient-secondary: linear-gradient(135deg, var(--teal-light) 0%, var(--teal-dark) 100%);
+          --gradient-secondary: linear-gradient(135deg, var(--teal) 0%, var(--teal) 100%);
           --gradient-hero: linear-gradient(135deg, rgba(10, 22, 40, 0.95) 0%, rgba(8, 145, 178, 0.85) 100%);
         
           /* Shadows */
@@ -80,7 +76,7 @@
         
         body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-          color: var(--charcoal);
+          color: var(--black);
           line-height: 1.6;
           overflow-x: hidden;
           /* Remove background-color and replace with: */
@@ -289,47 +285,53 @@
            Hero Section
            ====================== */
         .hero {
-          min-height: calc(100vh - 72px);
-          background: var(--gradient-hero);
-          display: flex;
-          align-items: center;
-          position: relative;
-          overflow: hidden;
+            min-height: calc(100vh - 72px);
+            background: var(--gradient-hero), url('assets/jack-b-Zv_zmlPUalI-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Keep your existing pseudo-elements but adjust their opacity */
         .hero::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.2) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
-            radial-gradient(circle at 40% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
-          animation: float 20s ease-in-out infinite;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 1; /* Ensure it's above the background image */
         }
         
         .hero::after {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-          animation: slide 30s linear infinite;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            animation: slide 30s linear infinite;
+            z-index: 2; /* Keep above other layers */
         }
         
         .hero-content {
-          max-width: 900px;
-          margin: 0 auto;
-          text-align: center;
-          color: var(--white);
-          position: relative;
-          z-index: 2;
-          padding: 120px 24px 80px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            z-index: 3; /* Ensure content is above all backgrounds */
+            padding: 120px 24px 80px;
         }
         
         .hero-badge {
@@ -348,7 +350,7 @@
         }
         
         .hero-badge i {
-          color: var(--gold-light);
+          color: var(--gold);
         }
         
         .hero h1 {
@@ -361,7 +363,7 @@
         }
         
         .hero-highlight {
-          background: linear-gradient(135deg, var(--teal-light), var(--gold-light));
+          background: linear-gradient(135deg, var(--teal), var(--gold));
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -413,7 +415,7 @@
         .card:hover {
           transform: translateY(-8px);
           box-shadow: var(--shadow-2xl);
-          border-color: var(--teal-light);
+          border-color: var(--teal);
           background: rgba(255, 255, 255, 0.98); /* Slightly more opaque on hover */
         }
         
@@ -566,7 +568,7 @@
         .stat-item:hover {
           transform: translateY(-8px);
           box-shadow: var(--shadow-2xl);
-          border-color: var(--teal-light);
+          border-color: var(--teal);
         }
         
         .stat-number {
@@ -1060,7 +1062,7 @@
         .result-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-xl);
-            border-color: var(--teal-light);
+            border-color: var(--teal);
         }
         
         .result-card.savings {
@@ -1494,7 +1496,7 @@
           top: 16px;
           left: 20px;
           font-size: 4rem;
-          color: var(--teal-light);
+          color: var(--teal);
           font-family: Georgia, serif;
           opacity: 0.3;
         }
@@ -1502,7 +1504,7 @@
         blockquote span {
           display: block;
           margin-top: 24px;
-          color: var(--teal-light);
+          color: var(--teal);
           font-weight: 600;
           font-style: normal;
           font-size: 1rem;
@@ -1586,7 +1588,7 @@
         
         form input[type="email"]:focus {
           outline: none;
-          border-color: var(--teal-light);
+          border-color: var(--teal);
           background: rgba(255, 255, 255, 0.15);
           box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
         }
@@ -1746,7 +1748,7 @@
         }
         
         .footer-links ul li a:hover {
-          color: var(--teal-light);
+          color: var(--teal);
           transform: translateX(4px);
         }
         
@@ -1760,7 +1762,7 @@
         }
         
         .footer-contact i {
-          color: var(--teal-light);
+          color: var(--teal);
           font-size: 1.1rem;
           width: 20px;
         }
@@ -1772,7 +1774,7 @@
         }
         
         .footer-contact a:hover {
-          color: var(--teal-light);
+          color: var(--teal);
         }
         
         .footer-bottom {
@@ -2142,15 +2144,16 @@
     <header id="header">
     <div class="container header-container">
     <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
-    <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Solutions logo" />
+    <img src="assets/ChatGPT Image Aug 23, 2025, 12_28_12 PM.png" alt="Prime Chain Solutions logo" />
     </a>
     <nav aria-label="Primary">
     <ul>
     <li><a href="#">Home</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#approach">Approach</a></li>
-    <li><a href="#contact">Contact</a></li>
     <li><a href="articles.html">Articles</a></li>
+    <li><a href="#contact">Contact</a></li>
+    
     </ul>
     </nav>
     </div>
@@ -2431,7 +2434,7 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
+                        <img src="assets/ChatGPT Image Aug 23, 2025, 12_28_12 PM.png" alt="Prime Chain Logo">
                     </div>
                     <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
                     <div class="social-links">
