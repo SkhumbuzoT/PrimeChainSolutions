@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truck Route Profitability Calculator</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --light: #ecf0f1;
+            --dark: #34495e;
+            --gray: #95a5a6;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .calculator-container {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .calculator-container {
+                flex-direction: row;
+            }
+        }
+        
+        .input-section {
+            padding: 20px;
+            flex: 1;
+            background: var(--light);
+        }
+        
+        .results-section {
+            padding: 20px;
+            flex: 1;
+            background: white;
+            border-left: 1px solid #eee;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus {
+            border-color: var(--secondary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .costs-container {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .cost-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cost-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-box {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+        }
+        
+        .profit {
+            border-left: 4px solid var(--success);
+        }
+        
+        .loss {
+            border-left: 4px solid var(--danger);
+        }
+        
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .profit .result-value {
+            color: var(--success);
+        }
+        
+        .loss .result-value {
+            color: var(--danger);
+        }
+        
+        .recommendation {
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .accept {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: var(--success);
+            border: 1px solid var(--success);
+        }
+        
+        .decline {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: var(--danger);
+            border: 1px solid var(--danger);
+        }
+        
+        .breakdown {
+            margin-top: 30px;
+        }
+        
+        .breakdown-bar {
+            height: 30px;
+            background: #eee;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .breakdown-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .revenue-fill {
+            background-color: var(--success);
+        }
+        
+        .costs-fill {
+            background-color: var(--danger);
+        }
+        
+        .section-title {
+            padding: 10px 0;
+            margin: 20px 0 10px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        @media (max-width: 767px) {
+            .results-section {
+                border-left: none;
+                border-top: 1px solid #eee;
+            }
+        }
+        
+        .units {
+            font-size: 12px;
+            color: var(--gray);
+            margin-left: 5px;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Truck Route Profitability Calculator</h1>
+            <p class="description">Determine if a haul is profitable with this calculator designed for truck owners and operators</p>
+        </header>
+        
+        <div class="calculator-container">
+            <div class="input-section">
+                <h2 class="section-title">Trip Details</h2>
+                
+                <div class="form-group">
+                    <label for="distance">Distance <span class="units">(miles)</span></label>
+                    <input type="number" id="distance" min="0" step="1" placeholder="e.g., 250">
+                </div>
+                
+                <div class="form-group">
+                    <label for="routeType">Route Type</label>
+                    <select id="routeType">
+                        <option value="highway">Highway</option>
+                        <option value="mixed" selected>Mixed</option>
+                        <option value="city">City</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loadWeight">Load Weight <span class="units">(tons, optional)</span></label>
+                    <input type="number" id="loadWeight" min="0" step="0.1" placeholder="e.g., 15">
+                </div>
+                
+                <h2 class="section-title">Revenue</h2>
+                
+                <div class="form-group">
+                    <label for="rateType">Rate Type</label>
+                    <select id="rateType">
+                        <option value="load" selected>Per Load</option>
+                        <option value="ton">Per Ton</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="rateValue">Rate Value</label>
+                    <input type="number" id="rateValue" min="0" step="0.01" placeholder="e.g., 1500">
+                </div>
+                
+                <h2 class="section-title">Costs</h2>
+                
+                <div class="form-group">
+                    <label for="fuelPrice">Fuel Price <span class="units">($/gallon)</span></label>
+                    <input type="number" id="fuelPrice" min="0" step="0.01" placeholder="e.g., 3.50" value="3.50">
+                </div>
+                
+                <div class="form-group">
+                    <label for="fuelConsumption">Fuel Consumption <span class="units">(MPG)</span></label>
+                    <input type="number" id="fuelConsumption" min="0" step="0.1" placeholder="e.g., 6.5" value="6.5">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tolls">Tolls <span class="units">($)</span></label>
+                    <input type="number" id="tolls" min="0" step="0.01" placeholder="e.g., 45">
+                </div>
+                
+                <div class="form-group">
+                    <label for="driverWage">Driver Wage <span class="units">($ per trip)</span></label>
+                    <input type="number" id="driverWage" min="0" step="0.01" placeholder="e.g., 300">
+                </div>
+                
+                <div class="form-group">
+                    <label for="maintenance">Maintenance <span class="units">($ per mile)</span></label>
+                    <input type="number" id="maintenance" min="0" step="0.01" placeholder="e.g., 0.15" value="0.15">
+                </div>
+                
+                <div class="form-group">
+                    <label for="insurance">Insurance <span class="units">($ per trip, optional)</span></label>
+                    <input type="number" id="insurance" min="0" step="0.01" placeholder="e.g., 50">
+                </div>
+                
+                <div class="form-group">
+                    <label for="overhead">Overhead <span class="units">($ per trip, optional)</span></label>
+                    <input type="number" id="overhead" min="0" step="0.01" placeholder="e.g., 75">
+                </div>
+            </div>
+            
+            <div class="results-section">
+                <h2 class="section-title">Results</h2>
+                
+                <div class="result-box" id="netProfitContainer">
+                    <p>Net Profit/Loss</p>
+                    <div class="result-value" id="netProfit">$0.00</div>
+                    <p>Profit Margin: <span id="profitMargin">0.00%</span></p>
+                </div>
+                
+                <div class="recommendation" id="recommendation">
+                    Enter trip details to get recommendation
+                </div>
+                
+                <div class="breakdown">
+                    <h3>Cost Breakdown</h3>
+                    <div class="costs-container">
+                        <div class="cost-item">
+                            <span>Total Revenue:</span>
+                            <span id="totalRevenue">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Fuel Cost:</span>
+                            <span id="fuelCost">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Tolls:</span>
+                            <span id="tollsCost">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Driver Wage:</span>
+                            <span id="driverWageCost">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Maintenance:</span>
+                            <span id="maintenanceCost">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Insurance:</span>
+                            <span id="insuranceCost">$0.00</span>
+                        </div>
+                        <div class="cost-item">
+                            <span>Overhead:</span>
+                            <span id="overheadCost">$0.00</span>
+                        </div>
+                        <div class="cost-item" style="font-weight: bold; border-top: 1px solid #ccc; margin-top: 5px;">
+                            <span>Total Costs:</span>
+                            <span id="totalCosts">$0.00</span>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px;">
+                        <p>Break-even Rate: <span id="breakEvenRate">$0.00</span> per mile</p>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <p>Revenue vs Costs</p>
+                        <div class="breakdown-bar">
+                            <div class="breakdown-fill revenue-fill" id="revenueBar" style="width: 50%;">Revenue</div>
+                        </div>
+                        <div class="breakdown-bar">
+                            <div class="breakdown-fill costs-fill" id="costsBar" style="width: 50%;">Costs</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all input elements
+        const inputs = document.querySelectorAll('input, select');
+        
+        // Add event listeners to all inputs for real-time calculation
+        inputs.forEach(input => {
+            input.addEventListener('input', calculateProfitability);
+        });
+        
+        // Initial calculation
+        calculateProfitability();
+        
+        function calculateProfitability() {
+            // Get input values with defaults
+            const distance = parseFloat(document.getElementById('distance').value) || 0;
+            const routeType = document.getElementById('routeType').value;
+            const loadWeight = parseFloat(document.getElementById('loadWeight').value) || 0;
+            const rateType = document.getElementById('rateType').value;
+            const rateValue = parseFloat(document.getElementById('rateValue').value) || 0;
+            const fuelPrice = parseFloat(document.getElementById('fuelPrice').value) || 0;
+            const fuelConsumption = parseFloat(document.getElementById('fuelConsumption').value) || 0;
+            const tolls = parseFloat(document.getElementById('tolls').value) || 0;
+            const driverWage = parseFloat(document.getElementById('driverWage').value) || 0;
+            const maintenance = parseFloat(document.getElementById('maintenance').value) || 0;
+            const insurance = parseFloat(document.getElementById('insurance').value) || 0;
+            const overhead = parseFloat(document.getElementById('overhead').value) || 0;
+            
+            // Adjust fuel consumption based on route type
+            let consumptionMultiplier = 1.0;
+            if (routeType === 'city') consumptionMultiplier = 1.3;
+            if (routeType === 'mixed') consumptionMultiplier = 1.1;
+            
+            const adjustedFuelConsumption = fuelConsumption * consumptionMultiplier;
+            
+            // Calculate revenue
+            let totalRevenue = 0;
+            if (rateType === 'load') {
+                totalRevenue = rateValue;
+            } else {
+                totalRevenue = rateValue * (loadWeight || 1);
+            }
+            
+            // Calculate costs
+            const fuelCost = (distance / adjustedFuelConsumption) * fuelPrice;
+            const maintenanceCost = distance * maintenance;
+            const totalVariableCosts = fuelCost + tolls;
+            const totalFixedCosts = driverWage + maintenanceCost + insurance + overhead;
+            const totalCosts = totalVariableCosts + totalFixedCosts;
+            
+            // Calculate profit
+            const netProfit = totalRevenue - totalCosts;
+            const profitMargin = totalRevenue > 0 ? (netProfit / totalRevenue) * 100 : 0;
+            
+            // Calculate break-even rate
+            const breakEvenRate = distance > 0 ? totalCosts / distance : 0;
+            
+            // Update UI
+            document.getElementById('netProfit').textContent = `$${netProfit.toFixed(2)}`;
+            document.getElementById('profitMargin').textContent = `${profitMargin.toFixed(2)}%`;
+            document.getElementById('totalRevenue').textContent = `$${totalRevenue.toFixed(2)}`;
+            document.getElementById('fuelCost').textContent = `$${fuelCost.toFixed(2)}`;
+            document.getElementById('tollsCost').textContent = `$${tolls.toFixed(2)}`;
+            document.getElementById('driverWageCost').textContent = `$${driverWage.toFixed(2)}`;
+            document.getElementById('maintenanceCost').textContent = `$${maintenanceCost.toFixed(2)}`;
+            document.getElementById('insuranceCost').textContent = `$${insurance.toFixed(2)}`;
+            document.getElementById('overheadCost').textContent = `$${overhead.toFixed(2)}`;
+            document.getElementById('totalCosts').textContent = `$${totalCosts.toFixed(2)}`;
+            document.getElementById('breakEvenRate').textContent = `$${breakEvenRate.toFixed(2)}`;
+            
+            // Update recommendation
+            const recommendation = document.getElementById('recommendation');
+            if (netProfit > 0) {
+                recommendation.textContent = '✔ Accept this load - profitable';
+                recommendation.className = 'recommendation accept';
+                document.getElementById('netProfitContainer').className = 'result-box profit';
+            } else if (netProfit < 0) {
+                recommendation.textContent = '❌ Decline this load - not profitable';
+                recommendation.className = 'recommendation decline';
+                document.getElementById('netProfitContainer').className = 'result-box loss';
+            } else {
+                recommendation.textContent = 'Enter trip details to get recommendation';
+                recommendation.className = 'recommendation';
+                document.getElementById('netProfitContainer').className = 'result-box';
+            }
+            
+            // Update visualization bars
+            const maxValue = Math.max(totalRevenue, totalCosts);
+            const revenuePercentage = maxValue > 0 ? (totalRevenue / maxValue) * 100 : 50;
+            const costsPercentage = maxValue > 0 ? (totalCosts / maxValue) * 100 : 50;
+            
+            document.getElementById('revenueBar').style.width = `${revenuePercentage}%`;
+            document.getElementById('costsBar').style.width = `${costsPercentage}%`;
+        }
+    </script>
+</body>
+</html>
