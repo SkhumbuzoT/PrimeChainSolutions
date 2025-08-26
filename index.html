@@ -1300,10 +1300,18 @@
           font-size: 0.95rem;
           line-height: 1.5;
         }
+        .contact-cta {
+          text-align: center; /* ensures everything inside is centered */
+          display: flex;
+          flex-direction: column; /* stack button and text vertically */
+          align-items: center; /* center horizontally */
+          gap: 12px; /* nice spacing between button and text */
+        }
         
         .contact-cta .btn-whatsapp {
           display: inline-flex;
           align-items: center;
+          justify-content: center; /* centers icon + text horizontally */
           background: #25d366;
           color: #fff;
           font-weight: 600;
@@ -1318,12 +1326,8 @@
           font-size: 1.2rem;
         }
         
-        .contact-cta .btn-whatsapp:hover {
-          background: #1ebe57;
-        }
-        
         .contact-cta p {
-          margin-top: 15px;
+          margin: 0;
           font-size: 1rem;
         }
         
