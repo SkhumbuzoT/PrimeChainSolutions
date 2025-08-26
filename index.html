@@ -1243,6 +1243,95 @@
             color: #059669;
             font-size: 0.9rem;
         }
+
+        /* Contact Section */
+        .contact-section {
+          padding: 80px 0;
+          background: #f9fafc;
+        }
+        
+        .contact-section .section-title h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        
+        .contact-section .section-title p {
+          color: #666;
+          font-size: 1rem;
+          margin-bottom: 40px;
+        }
+        
+        .approach-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-bottom: 50px;
+        }
+        
+        .card {
+          background: #fff;
+          padding: 30px 20px;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+        
+        .card-icon {
+          font-size: 2.5rem;
+          color: #0066cc;
+          margin-bottom: 15px;
+        }
+        
+        .card h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        
+        .card p {
+          color: #555;
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+        
+        .contact-cta .btn-whatsapp {
+          display: inline-flex;
+          align-items: center;
+          background: #25d366;
+          color: #fff;
+          font-weight: 600;
+          padding: 12px 24px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+        
+        .contact-cta .btn-whatsapp i {
+          margin-right: 8px;
+          font-size: 1.2rem;
+        }
+        
+        .contact-cta .btn-whatsapp:hover {
+          background: #1ebe57;
+        }
+        
+        .contact-cta p {
+          margin-top: 15px;
+          font-size: 1rem;
+        }
+        
+        .contact-cta a {
+          color: #0066cc;
+          font-weight: 500;
+          text-decoration: underline;
+        }
         
         /* CTA Section */
         .cta-section {
@@ -2353,47 +2442,49 @@
         </div>
     </section>
 
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Started Today</h2>
-                <p>Reach out to discuss how we can help transform your operations</p>
-            </div>
-            
-            <div class="approach-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h4>Consultation</h4>
-                    <p>We'll discuss your current challenges and goals to understand how we can help.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-blueprint"></i>
-                    </div>
-                    <h4>Custom Solution Design</h4>
-                    <p>We'll design a tailored approach to address your specific business needs.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h4>Implementation</h4>
-                    <p>We'll build and deploy your solutions with minimal disruption to your operations.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-64">
-                <a href="https://wa.me/27846504364?text=Hi,%20I'm%20interested%20in%20learning%20more%20about%20your%20solutions" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    Message Us on WhatsApp
-                </a>
-                <p class="mt-24">Or send us an email at <a href="mailto:info@primechainsolutions.co.za">info@primechainsolutions.co.za</a></p>
-            </div>
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Get Started Today</h2>
+          <p>Reach out to discuss how we can help transform your operations</p>
         </div>
+    
+        <div class="approach-grid">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h4>Consultation</h4>
+            <p>We'll discuss your current challenges and goals to understand how we can help.</p>
+          </div>
+    
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h4>Custom Solution Design</h4>
+            <p>We'll design a tailored approach to address your specific business needs.</p>
+          </div>
+    
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4>Implementation</h4>
+            <p>We'll build and deploy your solutions with minimal disruption to your operations.</p>
+          </div>
+        </div>
+    
+        <div class="text-center contact-cta">
+          <a href="https://wa.me/27846504364?text=Hi,%20I'm%20interested%20in%20learning%20more%20about%20your%20solutions" 
+             class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+          </a>
+          <p class="mt-3">Or send us an email at 
+            <a href="mailto:info@primechainsolutions.co.za">info@primechainsolutions.co.za</a>
+          </p>
+        </div>
+      </div>
     </section>
         
     
