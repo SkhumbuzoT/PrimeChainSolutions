@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Solar Kit Calculator</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
+    h2 { text-align: center; }
+    .form-group { margin-bottom: 1rem; }
+    label { display: block; margin-bottom: 0.3rem; }
+    input { width: 100%; padding: 8px; }
+    button { background: #2c7; color: #fff; padding: 10px; border: none; cursor: pointer; }
+    .results { margin-top: 2rem; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; }
+  </style>
+</head>
+<body>
+  <h2>Solar Kit Calculator</h2>
+  <div>
+    <div class="form-group">
+      <label>Monthly Usage (kWh)</label>
+      <input type="number" id="monthlyUsage" placeholder="e.g. 900">
+    </div>
+    <div class="form-group">
+      <label>Average Sun Hours per Day</label>
+      <input type="number" id="sunHours" placeholder="e.g. 5" value="5">
+    </div>
+    <div class="form-group">
+      <label>Panel Wattage (W)</label>
+      <input type="number" id="panelWattage" placeholder="e.g. 550" value="550">
+    </div>
+    <div class="form-group">
+      <label>Backup Hours Needed</label>
+      <input type="number" id="backupHours" placeholder="e.g. 12">
+    </div>
+    <button onclick="calculate()">Calculate</button>
+  </div>
+
+  <div id="results" class="results" style="display:none;">
+    <h3>Recommended Solar Kit</h3>
+    <p id="systemSize"></p>
+    <p id="panels"></p>
+    <p id="inverter"></p>
+    <p id="battery"></p>
+  </div>
+
+  <script>
+    function calculate() {
+      const monthlyUsage = parseFloat(document.getElementById("monthlyUsage").value);
+      const sunHours = parseFloat(document.getElementById("sunHours").value);
+      const panelWattage = parseFloat(document.getElementById("panelWattage").value) / 1000; // convert W to kW
+      const backupHours = parseFloat(document.getElementById("backupHours").value);
+
+      if (isNaN(monthlyUsage) || isNaN(sunHours) || isNaN(panelWattage)) {
+        alert("Please fill in all fields!");
+        return;
+      }
+
+      const dailyUsage = monthlyUsage / 30;
+      const systemSize = dailyUsage / sunHours;
+      const panels = Math.ceil(systemSize / panelWattage);
+      const inverterSize = (systemSize * 1.1).toFixed(2);
+      const batterySize = (dailyUsage * (backupHours / 24)).toFixed(2);
+
+      document.getElementById("systemSize").textContent = `System Size: ${systemSize.toFixed(2)} kW`;
+      document.getElementById("panels").textContent = `Panels Needed: ${panels} × ${panelWattage * 1000}W`;
+      document.getElementById("inverter").textContent = `Inverter Size: ${inverterSize} kW`;
+      document.getElementById("battery").textContent = `Battery Capacity: ${batterySize} kWh`;
+
+      document.getElementById("results").style.display = "block";
+    }
+  </script>
+</body>
+</html>
