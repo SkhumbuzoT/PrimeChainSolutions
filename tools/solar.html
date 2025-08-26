@@ -1,73 +1,679 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Solar Kit Calculator</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 2rem auto; }
-    h2 { text-align: center; }
-    .form-group { margin-bottom: 1rem; }
-    label { display: block; margin-bottom: 0.3rem; }
-    input { width: 100%; padding: 8px; }
-    button { background: #2c7; color: #fff; padding: 10px; border: none; cursor: pointer; }
-    .results { margin-top: 2rem; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; background: #f9f9f9; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Savings Calculator | South Africa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #2C5F9B;
+            --secondary: #F9A826;
+            --accent: #34C759;
+            --light: #F5F7FA;
+            --dark: #2C3E50;
+            --gray: #718096;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9fafb;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #1e3c72 100%);
+            color: white;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(44, 95, 155, 0.2);
+        }
+        
+        .optional {
+            color: var(--gray);
+            font-style: italic;
+        }
+        
+        button {
+            background: var(--secondary);
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        button:hover {
+            background: #e59710;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        button i {
+            margin-right: 8px;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        
+        .result-box {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .result-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+        
+        .result-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+        
+        .chart-container {
+            height: 300px;
+            margin: 30px 0;
+        }
+        
+        .scenario-toggles {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+        
+        .scenario-toggle {
+            padding: 12px 20px;
+            background: var(--light);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .scenario-toggle.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .comparison-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .comparison-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .comparison-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+        }
+        
+        .btn-primary:hover {
+            background: #234e83;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .scenario-toggles {
+                flex-direction: column;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .btn-outline, .whatsapp-btn {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h2>Solar Kit Calculator</h2>
-  <div>
-    <div class="form-group">
-      <label>Monthly Usage (kWh)</label>
-      <input type="number" id="monthlyUsage" placeholder="e.g. 900">
+    <div class="container">
+        <header>
+            <h1>Solar Savings Calculator</h1>
+            <p>Discover how much you can save with solar energy tailored to your home's needs</p>
+        </header>
+        
+        <div class="card">
+            <h2 class="card-title">📊 Your Electricity Usage</h2>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="bill">Monthly Electricity Bill (ZAR)</label>
+                    <input type="number" id="bill" placeholder="e.g., 2500" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="usage">Average Daily Usage (kWh)</label>
+                    <input type="number" id="usage" placeholder="e.g., 15" min="0" step="0.1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="occupants">Number of Occupants <span class="optional">(optional)</span></label>
+                    <input type="number" id="occupants" placeholder="e.g., 4" min="1">
+                </div>
+                
+                <div class="form-group">
+                    <label for="roof">Roof Space / Available Area (m²)</label>
+                    <input type="number" id="roof" placeholder="e.g., 30" min="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location / City</label>
+                    <select id="location">
+                        <option value="">Select your city</option>
+                        <option value="johannesburg">Johannesburg</option>
+                        <option value="cape-town">Cape Town</option>
+                        <option value="durban">Durban</option>
+                        <option value="pretoria">Pretoria</option>
+                        <option value="port-elizabeth">Port Elizabeth</option>
+                        <option value="bloemfontein">Bloemfontein</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button id="calculate-btn" style="margin-top: 20px;">
+                <i class="fas fa-calculator"></i> Calculate My Solar Savings
+            </button>
+        </div>
+        
+        <div class="card" id="results-section" style="display: none;">
+            <h2 class="card-title">⚡ Recommended Solar System</h2>
+            
+            <div class="results-grid">
+                <div class="result-box">
+                    <div class="result-label">System Size</div>
+                    <div class="result-value" id="system-size">5 kW</div>
+                    <div class="result-desc">Ideal for your energy needs</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Solar Panels</div>
+                    <div class="result-value" id="panels-count">14</div>
+                    <div class="result-desc">330W panels</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Inverter Size</div>
+                    <div class="result-value" id="inverter-size">5 kW</div>
+                    <div class="result-desc">Hybrid inverter</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Battery Capacity</div>
+                    <div class="result-value" id="battery-size">10 kWh</div>
+                    <div class="result-desc">8 hours backup</div>
+                </div>
+            </div>
+            
+            <div class="result-box" style="max-width: 400px; margin: 0 auto;">
+                <div class="result-label">Estimated Installation Cost</div>
+                <div class="result-value" id="installation-cost">R95,000</div>
+                <div class="result-desc">Including panels, inverter, battery & installation</div>
+            </div>
+        </div>
+        
+        <div class="card" id="savings-section" style="display: none;">
+            <h2 class="card-title">💰 Savings & Payback Period</h2>
+            
+            <div class="results-grid">
+                <div class="result-box">
+                    <div class="result-label">Monthly Savings</div>
+                    <div class="result-value" id="monthly-savings">R1,850</div>
+                    <div class="result-desc">Based on current tariffs</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Payback Period</div>
+                    <div class="result-value" id="payback-period">4.3 years</div>
+                    <div class="result-desc">Return on investment</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Lifetime Savings</div>
+                    <div class="result-value" id="lifetime-savings">R445,000</div>
+                    <div class="result-desc">Over 25 years</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">CO₂ Emissions Saved</div>
+                    <div class="result-value" id="co2-saved">78 tons</div>
+                    <div class="result-desc">Environmental impact</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="savings-chart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card" id="scenario-section" style="display: none;">
+            <h2 class="card-title">🔄 Scenario Comparison</h2>
+            
+            <div class="scenario-toggles">
+                <div class="scenario-toggle active" data-scenario="grid">Grid Only</div>
+                <div class="scenario-toggle" data-scenario="solar">Solar Only</div>
+                <div class="scenario-toggle" data-scenario="solar-battery">Solar + Battery</div>
+                <div class="scenario-toggle" data-scenario="hybrid">Hybrid System</div>
+            </div>
+            
+            <div class="comparison-grid">
+                <div class="comparison-card">
+                    <h3>Monthly Cost</h3>
+                    <div class="comparison-value" id="comparison-monthly">R2,500</div>
+                    <div class="comparison-desc">Average monthly bill</div>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>Upfront Cost</h3>
+                    <div class="comparison-value" id="comparison-upfront">R0</div>
+                    <div class="comparison-desc">Installation & equipment</div>
+                </div>
+                
+                <div class="comparison-card">
+                    <h3>25-Year Cost</h3>
+                    <div class="comparison-value" id="comparison-lifetime">R750,000</div>
+                    <div class="comparison-desc">Total cost over lifetime</div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <canvas id="scenario-chart"></canvas>
+            </div>
+        </div>
+        
+        <div class="card" id="visualization-section" style="display: none;">
+            <h2 class="card-title">📈 Energy Visualization</h2>
+            
+            <div class="chart-container">
+                <canvas id="energy-chart"></canvas>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <h3>Battery Backup Simulation</h3>
+                <p>See how long your battery would last during a power outage</p>
+                
+                <div style="max-width: 600px; margin: 20px auto; background: var(--light); padding: 15px; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span>Battery Level</span>
+                        <span id="battery-level">100%</span>
+                    </div>
+                    <div style="height: 20px; background: #e2e8f0; border-radius: 10px; overflow: hidden;">
+                        <div id="battery-visual" style="height: 100%; width: 100%; background: var(--accent); transition: width 1s;"></div>
+                    </div>
+                </div>
+                
+                <button id="simulate-btn">
+                    <i class="fas fa-bolt"></i> Simulate Power Outage
+                </button>
+            </div>
+        </div>
+        
+        <div class="card" id="cta-section" style="display: none;">
+            <h2 class="card-title">📋 Get Your Personalized Report</h2>
+            <p style="text-align: center; margin-bottom: 30px;">Download your customized solar analysis or speak with our experts</p>
+            
+            <div class="cta-buttons">
+                <button class="btn-primary">
+                    <i class="fas fa-download"></i> Download PDF Report
+                </button>
+                
+                <button class="btn-outline">
+                    <i class="fas fa-envelope"></i> Email My Results
+                </button>
+                
+                <button class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </button>
+            </div>
+            
+            <div style="max-width: 500px; margin: 30px auto; padding: 20px; background: var(--light); border-radius: 10px;">
+                <h3 style="text-align: center; margin-bottom: 15px;">Request a Detailed Assessment</h3>
+                
+                <div class="form-group">
+                    <input type="text" placeholder="Your Name">
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Your Email">
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" placeholder="Your Phone Number">
+                </div>
+                
+                <button class="btn-primary" style="width: 100%;">
+                    <i class="fas fa-calendar"></i> Schedule Consultation
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-      <label>Average Sun Hours per Day</label>
-      <input type="number" id="sunHours" placeholder="e.g. 5" value="5">
-    </div>
-    <div class="form-group">
-      <label>Panel Wattage (W)</label>
-      <input type="number" id="panelWattage" placeholder="e.g. 550" value="550">
-    </div>
-    <div class="form-group">
-      <label>Backup Hours Needed</label>
-      <input type="number" id="backupHours" placeholder="e.g. 12">
-    </div>
-    <button onclick="calculate()">Calculate</button>
-  </div>
+    
+    <footer>
+        <p>© 2023 Solar Savings Calculator. This tool provides estimates only. Actual results may vary.</p>
+    </footer>
 
-  <div id="results" class="results" style="display:none;">
-    <h3>Recommended Solar Kit</h3>
-    <p id="systemSize"></p>
-    <p id="panels"></p>
-    <p id="inverter"></p>
-    <p id="battery"></p>
-  </div>
-
-  <script>
-    function calculate() {
-      const monthlyUsage = parseFloat(document.getElementById("monthlyUsage").value);
-      const sunHours = parseFloat(document.getElementById("sunHours").value);
-      const panelWattage = parseFloat(document.getElementById("panelWattage").value) / 1000; // convert W to kW
-      const backupHours = parseFloat(document.getElementById("backupHours").value);
-
-      if (isNaN(monthlyUsage) || isNaN(sunHours) || isNaN(panelWattage)) {
-        alert("Please fill in all fields!");
-        return;
-      }
-
-      const dailyUsage = monthlyUsage / 30;
-      const systemSize = dailyUsage / sunHours;
-      const panels = Math.ceil(systemSize / panelWattage);
-      const inverterSize = (systemSize * 1.1).toFixed(2);
-      const batterySize = (dailyUsage * (backupHours / 24)).toFixed(2);
-
-      document.getElementById("systemSize").textContent = `System Size: ${systemSize.toFixed(2)} kW`;
-      document.getElementById("panels").textContent = `Panels Needed: ${panels} × ${panelWattage * 1000}W`;
-      document.getElementById("inverter").textContent = `Inverter Size: ${inverterSize} kW`;
-      document.getElementById("battery").textContent = `Battery Capacity: ${batterySize} kWh`;
-
-      document.getElementById("results").style.display = "block";
-    }
-  </script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Calculate button event listener
+            document.getElementById('calculate-btn').addEventListener('click', function() {
+                // Show all sections
+                document.getElementById('results-section').style.display = 'block';
+                document.getElementById('savings-section').style.display = 'block';
+                document.getElementById('scenario-section').style.display = 'block';
+                document.getElementById('visualization-section').style.display = 'block';
+                document.getElementById('cta-section').style.display = 'block';
+                
+                // Scroll to results
+                document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+                
+                // Generate sample charts
+                generateCharts();
+            });
+            
+            // Scenario toggles
+            const scenarioToggles = document.querySelectorAll('.scenario-toggle');
+            scenarioToggles.forEach(toggle => {
+                toggle.addEventListener('click', function() {
+                    scenarioToggles.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    updateScenario(this.dataset.scenario);
+                });
+            });
+            
+            // Battery simulation
+            document.getElementById('simulate-btn').addEventListener('click', function() {
+                const batteryVisual = document.getElementById('battery-visual');
+                const batteryLevel = document.getElementById('battery-level');
+                
+                // Reset first
+                batteryVisual.style.width = '100%';
+                batteryLevel.textContent = '100%';
+                
+                // Animate discharge
+                let level = 100;
+                const dischargeInterval = setInterval(() => {
+                    level -= 1;
+                    batteryVisual.style.width = level + '%';
+                    batteryLevel.textContent = level + '%';
+                    
+                    if (level <= 0) {
+                        clearInterval(dischargeInterval);
+                    }
+                }, 50);
+            });
+            
+            // Sample chart generation
+            function generateCharts() {
+                // Savings Chart
+                const savingsCtx = document.getElementById('savings-chart').getContext('2d');
+                new Chart(savingsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Year 1', 'Year 5', 'Year 10', 'Year 15', 'Year 20', 'Year 25'],
+                        datasets: [{
+                            label: 'Cumulative Savings (ZAR)',
+                            data: [22000, 115000, 235000, 355000, 475000, 595000],
+                            backgroundColor: '#F9A826'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Estimated Savings Over Time'
+                            }
+                        }
+                    }
+                });
+                
+                // Scenario Comparison Chart
+                const scenarioCtx = document.getElementById('scenario-chart').getContext('2d');
+                new Chart(scenarioCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Grid Only', 'Solar Only', 'Solar + Battery', 'Hybrid System'],
+                        datasets: [{
+                            label: '25-Year Cost (ZAR)',
+                            data: [750000, 450000, 550000, 400000],
+                            backgroundColor: '#2C5F9B'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Long-Term Cost Comparison'
+                            }
+                        }
+                    }
+                });
+                
+                // Energy Production Chart
+                const energyCtx = document.getElementById('energy-chart').getContext('2d');
+                new Chart(energyCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{
+                            label: 'Summer Production (kWh)',
+                            data: [620, 600, 550, 480, 420, 380, 400, 450, 520, 580, 610, 630],
+                            borderColor: '#F9A826',
+                            fill: false
+                        }, {
+                            label: 'Winter Production (kWh)',
+                            data: [580, 560, 520, 450, 380, 350, 370, 420, 490, 550, 580, 600],
+                            borderColor: '#2C5F9B',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Estimated Monthly Energy Production'
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Update scenario details
+            function updateScenario(scenario) {
+                // This would be connected to actual data in a real implementation
+                const monthlyCosts = {
+                    'grid': 2500,
+                    'solar': 500,
+                    'solar-battery': 300,
+                    'hybrid': 200
+                };
+                
+                const upfrontCosts = {
+                    'grid': 0,
+                    'solar': 75000,
+                    'solar-battery': 120000,
+                    'hybrid': 150000
+                };
+                
+                const lifetimeCosts = {
+                    'grid': 750000,
+                    'solar': 450000,
+                    'solar-battery': 550000,
+                    'hybrid': 400000
+                };
+                
+                document.getElementById('comparison-monthly').textContent = 'R' + monthlyCosts[scenario].toLocaleString();
+                document.getElementById('comparison-upfront').textContent = 'R' + upfrontCosts[scenario].toLocaleString();
+                document.getElementById('comparison-lifetime').textContent = 'R' + lifetimeCosts[scenario].toLocaleString();
+            }
+        });
+    </script>
 </body>
 </html>
