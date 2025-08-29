@@ -1552,206 +1552,160 @@
         .stagger-3 { animation-delay: 0.3s; }
         .stagger-4 { animation-delay: 0.4s; }
         
-        /* Testimonials Carousel */
+        /* ======================
+           Testimonials Carousel
+           ====================== */
         .testimonials-carousel {
-            position: relative;
-            overflow: hidden;
-            height: 100vh;
-            width: 100%;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .carousel-container {
+          position: relative;
+          max-width: 1000px;
+          margin: 0 auto;
+          overflow: hidden;
+          border-radius: 20px;
+          box-shadow: var(--shadow-2xl);
         }
         
         .carousel-track {
-            display: flex;
-            height: 100%;
-            transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+          display: flex;
+          transition: transform 0.5s ease-in-out;
         }
         
         .testimonial-slide {
-            flex: 0 0 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            background-color: rgba(10, 31, 68, 0.85);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-        
-        /* background images */
-        .testimonial-slide:nth-child(1) {
-            background-image: url('assets/testimonial1.jpg');
-        }
-        
-        .testimonial-slide:nth-child(2) {
-            background-image: url('assets/testimonial2.jpg');
-        }
-        
-        .testimonial-slide:nth-child(3) {
-            background-image: url('assets/testimonial1.jpg');
+          flex: 0 0 100%;
+          min-height: 400px;
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: overlay;
+          background-color: rgba(10, 31, 68, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
         }
         
         .testimonial-content {
-            max-width: 800px;
-            padding: 40px;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            z-index: 2;
+          max-width: 700px;
+          padding: 40px;
+          text-align: center;
+          color: var(--white);
+          position: relative;
+          z-index: 2;
         }
         
         .testimonial-content blockquote {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 16px;
-            padding: 60px 50px;
-            font-size: 1.4rem;
-            line-height: 1.6;
-            font-style: italic;
-            position: relative;
-            margin: 0;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 16px;
+          padding: 40px;
+          font-size: 1.2rem;
+          line-height: 1.6;
+          font-style: italic;
+          position: relative;
+          margin: 0;
         }
         
         .testimonial-content blockquote::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            font-size: 6rem;
-            color: #008080;
-            font-family: Georgia, serif;
-            opacity: 0.3;
+          content: '"';
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          font-size: 4rem;
+          color: var(--teal);
+          font-family: Georgia, serif;
+          opacity: 0.3;
         }
         
         .testimonial-content blockquote span {
-            display: block;
-            margin-top: 30px;
-            color: #008080;
-            font-weight: 600;
-            font-style: normal;
-            font-size: 1.1rem;
+          display: block;
+          margin-top: 24px;
+          color: var(--teal);
+          font-weight: 600;
+          font-style: normal;
+          font-size: 1rem;
         }
         
         .carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            font-size: 1.5rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-            border: none;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          font-size: 1.5rem;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          transition: var(--transition);
         }
         
         .carousel-control:hover {
-            background: #008080;
-            transform: translateY(-50%) scale(1.1);
+          background: var(--teal);
+          border-color: var(--teal);
         }
         
         .carousel-control.prev {
-            left: 30px;
+          left: 20px;
         }
         
         .carousel-control.next {
-            right: 30px;
+          right: 20px;
         }
         
         .carousel-indicators {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-            z-index: 10;
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 10px;
+          z-index: 10;
         }
         
         .carousel-indicators .indicator {
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: var(--transition);
         }
         
         .carousel-indicators .indicator.active {
-            background: #008080;
-            transform: scale(1.3);
-        }
-        
-        /* Hero-like elements */
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 32px;
-        }
-        
-        .hero-badge i {
-            color: #d4af37;
+          background: var(--teal);
+          transform: scale(1.2);
         }
         
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .testimonial-content {
-                padding: 20px;
-            }
-            
-            .testimonial-content blockquote {
-                padding: 40px 30px;
-                font-size: 1.2rem;
-            }
-            
-            .carousel-control {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-            
-            .carousel-control.prev {
-                left: 15px;
-            }
-            
-            .carousel-control.next {
-                right: 15px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .testimonial-content blockquote {
-                padding: 30px 20px;
-                font-size: 1.1rem;
-            }
-            
-            .testimonial-content blockquote::before {
-                font-size: 4rem;
-                left: 15px;
-            }
-            
-            .carousel-control {
-                width: 40px;
-                height: 40px;
-            }
+          .testimonial-slide {
+            min-height: 450px;
+          }
+          
+          .testimonial-content {
+            padding: 20px;
+          }
+          
+          .testimonial-content blockquote {
+            padding: 30px 20px;
+            font-size: 1.1rem;
+          }
+          
+          .carousel-control {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
         }
         
         /* ======================
@@ -2629,64 +2583,51 @@
         
     
     <!--Testimonials section-->
-    <section class="testimonials-carousel" id="testimonials">
-        <div class="carousel-track">
-            <!-- Testimonial 1 -->
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-star"></i>
-                        <span>Client Success Story</span>
-                    </div>
-                    <blockquote>
-                        We went from spending 20 hours a week on manual reports to getting them automatically. 
-                        Our team now focuses on growing the business instead of updating spreadsheets.
-                        <span>— Operations Manager, Mid-Size Distributor</span>
-                    </blockquote>
-                </div>
+    <section class="testimonials-carousel section animate-on-scroll" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Clients Say</h2>
             </div>
             
-            <!-- Testimonial 2 -->
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Performance Improvement</span>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-1.jpg');">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                We went from spending 20 hours a week on manual reports to getting them automatically. 
+                                Our team now focuses on growing the business instead of updating spreadsheets.
+                                <span>— Operations Manager, Mid-Size Distributor</span>
+                            </blockquote>
+                        </div>
                     </div>
-                    <blockquote>
-                        The dashboards provided real-time visibility we never had before. 
-                        We can now anticipate issues before they become problems.
-                        <span>— Supply Chain Director, e-Commerce Store</span>
-                    </blockquote>
-                </div>
-            </div>
-            
-            <!-- Testimonial 3 -->
-            <div class="testimonial-slide">
-                <div class="testimonial-content">
-                    <div class="hero-badge">
-                        <i class="fas fa-rocket"></i>
-                        <span>Growth Enabled</span>
+                    
+                    <!-- Testimonial 2 (Add more like this) -->
+                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-2.jpg');">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                The dashboards provided real-time visibility we never had before. 
+                                We can now anticipate issues before they become problems.
+                                <span>— Supply Chain Director, e-Commerce Store</span>
+                            </blockquote>
+                        </div>
                     </div>
-                    <blockquote>
-                        Prime Chain Solutions helped us scale our operations without adding overhead.
-                        Their automation tools handle our growth seamlessly.
-                        <span>— CEO, Logistics Company</span>
-                    </blockquote>
+                    
+                    <!-- Add more testimonials here as needed -->
                 </div>
+                
+                <!-- Carousel controls -->
+                <button class="carousel-control prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-control next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Carousel indicators -->
+                <div class="carousel-indicators"></div>
             </div>
         </div>
-        
-        <!-- Carousel controls -->
-        <button class="carousel-control prev" aria-label="Previous testimonial">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="carousel-control next" aria-label="Next testimonial">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        
-        <!-- Carousel indicators -->
-        <div class="carousel-indicators"></div>
     </section>
 
     <!-- Footer -->
@@ -2977,129 +2918,79 @@
         // Initialize on page load
         updateCalculations();
 
-        // Testimonials
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // ===== Testimonials Carousel =====
-            const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const prevButton = document.querySelector('.carousel-control.prev');
-            const nextButton = document.querySelector('.carousel-control.next');
-            const indicatorsContainer = document.querySelector('.carousel-indicators');
+        // ===== Testimonials Carousel =====
+        function initTestimonialCarousel() {
+          const track = document.querySelector('.carousel-track');
+          const slides = document.querySelectorAll('.testimonial-slide');
+          const prevButton = document.querySelector('.carousel-control.prev');
+          const nextButton = document.querySelector('.carousel-control.next');
+          const indicatorsContainer = document.querySelector('.carousel-indicators');
+          
+          if (!track || slides.length === 0) return;
+          
+          let currentIndex = 0;
+          
+          // Create indicators
+          slides.forEach((_, i) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+          });
+          
+          const indicators = document.querySelectorAll('.indicator');
+          
+          // Update carousel position
+          function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
             
-            if (!track || slides.length === 0) return;
-            
-            let currentIndex = 0;
-            let autoPlayInterval;
-            
-            // Create indicators
-            slides.forEach((_, i) => {
-                const indicator = document.createElement('div');
-                indicator.classList.add('indicator');
-                if (i === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => goToSlide(i));
-                indicatorsContainer.appendChild(indicator);
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+              indicator.classList.toggle('active', i === currentIndex);
             });
-            
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Update carousel position
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update indicators
-                indicators.forEach((indicator, i) => {
-                    indicator.classList.toggle('active', i === currentIndex);
-                });
-            }
-            
-            // Navigate to specific slide
-            function goToSlide(index) {
-                currentIndex = index;
-                updateCarousel();
-                resetAutoPlay();
-            }
-            
-            // Next slide
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateCarousel();
-                resetAutoPlay();
-            }
-            
-            // Previous slide
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateCarousel();
-                resetAutoPlay();
-            }
-            
-            // Auto-play functionality
-            function startAutoPlay() {
-                autoPlayInterval = setInterval(nextSlide, 6000);
-            }
-            
-            function resetAutoPlay() {
-                clearInterval(autoPlayInterval);
-                startAutoPlay();
-            }
-            
-            // Event listeners
-            if (nextButton) nextButton.addEventListener('click', nextSlide);
-            if (prevButton) prevButton.addEventListener('click', prevSlide);
-            
-            // Pause on hover
-            const carousel = document.querySelector('.testimonials-carousel');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => {
-                    clearInterval(autoPlayInterval);
-                });
-                
-                carousel.addEventListener('mouseleave', () => {
-                    startAutoPlay();
-                });
-            }
-            
-            // Initialize
+          }
+          
+          // Navigate to specific slide
+          function goToSlide(index) {
+            currentIndex = index;
             updateCarousel();
-            startAutoPlay();
-            
-            // Keyboard navigation
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') {
-                    prevSlide();
-                } else if (e.key === 'ArrowRight') {
-                    nextSlide();
-                }
+          }
+          
+          // Next slide
+          function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+          }
+          
+          // Previous slide
+          function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+          }
+          
+          // Event listeners
+          if (nextButton) nextButton.addEventListener('click', nextSlide);
+          if (prevButton) prevButton.addEventListener('click', prevSlide);
+          
+          // Auto-advance (optional)
+          let carouselInterval = setInterval(nextSlide, 6000);
+          
+          // Pause on hover
+          const carousel = document.querySelector('.carousel-container');
+          if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+              clearInterval(carouselInterval);
             });
             
-            // Swipe support for touch devices
-            let touchStartX = 0;
-            let touchEndX = 0;
-            
-            track.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-            }, false);
-            
-            track.addEventListener('touchend', (e) => {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            }, false);
-            
-            function handleSwipe() {
-                const swipeThreshold = 50;
-                
-                if (touchEndX < touchStartX - swipeThreshold) {
-                    // Swipe left - next slide
-                    nextSlide();
-                }
-                
-                if (touchEndX > touchStartX + swipeThreshold) {
-                    // Swipe right - previous slide
-                    prevSlide();
-                }
-            }
-        });
+            carousel.addEventListener('mouseleave', () => {
+              carouselInterval = setInterval(nextSlide, 6000);
+            });
+          }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
 
         // ===== Ripple CSS =====
         const style = document.createElement('style');
