@@ -1702,10 +1702,42 @@
           }
           
           .carousel-control {
-            width: 40px;
-            height: 40px;
-            font-size: 1.2rem;
-          }
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              background: rgba(255, 255, 255, 0.2);
+              backdrop-filter: blur(10px);
+              border: 1px solid rgba(255, 255, 255, 0.3);
+              color: white;
+              font-size: 1.5rem;
+              width: 50px;
+              height: 50px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              z-index: 10;
+              transition: var(--transition);
+              border: none;
+            }
+            
+            .carousel-control:hover {
+              background: var(--teal);
+              border-color: var(--teal);
+            }
+            
+            .carousel-control.prev {
+              left: 20px;
+            }
+            
+            .carousel-control.next {
+              right: 20px;
+            }
+            
+            .carousel-control i {
+              font-size: 1.5rem;
+            }
         }
         
         /* ======================
@@ -2592,7 +2624,7 @@
             <div class="carousel-container">
                 <div class="carousel-track">
                     <!-- Testimonial 1 -->
-                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-1.jpg');">
+                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-1.jpg'); background-color: rgba(10, 31, 68, 0.85);">
                         <div class="testimonial-content">
                             <blockquote>
                                 We went from spending 20 hours a week on manual reports to getting them automatically. 
@@ -2602,8 +2634,8 @@
                         </div>
                     </div>
                     
-                    <!-- Testimonial 2 (Add more like this) -->
-                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-2.jpg');">
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-slide" style="background: linear-gradient(135deg, rgba(8, 145, 178, 0.85), rgba(10, 31, 68, 0.85));">
                         <div class="testimonial-content">
                             <blockquote>
                                 The dashboards provided real-time visibility we never had before. 
@@ -2926,18 +2958,26 @@
           const nextButton = document.querySelector('.carousel-control.next');
           const indicatorsContainer = document.querySelector('.carousel-indicators');
           
-          if (!track || slides.length === 0) return;
+          console.log('Carousel elements:', { track, slides: slides.length, prevButton, nextButton, indicatorsContainer });
+          
+          if (!track || slides.length === 0) {
+            console.error('Carousel elements not found');
+            return;
+          }
           
           let currentIndex = 0;
           
           // Create indicators
-          slides.forEach((_, i) => {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            if (i === 0) indicator.classList.add('active');
-            indicator.addEventListener('click', () => goToSlide(i));
-            indicatorsContainer.appendChild(indicator);
-          });
+          if (indicatorsContainer) {
+            indicatorsContainer.innerHTML = ''; // Clear any existing indicators
+            slides.forEach((_, i) => {
+              const indicator = document.createElement('div');
+              indicator.classList.add('indicator');
+              if (i === 0) indicator.classList.add('active');
+              indicator.addEventListener('click', () => goToSlide(i));
+              indicatorsContainer.appendChild(indicator);
+            });
+          }
           
           const indicators = document.querySelectorAll('.indicator');
           
@@ -2987,10 +3027,17 @@
               carouselInterval = setInterval(nextSlide, 6000);
             });
           }
+          
+          // Initialize position
+          updateCarousel();
         }
         
-        // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+        // Initialize when DOM is fully loaded
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
+        } else {
+          initTestimonialCarousel();
+        }
 
         // ===== Ripple CSS =====
         const style = document.createElement('style');
