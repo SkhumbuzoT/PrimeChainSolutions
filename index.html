@@ -803,100 +803,80 @@
             line-height: 1.6;
         }
         
-        /* Challenge list styling */
-        .problem-list {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 1000px;
-            margin: 0 auto;
-            list-style: none;
+       .problem-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+          max-width: 1000px;
+          margin: 0 auto;
+          list-style: none;
+          padding: 0;
         }
         
         .problem-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            padding: 28px 24px;
-            background: var(--teal);
-            border-radius: 16px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            border: 1px solid rgba(8, 145, 178, 0.1);
-            transition: all 0.3s ease;
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 32px 24px;
+          background: var(--teal-light, #eef5f7); /* Soft teal background for consistency */
+          border-radius: 18px;
+          box-shadow: 0 4px 12px rgba(8, 145, 178, 0.09);
+          border: 1px solid rgba(8, 145, 178, 0.10);
+          transition: box-shadow 0.3s, transform 0.3s;
+          color: var(--teal-dark, #23696e); /* Text color for contrast */
         }
         
         .problem-list li:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            border-color: rgba(8, 145, 178, 0.2);
+          transform: translateY(-5px);
+          box-shadow: 0 20px 30px -5px rgba(8, 145, 178, 0.11);
+          border-color: rgba(8, 145, 178, 0.20);
         }
         
         .problem-list i {
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--teal);
-            color: white;
-            border-radius: 12px;
-            font-size: 1.2rem;
-            flex-shrink: 0;
+          width: 54px;
+          height: 54px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--white, #fff); /* White icon background for contrast */
+          color: var(--teal, #28949a);    /* Medium teal icon color */
+          border-radius: 14px;
+          font-size: 1.7rem;
+          flex-shrink: 0;
+          box-shadow: 0 2px 8px rgba(8,145,178,0.06);
         }
         
         .problem-list span {
-            font-size: 1.1rem;
-            line-height: 1.6;
+          font-size: 1.15rem;
+          line-height: 1.7;
+          color: var(--teal-dark, #23696e); /* Match the overall color scheme */
         }
         
         .problem-list strong {
-            color: #0a1628;
-            font-weight: 700;
+          color: var(--navy, #0a1f44);
+          font-weight: 700;
         }
         
-        /* Responsive design */
         @media (max-width: 900px) {
-            .problem-list {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .problem-list li {
-                flex-direction: column;
-                text-align: center;
-                padding: 24px 20px;
-            }
-            
-            .problem-list i {
-                margin: 0 auto;
-            }
-        }
-        .mission-message {
-          text-align: center;
-          margin: 0 auto;
-          padding: 40px 18px;
-          max-width: 700px;
-          font-size: clamp(1.1rem, 2vw, 1.3rem); /* matches .hero p and .section-title p */
-          line-height: 1.7;
-          color: var(--gray-800);
-          background: rgba(255,255,255,0.92);
-          border-radius: 18px;
-          box-shadow: 0 2px 10px rgba(8,145,178,0.04);
-          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        @media (max-width: 600px) {
-          .mission-message {
-            padding: 24px 8px;
-            font-size: 1.1rem;
-            border-radius: 12px;
+          .problem-list {
+            grid-template-columns: 1fr;
           }
         }
-
+        
+        @media (max-width: 600px) {
+          .problem-list li {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding: 24px 12px;
+          }
+          .problem-list i {
+            margin-bottom: 18px;
+          }
+          .problem-list span {
+            font-size: 1.05rem;
+          }
+        }
         /* ======================
            Cost Calculator Section 
            ====================== */
