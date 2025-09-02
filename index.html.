@@ -22,10 +22,9 @@
     <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
     <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
 
-    <!-- Favicon Links -->
-    <link rel="icon" href="/assets/ChatGPT Image Aug 23, 2025, 12_35_55 PM.png" type="image/png+xml">
-    <link rel="apple-touch-icon" href="/assets/ChatGPT Image Aug 23, 2025, 12_35_55 PM.png">
-    <link rel="mask-icon" href="/assets/primechain-favicon-workflow.svg" color="#002366">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/ChatGPT Image Aug 31, 2025, 04_37_21 PM.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/ChatGPT Image Aug 31, 2025, 04_37_21 PM.png">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHLZW1RWWZ"></script>
@@ -230,7 +229,7 @@
         }
         
         .logo img {
-          height: 80px;
+          height: 60px;
           margin-right: 12px;
           transition: var(--transition);
         }
@@ -297,7 +296,7 @@
            ====================== */
         .hero {
             min-height: calc(100vh - 72px);
-            background: var(--gradient-hero), url('assets/jack-b-Zv_zmlPUalI-unsplash.jpg');
+            background: var(--gradient-hero), url('assets/warehouse.png');
             background-size: cover;
             background-position: center;
             background-blend-mode: overlay;
@@ -877,6 +876,26 @@
                 margin: 0 auto;
             }
         }
+        .mission-message {
+          text-align: center;
+          margin: 0 auto;
+          padding: 40px 18px;
+          max-width: 700px;
+          font-size: clamp(1.1rem, 2vw, 1.3rem); /* matches .hero p and .section-title p */
+          line-height: 1.7;
+          color: var(--gray-800);
+          background: rgba(255,255,255,0.92);
+          border-radius: 18px;
+          box-shadow: 0 2px 10px rgba(8,145,178,0.04);
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+        @media (max-width: 600px) {
+          .mission-message {
+            padding: 24px 8px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+          }
+        }
 
         /* ======================
            Cost Calculator Section 
@@ -1243,6 +1262,99 @@
             color: #059669;
             font-size: 0.9rem;
         }
+
+        /* Contact Section */
+        .contact-section {
+          padding: 80px 0;
+          background: #f9fafc;
+        }
+        
+        .contact-section .section-title h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        
+        .contact-section .section-title p {
+          color: #666;
+          font-size: 1rem;
+          margin-bottom: 40px;
+        }
+        
+        .approach-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-bottom: 50px;
+        }
+        
+        .card {
+          background: #fff;
+          padding: 30px 20px;
+          border-radius: 12px;
+          text-align: center;
+          box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 12px 20px rgba(0,0,0,0.12);
+        }
+        
+        .card-icon {
+          font-size: 2.5rem;
+          color: #0066cc;
+          margin-bottom: 15px;
+        }
+        
+        .card h4 {
+          font-size: 1.2rem;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        
+        .card p {
+          color: #555;
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+        .contact-cta {
+          text-align: center; /* ensures everything inside is centered */
+          display: flex;
+          flex-direction: column; /* stack button and text vertically */
+          align-items: center; /* center horizontally */
+          gap: 12px; /* nice spacing between button and text */
+        }
+        
+        .contact-cta .btn-whatsapp {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center; /* centers icon + text horizontally */
+          background: #25d366;
+          color: #fff;
+          font-weight: 600;
+          padding: 12px 24px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+        
+        .contact-cta .btn-whatsapp i {
+          margin-right: 8px;
+          font-size: 1.2rem;
+        }
+        
+        .contact-cta p {
+          margin: 0;
+          font-size: 1rem;
+        }
+        
+        .contact-cta a {
+          color: #0066cc;
+          font-weight: 500;
+          text-decoration: underline;
+        }
         
         /* CTA Section */
         .cta-section {
@@ -1461,50 +1573,66 @@
         .stagger-4 { animation-delay: 0.4s; }
         
         /* ======================
-           Testimonials
+           Testimonials Carousel
            ====================== */
-        .testimonials {
-          background: var(--navy);
-          color: var(--white);
+        .testimonials-carousel {
           position: relative;
           overflow: hidden;
         }
         
-        .testimonials::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: 
-            radial-gradient(circle at 20% 50%, rgba(8, 145, 178, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
-        }
-        
-        .testimonial-container {
-          text-align: center;
-          max-width: 800px;
+        .carousel-container {
+          position: relative;
+          max-width: 1000px;
           margin: 0 auto;
+          overflow: hidden;
+          border-radius: 20px;
+          box-shadow: var(--shadow-2xl);
         }
         
-        blockquote {
-          background: rgba(255, 255, 255, 0.05);
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide {
+          flex: 0 0 100%;
+          min-height: 400px;
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: overlay;
+          background-color: rgba(10, 31, 68, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        
+        .testimonial-content {
+          max-width: 700px;
+          padding: 40px;
+          text-align: center;
+          color: var(--white);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .testimonial-content blockquote {
+          background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-          padding: 48px 40px;
-          font-size: 1.25rem;
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 16px;
+          padding: 40px;
+          font-size: 1.2rem;
           line-height: 1.6;
           font-style: italic;
           position: relative;
           margin: 0;
         }
         
-        blockquote::before {
+        .testimonial-content blockquote::before {
           content: '"';
           position: absolute;
-          top: 16px;
+          top: 10px;
           left: 20px;
           font-size: 4rem;
           color: var(--teal);
@@ -1512,13 +1640,92 @@
           opacity: 0.3;
         }
         
-        blockquote span {
+        .testimonial-content blockquote span {
           display: block;
           margin-top: 24px;
           color: var(--teal);
           font-weight: 600;
           font-style: normal;
           font-size: 1rem;
+        }
+        
+        .carousel-control {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          font-size: 1.5rem;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          transition: var(--transition);
+        }
+        
+        .carousel-control:hover {
+          background: var(--teal);
+          border-color: var(--teal);
+        }
+        
+        .carousel-control.prev {
+          left: 20px;
+        }
+        
+        .carousel-control.next {
+          right: 20px;
+        }
+        
+        .carousel-indicators {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 10px;
+          z-index: 10;
+        }
+        
+        .carousel-indicators .indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: var(--transition);
+        }
+        
+        .carousel-indicators .indicator.active {
+          background: var(--teal);
+          transform: scale(1.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .testimonial-slide {
+            min-height: 450px;
+          }
+          
+          .testimonial-content {
+            padding: 20px;
+          }
+          
+          .testimonial-content blockquote {
+            padding: 30px 20px;
+            font-size: 1.1rem;
+          }
+          
+          .carousel-control {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
         }
         
         /* ======================
@@ -1682,9 +1889,8 @@
         }
         
         .footer-logo img {
-          height: 80px;
+          height: 60px;
           margin-right: 12px;
-          filter: brightness(0) invert(1);
         }
         
         .footer-about p {
@@ -1763,6 +1969,26 @@
           transform: translateX(4px);
         }
         
+        .footer-contact h4 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-bottom: 24px;
+          color: var(--white);
+          position: relative;
+          padding-bottom: 12px;
+        }
+        
+        .footer-contact h4::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 48px;
+          height: 3px;
+          background: var(--gradient-secondary);
+          border-radius: 2px;
+        }
+        
         .footer-contact p {
           margin-bottom: 16px;
           display: flex;
@@ -1770,6 +1996,7 @@
           gap: 12px;
           line-height: 1.6;
           color: rgba(255, 255, 255, 0.8);
+          font-size: 1.1rem;
         }
         
         .footer-contact i {
@@ -1788,6 +2015,26 @@
           color: var(--teal);
         }
         
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+          .footer-contact h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+          }
+          .footer-contact h4::after {
+            width: 32px;
+            height: 2px;
+          }
+          .footer-contact p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+        }
+                
         .footer-bottom {
           text-align: center;
           padding-top: 32px;
@@ -2155,7 +2402,7 @@
     <header id="header">
     <div class="container header-container">
     <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
-    <img src="assets/ChatGPT Image Aug 23, 2025, 12_28_12 PM.png" alt="Prime Chain Solutions logo" />
+      <img src="assets/logo-header.png" alt="Prime Chain Solutions logo" />
     </a>
     <nav aria-label="Primary">
     <ul>
@@ -2171,31 +2418,28 @@
     </header>
     
     
-    <!-- ===== Hero (Mission First) ===== -->
-    <section class="hero" id="hero">
-    <div class="hero-content container">
-    <h1>
-    Empowering Supply Chains with <span class="hero-highlight">Visibility</span>
-    and <span class="hero-highlight">Workflow Automation</span>
-    </h1>
-    <p class="hero-sub">
-    Connect your systems. Automate workflows. Scale with confidence. No more
-    data silos. No more manual reports. Just real-time clarity and efficiency.
-    </p>
-    <div class="btn-group" role="group" aria-label="Primary actions">
-    <a
-    href="https://wa.me/27736775675?text=Hi%20Skhumbuzo,%20I%E2%80%99m%20interested%20in%20connecting%20our%20systems%20and%20automating%20our%20logistics%20processes."
-    class="btn btn-primary btn-whatsapp"
-    >
-    <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
-    <span>Get Started Today</span>
-    </a>
-    <a href="#services" class="btn btn-secondary">
-    <i class="fa-solid fa-desktop" aria-hidden="true"></i>
-    <span>See Demo</span>
-    </a>
-    </div>
-    </div>
+   <!-- Hero Section -->
+    <section class="hero" id="main-content">
+        <div class="hero-content">
+            <div class="hero-badge fade-in">
+                <i class="fas fa-rocket"></i>
+                <span>Transforming Business Operations</span>
+            </div>
+            
+            <h1 class="fade-in">Gain <span class="hero-highlight">visibility</span> and <span class="hero-highlight">automate</span> workflows</h1>
+            
+            <p class="fade-in">We turn scattered data into clear insights and repetitive tasks into automated workflows. 
+                               The result? You spend less time fighting fires and more time driving growth.</p>
+            
+            <div class="btn-group">
+                <a href="#contact" class="btn btn-primary fade-in">
+                    <i class="fas fa-calendar-check"></i>Book a Consultation
+                </a>
+                <a href="#calculator" class="btn btn-secondary fade-in">
+                    <i class="fas fa-calculator"></i>Calculate Savings
+                </a>
+            </div>
+        </div>
     </section>
     
     
@@ -2204,10 +2448,7 @@
         <div class="container">
             <div class="section-title">
                 <h2 id="ch-title">Dealing with these headaches?</h2>
-                <p class="section-sub">
-                    You're not alone — most supply chains struggle with hidden inefficiencies. 
-                    That's why our mission is to simplify operations through visibility and automation.
-                </p>
+                
             </div>
     
             <!-- Improved list view -->
@@ -2229,6 +2470,10 @@
                     <span><strong>Teams firefighting</strong> instead of focusing on growth</span>
                 </li>
             </ul>
+            <div class="mission-message">
+              You're not alone — most supply chains struggle with hidden inefficiencies.<br>
+              That's why our mission is to simplify operations through visibility and automation.
+            </div>
         </div>
     </section>
    
@@ -2269,7 +2514,7 @@
     <div class="result-description">12 months of manual work</div>
     </div>
     <div class="result-card savings">
-    <div class="result-label">Potential Monthly Savings</div>
+    <div class="result-label">Potential Savings</div>
     <div class="result-value" id="potentialSavings">R0</div>
     <div class="result-description">Assuming 80% automation</div>
     </div>
@@ -2278,20 +2523,22 @@
     
     <div class="impact-statement">
     <p>
-    You could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
+    Based on your inputs, you could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
     </p>
     </div>
-    
-    
-    <div class="cta-inline">
-    <a href="#contact" class="btn btn-primary">
-    <i class="fa-solid fa-magnifying-glass-chart" aria-hidden="true"></i>
-    <span>Get a Free Workflow Audit</span>
-    </a>
-    </div>
-    </div>
-    </div>
-    </div>
+        </div>
+            <div class="cta-section fade-in">
+                <h3>Ready to turn these savings into reality?</h3>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary">
+                        <i class="fas fa-calendar"></i>Schedule a Free Consultation
+                    </a>
+                    <a href="https://wa.me/27846503832?text=Hi,%20I'm%20interested%20in%20your%20automation%20solutions" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>Chat on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
     </section>
 
       <!-- Solution Section -->
@@ -2332,83 +2579,114 @@
 
     <!-- Our Story -->
     <section class="our-story-section section animate-on-scroll">
-        <div class="container">
-            <div class="our-story-content">
-                <div class="our-story-icon"><i class="fas fa-seedling"></i></div>
-                <h2>Our Story</h2>
-                <p>
-                    PrimeChain Solutions was founded to bridge the operational and data gaps in supply chains. 
-                    From our early roots in supply chain operations, we've grown to support clients across logistics, 
-                    e-commerce, mining, retail, manufacturing, and professional services — improving everything from stock control to fleet performance.
-                </p>
-                <p>
-                    Over time, we evolved from hands-on support to delivering automation, real-time analytics, 
-                    and supply chain intelligence. Today, we help businesses navigate complexity, make smarter decisions, 
-                    and unlock value across every link in their chain.
-                </p>
-                <p>
-                    Our unique blend of supply chain management experience, data science expertise, 
-                    and Lean Six Sigma methodology means we don't just build technology—we optimize processes while we automate them.
-                </p>
-            </div>
-        </div>
+       <div class="container">
+           <div class="our-story-content">
+               <div class="our-story-icon"><i class="fas fa-seedling"></i></div>
+               <h2>Our Story</h2>
+               <p>
+                   Every great supply chain tells a story of connection — connecting suppliers to customers, data to decisions, and operations to outcomes. 
+                   We started PrimeChain Solutions because we saw too many of these connections breaking down. From our early roots in supply chain operations,
+                   we've grown to support clients across logistics, e-commerce, mining, retail, and professional services — improving everything from inventory control to fleet performance.
+               </p>
+               <p>
+                   We knew fixing these disconnections required more than just hands-on support — it needed turning scattered information into clear answers. 
+                   Today, we help businesses cut through the complexity, make better decisions, and get more value from their supply chain.
+               </p>
+               <p>
+                   What sets us apart is our unique blend of logistics expertise, data science, and Six Sigma methodology. 
+                   We don't just build technology — we use technology to solve the real problems that keep supply chain leaders up at night.
+               </p>
+           </div>
+       </div>
     </section>
-
-    <section class="section" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get Started Today</h2>
-                <p>Reach out to discuss how we can help transform your operations</p>
-            </div>
-            
-            <div class="approach-grid">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h4>Consultation</h4>
-                    <p>We'll discuss your current challenges and goals to understand how we can help.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-blueprint"></i>
-                    </div>
-                    <h4>Custom Solution Design</h4>
-                    <p>We'll design a tailored approach to address your specific business needs.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <h4>Implementation</h4>
-                    <p>We'll build and deploy your solutions with minimal disruption to your operations.</p>
-                </div>
-            </div>
-            
-            <div class="text-center mt-64">
-                <a href="https://wa.me/27846504364?text=Hi,%20I'm%20interested%20in%20learning%20more%20about%20your%20solutions" class="btn btn-whatsapp">
-                    <i class="fab fa-whatsapp"></i>
-                    Message Us on WhatsApp
-                </a>
-                <p class="mt-24">Or send us an email at <a href="mailto:info@primechainsolutions.co.za">info@primechainsolutions.co.za</a></p>
-            </div>
+    
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-title text-center">
+          <h2>Get Started Today</h2>
+          <p>Reach out to discuss how we can help transform your operations</p>
         </div>
+    
+        <div class="approach-grid">
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h4>Consultation</h4>
+            <p>We'll discuss your current challenges and goals to understand how we can help.</p>
+          </div>
+    
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h4>Custom Solution Design</h4>
+            <p>We'll design a tailored approach to address your specific business needs.</p>
+          </div>
+    
+          <div class="card">
+            <div class="card-icon">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4>Implementation</h4>
+            <p>We'll build and deploy your solutions with minimal disruption to your operations.</p>
+          </div>
+        </div>
+    
+        <div class="text-center contact-cta">
+          <a href="https://wa.me/27846504364?text=Hi,%20I'm%20interested%20in%20learning%20more%20about%20your%20solutions" 
+             class="btn btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Message Us on WhatsApp
+          </a>
+        </div>
+      </div>
     </section>
         
     
-    <!-- Testimonials Section -->
-    <section class="testimonials section animate-on-scroll">
+    <!--Testimonials section-->
+    <section class="testimonials-carousel section animate-on-scroll" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2 style="color: white;">What Our Clients Say</h2>
+                <h2>What Our Clients Say</h2>
             </div>
-            <div class="testimonial-container">
-                <blockquote>
-                    We went from spending 20 hours a week on manual reports to getting them automatically. Our team now focuses on growing the business instead of updating spreadsheets.
-                    <span>— Operations Manager, Mid-Size Distributor</span>
-                </blockquote>
+            
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-1.jpg');">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                We went from spending 20 hours a week on manual reports to getting them automatically. 
+                                Our team now focuses on growing the business instead of updating spreadsheets.
+                                <span>— Operations Manager, Mid-Size Distributor</span>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial 2 (Add more like this) -->
+                    <div class="testimonial-slide" style="background-image: url('assets/testimonial-bg-2.jpg');">
+                        <div class="testimonial-content">
+                            <blockquote>
+                                The dashboards provided real-time visibility we never had before. 
+                                We can now anticipate issues before they become problems.
+                                <span>— Supply Chain Director, e-Commerce Store</span>
+                            </blockquote>
+                        </div>
+                    </div>
+                    
+                    <!-- Add more testimonials here as needed -->
+                </div>
+                
+                <!-- Carousel controls -->
+                <button class="carousel-control prev" aria-label="Previous testimonial">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-control next" aria-label="Next testimonial">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <!-- Carousel indicators -->
+                <div class="carousel-indicators"></div>
             </div>
         </div>
     </section>
@@ -2419,43 +2697,45 @@
             <div class="footer-container">
                 <div class="footer-about">
                     <div class="footer-logo">
-                        <img src="assets/ChatGPT Image Aug 23, 2025, 12_28_12 PM.png" alt="Prime Chain Logo">
+                      <img src="assets/footerTRANSPARENT.png" alt="Prime Chain Solutions logo" />
                     </div>
                     <p>We help businesses gain visibility and automate workflows with practical, powerful dashboards and automation tools.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
                 </div>
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#approach">Approach</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Approach</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Resources</h4>
                     <ul>
-                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Blogs</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
                         <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Let's Talk</h4>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
+                    <ul>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">info@primechainsolutions.co.za</a></p>
                     <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
                     <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                    <ul>
+                <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
             </div>
-        </div>
+        </div> 
     </footer>
 
     <!-- Back to Top Button -->
@@ -2698,6 +2978,80 @@
 
         // Initialize on page load
         updateCalculations();
+
+        // ===== Testimonials Carousel =====
+        function initTestimonialCarousel() {
+          const track = document.querySelector('.carousel-track');
+          const slides = document.querySelectorAll('.testimonial-slide');
+          const prevButton = document.querySelector('.carousel-control.prev');
+          const nextButton = document.querySelector('.carousel-control.next');
+          const indicatorsContainer = document.querySelector('.carousel-indicators');
+          
+          if (!track || slides.length === 0) return;
+          
+          let currentIndex = 0;
+          
+          // Create indicators
+          slides.forEach((_, i) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (i === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => goToSlide(i));
+            indicatorsContainer.appendChild(indicator);
+          });
+          
+          const indicators = document.querySelectorAll('.indicator');
+          
+          // Update carousel position
+          function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, i) => {
+              indicator.classList.toggle('active', i === currentIndex);
+            });
+          }
+          
+          // Navigate to specific slide
+          function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+          }
+          
+          // Next slide
+          function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            updateCarousel();
+          }
+          
+          // Previous slide
+          function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            updateCarousel();
+          }
+          
+          // Event listeners
+          if (nextButton) nextButton.addEventListener('click', nextSlide);
+          if (prevButton) prevButton.addEventListener('click', prevSlide);
+          
+          // Auto-advance (optional)
+          let carouselInterval = setInterval(nextSlide, 6000);
+          
+          // Pause on hover
+          const carousel = document.querySelector('.carousel-container');
+          if (carousel) {
+            carousel.addEventListener('mouseenter', () => {
+              clearInterval(carouselInterval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+              carouselInterval = setInterval(nextSlide, 6000);
+            });
+          }
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
 
         // ===== Ripple CSS =====
         const style = document.createElement('style');
