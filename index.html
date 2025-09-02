@@ -774,36 +774,7 @@
           grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         }
 
-        /* Challenge section styling */
-        .challenges-section {
-            padding: 80px 0;
-            background: var(--teal);
-            border-radius: 16px;
-            margin: 30px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: #0a1628;
-            margin-bottom: 16px;
-            letter-spacing: -0.025em;
-        }
-        
-        .section-title p {
-            font-size: 1.2rem;
-            color: #1f2937;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-       .problem-list {
+        .problem-list {
           display: grid;
           grid-template-columns: repeat(2, 1fr);
           gap: 30px;
@@ -812,57 +783,49 @@
           list-style: none;
           padding: 0;
         }
-        
         .problem-list li {
           display: flex;
           align-items: center;
           gap: 20px;
           padding: 32px 24px;
-          background: var(--teal-light, #eef5f7); /* Soft teal background for consistency */
-          border-radius: 18px;
+          background: var(--white); /* match card background */
+          border-radius: 20px;
           box-shadow: 0 4px 12px rgba(8, 145, 178, 0.09);
-          border: 1px solid rgba(8, 145, 178, 0.10);
+          border: 1px solid var(--gray-100, #e5e7eb);
           transition: box-shadow 0.3s, transform 0.3s;
-          color: var(--teal-dark, #23696e); /* Text color for contrast */
         }
-        
         .problem-list li:hover {
           transform: translateY(-5px);
           box-shadow: 0 20px 30px -5px rgba(8, 145, 178, 0.11);
-          border-color: rgba(8, 145, 178, 0.20);
+          border-color: var(--teal);
         }
-        
         .problem-list i {
           width: 54px;
           height: 54px;
           display: flex;
           align-items: center;
           justify-content: center;
-          background: var(--white, #fff); /* White icon background for contrast */
-          color: var(--teal, #28949a);    /* Medium teal icon color */
+          background: var(--teal);    /* teal background */
+          color: var(--white);        /* white icon */
           border-radius: 14px;
           font-size: 1.7rem;
           flex-shrink: 0;
           box-shadow: 0 2px 8px rgba(8,145,178,0.06);
         }
-        
         .problem-list span {
           font-size: 1.15rem;
           line-height: 1.7;
-          color: var(--teal-dark, #23696e); /* Match the overall color scheme */
+          color: var(--gray-800);
         }
-        
         .problem-list strong {
-          color: var(--navy, #0a1f44);
+          color: var(--navy);
           font-weight: 700;
         }
-        
         @media (max-width: 900px) {
           .problem-list {
             grid-template-columns: 1fr;
           }
         }
-        
         @media (max-width: 600px) {
           .problem-list li {
             flex-direction: column;
