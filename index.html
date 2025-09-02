@@ -876,6 +876,25 @@
                 margin: 0 auto;
             }
         }
+        .mission-message {
+          text-align: center;
+          margin: 0 auto;
+          padding: 32px 16px;
+          max-width: 700px;
+          font-size: clamp(1.1rem, 2vw, 1.5rem);
+          line-height: 1.7;
+          color: var(--navy, #0a1f44);
+          background: rgba(255,255,255,0.85);
+          border-radius: 18px;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+        @media (max-width: 600px) {
+          .mission-message {
+            padding: 24px 8px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+          }
+        }
 
         /* ======================
            Cost Calculator Section 
@@ -2409,10 +2428,10 @@
                     <span><strong>Teams firefighting</strong> instead of focusing on growth</span>
                 </li>
             </ul>
-            <p class="section-sub">
-                    You're not alone — most supply chains struggle with hidden inefficiencies. 
-                    That's why our mission is to simplify operations through visibility and automation.
-            </p>
+            <div class="mission-message">
+              You're not alone — most supply chains struggle with hidden inefficiencies.<br>
+              That's why our mission is to simplify operations through visibility and automation.
+            </div>
         </div>
     </section>
    
