@@ -416,7 +416,7 @@
           left: 0;
           right: 0;
           bottom: 0;
-          background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, transparent 50%);
+          background: var(--teal);
           opacity: 0;
           transition: var(--transition);
           z-index: 0;
@@ -1288,37 +1288,7 @@
           margin-bottom: 50px;
         }
         
-        .card {
-          background: #fff;
-          padding: 30px 20px;
-          border-radius: 12px;
-          text-align: center;
-          box-shadow: 0 8px 16px rgba(0,0,0,0.08);
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 20px rgba(0,0,0,0.12);
-        }
-        
-        .card-icon {
-          font-size: 2.5rem;
-          color: #0066cc;
-          margin-bottom: 15px;
-        }
-        
-        .card h4 {
-          font-size: 1.2rem;
-          font-weight: 600;
-          margin-bottom: 10px;
-        }
-        
-        .card p {
-          color: #555;
-          font-size: 0.95rem;
-          line-height: 1.5;
-        }
+
         .contact-cta {
           text-align: center; /* ensures everything inside is centered */
           display: flex;
