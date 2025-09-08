@@ -2332,27 +2332,28 @@
         /* CTA Section - Get Started Today */
         @media (max-width: 768px) {
           .cta-content {
-            padding: 32px 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
         
-          .cta-section h3 {
-            font-size: 1.6rem;
-          }
-        
+          .cta-section h3,
           .cta-section p {
-            font-size: 1rem;
-            margin-bottom: 24px;
+            max-width: 100%;
           }
         
           .btn-group {
+            display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
+            width: 100%;
             align-items: center;
           }
         
           .btn-group .btn {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             justify-content: center;
           }
         }
