@@ -2372,11 +2372,17 @@
             text-align: center;
           }
         
-          .footer-logo,
+          /* ✅ Keep logo centered but don't push it off screen */
+          .footer-logo {
+            justify-content: center;
+            text-align: center;
+          }
+        
+          /* ✅ Only apply centering to markers */
           .footer-links h4::after,
           .footer-contact h4::after {
-             left: 50%;
-             transform: translateX(-50%);
+            left: 50%;
+            transform: translateX(-50%);
           }
         
           .social-links {
@@ -2388,7 +2394,7 @@
             align-items: center;
             text-align: center;
           }
-        }         
+        }       
     </style>
 </head>
 <body>
