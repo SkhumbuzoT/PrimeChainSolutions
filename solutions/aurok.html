@@ -648,6 +648,52 @@
             color: rgba(255, 255, 255, 0.8);
             font-size: 0.9em;
         }
+        .chart-container {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 25px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e8e8e8;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .chart-container.visible { opacity: 1; transform: translateY(0); }
+        .progress-bar { height: 6px; background: #e0e0e0; border-radius: 3px; margin: 20px 0; overflow: hidden; }
+        .progress-fill { height: 100%; width: 0; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); transition: width 0.5s ease; }
+        /* Tooltip styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+            margin-left: 6px;
+            color: #4facfe;
+            font-weight: bold;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 200px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -100px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
