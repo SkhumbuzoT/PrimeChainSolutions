@@ -34,29 +34,8 @@
     <link rel="stylesheet" href="../css/article-template.css">
 </head>
 <body>
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-    
-    <!-- Header -->
-    <header id="header">
-        <div class="container header-container">
-            <a href="../index.html" class="logo">
-                <img src="../assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
-            </a>
-            <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#approach">Approach</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                    <li><a href="../articles.html" class="active">Articles</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Header will be inserted here -->
+    <div data-include="../templates/header-template.html"></div>
 
     <!-- Article Content -->
     <section class="article-section">
@@ -192,55 +171,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-about">
-                    <div class="footer-logo">
-                        <img src="../assets/primechain-solutions-workflow-light.svg" alt="Prime Chain Logo">
-                    </div>
-                    <p>Helping businesses gain visibility and automate workflows with simple, powerful tools.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="../index.html#services">Services</a></li>
-                        <li><a href="../index.html#approach">Approach</a></li>
-                        <li><a href="../index.html#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="../articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h4>Let's Talk</h4>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">skhumbuzo@primechainsolutions.co.za</a></p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
-                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <div class="back-to-top" aria-label="Back to top">
-        <i class="fas fa-arrow-up"></i>
-    </div>
+    <!-- Footer will be inserted here -->
+    <div data-include="../templates/footer-template.html"></div>
 
     <script src="../js/article-template.js"></script>
 </body>
