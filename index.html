@@ -2928,9 +2928,9 @@
             const savings = annual * 0.8; // 80% automation savings
         
             // Update cost displays with animation
-            animateValue(monthlyCost, 0, monthly, 800);
-            animateValue(annualCost, 0, annual, 800);
-            animateValue(potentialSavings, 0, savings, 800);
+            animateValue(monthlyCost, 0, monthly, 800, 'R');
+            animateValue(annualCost, 0, annual, 800, 'R');
+            animateValue(potentialSavings, 0, savings, 800, 'R');
         
             // Update impact statement
             savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
@@ -2945,6 +2945,7 @@
             updateCalculations();
         }
         
+        // ===== Falling Documents Animation =====
         function createDoc() {
             const doc = document.createElement('div');
             doc.classList.add('doc');
@@ -2957,88 +2958,104 @@
                 doc.remove();
             }, 8000);
         }
-        // ===== Testimonials Carousel =====
-        function initTestimonialCarousel() {
-          const track = document.querySelector('.carousel-track');
-          const slides = document.querySelectorAll('.testimonial-slide');
-          const prevButton = document.querySelector('.carousel-control.prev');
-          const nextButton = document.querySelector('.carousel-control.next');
-          const indicatorsContainer = document.querySelector('.carousel-indicators');
-          
-          if (!track || slides.length === 0) return;
-          
-          let currentIndex = 0;
-          
-          // Create indicators
-          slides.forEach((_, i) => {
-            const indicator = document.createElement('div');
-            indicator.classList.add('indicator');
-            if (i === 0) indicator.classList.add('active');
-            indicator.addEventListener('click', () => goToSlide(i));
-            indicatorsContainer.appendChild(indicator);
-          });
-          
-          const indicators = document.querySelectorAll('.indicator');
-          
-          // Update carousel position
-          function updateCarousel() {
-            track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Initialize falling documents
+        function initFallingDocs() {
+            const docsContainer = document.querySelector('.falling-docs');
+            if (!docsContainer) return;
             
-            // Update indicators
-            indicators.forEach((indicator, i) => {
-              indicator.classList.toggle('active', i === currentIndex);
-            });
-          }
-          
-          // Navigate to specific slide
-          function goToSlide(index) {
-            currentIndex = index;
-            updateCarousel();
-          }
-          
-          // Next slide
-          function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            updateCarousel();
-          }
-          
-          // Previous slide
-          function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            updateCarousel();
-          }
-          
-          // Event listeners
-          if (nextButton) nextButton.addEventListener('click', nextSlide);
-          if (prevButton) prevButton.addEventListener('click', prevSlide);
-          
-          // Auto-advance (optional)
-          let carouselInterval = setInterval(nextSlide, 6000);
-          
-          // Pause on hover
-          const carousel = document.querySelector('.carousel-container');
-          if (carousel) {
-            carousel.addEventListener('mouseenter', () => {
-              clearInterval(carouselInterval);
-            });
+            const docCount = 12;
+            for (let i = 0; i < docCount; i++) {
+                setTimeout(() => {
+                    createDoc();
+                }, i * 500); // Stagger the creation of documents
+            }
             
-            carousel.addEventListener('mouseleave', () => {
-              carouselInterval = setInterval(nextSlide, 6000);
-            });
+            // Continue creating documents periodically
+            setInterval(() => {
+                createDoc();
+            }, 2000);
+        }
         
         // Initialize when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
-          const docsContainer = document.querySelector('.falling-docs');
-          if (!docsContainer) return;
-          const docCount = 12;
-          for (let i = 0; i < docCount; i++) {
-            const doc = document.createElement('div');
-            doc.classList.add('doc');
-            doc.style.left = `${Math.random() * 80 + 10}%`;
-            doc.style.animationDelay = `${Math.random() * 3}s`;
-            doc.style.animationDuration = `${3.5 + Math.random() * 2}s`;
-            docsContainer.appendChild(doc);
-          }
+            initFallingDocs();
+        });
+        
+        // ===== Testimonials Carousel =====
+        function initTestimonialCarousel() {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            if (!track || slides.length === 0) return;
+            
+            let currentIndex = 0;
+            
+            // Create indicators
+            slides.forEach((_, i) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Update carousel position
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            // Navigate to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            if (nextButton) nextButton.addEventListener('click', nextSlide);
+            if (prevButton) prevButton.addEventListener('click', prevSlide);
+            
+            // Auto-advance (optional)
+            let carouselInterval = setInterval(nextSlide, 6000);
+            
+            // Pause on hover
+            const carousel = document.querySelector('.carousel-container');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(carouselInterval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    carouselInterval = setInterval(nextSlide, 6000);
+                });
+            }
+        }
+        
+        // Initialize carousel when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initTestimonialCarousel();
         });
 </script>
 </body>
