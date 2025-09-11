@@ -2902,8 +2902,9 @@
         const annualCost = document.getElementById('annualCost');
         const potentialSavings = document.getElementById('potentialSavings');
         const savingsAmount = document.getElementById('savingsAmount');
-
-        function animateValue(element, start, end, duration, prefix = '') {
+        
+        // Animation function for smooth value transitions
+        function animateValue(element, start, end, duration, prefix = 'R') {
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
@@ -2916,49 +2917,39 @@
             };
             window.requestAnimationFrame(step);
         }
-        function createDoc() {
-            const doc = document.createElement('div');
-            doc.classList.add('doc');
-            doc.style.left = Math.random() * window.innerWidth + 'px';
-            doc.style.animationDuration = (3 + Math.random() * 5) + 's';
-            document.querySelector('.falling-docs').appendChild(doc);
         
-            setTimeout(() => doc.remove(), 8000);
-        }
-        setInterval(createDoc, 300);
-        }
-        
-        // Spawn a new doc every 300ms
-        setInterval(createDoc, 300);
-
         function updateCalculations() {
             const hours = parseInt(hoursSlider.value);
             const rate = parseInt(rateSlider.value);
-
+        
             // Update displays
             hoursDisplay.textContent = hours;
             rateDisplay.textContent = rate.toLocaleString();
-
-            // Calculate costs
-            const monthly = hours * rate * 4.33; // average weeks per month
-            const annual = monthly * 12;
+        
+            // Calculate costs (hours per week * rate per hour * weeks)
+            const weeklyCost = hours * rate;
+            const monthly = weeklyCost * 4.33; // average weeks per month
+            const annual = weeklyCost * 52; // 52 weeks in a year
             const savings = annual * 0.8; // 80% automation savings
-
+        
             // Update cost displays with animation
-            animateValue(monthlyCost, 0, monthly, 800, 'R');
-            animateValue(annualCost, 0, annual, 800, 'R');
-            animateValue(potentialSavings, 0, savings, 800, 'R');
-
+            animateValue(monthlyCost, 0, monthly, 800);
+            animateValue(annualCost, 0, annual, 800);
+            animateValue(potentialSavings, 0, savings, 800);
+        
             // Update impact statement
             savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
         }
-
+        
         // Listen for slider input changes
-        hoursSlider.addEventListener('input', updateCalculations);
-        rateSlider.addEventListener('input', updateCalculations);
-
-        // Initialize on page load
-        updateCalculations();
+        if (hoursSlider && rateSlider) {
+            hoursSlider.addEventListener('input', updateCalculations);
+            rateSlider.addEventListener('input', updateCalculations);
+        
+            // Initialize on page load
+            updateCalculations();
+        }
+        
 
         // ===== Testimonials Carousel =====
         function initTestimonialCarousel() {
