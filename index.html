@@ -329,16 +329,32 @@
             z-index: 3;
         }
         
-        .doc {
+        .doc, .spreadsheet {
             position: absolute;
             width: 30px;
             height: 40px;
-            background: url('assets/doc-icon.png') no-repeat center/contain;
             opacity: 0.5;
             animation-name: fall;
             animation-timing-function: linear;
             animation-iteration-count: 1;
             transform: rotate(0deg);
+        }
+        
+        .doc {
+            background: url('assets/doc-icon.png') no-repeat center/contain;
+        }
+        
+        .spreadsheet {
+            background: url('assets/spreadsheet-icon.png') no-repeat center/contain;
+        }
+        
+        /* If you don't have a spreadsheet icon, you can use an emoji or SVG */
+        .spreadsheet.fallback {
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
         }
         
         @keyframes fall {
@@ -2954,17 +2970,28 @@
             const docsContainer = document.querySelector('.falling-docs');
             if (!docsContainer) return;
             
-            const doc = document.createElement('div');
-            doc.classList.add('doc');
-            doc.style.left = Math.random() * 80 + 10 + '%'; // Position between 10-90% of screen width
-            doc.style.animationDuration = (3 + Math.random() * 5) + 's';
-            doc.style.animationDelay = (Math.random() * 2) + 's';
-            docsContainer.appendChild(doc);
+            // Randomly choose between doc and spreadsheet (50/50 chance)
+            const isSpreadsheet = Math.random() > 0.5;
+            const element = document.createElement('div');
+            
+            if (isSpreadsheet) {
+                element.classList.add('spreadsheet');
+                // If you don't have a spreadsheet icon image, use this fallback:
+                // element.classList.add('fallback');
+                // element.innerHTML = '📊';
+            } else {
+                element.classList.add('doc');
+            }
+            
+            element.style.left = Math.random() * 80 + 10 + '%';
+            element.style.animationDuration = (3 + Math.random() * 5) + 's';
+            element.style.animationDelay = (Math.random() * 2) + 's';
+            docsContainer.appendChild(element);
         
-            // Remove doc after animation
+            // Remove element after animation
             setTimeout(() => {
-                if (doc.parentNode === docsContainer) {
-                    docsContainer.removeChild(doc);
+                if (element.parentNode === docsContainer) {
+                    docsContainer.removeChild(element);
                 }
             }, 8000);
         }
