@@ -2381,23 +2381,18 @@
    <!-- Hero Section -->
     <section class="hero" id="main-content">
         <div class="falling-docs"></div>
-    
         <div class="hero-content">
-            <div class="hero-badge fade-in">
-            </div>
-            
+            <div class="hero-badge fade-in"></div>
             <h1 class="fade-in">
                 Stop Drowning in <span class="hero-highlight">Spreadsheets</span>. 
                 <span class="hero-highlight">Automate</span> Your Workflows. 
                 <span class="hero-highlight">Visualize</span> Your Data.
             </h1>
-            
             <p class="fade-in">
                 We help small and medium businesses save hours of manual work every week with 
                 workflow automation and interactive dashboards that give you live insights into 
                 operations and revenue.
             </p>
-            
             <div class="btn-group">
                 <a href="mailto:skhumbuzo@primechainsolutions.co.za" class="btn btn-primary fade-in">
                     <i class="fas fa-calendar-check"></i> Book a Free Consultation
@@ -3034,18 +3029,19 @@
         }
         
         // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', initTestimonialCarousel);
-
-        // ===== Ripple CSS =====
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to { transform: scale(4); opacity: 0; }
-            }
-            .btn { position: relative; overflow: hidden; }
-        `;
-        document.head.appendChild(style);
-    });
+        document.addEventListener('DOMContentLoaded', function() {
+          const docsContainer = document.querySelector('.falling-docs');
+          if (!docsContainer) return;
+          const docCount = 12;
+          for (let i = 0; i < docCount; i++) {
+            const doc = document.createElement('div');
+            doc.classList.add('doc');
+            doc.style.left = `${Math.random() * 80 + 10}%`;
+            doc.style.animationDelay = `${Math.random() * 3}s`;
+            doc.style.animationDuration = `${3.5 + Math.random() * 2}s`;
+            docsContainer.appendChild(doc);
+          }
+        });
 </script>
 </body>
 </html>
