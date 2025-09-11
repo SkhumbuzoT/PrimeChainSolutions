@@ -306,7 +306,7 @@
             overflow: hidden;
         }
         
-        /* Keep your existing pseudo-elements but adjust their opacity */
+        /* Pseudo-elements for hero background */
         .hero::before {
             content: '';
             position: absolute;
@@ -319,7 +319,7 @@
                 radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
             animation: float 20s ease-in-out infinite;
-            z-index: 1; /* Ensure it's above the background image */
+            z-index: 1;
         }
         
         .hero::after {
@@ -331,7 +331,7 @@
             bottom: 0;
             background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
             animation: slide 30s linear infinite;
-            z-index: 2; /* Keep above other layers */
+            z-index: 2;
         }
         
         .hero-content {
@@ -340,54 +340,83 @@
             text-align: center;
             color: var(--white);
             position: relative;
-            z-index: 3; /* Ensure content is above all backgrounds */
+            z-index: 4; /* Above all backgrounds and falling docs */
             padding: 120px 24px 80px;
         }
         
         .hero-badge {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          padding: 8px 20px;
-          border-radius: 50px;
-          font-size: 14px;
-          font-weight: 500;
-          margin-bottom: 32px;
-          animation: fadeInUp 0.8s ease 0.2s both;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease 0.2s both;
         }
         
         .hero-badge i {
-          color: var(--gold);
+            color: var(--gold);
         }
         
         .hero h1 {
-          font-size: clamp(2.5rem, 5vw, 4rem);
-          font-weight: 800;
-          margin-bottom: 24px;
-          line-height: 1.1;
-          letter-spacing: -0.025em;
-          animation: fadeInUp 0.8s ease 0.4s both;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            animation: fadeInUp 0.8s ease 0.4s both;
         }
         
         .hero-highlight {
-          background: linear-gradient(135deg, var(--teal), var(--gold));
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+            background: linear-gradient(135deg, var(--teal), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
         
         .hero p {
-          font-size: clamp(1.1rem, 2vw, 1.3rem);
-          margin-bottom: 40px;
-          opacity: 0.95;
-          max-width: 700px;
-          margin-left: auto;
-          margin-right: auto;
-          line-height: 1.6;
-          animation: fadeInUp 0.8s ease 0.6s both;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        
+        /* Falling documents */
+        .falling-docs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3; /* Above pseudo-elements, below text */
+        }
+        
+        .doc {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: url('assets/doc-icon.png') no-repeat center/contain; /* Replace with your icon */
+            opacity: 0.5;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            transform: rotate(0deg);
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
         
         /* ======================
@@ -2395,37 +2424,6 @@
             text-align: center;
           }
         } 
-        .hero {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .falling-docs {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0; /* behind hero text */
-        }
-        
-        .doc {
-            position: absolute;
-            width: 30px;
-            height: 40px;
-            background: url('path-to-doc-icon.png') no-repeat center/contain;
-            opacity: 0.5;
-            animation-name: fall;
-            animation-timing-function: linear;
-            animation-iteration-count: 1;
-        }
-        
-        @keyframes fall {
-            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.8; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
     </style>
 </head>
 <body>
