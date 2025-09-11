@@ -2950,7 +2950,18 @@
             updateCalculations();
         }
         
-
+        function createDoc() {
+            const doc = document.createElement('div');
+            doc.classList.add('doc');
+            doc.style.left = Math.random() * window.innerWidth + 'px';
+            doc.style.animationDuration = (3 + Math.random() * 5) + 's';
+            document.querySelector('.falling-docs').appendChild(doc);
+        
+            // Remove doc after animation
+            setTimeout(() => {
+                doc.remove();
+            }, 8000);
+        }
         // ===== Testimonials Carousel =====
         function initTestimonialCarousel() {
           const track = document.querySelector('.carousel-track');
