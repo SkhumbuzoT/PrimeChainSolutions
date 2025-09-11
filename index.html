@@ -2394,7 +2394,38 @@
             align-items: center;
             text-align: center;
           }
-        }       
+        } 
+        .hero {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .falling-docs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0; /* behind hero text */
+        }
+        
+        .doc {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background: url('path-to-doc-icon.png') no-repeat center/contain;
+            opacity: 0.5;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
     </style>
 </head>
 <body>
@@ -2423,6 +2454,9 @@
     
    <!-- Hero Section -->
     <section class="hero" id="main-content">
+        <!-- Falling documents container -->
+        <div class="falling-docs"></div>
+    
         <div class="hero-content">
             <div class="hero-badge fade-in">
                 <i class="fas fa-rocket"></i>
@@ -2443,10 +2477,10 @@
             
             <div class="btn-group">
                 <a href="#contact" class="btn btn-primary fade-in">
-                    <i class="fas fa-calendar-check"></i>Book a Consultation
+                    <i class="fas fa-calendar-check"></i> Book a Consultation
                 </a>
                 <a href="#calculator" class="btn btn-secondary fade-in">
-                    <i class="fas fa-calculator"></i>Calculate Savings
+                    <i class="fas fa-calculator"></i> Calculate Savings
                 </a>
             </div>
         </div>
@@ -2959,6 +2993,21 @@
             };
             window.requestAnimationFrame(step);
         }
+        function createDoc() {
+            const doc = document.createElement('div');
+            doc.classList.add('doc');
+            doc.style.left = Math.random() * window.innerWidth + 'px';
+            doc.style.animationDuration = (3 + Math.random() * 5) + 's';
+            document.querySelector('.falling-docs').appendChild(doc);
+        
+            // Remove doc after animation
+            setTimeout(() => {
+                doc.remove();
+            }, 8000);
+        }
+        
+        // Spawn a new doc every 300ms
+        setInterval(createDoc, 300);
 
         function updateCalculations() {
             const hours = parseInt(hoursSlider.value);
