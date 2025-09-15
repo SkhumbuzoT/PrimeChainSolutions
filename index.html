@@ -839,27 +839,6 @@
             margin: 24px auto 0 auto;
           }
         }
-        /* ======================
-           Cost Calculator Section 
-           ====================== */
-        .cost-calculator-section {
-            padding: 90px 0;
-            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cost-calculator-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(8, 145, 178, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
-        }
         
         .section-header {
             text-align: center;
@@ -886,53 +865,6 @@
             opacity: 0.9;
         }
         
-        /* Calculator Card */
-        .calculator-container {
-            max-width: 850px;
-            margin: 0 auto 60px;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .calculator-card {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 50px 40px;
-            box-shadow: var(--shadow-2xl);
-            border: 1px solid rgba(8, 145, 178, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .calculator-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: var(--gradient-secondary);
-        }
-        
-        .calculator-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        
-        .calculator-header h3 {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--navy);
-            margin-bottom: 12px;
-            letter-spacing: -0.025em;
-        }
-        
-        .calculator-header p {
-            font-size: 1.1rem;
-            color: var(--gray-800);
-            opacity: 0.8;
-            line-height: 1.5;
-        }
         
         /* Input Controls */
         .input-group {
@@ -2454,70 +2386,7 @@
             </div>
         </div>
     </section>
-   
-    <!-- ===== Cost Section (with Calculator) ===== -->
-    <section class="cost-calculator-section" id="cost" aria-labelledby="cost-title">
-    <div class="container">
-    <div class="section-header">
-    <h2 id="cost-title">What’s the Cost of Manual Work?</h2>
-    <p class="subtitle">Every hour spent copy‑pasting or chasing data is an hour lost to innovation. Use the sliders to estimate the impact.</p>
-    </div>
-    
-    
-    <div class="calculator-container">
-    <div class="calculator-card" aria-live="polite">
-    <div class="input-group">
-    <label class="input-label" for="hoursSlider">Hours spent on manual work per week</label>
-    <input class="slider" id="hoursSlider" type="range" min="5" max="50" step="1" value="20" />
-    <div class="input-display"><span id="hoursDisplay">20</span> hours</div>
-    </div>
-    
-    
-    <div class="input-group">
-    <label class="input-label" for="rateSlider">Average hourly cost (incl. benefits)</label>
-    <input class="slider" id="rateSlider" type="range" min="200" max="800" step="25" value="450" />
-    <div class="input-display">R<span id="rateDisplay">450</span> per hour</div>
-    </div>
-    
-    
-    <div class="results-grid">
-    <div class="result-card">
-    <div class="result-label">Monthly Cost</div>
-    <div class="result-value" id="monthlyCost">R0</div>
-    <div class="result-description">Current manual work spend</div>
-    </div>
-    <div class="result-card">
-    <div class="result-label">Annual Cost</div>
-    <div class="result-value" id="annualCost">R0</div>
-    <div class="result-description">12 months of manual work</div>
-    </div>
-    <div class="result-card savings">
-    <div class="result-label">Potential Savings</div>
-    <div class="result-value" id="potentialSavings">R0</div>
-    <div class="result-description">Assuming 80% automation</div>
-    </div>
-    </div>
-    
-    
-    <div class="impact-statement">
-    <p>
-    Based on your inputs, you could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
-    </p>
-    </div>
-        </div>
-            <div class="cta-section fade-in">
-                <h3>Ready to turn these savings into reality?</h3>
-                <div class="btn-group">
-                    <a href="mailto:skhumbuzo@primechainsolutions.co.za" class="btn btn-primary">
-                        <i class="fas fa-calendar"></i>Schedule a Free Consultation
-                    </a>
-                    <a href="https://wa.me/27846503832?text=Hi,%20I'm%20interested%20in%20your%20automation%20solutions" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>Chat on WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
       <!-- Solution Section -->
     <section class="section section-alt animate-on-scroll">
