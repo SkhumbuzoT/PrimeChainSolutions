@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Metadata -->
-    <meta name="description" content="Calculate the cost of manual work in your business and discover potential savings with our interactive calculator." />
-    <meta name="keywords" content="cost calculator, manual work cost, business automation savings, workflow automation ROI" />
+    <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
+    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.primechainsolutions.co.za/cost-calculator">
-    <meta property="og:title" content="Manual Work Cost Calculator - Prime Chain Solutions">
-    <meta property="og:description" content="Calculate the cost of manual work in your business and discover potential savings.">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="og:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="og:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
     <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/cost-calculator">
-    <meta property="twitter:title" content="Manual Work Cost Calculator - Prime Chain Solutions">
-    <meta property="twitter:description" content="Calculate the cost of manual work in your business and discover potential savings.">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="twitter:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
+    <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
     <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
 
     <!-- Favicon -->
@@ -36,7 +36,7 @@
     </script>
     <!-- End Google tag -->
 
-    <title>Manual Work Cost Calculator - Prime Chain Solutions</title>
+    <title>Prime Chain Solutions - Visibility and Automation fr Businesses</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -292,6 +292,346 @@
         }
         
         /* ======================
+           Hero Section
+           ====================== */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            color: var(--white);
+            position: relative;
+            z-index: 4;
+            padding: 120px 24px 80px;
+        }
+        
+        .hero-badge { /* keep same as before */ }
+        .hero-badge i { color: var(--gold); }
+        .hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; line-height: 1.1; letter-spacing: -0.025em; }
+        .hero-highlight { background: linear-gradient(135deg, var(--teal), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: clamp(1.1rem, 2vw, 1.3rem); margin-bottom: 40px; max-width: 700px; margin-left:auto; margin-right:auto; line-height:1.6; }
+        
+        /* Falling documents */
+        .falling-docs {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 3;
+        }
+        
+        .doc, .spreadsheet {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            opacity: 0.5;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: 1;
+            transform: rotate(0deg);
+        }
+        
+        .doc {
+            background: url('assets/doc-icon.png') no-repeat center/contain;
+        }
+        
+        .spreadsheet {
+            background: url('assets/spreadsheet-icon.png') no-repeat center/contain;
+        }
+        
+        /* If you don't have a spreadsheet icon, you can use an emoji or SVG */
+        .spreadsheet.fallback {
+            background: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-50px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* ======================
+           Card Components
+           ====================== */
+        .card {
+          background: rgba(255, 255, 255, 0.95); /* Changed to semi-transparent white */
+          border-radius: 20px;
+          padding: 40px 32px;
+          box-shadow: var(--shadow-lg);
+          border: 1px solid var(--gray-100);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+          width: 100%; /* Ensure full width within grid */
+          max-width: 380px; /* Optional: set max width for better proportions */
+          margin: 0 auto; /* Center the card */
+          text-align: center; /* Keep text left-aligned inside cards */
+          backdrop-filter: blur(4px); /* Adds subtle blur effect */
+        }
+        
+        .card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: var(--teal);
+          opacity: 0;
+          transition: var(--transition);
+          z-index: 0;
+        }
+        
+        .card:hover {
+          transform: translateY(-8px);
+          box-shadow: var(--shadow-2xl);
+          border-color: var(--teal);
+          background: rgba(255, 255, 255, 0.98); /* Slightly more opaque on hover */
+        }
+        
+        .card:hover::before {
+          opacity: 1;
+        }
+        
+        .card-icon {
+          width: 64px;
+          height: 64px;
+          background: var(--gradient-secondary);
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.5rem;
+          color: var(--white);
+          margin: 0 auto 24px; /* Center the icon */
+          position: relative;
+          z-index: 1;
+          box-shadow: var(--shadow-md);
+          transition: var(--transition);
+        }
+        
+        .card:hover .card-icon {
+          transform: scale(1.05);
+        }
+        
+        .card h3, .card h4 {
+          font-size: 1.25rem;
+          font-weight: 700;
+          color: var(--navy);
+          margin-bottom: 16px;
+          position: relative;
+          z-index: 1;
+          text-align: center; /* Center headings */
+        }
+        
+        .card p {
+          color: var(--gray-800);
+          line-height: 1.6;
+          position: relative;
+          z-index: 1;
+          text-align: left; /* Keep paragraph text left-aligned */
+        }
+                
+        /* Solution Pillar Card */
+        .solution-pillar {
+          background: var(--white);
+          border-radius: 24px;
+          padding: 48px 40px;
+          box-shadow: var(--shadow-xl);
+          border: 1px solid var(--gray-100);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .solution-pillar::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: var(--gradient-secondary);
+        }
+        
+        .solution-pillar:hover {
+          transform: translateY(-12px);
+          box-shadow: var(--shadow-2xl);
+        }
+        
+        .pillar-header {
+          text-align: center;
+          margin-bottom: 32px;
+        }
+        
+        .pillar-number {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background: var(--gradient-secondary);
+          color: var(--white);
+          border-radius: 12px;
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 16px;
+        }
+        
+        .pillar-header h3 {
+          font-size: 1.5rem;
+          font-weight: 800;
+          color: var(--navy);
+          margin-bottom: 8px;
+        }
+        
+        .pillar-subtitle {
+          color: var(--gray-800);
+          font-size: 1rem;
+          font-weight: 500;
+        }
+        
+        .pillar-features {
+          list-style: none;
+        }
+        
+        .pillar-features li {
+          display: flex;
+          align-items: flex-start;
+          gap: 12px;
+          margin-bottom: 12px;
+          color: var(--gray-800);
+          line-height: 1.6;
+        }
+        
+        .pillar-features i {
+          color: var(--teal);
+          font-size: 1.1rem;
+          margin-top: 2px;
+        }
+        
+        /* ======================
+           Stats Components
+           ====================== */
+        .stat-item {
+          text-align: center;
+          background: var(--white);
+          padding: 30px 24px;
+          border-radius: 16px;
+          box-shadow: var(--shadow-md);
+          border: 1px solid var(--gray-100);
+          transition: var(--transition);
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .stat-item::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: var(--gradient-secondary);
+        }
+        
+        .stat-item:hover {
+          transform: translateY(-8px);
+          box-shadow: var(--shadow-2xl);
+          border-color: var(--teal);
+        }
+        
+        .stat-number {
+          font-size: clamp(2.5rem, 8vw, 3.5rem);
+          font-weight: 800;
+          background: var(--gradient-secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 8px;
+          line-height: 1;
+        }
+        
+        .stat-label {
+          font-size: 16px;
+          color: var(--gray-800);
+          font-weight: 500;
+          line-height: 1.4;
+        }
+                
+
+
+        * Our Story Enhancement */
+        .our-story-section {
+            background: linear-gradient(135deg, var(--gray-50) 0%, rgba(8, 145, 178, 0.02) 50%, var(--gray-50) 100%);
+            position: relative;
+        }
+        
+        .our-story-content {
+            background: var(--white);
+            border-radius: 24px;
+            box-shadow: var(--shadow-2xl);
+            padding: 64px 48px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid var(--gray-100);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .our-story-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-secondary);
+        }
+        
+        .our-story-icon {
+            font-size: 3rem;
+            color: var(--teal);
+            margin-bottom: 24px;
+            display: inline-block;
+            padding: 24px;
+            background: rgba(8, 145, 178, 0.1);
+            border-radius: 20px;
+        }
+        
+        .our-story-section h2 {
+            color: var(--navy);
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 32px;
+            letter-spacing: -0.025em;
+        }
+        
+        .our-story-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray-800);
+            margin-bottom: 24px;
+        }
+        
+        .our-story-content p:last-child {
+            margin-bottom: 0;
+        }
+        /* ======================
            Button Components
            ====================== */
         .btn {
@@ -369,6 +709,136 @@
           animation: fadeInUp 0.8s ease 0.8s both;
         }
         
+        /* ======================
+           Grid Layouts
+           ====================== */
+        .problem-cards,
+        .solution-highlights,
+        .approach-grid,
+        .target-market-grid,
+        .services-grid,
+        .solutions-container {
+          display: grid;
+          gap: 32px;
+        }
+        
+        .problem-cards {
+          grid-template-columns: repeat(4, 1fr);
+        }
+        .approach-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .solution-highlights {
+          grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+        
+        .target-market-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .services-grid {
+          grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        }
+        
+        .solutions-container {
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .problem-list {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 30px;
+          max-width: 1000px;
+          margin: 0 auto;
+          list-style: none;
+          padding: 0;
+        }
+        .problem-list li {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          padding: 32px 24px;
+          background: var(--white); /* match card background */
+          border-radius: 20px;
+          box-shadow: 0 4px 12px rgba(8, 145, 178, 0.09);
+          border: 1px solid var(--gray-100, #e5e7eb);
+          transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .problem-list li:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 20px 30px -5px rgba(8, 145, 178, 0.11);
+          border-color: var(--teal);
+        }
+        .problem-list i {
+          width: 54px;
+          height: 54px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: var(--teal);    /* teal background */
+          color: var(--white);        /* white icon */
+          border-radius: 14px;
+          font-size: 1.7rem;
+          flex-shrink: 0;
+          box-shadow: 0 2px 8px rgba(8,145,178,0.06);
+        }
+        .problem-list span {
+          font-size: 1.15rem;
+          line-height: 1.7;
+          color: var(--gray-800);
+        }
+        .problem-list strong {
+          color: var(--navy);
+          font-weight: 700;
+        }
+        @media (max-width: 900px) {
+          .problem-list {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (max-width: 600px) {
+          .problem-list li {
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            padding: 24px 12px;
+          }
+          .problem-list i {
+            margin-bottom: 18px;
+          }
+          .problem-list span {
+            font-size: 1.05rem;
+          }
+        }
+        .mission-message {
+          text-align: center;
+          margin: 48px auto 0 auto; /* space above, centered horizontally */
+          padding: 32px 18px;
+          max-width: 700px;
+          font-size: clamp(1.1rem, 2vw, 1.3rem);
+          line-height: 1.7;
+          color: var(--gray-800);
+          background: rgba(255,255,255,0.95);
+          border-radius: 18px;
+          box-shadow: 0 2px 10px rgba(8,145,178,0.04);
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        
+        @media (max-width: 600px) {
+          .mission-message {
+            padding: 20px 8px;
+            font-size: 1.1rem;
+            border-radius: 12px;
+            margin: 24px auto 0 auto;
+          }
+        }
         /* ======================
            Cost Calculator Section 
            ====================== */
@@ -734,6 +1204,69 @@
             color: #059669;
             font-size: 0.9rem;
         }
+
+        /* Contact Section */
+        .contact-section {
+          padding: 80px 0;
+          background: #f9fafc;
+        }
+        
+        .contact-section .section-title h2 {
+          font-size: 2rem;
+          font-weight: 700;
+          margin-bottom: 10px;
+        }
+        
+        .contact-section .section-title p {
+          color: #666;
+          font-size: 1rem;
+          margin-bottom: 40px;
+        }
+        
+        .approach-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 30px;
+          margin-bottom: 50px;
+        }
+        
+
+        .contact-cta {
+          text-align: center; /* ensures everything inside is centered */
+          display: flex;
+          flex-direction: column; /* stack button and text vertically */
+          align-items: center; /* center horizontally */
+          gap: 12px; /* nice spacing between button and text */
+        }
+        
+        .contact-cta .btn-whatsapp {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center; /* centers icon + text horizontally */
+          background: #25d366;
+          color: #fff;
+          font-weight: 600;
+          padding: 12px 24px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: background 0.3s ease;
+        }
+        
+        .contact-cta .btn-whatsapp i {
+          margin-right: 8px;
+          font-size: 1.2rem;
+        }
+        
+        .contact-cta p {
+          margin: 0;
+          font-size: 1rem;
+        }
+        
+        .contact-cta a {
+          color: #0066cc;
+          font-weight: 500;
+          text-decoration: underline;
+        }
         
         /* CTA Section */
         .cta-section {
@@ -952,6 +1485,600 @@
         .stagger-4 { animation-delay: 0.4s; }
         
         /* ======================
+           Testimonials Carousel
+           ====================== */
+        .testimonials-carousel {
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .carousel-container {
+          position: relative;
+          max-width: 1000px;
+          margin: 0 auto;
+          overflow: hidden;
+          border-radius: 20px;
+          box-shadow: var(--shadow-2xl);
+        }
+        
+        .carousel-track {
+          display: flex;
+          transition: transform 0.5s ease-in-out;
+        }
+        
+        .testimonial-slide {
+          flex: 0 0 100%;
+          min-height: 400px;
+          background-size: cover;
+          background-position: center;
+          background-blend-mode: overlay;
+          background-color: rgba(10, 31, 68, 0.85);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+        }
+        
+        .testimonial-content {
+          max-width: 700px;
+          padding: 40px;
+          text-align: center;
+          color: var(--white);
+          position: relative;
+          z-index: 2;
+        }
+        
+        .testimonial-content blockquote {
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          border-radius: 16px;
+          padding: 40px;
+          font-size: 1.2rem;
+          line-height: 1.6;
+          font-style: italic;
+          position: relative;
+          margin: 0;
+        }
+        
+        .testimonial-content blockquote::before {
+          content: '"';
+          position: absolute;
+          top: 10px;
+          left: 20px;
+          font-size: 4rem;
+          color: var(--teal);
+          font-family: Georgia, serif;
+          opacity: 0.3;
+        }
+        
+        .testimonial-content blockquote span {
+          display: block;
+          margin-top: 24px;
+          color: var(--teal);
+          font-weight: 600;
+          font-style: normal;
+          font-size: 1rem;
+        }
+        
+        .carousel-control {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          background: rgba(255, 255, 255, 0.2);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          color: white;
+          font-size: 1.5rem;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          z-index: 10;
+          transition: var(--transition);
+        }
+        
+        .carousel-control:hover {
+          background: var(--teal);
+          border-color: var(--teal);
+        }
+        
+        .carousel-control.prev {
+          left: 20px;
+        }
+        
+        .carousel-control.next {
+          right: 20px;
+        }
+        
+        .carousel-indicators {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          display: flex;
+          gap: 10px;
+          z-index: 10;
+        }
+        
+        .carousel-indicators .indicator {
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.5);
+          cursor: pointer;
+          transition: var(--transition);
+        }
+        
+        .carousel-indicators .indicator.active {
+          background: var(--teal);
+          transform: scale(1.2);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .testimonial-slide {
+            min-height: 450px;
+          }
+          
+          .testimonial-content {
+            padding: 20px;
+          }
+          
+          .testimonial-content blockquote {
+            padding: 30px 20px;
+            font-size: 1.1rem;
+          }
+          
+          .carousel-control {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+        }
+        
+        /* ======================
+           CTA Section
+           ====================== */
+        .cta-section {
+          background: var(--gradient-primary);
+          color: var(--white);
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .cta-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 30% 40%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 70% 80%, rgba(8, 145, 178, 0.1) 0%, transparent 50%);
+        }
+        
+        .cta-content {
+          position: relative;
+          z-index: 1;
+        }
+        
+        .cta-section h3 {
+          font-size: clamp(1.75rem, 3vw, 2.5rem);
+          font-weight: 800;
+          margin-bottom: 16px;
+          letter-spacing: -0.025em;
+        }
+        
+        .cta-section p {
+          font-size: 1.2rem;
+          max-width: 700px;
+          margin: 0 auto 40px;
+          opacity: 0.95;
+          line-height: 1.6;
+        }
+        
+        /* ======================
+           Form Components
+           ====================== */
+        form {
+          max-width: 600px;
+          margin: 48px auto 0;
+          display: flex;
+          gap: 16px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+        
+        .form-group {
+          flex: 1;
+          min-width: 280px;
+        }
+        
+        form input[type="email"] {
+          width: 100%;
+          padding: 16px 20px;
+          border: 2px solid rgba(255, 255, 255, 0.2);
+          border-radius: 12px;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          color: var(--white);
+          font-size: 16px;
+          transition: var(--transition);
+        }
+        
+        form input[type="email"]::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+        
+        form input[type="email"]:focus {
+          outline: none;
+          border-color: var(--teal);
+          background: rgba(255, 255, 255, 0.15);
+          box-shadow: 0 0 0 4px rgba(8, 145, 178, 0.1);
+        }
+        
+        form button[type="submit"] {
+          padding: 16px 32px;
+          border: none;
+          cursor: pointer;
+          border-radius: 12px;
+          font-weight: 600;
+          font-size: 16px;
+          background: var(--white);
+          color: var(--navy);
+          transition: var(--transition);
+          box-shadow: var(--shadow-lg);
+        }
+        
+        form button[type="submit"]:hover {
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-2xl);
+        }
+        
+        /* ======================
+           Footer
+           ====================== */
+        footer {
+          background: var(--navy);
+          color: var(--white);
+          padding: 100px 0 32px;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        footer::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 6px;
+          background: var(--gradient-secondary);
+        }
+        
+        footer::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: 
+            radial-gradient(circle at 20% 20%, rgba(8, 145, 178, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(245, 158, 11, 0.03) 0%, transparent 50%);
+        }
+        
+        .footer-container {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 64px;
+          margin-bottom: 64px;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .footer-logo {
+          font-size: 2rem;
+          font-weight: 800;
+          margin-bottom: 24px;
+          color: var(--white);
+          display: flex;
+          align-items: center;
+          letter-spacing: -0.025em;
+        }
+        
+        .footer-logo span {
+          background: var(--gradient-secondary);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        
+        .footer-logo img {
+          height: 60px;
+          margin-right: 12px;
+        }
+        
+        .footer-about p {
+          margin-bottom: 32px;
+          line-height: 1.7;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 1.1rem;
+        }
+        
+        .social-links {
+          display: flex;
+          gap: 16px;
+        }
+        
+        .social-links a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 48px;
+          height: 48px;
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 12px;
+          color: var(--white);
+          font-size: 1.2rem;
+          transition: var(--transition);
+          backdrop-filter: blur(10px);
+        }
+        
+        .social-links a:hover {
+          background: var(--teal);
+          border-color: var(--teal);
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-lg);
+        }
+        
+        .footer-links h4 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-bottom: 24px;
+          color: var(--white);
+          position: relative;
+          padding-bottom: 12px;
+        }
+        
+        .footer-links h4::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 48px;
+          height: 3px;
+          background: var(--gradient-secondary);
+          border-radius: 2px;
+        }
+        
+        .footer-links ul {
+          list-style: none;
+        }
+        
+        .footer-links ul li {
+          margin-bottom: 12px;
+        }
+        
+        .footer-links ul li a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          transition: var(--transition);
+          display: inline-block;
+          padding: 4px 0;
+          font-size: 1rem;
+        }
+        
+        .footer-links ul li a:hover {
+          color: var(--teal);
+          transform: translateX(4px);
+        }
+        
+        .footer-contact h4 {
+          font-size: 1.2rem;
+          font-weight: 700;
+          margin-bottom: 24px;
+          color: var(--white);
+          position: relative;
+          padding-bottom: 12px;
+        }
+        
+        .footer-contact h4::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 48px;
+          height: 3px;
+          background: var(--gradient-secondary);
+          border-radius: 2px;
+        }
+        
+        .footer-contact p {
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 1.1rem;
+        }
+        
+        .footer-contact i {
+          color: var(--teal);
+          font-size: 1.1rem;
+          width: 20px;
+        }
+        
+        .footer-contact a {
+          color: rgba(255, 255, 255, 0.8);
+          text-decoration: none;
+          transition: var(--transition);
+        }
+        
+        .footer-contact a:hover {
+          color: var(--teal);
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+          .footer-contact h4 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+          }
+          .footer-contact h4::after {
+            width: 32px;
+            height: 2px;
+          }
+          .footer-contact p {
+            font-size: 1rem;
+            margin-bottom: 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+          }
+        }
+                
+        .footer-bottom {
+          text-align: center;
+          padding-top: 32px;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          font-size: 1rem;
+          color: rgba(255, 255, 255, 0.7);
+          position: relative;
+          z-index: 1;
+        }
+        
+        /* ======================
+           Back to Top Button
+           ====================== */
+        .back-to-top {
+          position: fixed;
+          bottom: 32px;
+          right: 32px;
+          width: 56px;
+          height: 56px;
+          background: var(--gradient-secondary);
+          color: var(--white);
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.2rem;
+          cursor: pointer;
+          transition: var(--transition);
+          opacity: 0;
+          visibility: hidden;
+          z-index: 999;
+          box-shadow: var(--shadow-xl);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .back-to-top.visible {
+          opacity: 1;
+          visibility: visible;
+        }
+        
+        .back-to-top:hover {
+          transform: translateY(-4px);
+          box-shadow: var(--shadow-2xl);
+        }
+        
+        /* ======================
+           Approach Flow
+           ====================== */
+        .approach-flow {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          gap: 30px;
+          flex-wrap: wrap;
+          position: relative;
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .approach-flow::before {
+          content: "";
+          position: absolute;
+          top: 50px;
+          left: 10%;
+          right: 10%;
+          height: 2px;
+          background: var(--gray-200);
+          z-index: 0;
+        }
+        
+        .approach-step {
+          flex: 1;
+          min-width: 180px;
+          text-align: center;
+          position: relative;
+          z-index: 1;
+        }
+        
+        .circle-icon {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          background: var(--step-color);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0 auto 15px;
+          color: #fff;
+          font-size: 28px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .three-step-list {
+         display: flex;
+         flex-wrap: wrap;
+         gap: 2rem;
+         list-style: none;
+         padding: 0;
+         margin: 2rem 0;
+        }
+        .three-step-list li {
+         flex: 1 1 300px;
+         text-align: center;
+         padding: 1rem;
+         border-radius: 12px;
+          background-color: #f9f9f9;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .three-step-list li:hover {
+         transform: translateY(-5px);
+         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .three-step-list i {
+         color: #2c7be5; /* primary accent color */
+         margin-bottom: 0.5rem;
+       }
+       .three-step-list h3 {
+        margin: 0.5rem 0;
+        font-size: 1.25rem;
+      }
+      .three-step-list p {
+        margin: 0;
+        font-size: 1rem;
+        color: #555;
+      }
+      .section-supporting {
+        text-align: center;
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        color: #333;
+      }
+        
+        /* ======================
            Animations
            ====================== */
         @keyframes fadeInUp {
@@ -1015,8 +2142,26 @@
             padding: 0 20px;
           }
           
+          .hero-content {
+            padding: 100px 20px 60px;
+          }
+          
           .section {
             padding: 80px 0;
+          }
+          
+          .solution-highlights {
+            grid-template-columns: 1fr;
+          }
+          
+          .footer-container {
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+          }
+          
+          .problem-cards,
+          .approach-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
         
@@ -1050,6 +2195,10 @@
             display: block;
           }
           
+          .hero-content {
+            padding: 120px 20px 80px;
+          }
+          
           .btn-group {
             flex-direction: column;
             align-items: center;
@@ -1061,6 +2210,19 @@
             justify-content: center;
           }
           
+          .process-steps {
+            grid-template-columns: 1fr;
+          }
+          
+          .approach-flow {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .approach-flow::before {
+            display: none;
+          }
+          
           .back-to-top {
             width: 48px;
             height: 48px;
@@ -1068,11 +2230,34 @@
             right: 24px;
             border-radius: 12px;
           }
+          
+          form {
+            flex-direction: column;
+            align-items: center;
+          }
+          
+          .form-group {
+            width: 100%;
+            max-width: 400px;
+          }
+          
+          form button[type="submit"] {
+            width: 100%;
+            max-width: 400px;
+          }
+          
+          .solutions-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
         
         @media (max-width: 480px) {
           .container {
             padding: 0 16px;
+          }
+          
+          .hero-content {
+            padding: 100px 16px 60px;
           }
           
           .section {
@@ -1082,7 +2267,107 @@
           .section-title {
             margin-bottom: 48px;
           }
+          
+          .card,
+          .solution-pillar,
+          .service-card {
+            padding: 32px 24px;
+          }
+        .circular-process-section {
+          padding: 80px 0;
+          background: var(--gray-50);
+          text-align: center;
         }
+        
+        .circular-process {
+          max-width: 500px;
+          width: 100%;
+          margin: 0 auto 40px;
+        }
+        
+        .process-descriptions {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 24px;
+          text-align: left;
+        }
+        
+        .process-step h3 {
+          color: var(--navy);
+          margin-bottom: 8px;
+        }
+        
+        .process-step p {
+          color: var(--gray-800);
+          font-size: 0.95rem;
+          line-height: 1.6;
+        }
+        /* CTA Section - Get Started Today */
+        @media (max-width: 768px) {
+          .cta-content {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+          .cta-section h3,
+          .cta-section p {
+            max-width: 100%;
+          }
+        
+          .btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            align-items: center;
+          }
+        
+          .btn-group .btn {
+            width: 100%;
+            max-width: 320px;
+            justify-content: center;
+          }
+        }
+        
+        /* Footer */
+        @media (max-width: 1024px) {
+          .footer-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+          }
+        }
+        
+        @media (max-width: 600px) {
+          .footer-container {
+            grid-template-columns: 1fr;
+            text-align: center;
+          }
+        
+          /* ✅ Keep logo centered but don't push it off screen */
+          .footer-logo {
+            justify-content: center;
+            text-align: center;
+          }
+        
+          /* ✅ Only apply centering to markers */
+          .footer-links h4::after,
+          .footer-contact h4::after {
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        
+          .social-links {
+            justify-content: center;
+          }
+        
+          .footer-contact p {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+          }
+        } 
     </style>
 </head>
 <body>
@@ -1092,261 +2377,511 @@
     <!-- Header -->
     <header id="header">
     <div class="container header-container">
-    <a href="index.html" class="logo" aria-label="Prime Chain Solutions Home">
-      <img src="assets/logo.png" alt="Prime Chain Solutions Logo">
-      Prime Chain <span>Solutions</span>
+    <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
+      <img src="assets/logo-header.png" alt="Prime Chain Solutions logo" />
     </a>
+    <nav aria-label="Primary">
+    <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#cost-calculator.html">Approach</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="#contact">Contact</a></li>
     
-    <nav>
-      <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="index.html#approach">Approach</a></li>
-        <li><a href="index.html#services">Services</a></li>
-        <li><a href="index.html#about">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
+    </ul>
     </nav>
     </div>
     </header>
+
     
-    <!-- Main Content -->
-    <main>
-        <!-- Cost Calculator Section -->
-        <section class="cost-calculator-section" id="cost-calculator">
-            <div class="container">
-                <div class="section-header animate-in">
-                    <h2>What's the Cost of Manual Work?</h2>
-                    <p class="subtitle">Discover how much inefficient processes are costing your business and the potential savings from automation</p>
-                </div>
-                
-                <div class="calculator-container">
-                    <div class="calculator-card animate-in stagger-1">
-                        <div class="calculator-header">
-                            <h3>Calculate Your Potential Savings</h3>
-                            <p>Adjust the sliders to match your business operations</p>
-                        </div>
-                        
-                        <div class="calculator-controls">
-                            <div class="input-group">
-                                <label class="input-label">Number of Employees Performing Manual Tasks</label>
-                                <div class="slider-container">
-                                    <input type="range" min="1" max="50" value="5" class="slider" id="employees-slider">
-                                </div>
-                                <div class="input-display" id="employees-display">5 employees</div>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label class="input-label">Hours Spent on Manual Tasks per Week</label>
-                                <div class="slider-container">
-                                    <input type="range" min="1" max="40" value="10" class="slider" id="hours-slider">
-                                </div>
-                                <div class="input-display" id="hours-display">10 hours per week</div>
-                            </div>
-                            
-                            <div class="input-group">
-                                <label class="input-label">Average Hourly Wage</label>
-                                <div class="slider-container">
-                                    <input type="range" min="15" max="100" value="25" class="slider" id="wage-slider">
-                                </div>
-                                <div class="input-display" id="wage-display">$25 per hour</div>
-                            </div>
-                        </div>
-                        
-                        <div class="results-grid">
-                            <div class="result-card animate-in stagger-2">
-                                <div class="result-label">Weekly Cost</div>
-                                <div class="result-value" id="weekly-cost">$1,250</div>
-                                <div class="result-description">Current spending on manual tasks</div>
-                            </div>
-                            
-                            <div class="result-card animate-in stagger-3">
-                                <div class="result-label">Annual Cost</div>
-                                <div class="result-value" id="annual-cost">$65,000</div>
-                                <div class="result-description">Based on 52 weeks per year</div>
-                            </div>
-                            
-                            <div class="result-card savings animate-in stagger-4">
-                                <div class="result-label">Potential Annual Savings</div>
-                                <div class="result-value" id="annual-savings">$45,500</div>
-                                <div class="result-description">With 70% automation efficiency</div>
-                            </div>
-                        </div>
-                        
-                        <div class="impact-statement animate-in">
-                            <p>By automating these manual tasks, you could save approximately <span class="impact-highlight" id="savings-percentage">70%</span> of the time spent, allowing your team to focus on higher-value work.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="manual-work-section">
-                    <div class="manual-work-header animate-in">
-                        <h3>The Hidden Costs of Manual Processes</h3>
-                    </div>
-                    
-                    <div class="work-grid">
-                        <div class="work-card animate-in stagger-1">
-                            <div class="work-icon">
-                                <i class="fas fa-clock"></i>
-                            </div>
-                            <h4 class="work-title">Time Consumption</h4>
-                            <p class="work-description">Manual tasks take significantly longer than automated processes, reducing overall productivity and increasing labor costs.</p>
-                            <div class="work-savings">
-                                <i class="fas fa-bolt"></i>
-                                <span>Save up to 80% of time</span>
-                            </div>
-                        </div>
-                        
-                        <div class="work-card animate-in stagger-2">
-                            <div class="work-icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </div>
-                            <h4 class="work-title">Error Rates</h4>
-                            <p class="work-description">Human errors in manual data entry and processing can lead to costly mistakes, rework, and customer dissatisfaction.</p>
-                            <div class="work-savings">
-                                <i class="fas fa-bolt"></i>
-                                <span>Reduce errors by 90%</span>
-                            </div>
-                        </div>
-                        
-                        <div class="work-card animate-in stagger-3">
-                            <div class="work-icon">
-                                <i class="fas fa-chart-line"></i>
-                            </div>
-                            <h4 class="work-title">Scalability Issues</h4>
-                            <p class="work-description">Manual processes don't scale efficiently with business growth, leading to bottlenecks and increased operational complexity.</p>
-                            <div class="work-savings">
-                                <i class="fas fa-bolt"></i>
-                                <span>Scale effortlessly</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cta-section animate-in">
-                    <div class="cta-content">
-                        <h3>Ready to Transform Your Business?</h3>
-                        <p>Let's discuss how we can automate your manual processes and unlock significant savings for your organization.</p>
-                        <div class="btn-group">
-                            <a href="https://wa.me/27636366603?text=Hi%20there!%20I'm%20interested%20in%20automating%20our%20manual%20processes." class="btn btn-whatsapp" target="_blank">
-                                <i class="fab fa-whatsapp"></i>
-                                Chat on WhatsApp
-                            </a>
-                            <a href="index.html#contact" class="btn btn-secondary">
-                                <i class="fas fa-envelope"></i>
-                                Contact Us
-                            </a>
-                        </div>
-                    </div>
+    <!-- ===== Cost Section (with Calculator) ===== -->
+    <section class="cost-calculator-section" id="cost" aria-labelledby="cost-title">
+    <div class="container">
+    <div class="section-header">
+    <h2 id="cost-title">What’s the Cost of Manual Work?</h2>
+    <p class="subtitle">Every hour spent copy‑pasting or chasing data is an hour lost to innovation. Use the sliders to estimate the impact.</p>
+    </div>
+    
+    
+    <div class="calculator-container">
+    <div class="calculator-card" aria-live="polite">
+    <div class="input-group">
+    <label class="input-label" for="hoursSlider">Hours spent on manual work per week</label>
+    <input class="slider" id="hoursSlider" type="range" min="5" max="50" step="1" value="20" />
+    <div class="input-display"><span id="hoursDisplay">20</span> hours</div>
+    </div>
+    
+    
+    <div class="input-group">
+    <label class="input-label" for="rateSlider">Average hourly cost (incl. benefits)</label>
+    <input class="slider" id="rateSlider" type="range" min="200" max="800" step="25" value="450" />
+    <div class="input-display">R<span id="rateDisplay">450</span> per hour</div>
+    </div>
+    
+    
+    <div class="results-grid">
+    <div class="result-card">
+    <div class="result-label">Monthly Cost</div>
+    <div class="result-value" id="monthlyCost">R0</div>
+    <div class="result-description">Current manual work spend</div>
+    </div>
+    <div class="result-card">
+    <div class="result-label">Annual Cost</div>
+    <div class="result-value" id="annualCost">R0</div>
+    <div class="result-description">12 months of manual work</div>
+    </div>
+    <div class="result-card savings">
+    <div class="result-label">Potential Savings</div>
+    <div class="result-value" id="potentialSavings">R0</div>
+    <div class="result-description">Assuming 80% automation</div>
+    </div>
+    </div>
+    
+    
+    <div class="impact-statement">
+    <p>
+    Based on your inputs, you could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
+    </p>
+    </div>
+        </div>
+            <div class="cta-section fade-in">
+                <h3>Ready to turn these savings into reality?</h3>
+                <div class="btn-group">
+                    <a href="mailto:skhumbuzo@primechainsolutions.co.za" class="btn btn-primary">
+                        <i class="fas fa-calendar"></i>Schedule a Free Consultation
+                    </a>
+                    <a href="https://wa.me/27846503832?text=Hi,%20I'm%20interested%20in%20your%20automation%20solutions" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i>Chat on WhatsApp
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
-    
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                      <img src="assets/footerTRANSPARENT.png" alt="Prime Chain Solutions logo" />
+                    </div>
+                    <p>We help businesses gain visibility and automate workflows with practical, powerful dashboards and automation tools.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Approach</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="articles.html"><i class="fas fa-chevron-right"></i> Articles</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Case Studies</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Automation Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Let's Talk</h4>
+                    <ul>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:skhumbuzo@primechainsolutions.co.za">info@primechainsolutions.co.za</a></p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+27736775675">+27 73 677 5675</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</p>
+                    <ul>
+                <div class="social-links">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Prime Chain Solutions. All Rights Reserved.</p>
+            </div>
+        </div> 
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <script>
-        // Header scroll effect
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const scrollProgress = document.querySelector('.scroll-progress');
-            
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Scroll progress bar
-            const windowHeight = window.innerHeight;
-            const documentHeight = document.documentElement.scrollHeight - windowHeight;
-            const scrollPercentage = (window.scrollY / documentHeight) * 100;
-            scrollProgress.style.width = scrollPercentage + '%';
-        });
-        
-        // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+        // ===== Mobile Menu Toggle =====
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('nav ul');
-        
-        mobileMenuBtn.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            
-            // Change icon
-            const icon = mobileMenuBtn.querySelector('i');
-            if (navMenu.classList.contains('show')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        // Cost Calculator Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const employeesSlider = document.getElementById('employees-slider');
-            const hoursSlider = document.getElementById('hours-slider');
-            const wageSlider = document.getElementById('wage-slider');
-            
-            const employeesDisplay = document.getElementById('employees-display');
-            const hoursDisplay = document.getElementById('hours-display');
-            const wageDisplay = document.getElementById('wage-display');
-            
-            const weeklyCost = document.getElementById('weekly-cost');
-            const annualCost = document.getElementById('annual-cost');
-            const annualSavings = document.getElementById('annual-savings');
-            const savingsPercentage = document.getElementById('savings-percentage');
-            
-            function updateCalculator() {
-                const employees = parseInt(employeesSlider.value);
-                const hours = parseInt(hoursSlider.value);
-                const wage = parseInt(wageSlider.value);
-                
-                // Update displays
-                employeesDisplay.textContent = `${employees} employee${employees !== 1 ? 's' : ''}`;
-                hoursDisplay.textContent = `${hours} hour${hours !== 1 ? 's' : ''} per week`;
-                wageDisplay.textContent = `$${wage} per hour`;
-                
-                // Calculate costs
-                const weekly = employees * hours * wage;
-                const annual = weekly * 52;
-                const savings = annual * 0.7; // 70% savings estimate
-                
-                // Update results
-                weeklyCost.textContent = `$${weekly.toLocaleString()}`;
-                annualCost.textContent = `$${annual.toLocaleString()}`;
-                annualSavings.textContent = `$${Math.round(savings).toLocaleString()}`;
-            }
-            
-            // Add event listeners to sliders
-            employeesSlider.addEventListener('input', updateCalculator);
-            hoursSlider.addEventListener('input', updateCalculator);
-            wageSlider.addEventListener('input', updateCalculator);
-            
-            // Initialize calculator
-            updateCalculator();
-            
-            // Animate elements on scroll
-            const animateOnScroll = function() {
-                const elements = document.querySelectorAll('.animate-in');
-                
-                elements.forEach(element => {
-                    const elementPosition = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        element.style.animationPlayState = 'running';
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                const nav = document.querySelector('nav ul');
+                const isOpen = nav.classList.contains('show');
+                nav.classList.toggle('show');
+                this.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
+                document.body.style.overflow = isOpen ? '' : 'hidden';
+            });
+        }
+    
+        // ===== Close Mobile Menu on Link Click =====
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                const nav = document.querySelector('nav ul');
+                if (nav && nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
                     }
-                });
-            };
-            
-            // Run on load and scroll
-            window.addEventListener('load', animateOnScroll);
-            window.addEventListener('scroll', animateOnScroll);
-            
-            // Trigger initial animation check
-            animateOnScroll();
+                    document.body.style.overflow = '';
+                }
+            });
         });
+    
+        // ===== Header Scroll Effects & Scroll Progress =====
+        function handleScroll() {
+            const header = document.getElementById('header');
+            const scrollY = window.scrollY;
+    
+            // Sticky header style
+            if (header) header.classList.toggle('scrolled', scrollY > 50);
+    
+            // Back to top button
+            const backToTop = document.querySelector('.back-to-top');
+            if (backToTop) backToTop.classList.toggle('visible', scrollY > 300);
+    
+            // Scroll progress bar
+            const scrollProgress = document.querySelector('.scroll-progress');
+            if (scrollProgress) {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                scrollProgress.style.width = (winScroll / height) * 100 + "%";
+            }
+        }
+        window.addEventListener('scroll', handleScroll);
+    
+        // ===== Back to Top Button =====
+        const backToTopBtn = document.querySelector('.back-to-top');
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    
+        // ===== Smooth Scrolling for Anchors =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+    
+                const headerOffset = 100;
+                const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    
+                // Close mobile menu if open
+                const nav = document.querySelector('nav ul');
+                if (nav && nav.classList.contains('show')) {
+                    nav.classList.remove('show');
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    
+        // ===== Intersection Observer for .animate-on-scroll =====
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    
+        // ===== Stats Counter Animation =====
+        function animateStatsCounter(element, target, suffix = '%') {
+            if (element.classList.contains('animated')) return;
+            let current = 0;
+            const increment = target / 80;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current) + suffix;
+            }, 25);
+            element.classList.add('animated');
+        }
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('animate');
+                        if (entry.target.classList.contains('stat-card')) {
+                            const statNumber = entry.target.querySelector('.stat-number');
+                            const id = statNumber.getAttribute('id');
+                            setTimeout(() => {
+                                if (id === 'stat1') animateStatsCounter(statNumber, 75, '%');
+                                if (id === 'stat2') animateStatsCounter(statNumber, 79, '%');
+                                if (id === 'stat3') animateStatsCounter(statNumber, 42, '%');
+                            }, 200);
+                        }
+                    }, index * 150);
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        document.querySelectorAll('.stat-card, .stats-secondary, .stats-cta').forEach(el => statsObserver.observe(el));
+    
+        // ===== Stagger Card Animation =====
+        document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card')
+            .forEach((card, index) => card.style.animationDelay = `${index * 0.1}s`);
+    
+        // ===== Button Hover Effects =====
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-2px) scale(1.02)';
+            });
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    
+        // ===== Ripple Effect on Buttons =====
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    background: rgba(255, 255, 255, 0.3);
+                    border-radius: 50%;
+                    transform: scale(0);
+                    animation: ripple 0.6s linear;
+                    pointer-events: none;
+                `;
+                this.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            });
+        });
+    
+        // ===== Page Load Animation =====
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent) {
+                setTimeout(() => {
+                    heroContent.style.opacity = '1';
+                    heroContent.style.transform = 'translateY(0)';
+                }, 100);
+            }
+        });
+    
+        // ===== Dynamic Scroll Hue =====
+        window.addEventListener('scroll', function() {
+            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
+            const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
+            document.documentElement.style.setProperty('--dynamic-hue', hue);
+        });
+    
+        // ===== Calculator =====
+        const hoursSlider = document.getElementById('hoursSlider');
+        const rateSlider = document.getElementById('rateSlider');
+        const hoursDisplay = document.getElementById('hoursDisplay');
+        const rateDisplay = document.getElementById('rateDisplay');
+        const monthlyCost = document.getElementById('monthlyCost');
+        const annualCost = document.getElementById('annualCost');
+        const potentialSavings = document.getElementById('potentialSavings');
+        const savingsAmount = document.getElementById('savingsAmount');
+        
+        // Animation function for smooth value transitions
+        function animateValue(element, start, end, duration, prefix = 'R') {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = prefix + value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        function updateCalculations() {
+            const hours = parseInt(hoursSlider.value);
+            const rate = parseInt(rateSlider.value);
+        
+            // Update displays
+            hoursDisplay.textContent = hours;
+            rateDisplay.textContent = rate.toLocaleString();
+        
+            // Calculate costs (hours per week * rate per hour * weeks)
+            const weeklyCost = hours * rate;
+            const monthly = weeklyCost * 4.33; // average weeks per month
+            const annual = weeklyCost * 52; // 52 weeks in a year
+            const savings = annual * 0.8; // 80% automation savings
+        
+            // Update cost displays with animation
+            animateValue(monthlyCost, 0, monthly, 800, 'R');
+            animateValue(annualCost, 0, annual, 800, 'R');
+            animateValue(potentialSavings, 0, savings, 800, 'R');
+        
+            // Update impact statement
+            savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
+        }
+        
+        // Listen for slider input changes
+        if (hoursSlider && rateSlider) {
+            hoursSlider.addEventListener('input', updateCalculations);
+            rateSlider.addEventListener('input', updateCalculations);
+        
+            // Initialize on page load
+            updateCalculations();
+        }
+        
+        // ===== Falling Documents Animation =====
+        function createDoc() {
+            const docsContainer = document.querySelector('.falling-docs');
+            if (!docsContainer) return;
+            
+            // Randomly choose between doc and spreadsheet (50/50 chance)
+            const isSpreadsheet = Math.random() > 0.5;
+            const element = document.createElement('div');
+            
+            if (isSpreadsheet) {
+                element.classList.add('spreadsheet');
+                // If you don't have a spreadsheet icon image, use this fallback:
+                // element.classList.add('fallback');
+                // element.innerHTML = '📊';
+            } else {
+                element.classList.add('doc');
+            }
+            
+            element.style.left = Math.random() * 80 + 10 + '%';
+            element.style.animationDuration = (3 + Math.random() * 5) + 's';
+            element.style.animationDelay = (Math.random() * 2) + 's';
+            docsContainer.appendChild(element);
+        
+            // Remove element after animation
+            setTimeout(() => {
+                if (element.parentNode === docsContainer) {
+                    docsContainer.removeChild(element);
+                }
+            }, 8000);
+        }
+        
+        // Initialize falling documents
+        function initFallingDocs() {
+            const docsContainer = document.querySelector('.falling-docs');
+            if (!docsContainer) return;
+            
+            const docCount = 12;
+            for (let i = 0; i < docCount; i++) {
+                setTimeout(() => {
+                    createDoc();
+                }, i * 500); // Stagger the creation of documents
+            }
+            
+            // Continue creating documents periodically
+            setInterval(() => {
+                createDoc();
+            }, 2000);
+        }
+        
+        // Initialize falling documents
+        initFallingDocs();
+    
+        // ===== Testimonials Carousel =====
+        function initTestimonialCarousel() {
+            const track = document.querySelector('.carousel-track');
+            const slides = document.querySelectorAll('.testimonial-slide');
+            const prevButton = document.querySelector('.carousel-control.prev');
+            const nextButton = document.querySelector('.carousel-control.next');
+            const indicatorsContainer = document.querySelector('.carousel-indicators');
+            
+            if (!track || slides.length === 0) return;
+            
+            let currentIndex = 0;
+            
+            // Create indicators
+            slides.forEach((_, i) => {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === 0) indicator.classList.add('active');
+                indicator.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(indicator);
+            });
+            
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Update carousel position
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Update indicators
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === currentIndex);
+                });
+            }
+            
+            // Navigate to specific slide
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+            }
+            
+            // Next slide
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+            
+            // Previous slide
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            }
+            
+            // Event listeners
+            if (nextButton) nextButton.addEventListener('click', nextSlide);
+            if (prevButton) prevButton.addEventListener('click', prevSlide);
+            
+            // Auto-advance (optional)
+            let carouselInterval = setInterval(nextSlide, 6000);
+            
+            // Pause on hover
+            const carousel = document.querySelector('.carousel-container');
+            if (carousel) {
+                carousel.addEventListener('mouseenter', () => {
+                    clearInterval(carouselInterval);
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    carouselInterval = setInterval(nextSlide, 6000);
+                });
+            }
+        }
+        
+        // Initialize carousel
+        initTestimonialCarousel();
+    });
     </script>
 </body>
 </html>
