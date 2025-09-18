@@ -35,23 +35,28 @@
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
-
+    
     <!-- Header -->
     <header id="header">
-        <div class="container header-container">
-            <a href="../index.html" class="logo" aria-label="Prime Chain Solutions Home">
-                <img src="../assets/logo-header.png" alt="Prime Chain Solutions logo" />
-            </a>
-            <nav aria-label="Primary">
-                <ul>
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#services">Services</a></li>
-                    <li><a href="../index.html#approach">Approach</a></li>
-                    <li><a href="../articles.html">Articles</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <button class="mobile-menu-btn" aria-label="Toggle menu">
+    <div class="container header-container">
+    <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
+      <img src="assets/logo-header.png" alt="Prime Chain Solutions logo" />
+    </a>
+    <nav aria-label="Primary">
+    <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="cost-calculator.html">Cost Calculator</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="#contact">Contact</a></li>
+    </ul>
+    </nav>
+            
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+           <i class="fas fa-moon"></i>
+    </button>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
@@ -95,10 +100,6 @@
 
                 <p>Each task might only take 10-15 minutes. But add them up across your whole team, every day, and you're looking at hours of work that creates zero value for your customers.</p>
 
-                <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 30px 0;">
-                    <h4 style="color: #856404; margin-bottom: 10px;"><i class="fas fa-exclamation-triangle"></i> Reality Check</h4>
-                    <p><strong>We recently audited a 50-employee manufacturing company.</strong> They discovered their team was spending 127 hours per week on manual work that could be automated. That's the equivalent of <strong>3.2 full-time employees</strong> doing nothing but copying data between systems.</p>
-                </div>
                 
                 <h2>What This Really Costs Your Business (The Numbers Will Shock You)</h2>
                 <p>Let's put some numbers on this. Say you have five people spending just one hour per day on manual work that could be automated. That's 25 hours per week, or about 1,300 hours per year.</p>
@@ -137,10 +138,6 @@
 
                 <p><strong>Why it's dangerous:</strong> This happens because information flows manually instead of automatically, creating gaps and inconsistencies. By the time you discover discrepancies, they've already cost you money.</p>
 
-                <div style="background: #f8f9fa; border-left: 4px solid #28a745; padding: 20px; margin: 30px 0;">
-                    <h4 style="color: #28a745; margin-bottom: 10px;"><i class="fas fa-lightbulb"></i> Success Story</h4>
-                    <p><strong>Retail Client Transformation:</strong> A 25-store retail chain was spending 40 hours weekly reconciling inventory across locations. Staff manually updated spreadsheets, emailed reports, and cross-checked systems. We automated their inventory synchronization and reporting. Result: <strong>40 hours saved weekly (R832,000 annually)</strong> with 90% fewer inventory discrepancies. The freed-up time now goes to customer service and merchandising optimization.</p>
-                </div>
                 
                 <h2>Tools That Make Automation Accessible (No Technical Team Required)</h2>
                 <p><strong>You don't need a team of developers to eliminate manual work.</strong> Some of the most effective automation tools are surprisingly simple and affordable:</p>
@@ -176,10 +173,6 @@
                 <p><strong>Week 3: Project Annual Impact</strong><br>
                 Multiply by 50 to get your annual cost. Then consider the opportunity cost—what could your team accomplish with that freed-up time?</p>
 
-                <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 20px; margin: 30px 0;">
-                    <h4 style="color: #856404; margin-bottom: 10px;"><i class="fas fa-calculator"></i> Real Numbers</h4>
-                    <p><strong>Manufacturing Client Results:</strong> 15-person team, 2.5 hours daily manual work each = 37.5 hours weekly × R350/hour × 50 weeks = <strong>R656,250 annual cost</strong>. We automated 80% of this work for R85,000 implementation cost. <strong>ROI: 775% in year one.</strong></p>
-                </div>
                 
                 <h2>Starting Your Automation Journey (The Smart Way)</h2>
                 <p><strong>Don't try to automate everything at once.</strong> Smart businesses start with the manual work that's costing them the most—either in time, errors, or frustration.</p>
@@ -218,8 +211,7 @@
                 <div class="article-cta">
                     <h3>Ready to Stop Bleeding Money on Manual Work?</h3>
                     <p>We help businesses eliminate time-wasting manual processes with simple, practical automation that delivers measurable ROI. No complex implementations, no massive overhauls—just smart connections that save hours every day and eliminate costly errors.</p>
-                    <p><strong>Our proven approach combines process optimization with automation technology, ensuring you get maximum results with minimum disruption to your operations.</strong></p>
-                    <a href="../index.html#contact" class="btn btn-primary">
+                    <a href="../index.html#cost-calculator" class="btn btn-primary">
                         <i class="fas fa-calculator"></i>
                         Calculate Your Manual Work Cost
                     </a>
