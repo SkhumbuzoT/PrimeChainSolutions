@@ -594,16 +594,17 @@
         .pillar-features {
           list-style: none;
         }
-        
-        .pillar-features li {
+        pillar-features li {
           display: flex;
-          align-items: flex-start;
+          align-items: center;       /* changed from flex-start to center */
+          justify-content: center;   /* NEW: centers icon + text horizontally */
           gap: 12px;
           margin-bottom: 12px;
           color: var(--text-secondary);
           line-height: 1.6;
+          text-align: center;        /* NEW: center aligns text */
         }
-        
+                
         .pillar-features i {
           color: var(--teal);
           font-size: 1.1rem;
