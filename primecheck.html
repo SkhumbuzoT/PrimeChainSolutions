@@ -1011,21 +1011,27 @@
           margin-bottom: 48px;
         }
         
-        .footer-logo {
-          font-weight: 800;
-          font-size: 28px;
-          color: var(--white);
-          display: flex;
-          align-items: center;
-          margin-bottom: 16px;
+         .footer-logo {
+            font-weight: 800;
+            font-size: 26px; /* Changed from 28px to 26px to match header */
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
         
         .footer-logo span {
-          background: var(--gradient-secondary);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+            background: linear-gradient(135deg, var(--teal) 0%, var(--teal) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+        
+        .footer-logo img {
+            height: 60px; /* Matches header logo height */
+            margin-right: 12px;
+        }
+        
         
         .footer-about p {
           color: rgba(255, 255, 255, 0.7);
