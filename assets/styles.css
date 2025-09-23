@@ -1566,6 +1566,11 @@ footer::before {
  gap: 16px;
 }
 
+.footer-links ul {
+    list-style: none;
+    padding-left: 0;
+}
+
 .copyright {
  color: rgba(255, 255, 255, 0.5);
  font-size: 14px;
