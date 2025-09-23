@@ -1535,25 +1535,31 @@ footer::before {
 }
 
 .footer-links {
- list-style: none;
+    /* Remove the list-style properties from here since .footer-links is a div */
+}
+
+.footer-links ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }
 
 .footer-links li {
- margin-bottom: 12px;
+    margin-bottom: 12px;
 }
 
 .footer-links a {
- color: rgba(255, 255, 255, 0.7);
- text-decoration: none;
- transition: var(--transition);
- display: inline-flex;
- align-items: center;
- gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .footer-links a:hover {
- color: var(--white);
- transform: translateX(4px);
+    color: var(--white);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
