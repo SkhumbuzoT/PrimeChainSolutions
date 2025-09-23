@@ -1535,16 +1535,12 @@ footer::before {
 }
 
 .footer-links {
-    /* Remove the list-style properties from here since .footer-links is a div */
-}
-
-.footer-links ul {
-    list-style: none;
-    padding-left: 0;
+    padding: 0;
     margin: 0;
 }
 
 .footer-links li {
+    list-style: none;   /* removes the dots */
     margin-bottom: 12px;
 }
 
@@ -1554,7 +1550,7 @@ footer::before {
     transition: var(--transition);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 8px;  /* space between icon and text */
 }
 
 .footer-links a:hover {
