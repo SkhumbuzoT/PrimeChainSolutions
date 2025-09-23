@@ -188,6 +188,167 @@ nav ul li a.active {
   border-radius: 2px;
 }
 
+/* Modern Grid Layout */
+.articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+}
+        
+        /* Article cards styled to match index.html cards */
+.article-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-100);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+}
+        
+.article-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--teal);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+}
+        
+.article-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--teal);
+            background: rgba(255, 255, 255, 0.98);
+}
+        
+.article-card:hover::before {
+            opacity: 1;
+}
+        
+.article-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--teal), var(--navy));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            margin-bottom: 24px;
+}
+        
+.article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(8, 145, 178, 0.8) 0%, 
+                rgba(10, 22, 40, 0.9) 100%);
+}
+        
+.article-image i {
+            font-size: 3rem;
+            color: rgba(255, 255, 255, 0.9);
+            z-index: 2;
+            position: relative;
+}
+        
+.article-content {
+            position: relative;
+            z-index: 1;
+}
+        
+.article-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+}
+        
+.article-date {
+            font-size: 0.9rem;
+            color: var(--gray-800);
+            font-weight: 500;
+            background: var(--gray-100);
+            padding: 6px 12px;
+            border-radius: 20px;
+}
+        
+.article-engagement {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--teal);
+            font-size: 0.9rem;
+            font-weight: 600;
+}
+        
+.article-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+}
+        
+.article-excerpt {
+            color: var(--gray-800);
+            line-height: 1.6;
+            margin-bottom: 24px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-align: left;
+}
+        
+.article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: var(--transition);
+            padding: 12px 0;
+            position: relative;
+            z-index: 1;
+}
+        
+.article-link:hover {
+            color: var(--teal);
+            transform: translateX(4px);
+}
+        
+.article-link i {
+            font-size: 0.9rem;
+            transition: var(--transition);
+}
+        
+.article-link:hover i {
+            transform: translateX(4px);
+}
 /* ======================
    Cards
    ====================== */
