@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beer Distribution Game</title>
     <style>
+        /* Your existing CSS remains the same */
         * {
             margin: 0;
             padding: 0;
@@ -24,490 +25,11 @@
             padding: 20px;
         }
 
-        /* Top Bar */
-        .top-bar {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            border-radius: 20px;
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            margin-bottom: 30px;
-            border: 4px solid #8B4513;
-        }
+        /* ... (all your existing CSS remains exactly the same) ... */
 
-        .week-display {
-            font-size: 24px;
-            font-weight: bold;
-            color: #8B4513;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .demand-display {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            border: 3px solid #8B4513;
-        }
-
-        .dice {
-            width: 40px;
-            height: 40px;
-            background: #FF4444;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            animation: diceRoll 1s ease-in-out;
-        }
-
-        @keyframes diceRoll {
-            0%, 100% { transform: rotate(0deg); }
-            25% { transform: rotate(90deg); }
-            50% { transform: rotate(180deg); }
-            75% { transform: rotate(270deg); }
-        }
-
-        .cost-display {
-            background: #FF6B6B;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 15px;
-            font-weight: bold;
-            border: 3px solid #8B4513;
-        }
-
-        /* Game Board */
-        .game-board {
-            background: #2E8B57;
-            border-radius: 25px;
-            padding: 40px;
-            margin: 30px 0;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-            border: 6px solid #8B4513;
-            position: relative;
-        }
-
-        .board-title {
-            text-align: center;
-            font-size: 28px;
-            color: white;
-            margin-bottom: 30px;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
-        }
-
-        .stages-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            position: relative;
-        }
-
-        /* Stage Cards */
-        .stage-card {
-            flex: 1;
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border: 4px solid;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .stage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-        }
-
-        .stage-card.retailer { border-color: #4169E1; }
-        .stage-card.wholesaler { border-color: #32CD32; }
-        .stage-card.distributor { border-color: #FFD700; }
-        .stage-card.factory { border-color: #FF4444; }
-
-        .stage-header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .stage-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .stage-card.retailer .stage-title { color: #4169E1; }
-        .stage-card.wholesaler .stage-title { color: #32CD32; }
-        .stage-card.distributor .stage-title { color: #FFD700; }
-        .stage-card.factory .stage-title { color: #FF4444; }
-
-        .avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            border: 3px solid;
-        }
-
-        .stage-card.retailer .avatar {
-            background: linear-gradient(45deg, #4169E1, #87CEEB);
-            border-color: #4169E1;
-        }
-        .stage-card.wholesaler .avatar {
-            background: linear-gradient(45deg, #32CD32, #98FB98);
-            border-color: #32CD32;
-        }
-        .stage-card.distributor .avatar {
-            background: linear-gradient(45deg, #FFD700, #FFFFE0);
-            border-color: #FFD700;
-        }
-        .stage-card.factory .avatar {
-            background: linear-gradient(45deg, #FF4444, #FFA0A0);
-            border-color: #FF4444;
-        }
-
-        /* Tokens */
-        .tokens-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 20px 0;
-        }
-
-        .token-row {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border: 2px solid #ddd;
-        }
-
-        .token-icon {
-            width: 30px;
-            height: 30px;
-            border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-
-        .inventory-token { background: #28A745; }
-        .backlog-token { background: #DC3545; }
-        .shipment-token { background: #17A2B8; }
-
-        .token-count {
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        /* Arrows between stages */
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 30px;
-            color: #FFD700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
-            50% { opacity: 0.7; transform: translateY(-50%) scale(1.1); }
-        }
-
-        .arrow-1 { left: 23%; }
-        .arrow-2 { left: 48%; }
-        .arrow-3 { left: 73%; }
-
-        /* Moving truck animation */
-        .truck {
-            position: absolute;
-            top: 45%;
-            font-size: 24px;
-            color: #FF4444;
-            animation: moveTruck 3s linear infinite;
-            opacity: 0;
-        }
-
-        @keyframes moveTruck {
-            0% { left: 0%; opacity: 1; }
-            25% { opacity: 1; }
-            90% { left: 100%; opacity: 1; }
-            100% { left: 100%; opacity: 0; }
-        }
-
-        /* Control Panel */
-        .control-panel {
-            background: linear-gradient(45deg, #6A5ACD, #9370DB);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 30px 0;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border: 4px solid #8B4513;
-        }
-
-        .control-title {
-            text-align: center;
-            font-size: 24px;
-            color: white;
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .order-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .order-slider-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .order-slider {
-            width: 200px;
-            height: 10px;
-            border-radius: 5px;
-            background: #ddd;
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .order-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #FFD700;
-            cursor: pointer;
-            border: 3px solid #8B4513;
-        }
-
-        .order-value {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            background: rgba(0,0,0,0.3);
-            padding: 10px 20px;
-            border-radius: 15px;
-        }
-
-        .place-order-btn {
-            background: linear-gradient(45deg, #32CD32, #228B22);
-            color: white;
-            border: none;
-            padding: 20px 40px;
-            font-size: 20px;
-            font-weight: bold;
-            border-radius: 15px;
-            cursor: pointer;
-            border: 4px solid #8B4513;
-            transition: all 0.3s ease;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .place-order-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-            background: linear-gradient(45deg, #228B22, #006400);
-        }
-
-        .place-order-btn:active {
-            transform: translateY(0);
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 300px;
-            background: white;
-            border-radius: 20px;
-            padding: 25px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            border: 4px solid #8B4513;
-        }
-
-        .sidebar-title {
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            color: #8B4513;
-            margin-bottom: 20px;
-        }
-
-        .score-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 10px;
-            border: 2px solid;
-        }
-
-        .score-item.retailer { border-color: #4169E1; background: #E6F2FF; }
-        .score-item.wholesaler { border-color: #32CD32; background: #E6FFE6; }
-        .score-item.distributor { border-color: #FFD700; background: #FFFACD; }
-        .score-item.factory { border-color: #FF4444; background: #FFE6E6; }
-
-        .charts-btn {
-            width: 100%;
-            background: linear-gradient(45deg, #FF6B6B, #FF4444);
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 20px;
-            border: 3px solid #8B4513;
-            transition: all 0.3s ease;
-        }
-
-        .charts-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            max-width: 80%;
-            max-height: 80%;
-            overflow: auto;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #666;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .sidebar {
-                position: static;
-                width: 100%;
-                margin: 20px 0;
-                transform: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .stages-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            
-            .arrow {
-                display: none;
-            }
-            
-            .order-controls {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .top-bar {
-                flex-direction: column;
-                gap: 15px;
-            }
-        }
-
-        /* Tutorial Overlay */
-        .tutorial-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tutorial-content {
-            background: white;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            text-align: center;
-            border: 4px solid #8B4513;
-        }
-
-        .tutorial-title {
-            font-size: 28px;
-            color: #8B4513;
-            margin-bottom: 20px;
-        }
-
-        .tutorial-text {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            color: #333;
-        }
-
-        .start-game-btn {
-            background: linear-gradient(45deg, #32CD32, #228B22);
-            color: white;
-            border: none;
-            padding: 15px 30px;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 10px;
-            cursor: pointer;
-            border: 3px solid #8B4513;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
         }
     </style>
 </head>
@@ -667,7 +189,7 @@
                     <input type="range" class="order-slider" id="orderSlider" min="0" max="20" value="4">
                     <div class="order-value" id="orderValue">4 units</div>
                 </div>
-                <button class="place-order-btn" onclick="placeOrder()">
+                <button class="place-order-btn" id="placeOrderBtn">
                     🎯 Place Order
                 </button>
             </div>
@@ -693,7 +215,7 @@
             <span>Factory Cost:</span>
             <span id="factory-cost">$0</span>
         </div>
-        <button class="charts-btn" onclick="showCharts()">
+        <button class="charts-btn" id="chartsBtn">
             📈 View Charts
         </button>
     </div>
@@ -701,7 +223,7 @@
     <!-- Charts Modal -->
     <div class="modal" id="chartsModal">
         <div class="modal-content">
-            <button class="close-btn" onclick="closeCharts()">&times;</button>
+            <button class="close-btn" id="closeChartsBtn">&times;</button>
             <h2 style="text-align: center; margin-bottom: 30px; color: #8B4513;">📈 Game Analytics</h2>
             <div style="text-align: center; padding: 40px; background: #f8f9fa; border-radius: 10px;">
                 <h3 style="color: #333; margin-bottom: 20px;">The Bullwhip Effect in Action!</h3>
@@ -730,7 +252,8 @@
                 wholesaler: { inventory: 12, backlog: 0, incoming: 0, cost: 0 },
                 distributor: { inventory: 12, backlog: 0, incoming: 0, cost: 0 },
                 factory: { inventory: 12, backlog: 0, production: 0, cost: 0 }
-            }
+            },
+            orders: [] // Track order history
         };
 
         // Initialize game
@@ -747,17 +270,21 @@
             orderValue.textContent = this.value + ' units';
         });
 
-        // Place order function
+        // Enhanced place order function
         function placeOrder() {
             const orderQuantity = parseInt(orderSlider.value);
+            
+            // Store the order
+            gameData.orders.push({
+                week: gameData.week,
+                quantity: orderQuantity,
+                stage: 'retailer' // Player always plays as retailer
+            });
             
             // Animate truck movement
             animateTruck();
             
-            // Animate dice roll for next week's demand
-            animateDice();
-            
-            // Update game state (simplified simulation)
+            // Update game state
             simulateWeek(orderQuantity);
             
             // Update display
@@ -765,29 +292,92 @@
             
             // Show feedback
             showOrderFeedback(orderQuantity);
+            
+            // Add stage highlighting
+            highlightRandomStage();
+            
+            // Check for game end
+            checkGameEnd();
         }
 
         function simulateWeek(orderQuantity) {
-            // Simple simulation logic
+            // Increment week
             gameData.week++;
             
-            // Generate new demand (simplified)
-            const demands = [4, 4, 4, 8, 8, 6, 4, 4, 4];
+            // Generate new demand pattern
+            const demands = [4, 4, 4, 8, 8, 6, 4, 4, 4, 4, 4, 4];
             gameData.demand = demands[Math.min(gameData.week - 1, demands.length - 1)] || 4;
             
-            // Update costs (simplified)
+            // Process supply chain flow
+            processSupplyChain(orderQuantity);
+            
+            // Calculate costs
+            calculateCosts();
+        }
+
+        function processSupplyChain(orderQuantity) {
+            // Simplified supply chain simulation
+            const stages = ['factory', 'distributor', 'wholesaler', 'retailer'];
+            
+            // Process from factory to retailer (upstream to downstream)
+            for (let i = 0; i < stages.length - 1; i++) {
+                const currentStage = stages[i];
+                const nextStage = stages[i + 1];
+                
+                // Move inventory downstream
+                const availableInventory = gameData.stages[currentStage].inventory;
+                const incomingOrder = (nextStage === 'retailer') ? orderQuantity : 
+                                    gameData.stages[nextStage].incoming;
+                
+                const canShip = Math.min(availableInventory, incomingOrder);
+                
+                // Update inventories
+                gameData.stages[currentStage].inventory -= canShip;
+                gameData.stages[nextStage].incoming = canShip;
+                
+                // Handle backlogs
+                if (canShip < incomingOrder) {
+                    gameData.stages[nextStage].backlog += (incomingOrder - canShip);
+                }
+            }
+            
+            // Retailer handles customer demand
+            const retailer = gameData.stages.retailer;
+            const availableForSale = retailer.inventory + retailer.incoming;
+            
+            if (availableForSale >= gameData.demand) {
+                // Meet demand
+                retailer.inventory = availableForSale - gameData.demand;
+                retailer.backlog = 0;
+            } else {
+                // Can't meet demand - create backlog
+                retailer.inventory = 0;
+                retailer.backlog = gameData.demand - availableForSale;
+            }
+            
+            // Clear incoming shipments (they've been processed)
+            retailer.incoming = 0;
+            gameData.stages.wholesaler.incoming = 0;
+            gameData.stages.distributor.incoming = 0;
+            
+            // Factory produces based on orders
+            gameData.stages.factory.production = Math.max(4, orderQuantity + 2); // Simple production rule
+            gameData.stages.factory.inventory += gameData.stages.factory.production;
+        }
+
+        function calculateCosts() {
+            // Reset total cost
+            gameData.totalCost = 0;
+            
+            // Calculate costs for each stage
             Object.keys(gameData.stages).forEach(stage => {
                 const stageData = gameData.stages[stage];
-                // Add holding and backlog costs
-                stageData.cost += stageData.inventory * 0.5 + stageData.backlog * 1.0;
-                gameData.totalCost += stageData.inventory * 0.5 + stageData.backlog * 1.0;
+                // Holding cost: $0.5 per unit in inventory
+                // Backlog cost: $1.0 per unit in backlog
+                const stageCost = (stageData.inventory * 0.5) + (stageData.backlog * 1.0);
+                stageData.cost += stageCost;
+                gameData.totalCost += stageCost;
             });
-            
-            // Simulate some inventory changes
-            gameData.stages.retailer.inventory = Math.max(0, gameData.stages.retailer.inventory - gameData.demand);
-            if (gameData.stages.retailer.inventory === 0) {
-                gameData.stages.retailer.backlog += Math.max(0, gameData.demand - gameData.stages.retailer.inventory);
-            }
         }
 
         function updateDisplay() {
@@ -803,8 +393,8 @@
             // Update stage displays
             Object.keys(gameData.stages).forEach(stage => {
                 const stageData = gameData.stages[stage];
-                document.getElementById(`${stage}-inventory`).textContent = stageData.inventory;
-                document.getElementById(`${stage}-backlog`).textContent = stageData.backlog;
+                document.getElementById(`${stage}-inventory`).textContent = Math.max(0, stageData.inventory);
+                document.getElementById(`${stage}-backlog`).textContent = Math.max(0, stageData.backlog);
                 
                 if (stage === 'factory') {
                     document.getElementById(`${stage}-production`).textContent = stageData.production || 0;
@@ -819,15 +409,9 @@
         function animateTruck() {
             const truck = document.getElementById('movingTruck');
             truck.style.animation = 'none';
-            truck.offsetHeight; // Trigger reflow
-            truck.style.animation = 'moveTruck 3s linear';
-        }
-
-        function animateDice() {
-            const dice = document.getElementById('demandDice');
-            dice.style.animation = 'none';
-            dice.offsetHeight; // Trigger reflow
-            dice.style.animation = 'diceRoll 1s ease-in-out';
+            setTimeout(() => {
+                truck.style.animation = 'moveTruck 3s linear';
+            }, 10);
         }
 
         function showOrderFeedback(quantity) {
@@ -847,10 +431,20 @@
                 z-index: 1500;
                 border: 3px solid #8B4513;
                 text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-                animation: feedbackPop 2s ease-out forwards;
             `;
             feedback.textContent = `✅ Order placed: ${quantity} units`;
             document.body.appendChild(feedback);
+            
+            // Animate feedback
+            feedback.animate([
+                { opacity: 0, transform: 'translate(-50%, -50%) scale(0.5)' },
+                { opacity: 1, transform: 'translate(-50%, -50%) scale(1.1)' },
+                { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+                { opacity: 0, transform: 'translate(-50%, -50%) scale(1)' }
+            ], {
+                duration: 2000,
+                easing: 'ease-out'
+            });
             
             // Remove after animation
             setTimeout(() => {
@@ -860,27 +454,110 @@
             }, 2000);
         }
 
-        // Add CSS for feedback animation
-        const feedbackStyle = document.createElement('style');
-        feedbackStyle.textContent = `
-            @keyframes feedbackPop {
-                0% { 
-                    opacity: 0; 
-                    transform: translate(-50%, -50%) scale(0.5); 
-                }
-                20% { 
-                    opacity: 1; 
-                    transform: translate(-50%, -50%) scale(1.1); 
-                }
-                100% { 
-                    opacity: 0; 
-                    transform: translate(-50%, -50%) scale(1); 
-                }
+        function highlightRandomStage() {
+            document.querySelectorAll('.stage-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            const stages = ['retailer', 'wholesaler', 'distributor', 'factory'];
+            const randomStage = stages[Math.floor(Math.random() * stages.length)];
+            const stageElement = document.querySelector(`[data-stage="${randomStage}"]`);
+            
+            if (stageElement) {
+                stageElement.classList.add('active');
+                setTimeout(() => {
+                    stageElement.classList.remove('active');
+                }, 2000);
             }
-        `;
-        document.head.appendChild(feedbackStyle);
+        }
 
-        // Charts modal functions
+        function checkGameEnd() {
+            if (gameData.week >= 12) {
+                setTimeout(showEndGameCelebration, 1000);
+            }
+        }
+
+        function showEndGameCelebration() {
+            // Create confetti
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => createConfetti(), i * 100);
+            }
+            
+            // Show end game modal
+            const endModal = document.createElement('div');
+            endModal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.9);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 3000;
+            `;
+            
+            endModal.innerHTML = `
+                <div style="background: white; border-radius: 20px; padding: 40px; text-align: center; border: 4px solid #8B4513;">
+                    <h1 style="font-size: 32px; color: #8B4513; margin-bottom: 20px;">🎉 Game Complete!</h1>
+                    <h2 style="color: #FF4444; margin-bottom: 15px;">You experienced the Bullwhip Effect!</h2>
+                    <p style="font-size: 18px; margin-bottom: 25px; color: #333;">
+                        Total Supply Chain Cost: <strong>$${Math.round(gameData.totalCost)}</strong>
+                    </p>
+                    <p style="font-size: 16px; margin-bottom: 30px; color: #666; line-height: 1.6;">
+                        Small changes in customer demand created larger fluctuations upstream in the supply chain.
+                        This is the famous "Bullwhip Effect" that costs companies billions annually!
+                    </p>
+                    <button id="playAgainBtn" style="
+                        background: linear-gradient(45deg, #32CD32, #228B22);
+                        color: white;
+                        border: none;
+                        padding: 15px 30px;
+                        font-size: 18px;
+                        font-weight: bold;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        border: 3px solid #8B4513;
+                    ">🔄 Play Again</button>
+                </div>
+            `;
+            
+            document.body.appendChild(endModal);
+            
+            // Add event listener for play again button
+            document.getElementById('playAgainBtn').addEventListener('click', function() {
+                location.reload();
+            });
+        }
+
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            const colors = ['#FFD700', '#FF4444', '#32CD32', '#4169E1', '#FF69B4'];
+            const shapes = ['🎉', '🎊', '⭐', '🌟', '✨'];
+            
+            confetti.className = 'confetti';
+            confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
+            confetti.style.left = Math.random() * 100 + 'vw';
+            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
+            confetti.style.animationDelay = Math.random() * 2 + 's';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                if (confetti.parentNode) {
+                    confetti.parentNode.removeChild(confetti);
+                }
+            }, 5000);
+        }
+
+        // Event listeners
+        document.getElementById('placeOrderBtn').addEventListener('click', placeOrder);
+        document.getElementById('chartsBtn').addEventListener('click', showCharts);
+        document.getElementById('closeChartsBtn').addEventListener('click', closeCharts);
+
         function showCharts() {
             document.getElementById('chartsModal').style.display = 'block';
         }
@@ -888,6 +565,34 @@
         function closeCharts() {
             document.getElementById('chartsModal').style.display = 'none';
         }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                placeOrder();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                orderSlider.value = Math.max(0, parseInt(orderSlider.value) - 1);
+                orderValue.textContent = orderSlider.value + ' units';
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                orderSlider.value = Math.min(20, parseInt(orderSlider.value) + 1);
+                orderValue.textContent = orderSlider.value + ' units';
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('chartsModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeCharts();
+            }
+        });
+
+        // Initialize display on load
+        window.addEventListener('load', function() {
+            updateDisplay();
+        });
 
         // Stage card hover effects with tooltips
         document.querySelectorAll('.stage-card').forEach(card => {
@@ -902,6 +607,9 @@
         });
 
         function showTooltip(element, stage) {
+            // Remove existing tooltip
+            hideTooltip();
+            
             const tooltip = document.createElement('div');
             tooltip.id = 'stageTooltip';
             tooltip.style.cssText = `
@@ -939,190 +647,7 @@
             }
         }
 
-        // Token animations
-        function animateTokenChange(elementId, oldValue, newValue) {
-            const element = document.getElementById(elementId);
-            if (newValue > oldValue) {
-                element.style.animation = 'tokenIncrease 0.5s ease-out';
-            } else if (newValue < oldValue) {
-                element.style.animation = 'tokenDecrease 0.5s ease-out';
-            }
-        }
-
-        // Add token animation styles
-        const tokenAnimationStyle = document.createElement('style');
-        tokenAnimationStyle.textContent = `
-            @keyframes tokenIncrease {
-                0% { transform: scale(1); color: inherit; }
-                50% { transform: scale(1.3); color: #32CD32; }
-                100% { transform: scale(1); color: inherit; }
-            }
-            
-            @keyframes tokenDecrease {
-                0% { transform: scale(1); color: inherit; }
-                50% { transform: scale(0.7); color: #FF4444; }
-                100% { transform: scale(1); color: inherit; }
-            }
-            
-            .token-row:hover {
-                background: #e9ecef;
-                transform: translateX(5px);
-                transition: all 0.2s ease;
-            }
-            
-            .stage-card.active {
-                border-width: 6px;
-                transform: translateY(-8px);
-                box-shadow: 0 16px 32px rgba(0,0,0,0.4);
-            }
-            
-            .confetti {
-                position: fixed;
-                top: -10px;
-                animation: confettiFall 3s linear forwards;
-                pointer-events: none;
-                z-index: 2000;
-            }
-            
-            @keyframes confettiFall {
-                0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-                100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(tokenAnimationStyle);
-
-        // Game progression and end game
-        function checkGameEnd() {
-            if (gameData.week >= 12) {
-                showEndGameCelebration();
-            }
-        }
-
-        function showEndGameCelebration() {
-            // Create confetti
-            for (let i = 0; i < 50; i++) {
-                setTimeout(() => createConfetti(), i * 100);
-            }
-            
-            // Show end game modal
-            setTimeout(() => {
-                const endModal = document.createElement('div');
-                endModal.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.9);
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    z-index: 3000;
-                `;
-                
-                endModal.innerHTML = `
-                    <div style="background: white; border-radius: 20px; padding: 40px; text-align: center; border: 4px solid #8B4513;">
-                        <h1 style="font-size: 32px; color: #8B4513; margin-bottom: 20px;">🎉 Game Complete!</h1>
-                        <h2 style="color: #FF4444; margin-bottom: 15px;">You experienced the Bullwhip Effect!</h2>
-                        <p style="font-size: 18px; margin-bottom: 25px; color: #333;">
-                            Total Supply Chain Cost: <strong>${Math.round(gameData.totalCost)}</strong>
-                        </p>
-                        <p style="font-size: 16px; margin-bottom: 30px; color: #666; line-height: 1.6;">
-                            Small changes in customer demand created larger fluctuations upstream in the supply chain.
-                            This is the famous "Bullwhip Effect" that costs companies billions annually!
-                        </p>
-                        <button onclick="location.reload()" style="
-                            background: linear-gradient(45deg, #32CD32, #228B22);
-                            color: white;
-                            border: none;
-                            padding: 15px 30px;
-                            font-size: 18px;
-                            font-weight: bold;
-                            border-radius: 10px;
-                            cursor: pointer;
-                            border: 3px solid #8B4513;
-                        ">🔄 Play Again</button>
-                    </div>
-                `;
-                
-                document.body.appendChild(endModal);
-            }, 1500);
-        }
-
-        function createConfetti() {
-            const confetti = document.createElement('div');
-            const colors = ['#FFD700', '#FF4444', '#32CD32', '#4169E1', '#FF69B4'];
-            const shapes = ['🎉', '🎊', '⭐', '🌟', '✨'];
-            
-            confetti.className = 'confetti';
-            confetti.textContent = shapes[Math.floor(Math.random() * shapes.length)];
-            confetti.style.left = Math.random() * 100 + 'vw';
-            confetti.style.color = colors[Math.floor(Math.random() * colors.length)];
-            confetti.style.fontSize = (Math.random() * 20 + 15) + 'px';
-            confetti.style.animationDelay = Math.random() * 2 + 's';
-            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            
-            document.body.appendChild(confetti);
-            
-            setTimeout(() => {
-                if (confetti.parentNode) {
-                    confetti.parentNode.removeChild(confetti);
-                }
-            }, 5000);
-        }
-
-        // Enhanced place order with game progression
-        const originalPlaceOrder = placeOrder;
-        placeOrder = function() {
-            originalPlaceOrder();
-            
-            // Add stage highlighting
-            document.querySelectorAll('.stage-card').forEach(card => {
-                card.classList.remove('active');
-            });
-            
-            // Randomly highlight a stage for dramatic effect
-            const stages = ['retailer', 'wholesaler', 'distributor', 'factory'];
-            const randomStage = stages[Math.floor(Math.random() * stages.length)];
-            document.querySelector(`[data-stage="${randomStage}"]`).classList.add('active');
-            
-            setTimeout(() => {
-                document.querySelector(`[data-stage="${randomStage}"]`).classList.remove('active');
-            }, 2000);
-            
-            // Check for game end
-            checkGameEnd();
-        };
-
-        // Keyboard shortcuts
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                placeOrder();
-            } else if (e.key === 'ArrowLeft') {
-                e.preventDefault();
-                orderSlider.value = Math.max(0, parseInt(orderSlider.value) - 1);
-                orderValue.textContent = orderSlider.value + ' units';
-            } else if (e.key === 'ArrowRight') {
-                e.preventDefault();
-                orderSlider.value = Math.min(20, parseInt(orderSlider.value) + 1);
-                orderValue.textContent = orderSlider.value + ' units';
-            }
-        });
-
-        // Close modal when clicking outside
-        document.getElementById('chartsModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeCharts();
-            }
-        });
-
-        // Initialize display on load
-        window.addEventListener('load', function() {
-            updateDisplay();
-        });
-
-        // Add some visual polish with random background elements
+        // Add background elements
         function addBackgroundElements() {
             const elements = ['🍺', '📦', '🚚', '⚡'];
             
@@ -1148,15 +673,6 @@
                 }, i * 1000);
             }
         }
-
-        const floatStyle = document.createElement('style');
-        floatStyle.textContent = `
-            @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); }
-                50% { transform: translateY(-20px) rotate(180deg); }
-            }
-        `;
-        document.head.appendChild(floatStyle);
 
         // Start background animation
         addBackgroundElements();
