@@ -435,10 +435,61 @@
             });
         });
         
-        // Mobile menu toggle (simplified version)
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            alert('Mobile menu would open here. In a full implementation, this would show a navigation drawer.');
-        });
+       /* Mobile menu toggle — replaces the alert handler.
+   Toggles header.mobile-open and body.mobile-menu-open,
+   updates aria attributes and the icon, and closes on link/outside/escape/resize. */
+        (function () {
+          const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+          const header = document.getElementById('header');
+          const primaryNav = document.getElementById('primary-nav');
+          const body = document.body;
+        
+          if (!mobileMenuBtn || !header || !primaryNav) {
+            console.warn('Mobile menu script: required elements not found', { mobileMenuBtn, header, primaryNav });
+            return;
+          }
+        
+          const menuIcon = mobileMenuBtn.querySelector('i');
+        
+          function openMenu() {
+            header.classList.add('mobile-open');
+            body.classList.add('mobile-menu-open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'true');
+            mobileMenuBtn.setAttribute('aria-label', 'Close mobile menu');
+            if (menuIcon) { menuIcon.classList.remove('fa-bars'); menuIcon.classList.add('fa-times'); }
+          }
+        
+          function closeMenu() {
+            header.classList.remove('mobile-open');
+            body.classList.remove('mobile-menu-open');
+            mobileMenuBtn.setAttribute('aria-expanded', 'false');
+            mobileMenuBtn.setAttribute('aria-label', 'Open mobile menu');
+            if (menuIcon) { menuIcon.classList.remove('fa-times'); menuIcon.classList.add('fa-bars'); }
+          }
+        
+          mobileMenuBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            header.classList.contains('mobile-open') ? closeMenu() : openMenu();
+          });
+        
+          // Close when a nav link is clicked so navigation proceeds normally
+          primaryNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+        
+          // Close when clicking/tapping outside the header
+          document.addEventListener('click', e => {
+            if (header.classList.contains('mobile-open') && !header.contains(e.target)) closeMenu();
+          });
+        
+          // Close on Escape key
+          document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && header.classList.contains('mobile-open')) closeMenu();
+          });
+        
+          // Close on resize to desktop width
+          window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && header.classList.contains('mobile-open')) closeMenu();
+          });
+        })();
     </script>
 </body>
 </html>
