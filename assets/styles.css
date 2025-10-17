@@ -1,4 +1,3 @@
-
 /* ======================
    Base Styles & Variables
     ====================== */
@@ -551,17 +550,19 @@ nav ul li a:hover:after {
 .pillar-features {
  list-style: none;
 }
-pillar-features li {
+
+/* Fixed selector typo and improved centering for icons + text */
+.pillar-features li {
  display: flex;
  align-items: center;       /* changed from flex-start to center */
- justify-content: center;   /* NEW: centers icon + text horizontally */
  gap: 12px;
  margin-bottom: 12px;
  color: var(--text-secondary);
  line-height: 1.6;
- text-align: center;        /* NEW: center aligns text */
+ text-align: left;
+ justify-content: flex-start;
 }
-       
+
 .pillar-features i {
  color: var(--teal);
  font-size: 1.1rem;
@@ -1658,14 +1659,20 @@ footer::before {
 .delay-1000 { animation-delay: 1s; }
 
 /* ======================
-  Responsive Styles
+  Responsive Styles + Mobile Menu Overlay
   ====================== */
-@media (max-width: 1024px) {
- .problem-cards {
-   grid-template-columns: repeat(2, 1fr);
- }
+
+/* Desktop: ensure primary nav shows */
+@media (min-width: 769px) {
+  #primary-nav {
+    display: block !important;
+  }
+  .mobile-menu-btn {
+    display: none;
+  }
 }
 
+/* Mobile: hide default nav and show menu button */
 @media (max-width: 768px) {
  .container {
    padding: 0 20px;
@@ -1679,10 +1686,13 @@ footer::before {
    margin-bottom: 60px;
  }
  
+ /* Hide the normal inline nav on narrow screens (target primary nav specifically) */
+ #primary-nav ul,
  nav ul {
    display: none;
  }
  
+ /* show the hamburger */
  .mobile-menu-btn {
    display: block;
  }
@@ -1728,8 +1738,92 @@ footer::before {
    flex-direction: column;
    align-items: center;
  }
+ 
+ /* --- Mobile menu overlay when header.mobile-open is toggled --- */
+ header.mobile-open {
+   /* keep header at top but allow overlay below it */
+ }
+ 
+ /* overlayed nav container */
+ header.mobile-open #primary-nav {
+   display: block;
+   position: fixed;
+   inset: 0;
+   padding-top: 76px; /* leave space for header height */
+   background: rgba(2, 6, 23, 0.6); /* dark translucent overlay */
+   backdrop-filter: blur(6px);
+   -webkit-backdrop-filter: blur(6px);
+   z-index: 9999;
+   overflow-y: auto;
+ }
+ 
+ /* center the navigation list inside the overlay */
+ header.mobile-open #primary-nav ul {
+   margin: 0;
+   padding: 1.25rem 1rem 3rem;
+   list-style: none;
+   display: flex;
+   flex-direction: column;
+   gap: 12px;
+   align-items: center;
+   justify-content: flex-start;
+ }
+ 
+ /* make links large and tappable */
+ header.mobile-open #primary-nav a {
+   display: block;
+   width: calc(100% - 2rem);
+   max-width: 420px;
+   padding: 14px 18px;
+   font-size: 1.05rem;
+   font-weight: 700;
+   color: var(--white);
+   background: var(--gradient-secondary);
+   border-radius: 12px;
+   text-align: center;
+   text-decoration: none;
+   box-shadow: 0 8px 30px rgba(2,6,23,0.35);
+   transition: transform 120ms ease, opacity 120ms ease;
+ }
+ 
+ header.mobile-open #primary-nav a:hover,
+ header.mobile-open #primary-nav a:focus {
+   transform: translateY(-3px);
+   opacity: 0.98;
+ }
+ 
+ header.mobile-open #primary-nav a:focus {
+   outline: 3px solid rgba(255,255,255,0.12);
+   outline-offset: 4px;
+ }
+ 
+ /* ensure the mobile button sits above overlay and the icon scales for touch */
+ .mobile-menu-btn {
+   z-index: 10010;
+ }
+ .mobile-menu-btn i {
+   font-size: 1.25rem;
+   display: inline-block;
+ }
+ 
+ /* optional: small animation */
+ header.mobile-open #primary-nav {
+   animation: mobileMenuFade .14s ease both;
+ }
+ @keyframes mobileMenuFade {
+   from { opacity: 0; transform: translateY(-6px); }
+   to   { opacity: 1; transform: translateY(0); }
+ }
 }
 
+/* Optional: lock body scroll while mobile menu is open (toggle body.mobile-menu-open in JS) */
+body.mobile-menu-open {
+  overflow: hidden;
+  touch-action: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Additional very small-screen tweaks */
 @media (max-width: 480px) {
  .container {
    padding: 0 16px;
@@ -1759,6 +1853,7 @@ footer::before {
    font-size: 1.1rem;
  }
 }
+
 /* Centralize content for "How We Solve These Challenges" */
 .solution-highlights,
 .solution-highlights .card,
@@ -1785,4 +1880,3 @@ footer::before {
    text-align: center !important;
    justify-items: center;
 }
-</style>
