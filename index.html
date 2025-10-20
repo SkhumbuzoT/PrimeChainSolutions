@@ -43,9 +43,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-       /* ============================
-       🌿 Reset and Base Styles
-        ============================ */
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -58,16 +56,12 @@
         
         body {
             font-family: 'Inter', sans-serif;
-            line-height: 1.7;
+            line-height: 1.6;
             color: #1f2937;
             background-color: #ffffff;
             overflow-x: hidden;
-            font-size: 1rem;
         }
         
-        /* ============================
-           🧭 Containers
-        ============================ */
         .container {
             width: 100%;
             max-width: 1200px;
@@ -75,9 +69,7 @@
             padding: 0 1.5rem;
         }
         
-        /* ============================
-           🏷️ Header
-        ============================ */
+        /* Header */
         #header {
             position: fixed;
             top: 0;
@@ -132,9 +124,7 @@
             z-index: 1001;
         }
         
-        /* ============================
-           🦸 Hero Section
-        ============================ */
+        /* Hero Section */
         .hero {
             position: relative;
             padding: 10rem 0 6rem;
@@ -149,10 +139,9 @@
         }
         
         .hero h1 {
-            font-size: 3.25rem;
+            font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.2;
-            letter-spacing: -0.5px;
             margin-bottom: 1.5rem;
         }
         
@@ -184,7 +173,6 @@
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
         }
         
         .btn-primary {
@@ -209,9 +197,7 @@
             transform: translateY(-2px);
         }
         
-        /* ============================
-           🧩 Sections
-        ============================ */
+        /* Sections */
         .section {
             padding: 6rem 0;
         }
@@ -235,13 +221,9 @@
         .section-title p, .section-header .subtitle {
             font-size: 1.25rem;
             color: #6b7280;
-            max-width: 720px;
-            margin: 0 auto;
         }
         
-        /* ============================
-           🧠 Problem Section
-        ============================ */
+        /* Problems Section */
         .problem-list {
             list-style: none;
             max-width: 800px;
@@ -250,30 +232,19 @@
         
         .problem-list li {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
-            padding: 1.75rem;
+            padding: 1.5rem;
             background: white;
             border-radius: 12px;
             margin-bottom: 1rem;
-            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        
-        .problem-list li:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .problem-list i {
             color: #2563eb;
             font-size: 1.5rem;
-        }
-        
-        .problem-list span {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: #4b5563;
+            margin-top: 0.25rem;
         }
         
         .mission-message {
@@ -289,9 +260,7 @@
             border-radius: 0 12px 12px 0;
         }
         
-        /* ============================
-           🧭 Solutions
-        ============================ */
+        /* Solutions Section */
         .solutions-container {
             display: flex;
             gap: 2rem;
@@ -307,12 +276,6 @@
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.25s ease, box-shadow 0.25s ease;
-        }
-        
-        .solution-pillar:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
         
         .pillar-header {
@@ -350,16 +313,13 @@
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 0.75rem;
-            color: #4b5563;
         }
         
         .pillar-features i {
             color: #10b981;
         }
         
-        /* ============================
-           📖 Our Story
-        ============================ */
+        /* Our Story Section */
         .our-story-section {
             text-align: center;
         }
@@ -381,9 +341,7 @@
             line-height: 1.7;
         }
         
-        /* ============================
-           🧰 Services
-        ============================ */
+        /* Services Section */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,7 +368,7 @@
             margin-bottom: 1.5rem;
         }
         
-        .card h3, .card h4 {
+        .card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
         }
@@ -419,18 +377,14 @@
             color: #6b7280;
         }
         
-        /* ============================
-           🚀 Approach
-        ============================ */
+        /* Approach Section */
         .approach-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
         }
         
-        /* ============================
-           📞 Contact
-        ============================ */
+        /* Contact Section */
         .contact-section {
             text-align: center;
         }
@@ -446,9 +400,7 @@
             transform: translateY(-2px);
         }
         
-        /* ============================
-           🦶 Footer
-        ============================ */
+        /* Footer */
         footer {
             background: #1f2937;
             color: white;
@@ -460,7 +412,6 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 3rem;
             margin-bottom: 3rem;
-            text-align: center;
         }
         
         .footer-logo img {
@@ -476,7 +427,6 @@
         .footer-heading {
             font-size: 1.25rem;
             margin-bottom: 1.5rem;
-            font-weight: 600;
         }
         
         .footer-links ul {
@@ -494,7 +444,6 @@
             align-items: center;
             gap: 0.5rem;
             transition: color 0.3s;
-            justify-content: center;
         }
         
         .footer-links a:hover {
@@ -535,9 +484,7 @@
             background: #2563eb;
         }
         
-        /* ============================
-           📊 Scroll Progress
-        ============================ */
+        /* Scroll Progress */
         .scroll-progress {
             position: fixed;
             top: 0;
@@ -549,12 +496,38 @@
             transition: width 0.1s;
         }
         
-        /* ============================
-           🪄 Animations
-        ============================ */
+        /* Animations */
         .animate-fade-in {
             opacity: 0;
             animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+        
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-700 {
+            animation-delay: 0.7s;
         }
         
         .animate-fade-in-up {
@@ -569,13 +542,17 @@
         }
         
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         
-        /* ============================
-           📄 Falling Documents
-        ============================ */
+        /* Falling Documents Animation */
         .falling-docs {
             position: absolute;
             top: 0;
@@ -629,28 +606,20 @@
         }
         
         @keyframes fall {
-            from { transform: translateY(-100px) rotate(0deg); }
-            to { transform: translateY(100vh) rotate(360deg); }
-        }
-        
-        /* ============================
-           📱 Responsive Styles
-        ============================ */
-        @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 2.75rem;
+            from {
+                transform: translateY(-100px) rotate(0deg);
             }
-        
-            .section-title h2 {
-                font-size: 2.25rem;
+            to {
+                transform: translateY(100vh) rotate(360deg);
             }
         }
         
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
             }
-        
+            
             #primary-nav {
                 position: fixed;
                 top: 0;
@@ -665,18 +634,18 @@
                 padding: 80px 20px 20px;
                 overflow-y: auto;
             }
-        
+            
             #primary-nav ul {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 0;
             }
-        
+            
             #primary-nav li {
                 margin: 10px 0;
                 width: 100%;
             }
-        
+            
             #primary-nav a {
                 display: block;
                 padding: 12px 15px;
@@ -684,51 +653,56 @@
                 border-radius: 6px;
                 transition: background-color 0.2s;
             }
-        
+            
             #primary-nav a:hover {
                 background-color: rgba(0,0,0,0.05);
             }
-        
+            
             body.mobile-menu-open {
                 overflow: hidden;
             }
-        
+            
             #header.mobile-open #primary-nav {
                 right: 0;
             }
-        
+            
+            /* Overlay when menu is open */
+            #header.mobile-open::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
             .hero {
                 padding: 8rem 0 4rem;
             }
-        
+            
             .hero h1 {
-                font-size: 2.25rem;
+                font-size: 2.5rem;
             }
-        
+            
             .hero p {
                 font-size: 1.125rem;
             }
-        
+            
             .btn-group {
                 flex-direction: column;
                 align-items: center;
             }
-        
-            .btn {
-                max-width: 280px;
-                width: 100%;
-                justify-content: center;
+            
+            .section {
+                padding: 4rem 0;
             }
-        
-            .section-title h2 {
-                font-size: 1.75rem;
+            
+            .section-title h2, .section-header h2 {
+                font-size: 2rem;
             }
-        
-            .problem-list li {
-                flex-direction: column;
-                text-align: center;
-            }
-        
+            
             .footer-bottom {
                 flex-direction: column;
                 gap: 1rem;
@@ -738,18 +712,167 @@
         
         @media (max-width: 480px) {
             .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2, .section-header h2 {
                 font-size: 1.75rem;
             }
-        
-            .section-title h2 {
-                font-size: 1.5rem;
-            }
-        
+            
             .container {
                 padding: 0 1rem;
             }
         }
-
+        /* ======================
+          Mobile Center Alignment & Semantic Fixes
+          ====================== */
+        
+        @media (max-width: 768px) {
+            /* Center all section content */
+            .section-title,
+            .section-header {
+                text-align: center;
+            }
+            
+            .section-title h2,
+            .section-header h2 {
+                text-align: center;
+            }
+            
+            .section-title p,
+            .section-header .subtitle {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+            /* Center hero content */
+            .hero-content {
+                text-align: center;
+            }
+        
+            /* Center cards and their content */
+            .card {
+                text-align: center;
+                margin: 0 auto;
+            }
+        
+            .card h3,
+            .card h4,
+            .card p {
+                text-align: center;
+            }
+        
+            /* Center problem list */
+            .problem-list {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        
+            .problem-list li {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 24px 20px;
+            }
+        
+            .problem-list span {
+                text-align: center;
+            }
+        
+            /* Center solutions */
+            .solutions-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        
+            .solution-pillar {
+                text-align: center;
+                margin: 0 auto;
+            }
+        
+            .pillar-features {
+                text-align: center;
+            }
+        
+            .pillar-features li {
+                justify-content: center;
+                text-align: center;
+            }
+        
+            /* Center mission message */
+            .mission-message {
+                text-align: center;
+            }
+        
+            /* Center buttons */
+            .btn-group {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .btn {
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                max-width: 280px;
+            }
+        
+            /* Center contact section */
+            .contact-cta {
+                text-align: center;
+            }
+        
+            /* Center footer content */
+            .footer-content {
+                text-align: center;
+            }
+        
+            .footer-about {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .footer-links {
+                text-align: center;
+            }
+        
+            .footer-links ul {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .footer-links li {
+                text-align: center;
+                justify-content: center;
+            }
+        
+            .footer-links a {
+                justify-content: center;
+            }
+        
+            /* Center our story section */
+            .our-story-content {
+                text-align: center;
+                padding: 40px 24px;
+            }
+        
+            /* Improve touch targets */
+            .btn,
+            .mobile-menu-btn,
+            nav ul li a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
     </style>
 </head>
 <body>
