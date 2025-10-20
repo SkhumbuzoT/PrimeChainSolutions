@@ -43,12 +43,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-       /* ============================================
-           ✨ POLISHED VISUAL STYLING
-           Consistent headers, uniform text, refined spacing
-        ============================================ */
+       /* ============================
+       🌿 Reset and Base Styles
+        ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         
-        /* Base Typography */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.7;
@@ -58,115 +65,412 @@
             font-size: 1rem;
         }
         
-        h1, h2, h3, h4, h5, h6 {
-            color: #1f2937;
-            font-weight: 700;
-            line-height: 1.25;
+        /* ============================
+           🧭 Containers
+        ============================ */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
         
-        p, li, a, span {
-            font-size: 1.125rem;
-            line-height: 1.75;
+        /* ============================
+           🏷️ Header
+        ============================ */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
         
-        /* Header & Hero Titles */
-        .hero h1 {
-            font-size: 3.25rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+        #header.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
         
-        .section-title h2, 
-        .section-header h2, 
-        .our-story-section h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        #primary-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        #primary-nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        #primary-nav a:hover {
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #374151;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* ============================
+           🦸 Hero Section
+        ============================ */
+        .hero {
+            position: relative;
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
             text-align: center;
-        }
-        
-        .section-title p,
-        .section-header .subtitle {
-            font-size: 1.25rem;
-            color: #6b7280;
-            text-align: center;
-            max-width: 720px;
             margin: 0 auto;
         }
         
-        .card h3, .card h4, .pillar-header h3 {
-            font-size: 1.5rem;
+        .hero h1 {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-highlight {
+            color: #2563eb;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 2.5rem;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
             font-weight: 600;
-            margin-bottom: 0.75rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
         
-        .card p, .pillar-subtitle, .pillar-features li, .problem-list span {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: #4b5563;
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
         }
         
-        /* Center alignment refinement */
-        .hero-content,
-        .section-title,
-        .section-header,
-        .card,
-        .problem-list,
-        .solution-pillar,
-        .our-story-content,
-        .contact-cta,
-        .footer-content,
-        .footer-about,
-        .footer-links {
-            text-align: center;
-            margin-left: auto;
-            margin-right: auto;
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
         }
         
+        .btn-secondary {
+            background-color: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* ============================
+           🧩 Sections
+        ============================ */
         .section {
             padding: 6rem 0;
         }
         
-        .container {
-            max-width: 1200px;
-            padding: 0 1.5rem;
+        .section-alt {
+            background-color: #f8fafc;
+        }
+        
+        .section-title, .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-title h2, .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p, .section-header .subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 720px;
             margin: 0 auto;
         }
         
-        /* Problem List UI Enhancement */
+        /* ============================
+           🧠 Problem Section
+        ============================ */
+        .problem-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
         .problem-list li {
+            display: flex;
             align-items: center;
-            padding: 1.75rem;
             gap: 1rem;
+            padding: 1.75rem;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 1px 5px rgba(0,0,0,0.08);
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         
         .problem-list li:hover {
             transform: translateY(-4px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
         }
         
-        /* Cards / Pillars */
-        .card, .solution-pillar {
+        .problem-list i {
+            color: #2563eb;
+            font-size: 1.5rem;
+        }
+        
+        .problem-list span {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #4b5563;
+        }
+        
+        .mission-message {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #6b7280;
             padding: 2rem;
+            border-left: 4px solid #2563eb;
+            background: white;
+            border-radius: 0 12px 12px 0;
+        }
+        
+        /* ============================
+           🧭 Solutions
+        ============================ */
+        .solutions-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .solution-pillar {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            background: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         
-        .card:hover, .solution-pillar:hover {
+        .solution-pillar:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         }
         
-        /* Footer */
+        .pillar-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .pillar-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .pillar-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pillar-subtitle {
+            color: #6b7280;
+        }
+        
+        .pillar-features {
+            list-style: none;
+        }
+        
+        .pillar-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            color: #4b5563;
+        }
+        
+        .pillar-features i {
+            color: #10b981;
+        }
+        
+        /* ============================
+           📖 Our Story
+        ============================ */
+        .our-story-section {
+            text-align: center;
+        }
+        
+        .our-story-icon {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .our-story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .our-story-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* ============================
+           🧰 Services
+        ============================ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h3, .card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card p {
+            color: #6b7280;
+        }
+        
+        /* ============================
+           🚀 Approach
+        ============================ */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        /* ============================
+           📞 Contact
+        ============================ */
+        .contact-section {
+            text-align: center;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+            transform: translateY(-2px);
+        }
+        
+        /* ============================
+           🦶 Footer
+        ============================ */
         footer {
             background: #1f2937;
             color: white;
             padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-about p {
+            color: #d1d5db;
+            line-height: 1.7;
         }
         
         .footer-heading {
@@ -175,41 +479,249 @@
             font-weight: 600;
         }
         
-        .footer-links a {
-            font-size: 1rem;
+        .footer-links ul {
+            list-style: none;
         }
         
-        /* 📱 Responsive Enhancements */
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            justify-content: center;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
+        }
+        
+        .copyright {
+            color: #9ca3af;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #2563eb;
+        }
+        
+        /* ============================
+           📊 Scroll Progress
+        ============================ */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #2563eb;
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+        
+        /* ============================
+           🪄 Animations
+        ============================ */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ============================
+           📄 Falling Documents
+        ============================ */
+        .falling-docs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .doc, .spreadsheet {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fall linear infinite;
+        }
+        
+        .doc::before, .spreadsheet::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            height: 6px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+        
+        .doc::after, .spreadsheet::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 5px;
+            right: 5px;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        
+        .spreadsheet::after {
+            height: 8px;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 2px,
+                #e5e7eb 2px,
+                #e5e7eb 4px
+            );
+        }
+        
+        @keyframes fall {
+            from { transform: translateY(-100px) rotate(0deg); }
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        /* ============================
+           📱 Responsive Styles
+        ============================ */
         @media (max-width: 1024px) {
             .hero h1 {
                 font-size: 2.75rem;
             }
+        
             .section-title h2 {
                 font-size: 2.25rem;
             }
         }
         
         @media (max-width: 768px) {
-            body {
-                font-size: 1rem;
+            .mobile-menu-btn {
+                display: block;
+            }
+        
+            #primary-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 80px 20px 20px;
+                overflow-y: auto;
+            }
+        
+            #primary-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+            }
+        
+            #primary-nav li {
+                margin: 10px 0;
+                width: 100%;
+            }
+        
+            #primary-nav a {
+                display: block;
+                padding: 12px 15px;
+                width: 100%;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+            }
+        
+            #primary-nav a:hover {
+                background-color: rgba(0,0,0,0.05);
+            }
+        
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+        
+            #header.mobile-open #primary-nav {
+                right: 0;
+            }
+        
+            .hero {
+                padding: 8rem 0 4rem;
             }
         
             .hero h1 {
                 font-size: 2.25rem;
             }
         
-            .section-title h2, .section-header h2 {
-                font-size: 1.75rem;
+            .hero p {
+                font-size: 1.125rem;
             }
         
-            .section-title p, .section-header .subtitle {
-                font-size: 1rem;
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
             }
         
             .btn {
                 max-width: 280px;
                 width: 100%;
                 justify-content: center;
+            }
+        
+            .section-title h2 {
+                font-size: 1.75rem;
             }
         
             .problem-list li {
@@ -219,8 +731,8 @@
         
             .footer-bottom {
                 flex-direction: column;
-                text-align: center;
                 gap: 1rem;
+                text-align: center;
             }
         }
         
@@ -232,7 +744,12 @@
             .section-title h2 {
                 font-size: 1.5rem;
             }
+        
+            .container {
+                padding: 0 1rem;
+            }
         }
+
     </style>
 </head>
 <body>
