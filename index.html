@@ -6,7 +6,7 @@
     
     <!-- SEO Metadata -->
     <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
-    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logist[...]" />
+    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -42,6 +42,175 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    
+    <style>
+        /* Responsive Enhancements */
+        * {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Mobile Menu Improvements */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-color, #333);
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            #primary-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: var(--bg-color, #fff);
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 80px 20px 20px;
+                overflow-y: auto;
+            }
+            
+            #primary-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            #primary-nav li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            #primary-nav a {
+                display: block;
+                padding: 12px 15px;
+                width: 100%;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+            }
+            
+            #primary-nav a:hover {
+                background-color: rgba(0,0,0,0.05);
+            }
+            
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+            
+            #header.mobile-open #primary-nav {
+                right: 0;
+            }
+            
+            /* Overlay when menu is open */
+            #header.mobile-open::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+        }
+        
+        /* Responsive Grid Improvements */
+        .services-grid,
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .solutions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        .solution-pillar {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+        
+        /* Responsive Typography */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+        }
+        
+        /* Touch-friendly buttons */
+        .btn, button {
+            min-height: 44px;
+            padding: 12px 24px;
+            touch-action: manipulation;
+        }
+        
+        /* Prevent horizontal scrolling */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* Responsive images */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Improved animations for mobile performance */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Safe area for notched devices */
+        @supports(padding: max(0px)) {
+            .container, header {
+                padding-left: max(1rem, env(safe-area-inset-left));
+                padding-right: max(1rem, env(safe-area-inset-right));
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
@@ -49,23 +218,23 @@
     
     <!-- Header -->
     <header id="header">
-    <div class="container header-container">
-    <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
-      <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
-    </a>
-    <nav aria-label="Primary" id="primary-nav">
-    <ul>
-    <li><a href="#">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="cost-calculator.html">Cost Calculator</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="#contact">Contact</a></li>
-    </ul>
-    </nav>
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
+                <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
+            </a>
+            <nav aria-label="Primary" id="primary-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="cost-calculator.html">Cost Calculator</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
             
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-           <i class="fas fa-moon"></i>
-    </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="primary-nav">
                 <i class="fas fa-bars"></i>
@@ -80,8 +249,8 @@
             <div class="hero-content">
                 <div class="hero-badge animate-fade-in">
                 </div>
-                <h1 class="animate-fade-in delay-100">We help businesses gain <span class="hero-highlight">visibility</span> and <span class="hero-highlight" >automate</span> workflows</h1>
-                <p class="animate-fade-in delay-200">Simple, powerful dashboards and automation tools that connect your data, streamline operations, and give you control over your business process[...]</p>
+                <h1 class="animate-fade-in delay-100">We help businesses gain <span class="hero-highlight">visibility</span> and <span class="hero-highlight">automate</span> workflows</h1>
+                <p class="animate-fade-in delay-200">Simple, powerful dashboards and automation tools that connect your data, streamline operations, and give you control over your business processes.</p>
                 <div class="btn-group">
                     <a href="#contact" class="btn btn-primary animate-fade-in delay-300">
                         <i class="fas fa-chart-line"></i>
@@ -137,8 +306,6 @@
         </div>
     </section>
     
-    
-
     <!-- Solutions Section -->
     <section class="section" id="solutions">
         <div class="container">
@@ -179,7 +346,6 @@
         </div>
     </section>
     
-    
     <!-- Our Story Section -->
     <section class="section our-story-section" id="our-story">
         <div class="container">
@@ -188,9 +354,9 @@
                     <i class="fas fa-lightbulb"></i>
                 </div>
                 <h2>Our Story</h2>
-                <p>Every great supply chain tells a story of connection — connecting suppliers to customers, data to decisions, and operations to outcomes. Prime Chain Solutions was born from a simp[...] 
+                <p>Every great supply chain tells a story of connection — connecting suppliers to customers, data to decisions, and operations to outcomes. Prime Chain Solutions was born from a simple observation: businesses are drowning in data but starving for insights.</p>
                 <p>Our mission is to change that. We build tools that give you clarity and control over your operations, so you can focus on what matters most—growing your business.</p>
-                <p>We believe technology should work for you, not the other way around. That's why we create solutions that are powerful yet simple to use, customized to your needs yet affordable to i[...] 
+                <p>We believe technology should work for you, not the other way around. That's why we create solutions that are powerful yet simple to use, customized to your needs yet affordable to implement.</p>
             </div>
         </div>
     </section>
@@ -337,6 +503,79 @@
     </footer>
     
     <script>
+        // Enhanced Mobile Menu Functionality
+        (function () {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const header = document.getElementById('header');
+            const primaryNav = document.getElementById('primary-nav');
+            const body = document.body;
+            
+            if (!mobileMenuBtn || !header || !primaryNav) {
+                console.warn('Mobile menu script: required elements not found', { mobileMenuBtn, header, primaryNav });
+                return;
+            }
+            
+            const menuIcon = mobileMenuBtn.querySelector('i');
+            
+            function openMenu() {
+                header.classList.add('mobile-open');
+                body.classList.add('mobile-menu-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'true');
+                mobileMenuBtn.setAttribute('aria-label', 'Close mobile menu');
+                if (menuIcon) { 
+                    menuIcon.classList.remove('fa-bars'); 
+                    menuIcon.classList.add('fa-times'); 
+                }
+                // Prevent body scrolling when menu is open
+                document.documentElement.style.overflow = 'hidden';
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMenu() {
+                header.classList.remove('mobile-open');
+                body.classList.remove('mobile-menu-open');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                mobileMenuBtn.setAttribute('aria-label', 'Open mobile menu');
+                if (menuIcon) { 
+                    menuIcon.classList.remove('fa-times'); 
+                    menuIcon.classList.add('fa-bars'); 
+                }
+                // Restore scrolling
+                document.documentElement.style.overflow = '';
+                document.body.style.overflow = '';
+            }
+            
+            mobileMenuBtn.addEventListener('click', function (e) {
+                e.stopPropagation();
+                header.classList.contains('mobile-open') ? closeMenu() : openMenu();
+            });
+            
+            // Close when a nav link is clicked so navigation proceeds normally
+            primaryNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+            
+            // Close when clicking/tapping outside the header
+            document.addEventListener('click', e => {
+                if (header.classList.contains('mobile-open') && !header.contains(e.target)) closeMenu();
+            });
+            
+            // Close on Escape key
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && header.classList.contains('mobile-open')) closeMenu();
+            });
+            
+            // Close on resize to desktop width
+            function handleResize() {
+                if (window.innerWidth > 768 && header.classList.contains('mobile-open')) {
+                    closeMenu();
+                }
+            }
+            
+            window.addEventListener('resize', handleResize);
+            
+            // Ensure menu is closed on page load
+            window.addEventListener('load', closeMenu);
+        })();
+        
         // Theme Toggle Functionality
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
@@ -386,6 +625,8 @@
         // Create falling documents animation
         function createFallingDocs() {
             const container = document.getElementById('falling-docs');
+            if (!container) return;
+            
             const docTypes = ['doc', 'spreadsheet'];
             
             for (let i = 0; i < 15; i++) {
@@ -434,62 +675,6 @@
                 observer.observe(el);
             });
         });
-        
-       /* Mobile menu toggle — replaces the alert handler.
-   Toggles header.mobile-open and body.mobile-menu-open,
-   updates aria attributes and the icon, and closes on link/outside/escape/resize. */
-        (function () {
-          const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-          const header = document.getElementById('header');
-          const primaryNav = document.getElementById('primary-nav');
-          const body = document.body;
-        
-          if (!mobileMenuBtn || !header || !primaryNav) {
-            console.warn('Mobile menu script: required elements not found', { mobileMenuBtn, header, primaryNav });
-            return;
-          }
-        
-          const menuIcon = mobileMenuBtn.querySelector('i');
-        
-          function openMenu() {
-            header.classList.add('mobile-open');
-            body.classList.add('mobile-menu-open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'true');
-            mobileMenuBtn.setAttribute('aria-label', 'Close mobile menu');
-            if (menuIcon) { menuIcon.classList.remove('fa-bars'); menuIcon.classList.add('fa-times'); }
-          }
-        
-          function closeMenu() {
-            header.classList.remove('mobile-open');
-            body.classList.remove('mobile-menu-open');
-            mobileMenuBtn.setAttribute('aria-expanded', 'false');
-            mobileMenuBtn.setAttribute('aria-label', 'Open mobile menu');
-            if (menuIcon) { menuIcon.classList.remove('fa-times'); menuIcon.classList.add('fa-bars'); }
-          }
-        
-          mobileMenuBtn.addEventListener('click', function (e) {
-            e.stopPropagation();
-            header.classList.contains('mobile-open') ? closeMenu() : openMenu();
-          });
-        
-          // Close when a nav link is clicked so navigation proceeds normally
-          primaryNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-        
-          // Close when clicking/tapping outside the header
-          document.addEventListener('click', e => {
-            if (header.classList.contains('mobile-open') && !header.contains(e.target)) closeMenu();
-          });
-        
-          // Close on Escape key
-          document.addEventListener('keydown', e => {
-            if (e.key === 'Escape' && header.classList.contains('mobile-open')) closeMenu();
-          });
-        
-          // Close on resize to desktop width
-          window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && header.classList.contains('mobile-open')) closeMenu();
-          });
-        })();
     </script>
 </body>
 </html>
