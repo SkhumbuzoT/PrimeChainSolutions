@@ -3,1069 +3,1274 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Chain Solutions | Visibility & Automation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://unpkg.com/lucide@latest/dist/umd/lucide.js" rel="stylesheet">
+    
+    <!-- SEO Metadata -->
+    <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
+    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="og:title" content="Prime Chain Solutions - See Everything. Work Smarter. Stay in Control.">
+    <meta property="og:description" content="Easy-to-use dashboards and smart automation that bring your information together, simplify your daily work, and help you make confident decisions quickly.">
+    <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
+    <meta property="twitter:title" content="Prime Chain Solutions - See Everything. Work Smarter. Stay in Control.">
+    <meta property="twitter:description" content="Easy-to-use dashboards and smart automation that bring your information together, simplify your daily work, and help you make confident decisions quickly.">
+    <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/Symbol Only.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/Symbol Only.png">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHLZW1RWWZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);} 
+      gtag('js', new Date());
+      gtag('config', 'G-FHLZW1RWWZ');
+    </script>
+    <!-- End Google tag -->
+
+    <title>Prime Chain Solutions - See Everything. Work Smarter. Stay in Control.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --primary: #0A2342;
-            --accent: #4CD964;
-            --neutral: #F5F7FA;
-            --text-primary: #333333;
-            --text-secondary: #555555;
-            --white: #FFFFFF;
-        }
-        
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text-primary);
-            line-height: 1.8;
-            letter-spacing: 0.3px;
-            font-weight: 400;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-        }
-        
-        h2 {
-            font-size: 2.2rem;
-        }
-        
-        h3 {
-            font-size: 1.6rem;
-        }
-        
-        p, li {
-            font-size: 1.05rem;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+            overflow-x: hidden;
         }
         
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
         
-        .btn {
-            display: inline-block;
-            padding: 16px 40px;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 500;
-            font-family: 'Poppins', sans-serif;
+        /* Header */
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
             transition: all 0.3s ease;
-            cursor: pointer;
+        }
+        
+        #header.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        #primary-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        #primary-nav a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        #primary-nav a:hover {
+            color: #2563eb;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
             border: none;
-        }
-        
-        .btn-primary {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-        
-        .btn-secondary {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-        
-        .btn-primary:hover, .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-        
-        .btn-primary:hover {
-            box-shadow: 0 4px 12px rgba(76, 217, 100, 0.4), 0 0 12px rgba(76, 217, 100, 0.6);
+            font-size: 1.5rem;
+            color: #374151;
+            cursor: pointer;
+            z-index: 1001;
         }
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary), #0d2c52);
-            color: var(--white);
-            padding: 80px 0;
-            min-height: 85vh;
-            display: flex;
-            align-items: center;
+            position: relative;
+            padding: 10rem 0 6rem;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow: hidden;
         }
         
         .hero-content {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
-        }
-        
-        .hero-text {
-            flex: 1;
-        }
-        
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
         }
         
         .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
             margin-bottom: 1.5rem;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
+            color: #6b7280;
             margin-bottom: 2.5rem;
-            color: rgba(255,255,255,0.85);
-            max-width: 500px;
         }
         
-        .hero-buttons {
+        .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        .dashboard-mockup {
-            width: 100%;
-            max-width: 500px;
-            height: 320px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 12px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .dashboard-mockup::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 40px;
-            background: rgba(255,255,255,0.15);
-        }
-        
-        .dashboard-mockup::after {
-            content: '';
-            position: absolute;
-            top: 60px;
-            left: 20px;
-            width: 30%;
-            height: 20px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 4px;
-        }
-        
-        .dashboard-content {
-            position: absolute;
-            top: 100px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
-            gap: 15px;
-        }
-        
-        .dashboard-item {
-            background: rgba(255,255,255,0.08);
-            border-radius: 6px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .dashboard-item:nth-child(1)::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 60%;
-            height: 8px;
-            background: rgba(76,217,100,0.6);
-            border-radius: 4px;
-        }
-        
-        .dashboard-item:nth-child(2)::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 40%;
-            height: 8px;
-            background: rgba(76,217,100,0.4);
-            border-radius: 4px;
-        }
-        
-        .dashboard-item:nth-child(3)::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 70%;
-            height: 8px;
-            background: rgba(76,217,100,0.5);
-            border-radius: 4px;
-        }
-        
-        .dashboard-item:nth-child(4)::before {
-            content: '';
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            width: 50%;
-            height: 8px;
-            background: rgba(76,217,100,0.4);
-            border-radius: 4px;
-        }
-        
-        /* Problem Section */
-        .problem {
-            padding: 120px 0;
-            background-color: var(--white);
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-        
-        .section-title h2 {
-            color: var(--primary);
-        }
-        
-        .problem-content {
-            display: flex;
-            gap: 50px;
-            align-items: flex-start;
-        }
-        
-        .problem-text {
-            flex: 1;
-        }
-        
-        .problem-text h2 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .challenges-grid {
-            flex: 1;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-        
-        .challenge-card {
-            padding: 30px 25px;
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-            position: relative;
-            transition: all 0.3s ease;
-            background: var(--white);
-            border-top: 4px solid rgba(76,217,100,0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
         }
         
-        .challenge-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            background-color: rgba(76,217,100,0.05);
-            border-top-color: var(--accent);
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
         }
         
-        .challenge-icon {
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            color: var(--primary);
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background-color: transparent;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #2563eb;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Sections */
+        .section {
+            padding: 6rem 0;
+        }
+        
+        .section-alt {
+            background-color: #f8fafc;
+        }
+        
+        .section-title, .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-title h2, .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p, .section-header .subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+        }
+        
+        /* Problems Section */
+        .problem-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .problem-list li {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 60px;
-            height: 60px;
-            background: rgba(10,35,66,0.05);
-            border-radius: 10px;
-        }
-        
-        /* Solution Section */
-        .solution {
-            padding: 120px 0;
-            position: relative;
-        }
-        
-        .solution::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(45deg, transparent 49%, rgba(76,217,100,0.03) 50%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(76,217,100,0.03) 50%, transparent 51%);
-            background-size: 20px 20px;
-            z-index: -1;
-        }
-        
-        .solution-block {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-            margin-bottom: 100px;
-            position: relative;
-        }
-        
-        .solution-block:nth-child(even) {
-            flex-direction: row-reverse;
-        }
-        
-        .solution-image {
-            flex: 1;
-            height: 320px;
-            background: var(--neutral);
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
             border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            overflow: hidden;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
-        .solution-image img {
-            max-width: 100%;
-            height: auto;
+        .problem-list i {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-top: 0.25rem;
         }
         
-        .solution-text {
-            flex: 1;
-        }
-        
-        .solution-text h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-        
-        .solution-list {
-            list-style-type: none;
-        }
-        
-        .solution-list li {
-            margin-bottom: 15px;
-            padding-left: 30px;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 0.5s ease forwards;
-        }
-        
-        .solution-list li:nth-child(1) { animation-delay: 0.1s; }
-        .solution-list li:nth-child(2) { animation-delay: 0.2s; }
-        .solution-list li:nth-child(3) { animation-delay: 0.3s; }
-        .solution-list li:nth-child(4) { animation-delay: 0.4s; }
-        
-        .solution-list li::before {
-            content: '●';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        
-        .solution-block:nth-child(odd) {
-            background-color: var(--neutral);
-            padding: 50px;
-            border-radius: 12px;
-        }
-        
-        .solution-block:nth-child(even) {
-            background-color: #f8f9fb;
-            padding: 50px;
-            border-radius: 12px;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Story Section */
-        .story {
-            padding: 120px 0;
-            background: linear-gradient(135deg, rgba(10,35,66,0.95), rgba(13,44,82,0.95));
-            color: var(--white);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .story::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(76,217,100,0.1) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(76,217,100,0.1) 0%, transparent 20%);
-            z-index: 0;
-        }
-        
-        .story-content {
+        .mission-message {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
-            position: relative;
-            z-index: 1;
+            font-size: 1.25rem;
+            font-style: italic;
+            color: #6b7280;
+            padding: 2rem;
+            border-left: 4px solid #2563eb;
+            background: white;
+            border-radius: 0 12px 12px 0;
         }
         
-        .story-heading {
-            font-size: 2.2rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.4;
+        /* Solutions Section */
+        .solutions-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
-        .story-content p {
-            font-size: 1.15rem;
-            margin-bottom: 2rem;
-            line-height: 1.9;
-        }
-        
-        .connecting-dots {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            pointer-events: none;
-        }
-        
-        .dot {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background-color: rgba(76,217,100,0.3);
-            border-radius: 50%;
-            animation: pulse 3s infinite ease-in-out;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.3; }
-            50% { transform: scale(1.5); opacity: 0.6; }
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 120px 0;
-            background-color: var(--white);
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-        }
-        
-        .service-card {
-            padding: 50px 30px;
+        .solution-pillar {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background: white;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            text-align: center;
-            transition: all 0.4s ease;
-            background: linear-gradient(145deg, #ffffff, #f8f9fb);
-            position: relative;
-            overflow: hidden;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: transparent;
-            transition: all 0.3s ease;
+        .pillar-header {
+            margin-bottom: 1.5rem;
         }
         
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-        }
-        
-        .service-card:hover::before {
-            background: var(--accent);
-        }
-        
-        .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 30px;
-            color: var(--primary);
-            transition: all 0.3s ease;
+        .pillar-number {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 80px;
-            height: 80px;
+            width: 40px;
+            height: 40px;
+            background: #2563eb;
+            color: white;
             border-radius: 50%;
-            background: rgba(10,35,66,0.05);
+            font-weight: 700;
+            margin-bottom: 1rem;
         }
         
-        .service-card:hover .service-icon {
-            color: var(--accent);
-            transform: scale(1.1);
+        .pillar-header h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
         }
         
-        .service-card h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
+        .pillar-subtitle {
+            color: #6b7280;
         }
         
-        .service-card h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+        .pillar-features {
+            list-style: none;
         }
         
-        .service-card:hover h3::after {
-            width: 50px;
+        .pillar-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .pillar-features i {
+            color: #10b981;
+        }
+        
+        /* Our Story Section */
+        .our-story-section {
+            text-align: center;
+        }
+        
+        .our-story-icon {
+            font-size: 3rem;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .our-story-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .our-story-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card p {
+            color: #6b7280;
         }
         
         /* Approach Section */
-        .approach {
-            padding: 120px 0;
-            background-color: var(--neutral);
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
         }
         
-        .timeline {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 60px;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 3px;
-            background: linear-gradient(to right, transparent, var(--accent), transparent);
-            z-index: 0;
-        }
-        
-        .timeline-step {
+        /* Contact Section */
+        .contact-section {
             text-align: center;
-            flex: 1;
-            position: relative;
-            z-index: 1;
-            opacity: 0;
-            animation: fadeUp 0.6s ease forwards;
         }
         
-        .timeline-step:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-step:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-step:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-step:nth-child(4) { animation-delay: 0.4s; }
-        
-        .step-icon {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(145deg, #ffffff, #e6e9ef);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            border: 3px solid var(--accent);
-            font-size: 2rem;
-            color: var(--primary);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-            position: relative;
-            z-index: 2;
-        }
-        
-        .step-text h4 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-        
-        .step-text p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-        
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* CTA Section */
-        .cta {
-            padding: 140px 0;
-            background: linear-gradient(135deg, #0A2342, #10305e);
-            color: var(--white);
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 70% 20%, rgba(76,217,100,0.1) 0%, transparent 50%);
-        }
-        
-        .cta h2 {
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
             margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
         }
         
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta .btn-primary {
-            animation: pulse 2s infinite ease-in-out;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .cta-note {
-            margin-top: 20px;
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.7);
-            position: relative;
-            z-index: 1;
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+            transform: translateY(-2px);
         }
         
         /* Footer */
-        .footer {
-            padding: 70px 0 30px;
-            background-color: var(--primary);
-            color: var(--white);
+        footer {
+            background: #1f2937;
+            color: white;
+            padding: 4rem 0 2rem;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
         }
         
-        .footer-brand p {
-            margin-top: 20px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
+        .footer-logo img {
+            height: 40px;
+            margin-bottom: 1rem;
         }
         
-        .footer-links h4, .footer-contact h4 {
-            margin-bottom: 25px;
-            font-size: 1.2rem;
+        .footer-about p {
+            color: #d1d5db;
+            line-height: 1.7;
+        }
+        
+        .footer-heading {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
         }
         
         .footer-links ul {
-            list-style-type: none;
+            list-style: none;
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
         }
         
         .footer-links a {
-            color: rgba(255,255,255,0.8);
+            color: #d1d5db;
             text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 2px;
-        }
-        
-        .footer-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            color: var(--white);
-        }
-        
-        .footer-links a:hover::after {
-            width: 100%;
-        }
-        
-        .footer-contact p {
-            margin-bottom: 12px;
-            color: rgba(255,255,255,0.8);
-            line-height: 1.8;
+            color: white;
         }
         
         .footer-bottom {
-            text-align: center;
-            padding-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 2rem;
+            border-top: 1px solid #374151;
         }
         
-        /* Mobile Responsiveness */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
+        .copyright {
+            color: #9ca3af;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #374151;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #2563eb;
+        }
+        
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #2563eb;
+            width: 0%;
+            z-index: 1001;
+            transition: width 0.1s;
+        }
+        
+        /* Animations */
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
+        }
+        
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+        
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+        
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+        
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+        
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-700 {
+            animation-delay: 0.7s;
+        }
+        
+        .animate-fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
             }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .problem-content {
-                flex-direction: column;
-            }
-            
-            .solution-block {
-                flex-direction: column;
-            }
-            
-            .solution-block:nth-child(even) {
-                flex-direction: column;
-            }
-            
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 25px;
-            }
-            
-            .timeline {
-                flex-direction: column;
-                gap: 50px;
-            }
-            
-            .timeline::before {
-                display: none;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
+            to { 
+                opacity: 1;
+                transform: translateY(0);
             }
         }
         
+        /* Falling Documents Animation */
+        .falling-docs {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .doc, .spreadsheet {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            animation: fall linear infinite;
+        }
+        
+        .doc::before, .spreadsheet::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            height: 6px;
+            background: #2563eb;
+            border-radius: 2px;
+        }
+        
+        .doc::after, .spreadsheet::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 5px;
+            right: 5px;
+            height: 2px;
+            background: #e5e7eb;
+        }
+        
+        .spreadsheet::after {
+            height: 8px;
+            background: repeating-linear-gradient(
+                to bottom,
+                transparent,
+                transparent 2px,
+                #e5e7eb 2px,
+                #e5e7eb 4px
+            );
+        }
+        
+        @keyframes fall {
+            from {
+                transform: translateY(-100px) rotate(0deg);
+            }
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        /* Mobile Responsive Styles */
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            #primary-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: #ffffff;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+                padding: 80px 20px 20px;
+                overflow-y: auto;
+            }
+            
+            #primary-nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+            }
+            
+            #primary-nav li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            #primary-nav a {
+                display: block;
+                padding: 12px 15px;
+                width: 100%;
+                border-radius: 6px;
+                transition: background-color 0.2s;
+            }
+            
+            #primary-nav a:hover {
+                background-color: rgba(0,0,0,0.05);
+            }
+            
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+            
+            #header.mobile-open #primary-nav {
+                right: 0;
+            }
+            
+            /* Overlay when menu is open */
+            #header.mobile-open::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 999;
+            }
+            
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+            
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
-            .section-title h2 {
-                font-size: 1.8rem;
+            .hero p {
+                font-size: 1.125rem;
             }
             
-            .challenges-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero-buttons {
+            .btn-group {
                 flex-direction: column;
                 align-items: center;
             }
             
-            .btn {
-                width: 100%;
-                max-width: 280px;
-                margin-bottom: 15px;
+            .section {
+                padding: 4rem 0;
             }
             
-            .solution-block:nth-child(odd),
-            .solution-block:nth-child(even) {
-                padding: 30px 20px;
+            .section-title h2, .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2, .section-header h2 {
+                font-size: 1.75rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+        /* ======================
+          Mobile Center Alignment & Semantic Fixes
+          ====================== */
+        
+        @media (max-width: 768px) {
+            /* Center all section content */
+            .section-title,
+            .section-header {
+                text-align: center;
+            }
+            
+            .section-title h2,
+            .section-header h2 {
+                text-align: center;
+            }
+            
+            .section-title p,
+            .section-header .subtitle {
+                text-align: center;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        
+            /* Center hero content */
+            .hero-content {
+                text-align: center;
+            }
+        
+            /* Center cards and their content */
+            .card {
+                text-align: center;
+                margin: 0 auto;
+            }
+        
+            .card h3,
+            .card h4,
+            .card p {
+                text-align: center;
+            }
+        
+            /* Center problem list */
+            .problem-list {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        
+            .problem-list li {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 24px 20px;
+            }
+        
+            .problem-list span {
+                text-align: center;
+            }
+        
+            /* Center solutions */
+            .solutions-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        
+            .solution-pillar {
+                text-align: center;
+                margin: 0 auto;
+            }
+        
+            .pillar-features {
+                text-align: center;
+            }
+        
+            .pillar-features li {
+                justify-content: center;
+                text-align: center;
+            }
+        
+            /* Center mission message */
+            .mission-message {
+                text-align: center;
+            }
+        
+            /* Center buttons */
+            .btn-group {
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .btn {
+                justify-content: center;
+                text-align: center;
+                width: 100%;
+                max-width: 280px;
+            }
+        
+            /* Center contact section */
+            .contact-cta {
+                text-align: center;
+            }
+        
+            /* Center footer content */
+            .footer-content {
+                text-align: center;
+            }
+        
+            .footer-about {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .footer-links {
+                text-align: center;
+            }
+        
+            .footer-links ul {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .footer-links li {
+                text-align: center;
+                justify-content: center;
+            }
+        
+            .footer-links a {
+                justify-content: center;
+            }
+        
+            /* Center our story section */
+            .our-story-content {
+                text-align: center;
+                padding: 40px 24px;
+            }
+        
+            /* Improve touch targets */
+            .btn,
+            .mobile-menu-btn,
+            nav ul li a {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+    
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
+                <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
+            </a>
+            <nav aria-label="Primary" id="primary-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#problems">The Problem</a></li>
+                    <li><a href="#solutions">Our Solution</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false" aria-controls="primary-nav">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
+        <div class="falling-docs" id="falling-docs"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-text">
-                    <h1>Gain Visibility. Automate Workflows. Take Control.</h1>
-                    <p>Simple, powerful dashboards and automation tools that connect your data, streamline operations, and help you make better decisions — faster.</p>
-                    <div class="hero-buttons">
-                        <a href="#" class="btn btn-primary">Get a Free Consultation</a>
-                        <a href="#" class="btn btn-secondary">Explore Solutions</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="dashboard-mockup">
-                        <div class="dashboard-content">
-                            <div class="dashboard-item"></div>
-                            <div class="dashboard-item"></div>
-                            <div class="dashboard-item"></div>
-                            <div class="dashboard-item"></div>
-                        </div>
-                    </div>
+                <h1 class="animate-fade-in delay-100">See Everything. Work Smarter. Stay in Control.</h1>
+                <p class="animate-fade-in delay-200">Easy-to-use dashboards and smart automation that bring your information together, simplify your daily work, and help you make confident decisions quickly.</p>
+                <div class="btn-group">
+                    <a href="#contact" class="btn btn-primary animate-fade-in delay-300">
+                        <i class="fas fa-chart-line"></i>
+                        Get a Free Consultation
+                    </a>
+                    <a href="#solutions" class="btn btn-secondary animate-fade-in delay-400">
+                        <i class="fas fa-search"></i>
+                        Explore Solutions
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Problem Section -->
-    <section class="problem">
+    
+    <!-- Problems Section -->
+    <section class="section section-alt" id="problems">
         <div class="container">
-            <div class="problem-content">
-                <div class="problem-text">
-                    <h2>Are These Challenges Holding Your Business Back?</h2>
-                    <p>Many businesses struggle with disconnected data and manual processes that limit growth and efficiency.</p>
-                </div>
-                <div class="challenges-grid">
-                    <div class="challenge-card">
-                        <div class="challenge-icon">📊</div>
-                        <h3>No single source of truth</h3>
-                    </div>
-                    <div class="challenge-card">
-                        <div class="challenge-icon">🔁</div>
-                        <h3>Manual, repetitive work</h3>
-                    </div>
-                    <div class="challenge-card">
-                        <div class="challenge-icon">👁️</div>
-                        <h3>Limited visibility</h3>
-                    </div>
-                    <div class="challenge-card">
-                        <div class="challenge-icon">⏱️</div>
-                        <h3>Slow decision-making</h3>
-                    </div>
-                    <div class="challenge-card">
-                        <div class="challenge-icon">🔄</div>
-                        <h3>Process inconsistencies</h3>
-                    </div>
-                    <div class="challenge-card">
-                        <div class="challenge-icon">🧠</div>
-                        <h3>Knowledge gaps</h3>
-                    </div>
-                </div>
+            <div class="section-header">
+                <h2>Does This Sound Familiar?</h2>
+                <p class="subtitle">You're not alone. Many businesses face the same frustrations with scattered information and time-consuming manual work.</p>
+            </div>
+            
+            <ul class="problem-list">
+                <li class="animate-fade-in-up delay-100">
+                    <i class="fas fa-file-alt"></i>
+                    <span><strong>Everything's everywhere</strong> - Your important information is spread across spreadsheets, emails, and different systems</span>
+                </li>
+                <li class="animate-fade-in-up delay-200">
+                    <i class="fas fa-redo"></i>
+                    <span><strong>Too much repetitive work</strong> - Your team spends hours on data entry and admin tasks instead of growing the business</span>
+                </li>
+                <li class="animate-fade-in-up delay-300">
+                    <i class="fas fa-eye-slash"></i>
+                    <span><strong>Flying blind</strong> - You can't see what's happening in your business right now</span>
+                </li>
+                <li class="animate-fade-in-up delay-400">
+                    <i class="fas fa-clock"></i>
+                    <span><strong>Decisions take too long</strong> - By the time you get the information you need, the moment has passed</span>
+                </li>
+                <li class="animate-fade-in-up delay-500">
+                    <i class="fas fa-random"></i>
+                    <span><strong>Nothing's standardized</strong> - Every team member does things differently, making quality hard to maintain</span>
+                </li>
+                <li class="animate-fade-in-up delay-600">
+                    <i class="fas fa-brain"></i>
+                    <span><strong>Information silos</strong> - Critical knowledge lives in someone's head instead of being accessible to everyone</span>
+                </li>
+            </ul>
+            
+            <div class="mission-message animate-fade-in delay-700">
+                <p>When your information flows freely and routine tasks run themselves, you can focus on growing your business — not managing chaos.</p>
             </div>
         </div>
     </section>
-
-    <!-- Solution Section -->
-    <section class="solution">
+    
+    <!-- Solutions Section -->
+    <section class="section" id="solutions">
         <div class="container">
             <div class="section-title">
-                <h2>We Build Smart Tools That Work for You</h2>
+                <h2>We Build Tools That Actually Make Your Life Easier</h2>
+                <p>Prime Chain Solutions brings your information together, handles the repetitive work for you, and shows you exactly what's happening in your business — all in one place.</p>
             </div>
             
-            <div class="solution-block">
-                <div class="solution-image">
-                    <div style="font-size: 4rem; color: var(--primary);">📈</div>
-                </div>
-                <div class="solution-text">
-                    <h3>Centralized Dashboards</h3>
-                    <ul class="solution-list">
-                        <li>Real-time visibility into operations</li>
-                        <li>Custom metrics that matter</li>
-                        <li>Access from anywhere</li>
-                        <li>Drill-down insights</li>
+            <div class="solutions-container">
+                <div class="solution-pillar animate-fade-in-up delay-100">
+                    <div class="pillar-header">
+                        <div class="pillar-number">1</div>
+                        <h3>Your Command Center</h3>
+                        <p class="pillar-subtitle">See everything that matters at a glance</p>
+                    </div>
+                    <ul class="pillar-features">
+                        <li><i class="fas fa-check-circle"></i> Know what's happening right now, not yesterday</li>
+                        <li><i class="fas fa-check-circle"></i> Track what matters most to your business</li>
+                        <li><i class="fas fa-check-circle"></i> Check in from anywhere — office, home, or on the go</li>
+                        <li><i class="fas fa-check-circle"></i> Click deeper when you need the details</li>
                     </ul>
                 </div>
-            </div>
-            
-            <div class="solution-block">
-                <div class="solution-image">
-                    <div style="font-size: 4rem; color: var(--primary);">⚙️</div>
-                </div>
-                <div class="solution-text">
-                    <h3>Process Automation</h3>
-                    <ul class="solution-list">
-                        <li>Automated data collection</li>
-                        <li>Workflow automation</li>
-                        <li>Smart notifications</li>
-                        <li>Auto-generated documents</li>
+                
+                <div class="solution-pillar animate-fade-in-up delay-200">
+                    <div class="pillar-header">
+                        <div class="pillar-number">2</div>
+                        <h3>Let Technology Do the Busy Work</h3>
+                        <p class="pillar-subtitle">Free your team from repetitive tasks</p>
+                    </div>
+                    <ul class="pillar-features">
+                        <li><i class="fas fa-check-circle"></i> Information updates itself automatically</li>
+                        <li><i class="fas fa-check-circle"></i> Approvals and routine processes happen without manual intervention</li>
+                        <li><i class="fas fa-check-circle"></i> Get notified about what needs your attention</li>
+                        <li><i class="fas fa-check-circle"></i> Documents and reports create themselves</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Story Section -->
-    <section class="story">
-        <div class="connecting-dots" id="connectingDots"></div>
+    
+    <!-- Our Story Section -->
+    <section class="section our-story-section" id="our-story">
         <div class="container">
-            <div class="story-content">
-                <h2 class="story-heading">Every great supply chain tells a story of connection</h2>
-                <p>Linking suppliers to customers, data to decisions, and operations to outcomes.</p>
-                <p>Prime Chain Solutions was born from a simple observation: businesses are drowning in data but starving for insights.</p>
-                <p>Our mission is to change that. We build tools that bring clarity and control to your operations so you can focus on what matters most — growing your business.</p>
-                <p>We believe technology should work for you, not against you.</p>
+            <div class="our-story-content">
+                <div class="our-story-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2>Our Story</h2>
+                <p>Every great supply chain tells a story of connection — linking suppliers to customers, data to decisions, and operations to outcomes.</p>
+                <p>Prime Chain Solutions started with a simple realization: businesses have more information than ever, but struggle to make sense of it all.</p>
+                <p>We're here to change that. We build tools that give you clarity and control, so you can focus on what you do best — running and growing your business.</p>
+                <p>We believe technology should simplify your life, not complicate it. That's why everything we create is powerful but straightforward, customized to your needs but still affordable.</p>
             </div>
         </div>
     </section>
-
+    
     <!-- Services Section -->
-    <section class="services">
+    <section class="section section-alt" id="services">
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
+                <p>Complete solutions built around how you work</p>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>Custom Dashboards</h3>
-                    <p>Interactive, real-time dashboards that visualize performance and KPIs that matter.</p>
+                <div class="card animate-fade-in-up delay-100">
+                    <div class="card-icon">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <h4>Custom Dashboards</h4>
+                    <p>See your business performance in real-time with interactive views that track what matters to you.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">🤖</div>
-                    <h3>Process Automation</h3>
-                    <p>Automate repetitive tasks and workflows to boost productivity.</p>
+                <div class="card animate-fade-in-up delay-200">
+                    <div class="card-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h4>Process Automation</h4>
+                    <p>Let technology handle repetitive tasks, data entry, and routine workflows so your team can focus on higher-value work.</p>
                 </div>
                 
-                <div class="service-card">
-                    <div class="service-icon">🔗</div>
-                    <h3>System Integration</h3>
-                    <p>Connect your existing tools for seamless data flow across your business.</p>
+                <div class="card animate-fade-in-up delay-300">
+                    <div class="card-icon">
+                        <i class="fas fa-plug"></i>
+                    </div>
+                    <h4>System Integration</h4>
+                    <p>Connect your existing tools so information flows seamlessly throughout your business.</p>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Approach Section -->
-    <section class="approach">
+    <section class="section" id="approach">
         <div class="container">
             <div class="section-title">
-                <h2>How We Work — From Discovery to Delivery</h2>
+                <h2>Our Approach</h2>
+                <p>How We Work — From First Conversation to Final Product</p>
             </div>
             
-            <div class="timeline">
-                <div class="timeline-step">
-                    <div class="step-icon">1</div>
-                    <div class="step-text">
-                        <h4>Understand</h4>
-                        <p>We learn your business and goals.</p>
+            <div class="approach-grid">
+                <div class="card animate-fade-in-up delay-100">
+                    <div class="card-icon">
+                        <i class="fas fa-comments"></i>
                     </div>
+                    <h4>1. Listen</h4>
+                    <p>We start by understanding your business, your challenges, and what success looks like for you.</p>
                 </div>
                 
-                <div class="timeline-step">
-                    <div class="step-icon">2</div>
-                    <div class="step-text">
-                        <h4>Design</h4>
-                        <p>Tailored solution planning with your input.</p>
+                <div class="card animate-fade-in-up delay-200">
+                    <div class="card-icon">
+                        <i class="fas fa-pencil-alt"></i>
                     </div>
+                    <h4>2. Design Together</h4>
+                    <p>We create a solution tailored to your needs, with you involved every step of the way.</p>
                 </div>
                 
-                <div class="timeline-step">
-                    <div class="step-icon">3</div>
-                    <div class="step-text">
-                        <h4>Build</h4>
-                        <p>Develop with modern, scalable tech.</p>
+                <div class="card animate-fade-in-up delay-300">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
                     </div>
+                    <h4>3. Build</h4>
+                    <p>We develop your system using reliable, modern technology and keep you updated on our progress.</p>
                 </div>
                 
-                <div class="timeline-step">
-                    <div class="step-icon">4</div>
-                    <div class="step-text">
-                        <h4>Implement</h4>
-                        <p>Train, deploy, and support your team.</p>
+                <div class="card animate-fade-in-up delay-400">
+                    <div class="card-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
+                    <h4>4. Launch & Support</h4>
+                    <p>We roll out your solution with hands-on training and stay with you to ensure everything runs smoothly.</p>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
+    
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
         <div class="container">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Let's discuss how we can help you gain visibility and automate your workflows.</p>
-            <a href="#" class="btn btn-primary">Chat with us on WhatsApp</a>
-            <p class="cta-note">We'll get back to you within 24 hours to schedule your free consultation.</p>
+            <div class="section-title">
+                <h2>Ready to Take Control of Your Business?</h2>
+                <p>Let's talk about how we can help you see more clearly and work more efficiently.</p>
+            </div>
+            
+            <div class="contact-cta">
+                <a href="https://wa.me/27736775675?text=Hi%20Prime%20Chain%20Solutions!%20I'd%20like%20to%20learn%20more%20about%20your%20services." class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    Chat with us on WhatsApp
+                </a>
+                <p>We'll respond within 24 hours to schedule your free consultation.</p>
+            </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
-    <footer class="footer">
+    <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Prime Chain Solutions</h3>
-                    <p>Simple, powerful tools that connect your data, streamline operations, and help you make better decisions.</p>
+                <div class="footer-about">
+                    <div class="footer-logo">
+                      <img src="/assets/White on Transparent.png" alt="Prime Chain Solutions logo" />
+                    </div>
+                    <p>We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.</p>
                 </div>
                 
                 <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Solutions</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Contact</a></li>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="#problems"><i class="fas fa-chevron-right"></i> The Problem</a></li>
+                        <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Our Solution</a></li>
+                        <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
                     </ul>
                 </div>
                 
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p>Email: info@primechainsolutions.com</p>
-                    <p>Phone: +1 (555) 123-4567</p>
-                    <p>WhatsApp: +1 (555) 123-4567</p>
+                <div class="footer-links">
+                    <h3 class="footer-heading">Contact Us</h3>
+                    <ul>
+                        <li><a href="mailto:info@primechainsolutions.co.za"><i class="fas fa-envelope"></i> info@primechainsolutions.co.za</a></li>
+                        <li><a href="tel:+27736775675"><i class="fas fa-phone"></i> +27 73 677 5675</a></li>
+                        <li><a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    </ul>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2023 Prime Chain Solutions. All rights reserved.</p>
+                <p class="copyright">&copy; 2023 Prime Chain Solutions. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                </div>
             </div>
         </div>
     </footer>
-
+    
     <script>
-        // Create animated dots for the story section
-        document.addEventListener('DOMContentLoaded', function() {
-            const dotsContainer = document.getElementById('connectingDots');
-            const dotCount = 30;
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const header = document.getElementById('header');
+        const body = document.body;
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            const isOpen = header.classList.toggle('mobile-open');
+            mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+            body.classList.toggle('mobile-menu-open');
             
-            for (let i = 0; i < dotCount; i++) {
-                const dot = document.createElement('div');
-                dot.className = 'dot';
-                dot.style.left = `${Math.random() * 100}%`;
-                dot.style.top = `${Math.random() * 100}%`;
-                dot.style.animationDelay = `${Math.random() * 3}s`;
-                dotsContainer.appendChild(dot);
+            // Change icon based on menu state
+            const icon = mobileMenuBtn.querySelector('i');
+            if (isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             }
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('#primary-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                header.classList.remove('mobile-open');
+                body.classList.remove('mobile-menu-open');
+                mobileMenuBtn.setAttribute('aria-expanded', false);
+                
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Scroll Progress Bar
+        const scrollProgress = document.querySelector('.scroll-progress');
+        
+        window.addEventListener('scroll', () => {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight - windowHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const progress = (scrollTop / documentHeight) * 100;
+            
+            scrollProgress.style.width = `${progress}%`;
+            
+            // Header shadow on scroll
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Create falling documents animation
+        const fallingDocsContainer = document.getElementById('falling-docs');
+        
+        function createFallingDoc() {
+            const doc = document.createElement('div');
+            const isSpreadsheet = Math.random() > 0.5;
+            
+            if (isSpreadsheet) {
+                doc.classList.add('spreadsheet');
+            } else {
+                doc.classList.add('doc');
+            }
+            
+            // Random position
+            doc.style.left = `${Math.random() * 100}%`;
+            
+            // Random size variation
+            const size = 30 + Math.random() * 20;
+            doc.style.width = `${size}px`;
+            doc.style.height = `${size * 1.25}px`;
+            
+            // Random animation duration
+            const duration = 15 + Math.random() * 20;
+            doc.style.animationDuration = `${duration}s`;
+            
+            // Random delay
+            const delay = Math.random() * 5;
+            doc.style.animationDelay = `${delay}s`;
+            
+            fallingDocsContainer.appendChild(doc);
+            
+            // Remove element after animation completes
+            setTimeout(() => {
+                if (doc.parentNode === fallingDocsContainer) {
+                    fallingDocsContainer.removeChild(doc);
+                }
+            }, (duration + delay) * 1000);
+        }
+        
+        // Create initial documents
+        for (let i = 0; i < 8; i++) {
+            createFallingDoc();
+        }
+        
+        // Continue creating documents periodically
+        setInterval(createFallingDoc, 2000);
+        
+        // Animate elements on scroll
+        const animatedElements = document.querySelectorAll('.animate-fade-in, .animate-fade-in-up');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
         });
     </script>
 </body>
