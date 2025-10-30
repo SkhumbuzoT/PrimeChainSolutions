@@ -139,23 +139,51 @@
         }
         
         /* Solutions Section */
+        /* The parent grid container */
         .solutions-container {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2rem;
+          justify-items: center; /* centers each card */
+          text-align: center; /* centers text inside each card */
+          margin-top: 3rem;
         }
         
+        /* Each card */
         .solution-pillar {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+          background: #fff;
+          border-radius: 16px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+          padding: 2rem;
+          max-width: 500px;
+          width: 100%;
+          text-align: center; /* centers text in each card */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
         
+        /* Pillar features list */
+        .pillar-features {
+          list-style: none;
+          padding: 0;
+          margin: 1rem 0 0;
+          text-align: left; /* keeps bullet list readable */
+          display: inline-block; /* centers the list block inside */
+        }
+        
+        .pillar-features li {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0.5rem;
+        }
+        
+        /* Optional: Icon style */
+        .pillar-features i {
+          color: #00b67a;
+        }
+                
         .pillar-header {
             margin-bottom: 1.5rem;
         }
@@ -180,21 +208,6 @@
         
         .pillar-subtitle {
             color: #6b7280;
-        }
-        
-        .pillar-features {
-            list-style: none;
-        }
-        
-        .pillar-features li {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        
-        .pillar-features i {
-            color: #10b981;
         }
         
         /* Our Story Section */
