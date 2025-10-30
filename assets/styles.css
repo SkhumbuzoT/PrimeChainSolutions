@@ -41,15 +41,19 @@ body {
 }
 
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+}
+
+/* Push nav to the center */
+nav {
+  margin: 0 auto;
 }
 
 .logo img {
-    height: 40px;
-    width: auto;
+  height: 40px;
+  width: auto;
 }
 
 nav ul {
