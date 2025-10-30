@@ -5,21 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Metadata -->
-    <meta name="description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools." />
-    <meta name="keywords" content="business process automation, supply chain visibility, workflow automation, operations dashboards, process improvement, data visibility, business intelligence, logistics automation" />
+    <meta name="description" content="Calculate the cost of manual work and discover potential savings with automation. Free business process automation calculator." />
+    <meta name="keywords" content="cost calculator, manual work cost, automation savings, business process automation, ROI calculator" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.primechainsolutions.co.za/">
-    <meta property="og:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
-    <meta property="og:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="og:url" content="https://www.primechainsolutions.co.za/cost-calculator.html">
+    <meta property="og:title" content="Cost Calculator - Prime Chain Solutions">
+    <meta property="og:description" content="Calculate the cost of manual work and discover potential savings with automation.">
     <meta property="og:image" content="https://www.primechainsolutions.co.za/assets/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/">
-    <meta property="twitter:title" content="Prime Chain Solutions - Visibility and Automation for Businesses">
-    <meta property="twitter:description" content="We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.">
+    <meta property="twitter:url" content="https://www.primechainsolutions.co.za/cost-calculator.html">
+    <meta property="twitter:title" content="Cost Calculator - Prime Chain Solutions">
+    <meta property="twitter:description" content="Calculate the cost of manual work and discover potential savings with automation.">
     <meta property="twitter:image" content="https://www.primechainsolutions.co.za/assets/twitter-image.jpg">
 
     <!-- Favicon -->
@@ -36,37 +36,227 @@
     </script>
     <!-- End Google tag -->
 
-    <title>Prime Chain Solutions - Visibility and Automation fr Businesses</title>
+    <title>Cost Calculator - Prime Chain Solutions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Calculator Specific Styles */
+        .cost-calculator-section {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
+            min-height: 100vh;
+        }
 
+        .calculator-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .calculator-card {
+            background: white;
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .input-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .input-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            font-size: 1.1rem;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: #e5e7eb;
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            border: 3px solid white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-display {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #2563eb;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #f0f9ff;
+            border-radius: 8px;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .result-card {
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-card.savings {
+            background: #dcfce7;
+            border-color: #22c55e;
+        }
+
+        .result-label {
+            font-size: 0.9rem;
+            color: #6b7280;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .result-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+        }
+
+        .result-card.savings .result-value {
+            color: #16a34a;
+        }
+
+        .result-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+
+        .impact-statement {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #2563eb;
+            margin: 2rem 0;
+        }
+
+        .impact-statement p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #1f2937;
+        }
+
+        .impact-highlight {
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .cta-section {
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .cost-calculator-section {
+                padding: 100px 0 60px;
+            }
+
+            .calculator-card {
+                padding: 2rem 1.5rem;
+                margin: 0 1rem;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
     
-    <!-- Header -->
+    <!-- Global Header -->
     <header id="header">
-    <div class="container header-container">
-    <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
-      <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
-    </a>
-    <nav aria-label="Primary">
-    <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="cost-calculator.html">Cost Calculator</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="#contact">Contact</a></li>
-    </ul>
-    </nav>
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Prime Chain Solutions Home">
+                <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
+            </a>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="cost-calculator.html">Cost Calculator</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
             
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-           <i class="fas fa-moon"></i>
-    </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -74,488 +264,175 @@
         </div>
     </header>
 
-    
-    <!-- ===== Cost Section (with Calculator) ===== -->
+    <!-- Calculator Section -->
     <section class="cost-calculator-section" id="cost" aria-labelledby="cost-title">
-    <div class="container">
-    <div class="section-header">
-    <h2 id="cost-title">What’s the Cost of Manual Work?</h2>
-    <p class="subtitle">Every hour spent copy‑pasting or chasing data is an hour lost to innovation. Use the sliders to estimate the impact.</p>
-    </div>
-    
-    
-    <div class="calculator-container">
-    <div class="calculator-card" aria-live="polite">
-    <div class="input-group">
-    <label class="input-label" for="hoursSlider">Hours spent on manual work per week</label>
-    <input class="slider" id="hoursSlider" type="range" min="5" max="50" step="1" value="20" />
-    <div class="input-display"><span id="hoursDisplay">20</span> hours</div>
-    </div>
-    
-    
-    <div class="input-group">
-    <label class="input-label" for="rateSlider">Average hourly cost (incl. benefits)</label>
-    <input class="slider" id="rateSlider" type="range" min="200" max="800" step="25" value="450" />
-    <div class="input-display">R<span id="rateDisplay">450</span> per hour</div>
-    </div>
-    
-    
-    <div class="results-grid">
-    <div class="result-card">
-    <div class="result-label">Monthly Cost</div>
-    <div class="result-value" id="monthlyCost">R0</div>
-    <div class="result-description">Current manual work spend</div>
-    </div>
-    <div class="result-card">
-    <div class="result-label">Annual Cost</div>
-    <div class="result-value" id="annualCost">R0</div>
-    <div class="result-description">12 months of manual work</div>
-    </div>
-    <div class="result-card savings">
-    <div class="result-label">Potential Savings</div>
-    <div class="result-value" id="potentialSavings">R0</div>
-    <div class="result-description">Assuming 80% automation</div>
-    </div>
-    </div>
-    
-    
-    <div class="impact-statement">
-    <p>
-    Based on your inputs, you could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
-    </p>
-    </div>
-        </div>
-            <div class="cta-section fade-in">
-                <div class="btn-group">
-                    <a href="mailto:skhumbuzo@primechainsolutions.co.za" class="btn btn-primary">
-                        <i class="fas fa-calendar"></i>Schedule a Free Consultation
-                    </a>
-                    <a href="https://wa.me/27846503832?text=Hi,%20I'm%20interested%20in%20your%20automation%20solutions" class="btn btn-whatsapp" target="_blank">
-                        <i class="fab fa-whatsapp"></i>Chat on WhatsApp
-                    </a>
+        <div class="container">
+            <div class="section-header">
+                <h2 id="cost-title">What's the Cost of Manual Work?</h2>
+                <p class="subtitle">Every hour spent copy-pasting or chasing data is an hour lost to innovation. Use the sliders to estimate the impact.</p>
+            </div>
+            
+            <div class="calculator-container">
+                <div class="calculator-card" aria-live="polite">
+                    <div class="input-group">
+                        <label class="input-label" for="hoursSlider">Hours spent on manual work per week</label>
+                        <input class="slider" id="hoursSlider" type="range" min="5" max="50" step="1" value="20" />
+                        <div class="input-display"><span id="hoursDisplay">20</span> hours</div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="input-label" for="rateSlider">Average hourly cost (incl. benefits)</label>
+                        <input class="slider" id="rateSlider" type="range" min="200" max="800" step="25" value="450" />
+                        <div class="input-display">R<span id="rateDisplay">450</span> per hour</div>
+                    </div>
+                    
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <div class="result-label">Monthly Cost</div>
+                            <div class="result-value" id="monthlyCost">R0</div>
+                            <div class="result-description">Current manual work spend</div>
+                        </div>
+                        <div class="result-card">
+                            <div class="result-label">Annual Cost</div>
+                            <div class="result-value" id="annualCost">R0</div>
+                            <div class="result-description">12 months of manual work</div>
+                        </div>
+                        <div class="result-card savings">
+                            <div class="result-label">Potential Savings</div>
+                            <div class="result-value" id="potentialSavings">R0</div>
+                            <div class="result-description">Assuming 80% automation</div>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-statement">
+                        <p>
+                            Based on your inputs, you could save enough to <span class="impact-highlight">hire additional team capacity</span> or reinvest <span class="impact-highlight" id="savingsAmount">R0</span> into growth.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="cta-section fade-in">
+                    <div class="btn-group">
+                        <a href="mailto:skhumbuzo@primechainsolutions.co.za" class="btn btn-primary">
+                            <i class="fas fa-calendar"></i>Schedule a Free Consultation
+                        </a>
+                        <a href="https://wa.me/27846503832?text=Hi,%20I'm%20interested%20in%20your%20automation%20solutions" class="btn btn-whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>Chat on WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-   <!-- Footer -->
+
+    <!-- Global Footer -->
     <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-about">
-            <div class="footer-logo">
-                        <img src="/assets/White on Transparent.png" alt="Prime Chain Logo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="/assets/White on Transparent.png" alt="Prime Chain Solutions logo" />
+                    </div>
+                    <p>We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#problems"><i class="fas fa-chevron-right"></i> Problems We Solve</a></li>
+                        <li><a href="index.html#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <ul>
+                        <li><a href="tel:+27736775675"><i class="fas fa-phone"></i> +27 73 677 5675</a></li>
+                        <li><a href="mailto:skhumbuzo@primechainsolutions.co.za"><i class="fas fa-envelope"></i> info@primechainsolutions.co.za</a></li>
+                        <li><a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+                    </ul>
+                </div>
             </div>
-              We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.
-            </p>
-          </div>
-    
-          <div class="footer-links">
-            <h3 class="footer-heading">Quick Links</h3>
-            <ul>
-              <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-              <li><a href="#problems"><i class="fas fa-chevron-right"></i> Problems We Solve</a></li>
-              <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
-              <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-              <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer-links">
-            <h3 class="footer-heading">Contact Info</h3>
-            <ul>
-              <li><a href="tel:+27736775675"><i class="fas fa-phone"></i> +27 73 677 5675</a></li>
-              <li><a href="mailto:skhumbuzo@primechainsolutions.co.za"><i class="fas fa-envelope"></i> info@primechainsolutions.co.za</a></li>
-              <li><a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
-            </ul>
-          </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Prime Chain Solutions. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
-    
-        <div class="footer-bottom">
-          <p class="copyright">© 2025 Prime Chain Solutions. All rights reserved.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
     </footer>
-   
 
     <!-- Back to Top Button -->
     <div class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </div>
+
+    <script src="assets/script.js"></script>
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // ===== Mobile Menu Toggle =====
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        if (mobileMenuBtn) {
-            mobileMenuBtn.addEventListener('click', function() {
-                const nav = document.querySelector('nav ul');
-                const isOpen = nav.classList.contains('show');
-                nav.classList.toggle('show');
-                this.innerHTML = isOpen ? '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-                document.body.style.overflow = isOpen ? '' : 'hidden';
-            });
-        }
-    
-        // ===== Close Mobile Menu on Link Click =====
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                const nav = document.querySelector('nav ul');
-                if (nav && nav.classList.contains('show')) {
-                    nav.classList.remove('show');
-                    if (mobileMenuBtn) {
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+        // Calculator Specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const hoursSlider = document.getElementById('hoursSlider');
+            const rateSlider = document.getElementById('rateSlider');
+            const hoursDisplay = document.getElementById('hoursDisplay');
+            const rateDisplay = document.getElementById('rateDisplay');
+            const monthlyCost = document.getElementById('monthlyCost');
+            const annualCost = document.getElementById('annualCost');
+            const potentialSavings = document.getElementById('potentialSavings');
+            const savingsAmount = document.getElementById('savingsAmount');
+            
+            // Animation function for smooth value transitions
+            function animateValue(element, start, end, duration, prefix = 'R') {
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    element.textContent = prefix + value.toLocaleString();
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
                     }
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    
-        // ===== Header Scroll Effects & Scroll Progress =====
-        function handleScroll() {
-            const header = document.getElementById('header');
-            const scrollY = window.scrollY;
-    
-            // Sticky header style
-            if (header) header.classList.toggle('scrolled', scrollY > 50);
-    
-            // Back to top button
-            const backToTop = document.querySelector('.back-to-top');
-            if (backToTop) backToTop.classList.toggle('visible', scrollY > 300);
-    
-            // Scroll progress bar
-            const scrollProgress = document.querySelector('.scroll-progress');
-            if (scrollProgress) {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                scrollProgress.style.width = (winScroll / height) * 100 + "%";
+                };
+                window.requestAnimationFrame(step);
             }
-        }
-        window.addEventListener('scroll', handleScroll);
-    
-        // ===== Back to Top Button =====
-        const backToTopBtn = document.querySelector('.back-to-top');
-        if (backToTopBtn) {
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-        }
-    
-        // ===== Smooth Scrolling for Anchors =====
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') return;
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (!target) return;
-    
-                const headerOffset = 100;
-                const offsetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    
-                // Close mobile menu if open
-                const nav = document.querySelector('nav ul');
-                if (nav && nav.classList.contains('show')) {
-                    nav.classList.remove('show');
-                    if (mobileMenuBtn) {
-                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                    }
-                    document.body.style.overflow = '';
-                }
-            });
-        });
-    
-        // ===== Intersection Observer for .animate-on-scroll =====
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-    
-        // ===== Stats Counter Animation =====
-        function animateStatsCounter(element, target, suffix = '%') {
-            if (element.classList.contains('animated')) return;
-            let current = 0;
-            const increment = target / 80;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(timer);
-                }
-                element.textContent = Math.floor(current) + suffix;
-            }, 25);
-            element.classList.add('animated');
-        }
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('animate');
-                        if (entry.target.classList.contains('stat-card')) {
-                            const statNumber = entry.target.querySelector('.stat-number');
-                            const id = statNumber.getAttribute('id');
-                            setTimeout(() => {
-                                if (id === 'stat1') animateStatsCounter(statNumber, 75, '%');
-                                if (id === 'stat2') animateStatsCounter(statNumber, 79, '%');
-                                if (id === 'stat3') animateStatsCounter(statNumber, 42, '%');
-                            }, 200);
-                        }
-                    }, index * 150);
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.2 });
-        document.querySelectorAll('.stat-card, .stats-secondary, .stats-cta').forEach(el => statsObserver.observe(el));
-    
-        // ===== Stagger Card Animation =====
-        document.querySelectorAll('.problem-cards .card, .approach-grid .card, .target-market-grid .card')
-            .forEach((card, index) => card.style.animationDelay = `${index * 0.1}s`);
-    
-        // ===== Button Hover Effects =====
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-2px) scale(1.02)';
-            });
-            btn.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-    
-        // ===== Ripple Effect on Buttons =====
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                this.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            });
-        });
-    
-        // ===== Page Load Animation =====
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent) {
-                setTimeout(() => {
-                    heroContent.style.opacity = '1';
-                    heroContent.style.transform = 'translateY(0)';
-                }, 100);
+            
+            function updateCalculations() {
+                const hours = parseInt(hoursSlider.value);
+                const rate = parseInt(rateSlider.value);
+            
+                // Update displays
+                hoursDisplay.textContent = hours;
+                rateDisplay.textContent = rate.toLocaleString();
+            
+                // Calculate costs (hours per week * rate per hour * weeks)
+                const weeklyCost = hours * rate;
+                const monthly = weeklyCost * 4.33; // average weeks per month
+                const annual = weeklyCost * 52; // 52 weeks in a year
+                const savings = annual * 0.8; // 80% automation savings
+            
+                // Update cost displays with animation
+                animateValue(monthlyCost, 0, monthly, 800, 'R');
+                animateValue(annualCost, 0, annual, 800, 'R');
+                animateValue(potentialSavings, 0, savings, 800, 'R');
+            
+                // Update impact statement
+                savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
+            }
+            
+            // Listen for slider input changes
+            if (hoursSlider && rateSlider) {
+                hoursSlider.addEventListener('input', updateCalculations);
+                rateSlider.addEventListener('input', updateCalculations);
+            
+                // Initialize on page load
+                updateCalculations();
             }
         });
-    
-        // ===== Dynamic Scroll Hue =====
-        window.addEventListener('scroll', function() {
-            const scrollPercent = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight);
-            const hue = 200 + (scrollPercent * 60); // Changes from blue to teal
-            document.documentElement.style.setProperty('--dynamic-hue', hue);
-        });
-    
-        // ===== Calculator =====
-        const hoursSlider = document.getElementById('hoursSlider');
-        const rateSlider = document.getElementById('rateSlider');
-        const hoursDisplay = document.getElementById('hoursDisplay');
-        const rateDisplay = document.getElementById('rateDisplay');
-        const monthlyCost = document.getElementById('monthlyCost');
-        const annualCost = document.getElementById('annualCost');
-        const potentialSavings = document.getElementById('potentialSavings');
-        const savingsAmount = document.getElementById('savingsAmount');
-        
-        // Animation function for smooth value transitions
-        function animateValue(element, start, end, duration, prefix = 'R') {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = prefix + value.toLocaleString();
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-        
-        function updateCalculations() {
-            const hours = parseInt(hoursSlider.value);
-            const rate = parseInt(rateSlider.value);
-        
-            // Update displays
-            hoursDisplay.textContent = hours;
-            rateDisplay.textContent = rate.toLocaleString();
-        
-            // Calculate costs (hours per week * rate per hour * weeks)
-            const weeklyCost = hours * rate;
-            const monthly = weeklyCost * 4.33; // average weeks per month
-            const annual = weeklyCost * 52; // 52 weeks in a year
-            const savings = annual * 0.8; // 80% automation savings
-        
-            // Update cost displays with animation
-            animateValue(monthlyCost, 0, monthly, 800, 'R');
-            animateValue(annualCost, 0, annual, 800, 'R');
-            animateValue(potentialSavings, 0, savings, 800, 'R');
-        
-            // Update impact statement
-            savingsAmount.textContent = 'R' + Math.round(savings).toLocaleString();
-        }
-        
-        // Listen for slider input changes
-        if (hoursSlider && rateSlider) {
-            hoursSlider.addEventListener('input', updateCalculations);
-            rateSlider.addEventListener('input', updateCalculations);
-        
-            // Initialize on page load
-            updateCalculations();
-        }
-        
-        // ===== Falling Documents Animation =====
-        function createDoc() {
-            const docsContainer = document.querySelector('.falling-docs');
-            if (!docsContainer) return;
-            
-            // Randomly choose between doc and spreadsheet (50/50 chance)
-            const isSpreadsheet = Math.random() > 0.5;
-            const element = document.createElement('div');
-            
-            if (isSpreadsheet) {
-                element.classList.add('spreadsheet');
-                // If you don't have a spreadsheet icon image, use this fallback:
-                // element.classList.add('fallback');
-                // element.innerHTML = '📊';
-            } else {
-                element.classList.add('doc');
-            }
-            
-            element.style.left = Math.random() * 80 + 10 + '%';
-            element.style.animationDuration = (3 + Math.random() * 5) + 's';
-            element.style.animationDelay = (Math.random() * 2) + 's';
-            docsContainer.appendChild(element);
-        
-            // Remove element after animation
-            setTimeout(() => {
-                if (element.parentNode === docsContainer) {
-                    docsContainer.removeChild(element);
-                }
-            }, 8000);
-        }
-        
-        // Initialize falling documents
-        function initFallingDocs() {
-            const docsContainer = document.querySelector('.falling-docs');
-            if (!docsContainer) return;
-            
-            const docCount = 12;
-            for (let i = 0; i < docCount; i++) {
-                setTimeout(() => {
-                    createDoc();
-                }, i * 500); // Stagger the creation of documents
-            }
-            
-            // Continue creating documents periodically
-            setInterval(() => {
-                createDoc();
-            }, 2000);
-        }
-        
-        // Initialize falling documents
-        initFallingDocs();
-    
-        // ===== Testimonials Carousel =====
-        function initTestimonialCarousel() {
-            const track = document.querySelector('.carousel-track');
-            const slides = document.querySelectorAll('.testimonial-slide');
-            const prevButton = document.querySelector('.carousel-control.prev');
-            const nextButton = document.querySelector('.carousel-control.next');
-            const indicatorsContainer = document.querySelector('.carousel-indicators');
-            
-            if (!track || slides.length === 0) return;
-            
-            let currentIndex = 0;
-            
-            // Create indicators
-            slides.forEach((_, i) => {
-                const indicator = document.createElement('div');
-                indicator.classList.add('indicator');
-                if (i === 0) indicator.classList.add('active');
-                indicator.addEventListener('click', () => goToSlide(i));
-                indicatorsContainer.appendChild(indicator);
-            });
-            
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Update carousel position
-            function updateCarousel() {
-                track.style.transform = `translateX(-${currentIndex * 100}%)`;
-                
-                // Update indicators
-                indicators.forEach((indicator, i) => {
-                    indicator.classList.toggle('active', i === currentIndex);
-                });
-            }
-            
-            // Navigate to specific slide
-            function goToSlide(index) {
-                currentIndex = index;
-                updateCarousel();
-            }
-            
-            // Next slide
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % slides.length;
-                updateCarousel();
-            }
-            
-            // Previous slide
-            function prevSlide() {
-                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-                updateCarousel();
-            }
-            
-            // Event listeners
-            if (nextButton) nextButton.addEventListener('click', nextSlide);
-            if (prevButton) prevButton.addEventListener('click', prevSlide);
-            
-            // Auto-advance (optional)
-            let carouselInterval = setInterval(nextSlide, 6000);
-            
-            // Pause on hover
-            const carousel = document.querySelector('.carousel-container');
-            if (carousel) {
-                carousel.addEventListener('mouseenter', () => {
-                    clearInterval(carouselInterval);
-                });
-                
-                carousel.addEventListener('mouseleave', () => {
-                    carouselInterval = setInterval(nextSlide, 6000);
-                });
-            }
-        }
-        
-        // Initialize carousel
-        initTestimonialCarousel();
-    });
     </script>
 </body>
 </html>
