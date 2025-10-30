@@ -1,7 +1,7 @@
-// Global navigation functionality
+// This goes in assets/script.js - all pages need this
 document.addEventListener('DOMContentLoaded', function() {
     // ===== Mobile Menu Toggle =====
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function() {
             const nav = document.querySelector('nav ul');
