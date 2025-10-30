@@ -477,8 +477,11 @@
         
             /* Center solutions */
             .solutions-container {
-                grid-template-columns: 1fr;
-                text-align: center;
+              display: grid;                    
+              grid-template-columns: 1fr;       
+              justify-items: center;             
+              text-align: center;                
+              gap: 2rem;                        
             }
         
             .solution-pillar {
@@ -608,7 +611,7 @@
     <section class="section section-alt" id="problems">
         <div class="container">
             <div class="section-header">
-                <h2>Are you facing these business challenges?</h2>
+                <h2>The challenges we help you solve...</h2>
                 <p class="subtitle">Many businesses struggle with disconnected data and manual processes that limit growth and efficiency</p>
             </div>
             
