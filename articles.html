@@ -31,30 +31,178 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/styles.css">
+    <style>
+        /* Articles Specific Styles */
+        .section {
+            padding: 120px 0 80px;
+            background: linear-gradient(135deg, #f8fafc 0%, #f0f9ff 100%);
+            min-height: 100vh;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #e5e7eb;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .article-image {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .article-image i {
+            font-size: 3rem;
+            opacity: 0.9;
+        }
+
+        .article-content {
+            padding: 1.5rem;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+        }
+
+        .article-date {
+            color: #6b7280;
+            font-weight: 500;
+        }
+
+        .article-engagement {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            color: #ef4444;
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            color: #1d4ed8;
+            gap: 0.75rem;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .section-title p {
+            font-size: 1.25rem;
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .section {
+                padding: 100px 0 60px;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section-title p {
+                font-size: 1.125rem;
+            }
+
+            .article-card {
+                margin: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-title h2 {
+                font-size: 1.75rem;
+            }
+
+            .article-content {
+                padding: 1.25rem;
+            }
+
+            .article-title {
+                font-size: 1.125rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
     
-    <!-- Header -->
+    <!-- Global Header -->
     <header id="header">
-    <div class="container header-container">
-    <a href="#" class="logo" aria-label="Prime Chain Solutions Home">
-      <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
-    </a>
-    <nav aria-label="Primary">
-    <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="cost-calculator.html">Cost Calculator</a></li>
-    <li><a href="articles.html">Articles</a></li>
-    <li><a href="#contact">Contact</a></li>
-    </ul>
-    </nav>
+        <div class="container header-container">
+            <a href="index.html" class="logo" aria-label="Prime Chain Solutions Home">
+                <img src="/assets/Primary on Transparent.png" alt="Prime Chain Solutions logo" />
+            </a>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="cost-calculator.html">Cost Calculator</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
             
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-           <i class="fas fa-moon"></i>
-    </button>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
             
             <button class="mobile-menu-btn" id="mobile-menu-btn">
                 <i class="fas fa-bars"></i>
@@ -63,7 +211,7 @@
     </header>
 
     <!-- Main Content -->
-    <section class="section" style="margin-top:100px;">
+    <section class="section">
         <div class="container">
             <div class="section-title">
                 <h2>Insights & Articles</h2>
@@ -84,7 +232,7 @@
                                 <span>12</span>
                             </div>
                         </div>
-                        <h3 class="article-title">Manual Work Is Costing You More Than You Think — Here’s the Proof</h3>
+                        <h3 class="article-title">Manual Work Is Costing You More Than You Think — Here's the Proof</h3>
                         <a href="articles/article1.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -120,11 +268,10 @@
                                 <span>15</span>
                             </div>
                         </div>
-                        <h3 class="article-title">Your Supply Chain Knows More Than You Think — Here’s How to Tap Into It</h3>
+                        <h3 class="article-title">Your Supply Chain Knows More Than You Think — Here's How to Tap Into It</h3>
                         <a href="articles/article3.html" class="article-link">Read Article <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                
                 
                 <!-- Article 6 -->
                 <div class="article-card" onclick="window.location.href='articles/article6.html'">
@@ -165,48 +312,47 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Global Footer -->
     <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-about">
-            <div class="footer-logo">
-                        <img src="/assets/White on Transparent.png" alt="Prime Chain Logo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <img src="/assets/White on Transparent.png" alt="Prime Chain Solutions logo" />
+                    </div>
+                    <p>We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="index.html#problems"><i class="fas fa-chevron-right"></i> Problems We Solve</a></li>
+                        <li><a href="index.html#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
+                        <li><a href="index.html#services"><i class="fas fa-chevron-right"></i> Services</a></li>
+                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <ul>
+                        <li><a href="tel:+27736775675"><i class="fas fa-phone"></i> +27 73 677 5675</a></li>
+                        <li><a href="mailto:skhumbuzo@primechainsolutions.co.za"><i class="fas fa-envelope"></i> info@primechainsolutions.co.za</a></li>
+                        <li><a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+                    </ul>
+                </div>
             </div>
-              We help businesses gain visibility and automate workflows with simple, powerful dashboards and automation tools.
-            </p>
-          </div>
-    
-          <div class="footer-links">
-            <h3 class="footer-heading">Quick Links</h3>
-            <ul>
-              <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-              <li><a href="#problems"><i class="fas fa-chevron-right"></i> Problems We Solve</a></li>
-              <li><a href="#solutions"><i class="fas fa-chevron-right"></i> Solutions</a></li>
-              <li><a href="#services"><i class="fas fa-chevron-right"></i> Services</a></li>
-              <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
-            </ul>
-          </div>
-    
-          <div class="footer-links">
-            <h3 class="footer-heading">Contact Info</h3>
-            <ul>
-              <li><a href="tel:+27736775675"><i class="fas fa-phone"></i> +27 73 677 5675</a></li>
-              <li><a href="mailto:skhumbuzo@primechainsolutions.co.za"><i class="fas fa-envelope"></i> info@primechainsolutions.co.za</a></li>
-              <li><a href="https://wa.me/27736775675"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
-            </ul>
-          </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Prime Chain Solutions. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
         </div>
-    
-        <div class="footer-bottom">
-          <p class="copyright">© 2025 Prime Chain Solutions. All rights reserved.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-          </div>
-        </div>
-      </div>
     </footer>
 
     <!-- Back to Top Button -->
@@ -214,140 +360,32 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
+    <script src="assets/script.js"></script>
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            const nav = document.querySelector('nav ul');
-            const isOpen = nav.classList.contains('show');
-            
-            nav.classList.toggle('show');
-            this.innerHTML = isOpen ? 
-                '<i class="fas fa-bars"></i>' : '<i class="fas fa-times"></i>';
-            document.body.style.overflow = isOpen ? '' : 'hidden';
-        });
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', () => {
-                const nav = document.querySelector('nav ul');
-                if (nav.classList.contains('show')) {
-                    nav.classList.remove('show');
-                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                }
+        // Articles page specific JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add click handlers for article cards
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't trigger if user clicked on a link inside the card
+                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                        return;
+                    }
+                    window.location.href = this.getAttribute('onclick').match(/'([^']+)'/)[1];
+                });
             });
-        });
-        
-        // Header scroll effect and scroll progress
-        window.addEventListener('scroll', function() {
-            const header = document.getElementById('header');
-            const scrollY = window.scrollY;
-            
-            // Header styling
-            if (scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-            
-            // Back to top button
-            const backToTop = document.querySelector('.back-to-top');
-            if (scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
 
-            // Scroll progress bar
-            const scrollProgress = document.querySelector('.scroll-progress');
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            scrollProgress.style.width = scrolled + "%";
-        });
-        
-        // Back to top functionality
-        document.querySelector('.back-to-top').addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling with offset for fixed header
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (this.getAttribute('href') === '#') return;
-                
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (!target) return;
-                
-                const headerOffset = 100;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+            // Add hover effects for article cards
+            document.querySelectorAll('.article-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
                 });
                 
-                // Close mobile menu if open
-                const nav = document.querySelector('nav ul');
-                if (nav.classList.contains('show')) {
-                    nav.classList.remove('show');
-                    document.querySelector('.mobile-menu-btn').innerHTML = '<i class="fas fa-bars"></i>';
-                    document.body.style.overflow = '';
-                }
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
             });
         });
-
-        // Add ripple effect to buttons
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                const ripple = document.createElement('span');
-                const rect = this.getBoundingClientRect();
-                const size = Math.max(rect.width, rect.height);
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                
-                ripple.style.cssText = `
-                    position: absolute;
-                    width: ${size}px;
-                    height: ${size}px;
-                    left: ${x}px;
-                    top: ${y}px;
-                    background: rgba(255, 255, 255, 0.3);
-                    border-radius: 50%;
-                    transform: scale(0);
-                    animation: ripple 0.6s linear;
-                    pointer-events: none;
-                `;
-                
-                this.appendChild(ripple);
-                
-                setTimeout(() => {
-                    ripple.remove();
-                }, 600);
-            });
-        });
-
-        // Add CSS for ripple animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-            
-            .btn {
-                position: relative;
-                overflow: hidden;
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
