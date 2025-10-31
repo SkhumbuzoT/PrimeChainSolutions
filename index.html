@@ -547,17 +547,23 @@
     
    <!-- Hero Section -->
     <section class="hero relative overflow-hidden bg-[#0a0a0a] text-white" id="home">
-      <!-- Subtle Stars Background -->
-      <div class="absolute inset-0 bg-[url('https://unsplash.com/photos/a-view-of-the-night-sky-with-the-milky-in-the-background-SuN6WIApjws')] opacity-20 bg-repeat"></div>
-      
+      <!-- Stars Background (from repo) -->
+      <div 
+        class="absolute inset-0 bg-[url('assets/stars.jpeg')] bg-cover bg-center opacity-30"
+        aria-hidden="true">
+      </div>
+    
+      <!-- Overlay gradient to improve text contrast -->
+      <div class="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/70 via-[#0a0a0a]/60 to-[#0a0a0a]/90"></div>
+    
       <div class="container relative z-10">
         <div class="hero-content text-center py-24">
           <div class="hero-badge animate-fade-in mb-4"></div>
     
           <!-- Updated Hero Line -->
           <h1 class="animate-fade-in delay-100 text-4xl md:text-5xl font-bold leading-tight">
-            Every data point tells a story. We make it <br class="hidden md:block">
-            <span class="hero-highlight text-indigo-400">clear—and actionable.</span>
+            Every data point tells a story. <br class="hidden md:block">
+            <span class="hero-highlight text-indigo-400">We make it clear—and actionable.</span>
           </h1>
     
           <p class="animate-fade-in delay-200 mt-6 max-w-2xl mx-auto text-gray-300">
@@ -565,16 +571,16 @@
             Get powerful dashboards that show what matters, and automation that handles the rest—so you can focus on strategy, not spreadsheets.
           </p>
     
-            <div class="btn-group mt-10 flex flex-wrap justify-center gap-4">
+          <div class="btn-group mt-10 flex flex-wrap justify-center gap-4">
             <a href="#contact" class="btn btn-primary animate-fade-in delay-300 bg-indigo-500 hover:bg-indigo-600 text-white font-medium px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg transition">
-                <i class="fas fa-chart-line"></i>
-                Get a Free Consultation
+              <i class="fas fa-chart-line"></i>
+              Get a Free Consultation
             </a>
             <a href="#solutions" class="btn btn-secondary animate-fade-in delay-400 border border-gray-500 text-gray-200 hover:bg-gray-800 px-6 py-3 rounded-xl flex items-center gap-2 transition">
-                <i class="fas fa-search"></i>
-                Explore Solutions
+              <i class="fas fa-search"></i>
+              Explore Solutions
             </a>
-           </div>
+          </div>
         </div>
       </div>
     </section>
