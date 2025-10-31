@@ -517,6 +517,104 @@
           overflow: hidden;
           display: block;
         }
+        /* ✳️ Custom Contact Form Styling */
+        #contactForm {
+          background: white;
+          max-width: 600px;
+          margin: 0 auto;
+          padding: 2.5rem 2rem;
+          border-radius: 16px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+          text-align: left;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        #contactForm:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* Labels */
+        #contactForm label {
+          display: block;
+          font-weight: 600;
+          color: #1e293b;
+          margin-bottom: 0.5rem;
+          font-size: 1rem;
+        }
+        
+        /* Inputs and Textareas */
+        #contactForm input,
+        #contactForm textarea {
+          width: 100%;
+          padding: 0.85rem 1rem;
+          border: 1px solid #cbd5e1;
+          border-radius: 12px;
+          font-size: 1rem;
+          color: #1e293b;
+          background: #f9fafb;
+          transition: border-color 0.2s, box-shadow 0.2s;
+          font-family: inherit;
+        }
+        
+        #contactForm input:focus,
+        #contactForm textarea:focus {
+          border-color: #2563eb;
+          box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+          outline: none;
+          background: white;
+        }
+        
+        /* Button */
+        #contactForm button {
+          width: 100%;
+          background-color: #2563eb;
+          color: white;
+          font-size: 1.1rem;
+          font-weight: 600;
+          padding: 0.9rem 1.2rem;
+          border: none;
+          border-radius: 12px;
+          cursor: pointer;
+          transition: background 0.3s ease, transform 0.2s ease;
+        }
+        
+        #contactForm button:hover {
+          background-color: #1d4ed8;
+          transform: translateY(-2px);
+        }
+        
+        /* Section alignment */
+        .contact-section {
+          background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+          padding: 6rem 1rem;
+        }
+        
+        .contact-section h2 {
+          font-size: 2.25rem;
+          font-weight: 700;
+          color: #1e293b;
+          margin-bottom: 2rem;
+          text-align: center;
+        }
+        
+        /* Success Message */
+        .form-success {
+          text-align: center;
+          font-weight: 600;
+          color: #00b67a;
+          margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+          #contactForm {
+            padding: 2rem 1.5rem;
+          }
+          .contact-section h2 {
+            font-size: 1.75rem;
+          }
+        }
     </style>
 </head>
 <body>
