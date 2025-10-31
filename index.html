@@ -834,67 +834,69 @@
     
     <script src="assets/script.js"></script>
     <script>
-        // Index page specific JavaScript
-        // Create falling documents animation
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Falling Docs Animation ---
         function createFallingDocs() {
-            const container = document.getElementById('falling-docs');
-            if (!container) return;
-            
-            const docTypes = ['doc', 'spreadsheet'];
-            
-            for (let i = 0; i < 15; i++) {
-                const doc = document.createElement('div');
-                const type = docTypes[Math.floor(Math.random() * docTypes.length)];
-                
-                doc.classList.add(type);
-                
-                // Random positioning and animation timing
-                doc.style.left = Math.random() * 100 + '%';
-                doc.style.animationDuration = (5 + Math.random() * 10) + 's';
-                doc.style.animationDelay = (Math.random() * 5) + 's';
-                doc.style.opacity = Math.random() * 0.5 + 0.3;
-                doc.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
-                
-                container.appendChild(doc);
-            }
+          const container = document.getElementById('falling-docs');
+          if (!container) return;
+    
+          const docTypes = ['doc', 'spreadsheet'];
+          for (let i = 0; i < 15; i++) {
+            const doc = document.createElement('div');
+            const type = docTypes[Math.floor(Math.random() * docTypes.length)];
+            doc.classList.add(type);
+    
+            // Random positioning and animation timing
+            doc.style.left = Math.random() * 100 + '%';
+            doc.style.animationDuration = (5 + Math.random() * 10) + 's';
+            doc.style.animationDelay = (Math.random() * 5) + 's';
+            doc.style.opacity = Math.random() * 0.5 + 0.3;
+            doc.style.transform = `scale(${Math.random() * 0.5 + 0.5})`;
+    
+            container.appendChild(doc);
+          }
         }
-        
-        // Initialize animations when page loads
-        document.addEventListener('DOMContentLoaded', () => {
-            createFallingDocs();
-            
-            // Animate elements when they come into view
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate-fade-in-up');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all cards and sections
-            document.querySelectorAll('.card, .solution-pillar, .problem-list li').forEach(el => {
-                observer.observe(el);
-            });
-        });
-        document.getElementById("contactForm").addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const formData = Object.fromEntries(new FormData(e.target));
     
-        await fetch("https://script.google.com/macros/s/AKfycbyXyPQCC0M9T9o0TG580VFCzoJJftrk_6O1QuvjT6CtMpefoAtv-ieilGW071F8nW5taA/exec", {
-          method: "POST",
-          body: JSON.stringify(formData),
-        });
+        createFallingDocs();
     
-        alert("Message sent successfully!");
-        e.target.reset();
+        // --- Intersection Animations ---
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-fade-in-up');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+    
+        document.querySelectorAll('.card, .solution-pillar, .problem-list li')
+          .forEach(el => observer.observe(el));
+    
+        // --- Contact Form Submit ---
+        const form = document.getElementById("contactForm");
+        if (form) {
+          form.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const formData = Object.fromEntries(new FormData(e.target));
+    
+            try {
+              const response = await fetch("https://script.google.com/macros/s/AKfycbyXyPQCC0M9T9o0TG580VFCzoJJftrk_6O1QuvjT6CtMpefoAtv-ieilGW071F8nW5taA/exec", {
+                method: "POST",
+                body: JSON.stringify(formData),
+              });
+    
+              if (!response.ok) throw new Error("Network response was not ok");
+    
+              alert("Message sent successfully!");
+              e.target.reset();
+            } catch (error) {
+              console.error(error);
+              alert("There was an issue sending your message. Please try again.");
+            }
+          });
+        } else {
+          console.error("Form with id 'contactForm' not found.");
+        }
       });
     </script>
     
