@@ -888,7 +888,7 @@
         e.preventDefault();
         const formData = Object.fromEntries(new FormData(e.target));
     
-        await fetch("YOUR_GOOGLE_APPS_SCRIPT_WEBAPP_URL", {
+        await fetch("https://script.google.com/macros/s/AKfycbyXyPQCC0M9T9o0TG580VFCzoJJftrk_6O1QuvjT6CtMpefoAtv-ieilGW071F8nW5taA/exec", {
           method: "POST",
           body: JSON.stringify(formData),
         });
