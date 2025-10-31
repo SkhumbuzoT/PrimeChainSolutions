@@ -517,37 +517,6 @@
           overflow: hidden;
           display: block;
         }
-        /* Hero Section */
-      .hero {
-        text-align: center;
-        padding: 100px 20px;
-        background-color: #f5f5f5; /* theme color */
-      }
-    
-      /* Image Section */
-      .hero-image-section {
-        background-color: #e0f7fa; /* theme color around the image */
-        padding: 60px 20px;
-        display: flex;
-        justify-content: center;
-      }
-    
-      .image-container {
-        max-width: 60%; /* image width relative to screen */
-      }
-    
-      .hero-image {
-        width: 100%; /* scales to container */
-        height: auto;
-        border-radius: 12px; /* optional rounded corners */
-        box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* optional shadow */
-      }
-    
-      @media (max-width: 768px) {
-        .image-container {
-          max-width: 90%; /* smaller screens */
-        }
-      }
     </style>
 </head>
 <body>
@@ -576,31 +545,38 @@
         </div>
     </header>
     
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge animate-fade-in">
-                </div>
-                <h1 class="animate-fade-in delay-100">Transform scattered data into clear <span class="hero-highlight">decisions</span> Automate chaos into smooth <span class="hero-highlight">operations.</span></h1>
-                <p class="animate-fade-in delay-200">We help businesses break free from disconnected systems and manual workflows. Get powerful dashboards that show what matters, and automation that handles the rest—so you can focus on strategy, not spreadsheets..</p>
-                <div class="btn-group">
-                    <a href="#contact" class="btn btn-primary animate-fade-in delay-300">
-                        <i class="fas fa-chart-line"></i>
-                        Get a Free Consultation
-                    </a>
-                    <a href="#solutions" class="btn btn-secondary animate-fade-in delay-400">
-                        <i class="fas fa-search"></i>
-                        Explore Solutions
-                    </a>
-                </div>
-            </div>
+   <!-- Hero Section -->
+    <section class="hero relative overflow-hidden bg-[#0a0a0a] text-white" id="home">
+      <!-- Subtle Stars Background -->
+      <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] opacity-20 bg-repeat"></div>
+      
+      <div class="container relative z-10">
+        <div class="hero-content text-center py-24">
+          <div class="hero-badge animate-fade-in mb-4"></div>
+    
+          <!-- Updated Hero Line -->
+          <h1 class="animate-fade-in delay-100 text-4xl md:text-5xl font-bold leading-tight">
+            Every data point tells a story. <br class="hidden md:block">
+            <span class="hero-highlight text-indigo-400">We make it clear—and actionable.</span>
+          </h1>
+    
+          <p class="animate-fade-in delay-200 mt-6 max-w-2xl mx-auto text-gray-300">
+            We help businesses break free from disconnected systems and manual workflows. 
+            Get powerful dashboards that show what matters, and automation that handles the rest—so you can focus on strategy, not spreadsheets.
+          </p>
+    
+          <div class="btn-group mt-10 flex flex-wrap justify-center gap-4">
+            <a href="#contact" class="btn btn-primary animate-fade-in delay-300 bg-indigo-500 hover:bg-indigo-600 text-white font-medium px-6 py-3 rounded-xl flex items-center gap-2 shadow-lg transition">
+              <i class="fas fa-chart-line"></i>
+              Get a Free Consultation
+            </a>
+            <a href="#solutions" class="btn btn-secondary animate-fade-in delay-400 border border-gray-500 text-gray-200 hover:bg-gray-800 px-6 py-3 rounded-xl flex items-center gap-2 transition">
+              <i class="fas fa-search"></i>
+              Explore Solutions
+            </a>
+          </div>
         </div>
-    </section>
-
-    <!-- Image Section (right after hero) -->
-    <section class="hero-image-section">
-      <img src="/assets/HomePage.jpeg" alt="Descriptive Alt Text" class="hero-image">
+      </div>
     </section>
     
     <!-- Problems Section -->
