@@ -517,6 +517,37 @@
           overflow: hidden;
           display: block;
         }
+        /* Hero Section */
+      .hero {
+        text-align: center;
+        padding: 100px 20px;
+        background-color: #f5f5f5; /* theme color */
+      }
+    
+      /* Image Section */
+      .hero-image-section {
+        background-color: #e0f7fa; /* theme color around the image */
+        padding: 60px 20px;
+        display: flex;
+        justify-content: center;
+      }
+    
+      .image-container {
+        max-width: 60%; /* image width relative to screen */
+      }
+    
+      .hero-image {
+        width: 100%; /* scales to container */
+        height: auto;
+        border-radius: 12px; /* optional rounded corners */
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1); /* optional shadow */
+      }
+    
+      @media (max-width: 768px) {
+        .image-container {
+          max-width: 90%; /* smaller screens */
+        }
+      }
     </style>
 </head>
 <body>
