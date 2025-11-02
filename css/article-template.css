@@ -354,7 +354,7 @@ footer::after {
 }
 
 .footer-logo img {
-    height: 40px;
+    height: 60px;
     margin-right: 12px;
     filter: brightness(0) invert(1);
 }
