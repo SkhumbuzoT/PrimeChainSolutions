@@ -114,7 +114,7 @@ header.scrolled {
 }
 
 .logo img {
-    height: 44px;
+    height: 60px;
     margin-right: 12px;
     transition: var(--transition);
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
